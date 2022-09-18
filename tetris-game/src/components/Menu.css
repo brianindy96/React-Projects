@@ -1,0 +1,16 @@
+.Menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    z-index: 100;
+}
+
+.button{
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 11px 10px 13px 0px rgba(0,0,0,0.75);
+}

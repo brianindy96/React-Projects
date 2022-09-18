@@ -1,8 +1,15 @@
 import React from 'react'
+import Menu from './Menu'
 
-const Game = () => {
+const Game = ({ rows, columns}) => {
+
+  const startBtn = ()=>{
+    console.log("start");
+  }
   return (
-    <div>Game</div>
+    <div className="Game">
+        <Menu onClick={startBtn} />
+    </div>
   )
 }
 
