@@ -3,7 +3,9 @@ import "./Menu.css"
 
 const Menu = ({ onClick }) => {
   return (
-    <button className="button" onClick={onClick}>Start Game</button>
+    <button className="button" onClick={onClick}>
+        Start Game
+    </button>
   )
 }
 

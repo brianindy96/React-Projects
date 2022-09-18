@@ -1,14 +1,18 @@
 import React from 'react'
 import Menu from './Menu'
+import useGameOver from '../hooks/useGameOver'
+import { useGameOver } from '../hooks/useGameOver/'
 
 const Game = ({ rows, columns}) => {
+  const [gameOver, setGameOver, resetGameOver] = useGameOver();
 
-  const startBtn = ()=>{
-    console.log("start");
+  const start = ()=>{
+    resetGameOver();
+    console.log(`Start gameOver is ${gameOver}`);
   }
   return (
     <div className="Game">
-        <Menu onClick={startBtn} />
+        <Menu onClick={start} />
     </div>
   )
 }
