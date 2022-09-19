@@ -1,0 +1,10 @@
+*{
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+.App{
+  height: 100vh;
+}
