@@ -1,9 +1,13 @@
 import React from 'react'
+import Board from './Board';
+import { useBoard } from '../hooks/useBoard';
 
 // Tetris Container for Gameplay
 const Tetris = ({ rows, columns, setGameOver }) => {
-  return (
-    <p>Tetris</p>
+    const [board, setBoard] = useBoard({ rows, columns });
+    return (
+    <Board board={board} />
+    
   )
 }
 

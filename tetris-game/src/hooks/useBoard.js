@@ -1,10 +1,9 @@
 import React from 'react'
 import { useState } from "react";
+import { buildBoard } from "/src/business/Board"
 
 export const useBoard = ({ rows, columns }) => {
-  const [board, setBoard] = useState([]);
+  const [board] = useState(buildBoard({ rows, columns }));
   
-    return (
-    <div>useBoard</div>
-  )
+    return [board]
 }
