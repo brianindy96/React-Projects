@@ -1,8 +1,12 @@
 .Overview{
+    border: black 1px solid;
+    margin: 20px;
+    background-color: lightgrey;
     margin-top: 10px;
+    min-height: 80vh;
 }
 
 .Overview h1{
+    padding-top: 10px;
     color: white;
-    background-color: lightgrey;
 }
