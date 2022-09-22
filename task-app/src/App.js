@@ -1,5 +1,4 @@
 import './App.css';
-import Overview from './components/Overview';
 import { useState } from 'react'
 
 function App() {
@@ -15,12 +14,14 @@ function App() {
     <div className="App">
         <h1>Tasks</h1>
         <br />
-        <form action="">
+        <form action="" className="form-component">
           <label htmlFor="">Write a Task:</label>
           <br />
           <input type="text" id='taskInput' />
+          <br />
           <button type="submit">Add Task</button>
         </form>
+
     </div>
   );
 }
