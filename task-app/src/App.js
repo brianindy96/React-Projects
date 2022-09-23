@@ -28,7 +28,11 @@ const App = () => {
     //clear Input
     setTask("");
   }
-
+  
+  const handleChange = (e) => {
+    setTask(e.target.value);
+  }
+  // Delete Task
   const deleteTask = (id) =>{
     const removeItem = tasks.filter((task) =>{
       return task.id !== id
@@ -36,12 +40,11 @@ const App = () => {
 
     setTasks(removeItem);
   }
-  
-  const handleChange = (e) => {
-    setTask(e.target.value);
 
-    // console.log({task})
-  }
+  // Edit Task
+  
+
+  
 
   return (
     <div className='App'>
