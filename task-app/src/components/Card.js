@@ -1,11 +1,13 @@
 import React from 'react'
 import './Card.css'
 
-const Card = ({ tasks, task }) => {
+const Card = ({ tasks, task, deleteTask }) => {
   return (
     <div className='card'>
         <div className="delete-btn">
-        <button >X</button>
+        <button 
+            onClick={() => deleteTask(task.id)}
+        >X</button>
         </div>
         <div>
             <h1> Task: {task.id}</h1>

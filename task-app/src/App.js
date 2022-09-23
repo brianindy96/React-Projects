@@ -29,7 +29,13 @@ const App = () => {
     setTask("");
   }
 
-  console.log(tasks);
+  const deleteTask = (id) =>{
+    const removeItem = tasks.filter((task) =>{
+      return task.id !== id
+    })
+
+    setTasks(removeItem);
+  }
   
   const handleChange = (e) => {
     setTask(e.target.value);
@@ -55,7 +61,7 @@ const App = () => {
           </button>
         </form>
 
-        <Overview tasks={tasks} task={task}/>
+        <Overview tasks={tasks} task={task} deleteTask={deleteTask}/>
     </div>
   )
 }
