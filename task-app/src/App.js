@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
+import Overview from './components/Overview';
 
 const App = () => {
   // // state of arrays that takes in the whole tasks 
@@ -25,10 +26,10 @@ const App = () => {
     }
 
     //clear Input
-
-    setTask('');
-
+    setTask("");
   }
+
+  console.log(tasks);
   
   const handleChange = (e) => {
     setTask(e.target.value);
@@ -39,19 +40,22 @@ const App = () => {
   return (
     <div className='App'>
         <h1>Tasks App</h1>
-        <form action="/" className='form-container'>
+        <form action="/" className='form-container'onSubmit={handleSubmit}>
           <label htmlFor="">Write your task</label>
           <input 
           type="text" 
           placeholder='write here...'
           onChange={handleChange}
+          value={task}
           />
           <button 
           type="submit"
-          onSubmit={handleSubmit}>
+          >
             Add Task
           </button>
         </form>
+
+        <Overview tasks={tasks} task={task}/>
     </div>
   )
 }
