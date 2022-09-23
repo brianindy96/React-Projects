@@ -1,12 +1,9 @@
 import React from 'react'
-import './Overview.css'
-
-const Overview = () => {
+import { tasks } from "../App"
+const Overview = ({ tasks }) => {
   return (
-    <div className="Overview">
-        <h1>Overview</h1>
-        <div>
-        </div>
+    <div>
+        
     </div>
   )
 }

@@ -1,59 +1,28 @@
-import React, { Component } from 'react'
+import React from 'react'
+import './App.css'
+// import { useState } from 'react'
 
-export default class App extends Component {
-  constructor(){
-    super();
+const App = () => {
+  // // state of arrays that takes in the whole tasks 
+  // const [tasks, setTasks] = useState([]);
+  // // state that takes in the task from input field
+  // const [task, setTask] = useState('');
 
-    this.state = {
-      task: {
-        text: '',
-      },
-      tasks: [],
-    };
-  }
-
-  handleChange = (e) => {
-    this.setState({
-      task: e.target.value,
-    })
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.setState({
-      // It adds the task (whatever is in our input field when we submit the form) to our tasks array.
-      tasks: this.state.tasks.concat(this.state.task),
-      //set task back to inital state
-      task: { text: ''},
-    })
-  }
-
-  render() {
-
-    // so in the JSX i don't have to put this.state.task or this.state.tasks
-    const { task, tasks } = this.state;
-
-
-    return (
-      <div>
-        <form action="" onSubmit={this.handleSubmit} >
-          <label htmlFor="">
-            Write Task...
-          </label>
-          
+  return (
+    <div className='App'>
+        <h1>Tasks App</h1>
+        <form action="/" className='form-container'>
+          <label htmlFor="">Write your task</label>
           <input 
-          onChange={this.handleChange}
           type="text" 
-          // very IMPORTANT
-          value={task.text} 
-          id="taskInput" />
-
+          placeholder='write here...'
+          />
           <button type="submit">
             Add Task
           </button>
-          <Overview tasks={this.tasks}/>
         </form>
-      </div>
-    )
-  }
+    </div>
+  )
 }
+
+export default App
