@@ -8,6 +8,10 @@ const App = () => {
   // // state that takes in the task from input field
   const [task, setTask] = useState('');
 
+  // Editing a task
+  // 
+  const [isEditing, setEditing] = useState(false);
+
   
   const handleSubmit = (e) =>{
     e.preventDefault();
@@ -42,8 +46,6 @@ const App = () => {
   }
 
   // Edit Task
-  
-
   
 
   return (
