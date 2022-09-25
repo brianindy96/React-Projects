@@ -9,9 +9,19 @@ const App = () => {
   const [task, setTask] = useState('');
 
   // Editing a task
-  // 
+  // isEditing is initally set as false, as we are not editing anything
   const [isEditing, setEditing] = useState(false);
 
+  // Task that you want to change to 
+  const [newTask, setNewTask] = useState({});
+
+  //function handles editing input change
+  const handleEditInputChange = (e) =>{
+    setNewTask({
+      ...newTask, 
+      text: e.target.value,
+    })
+  }
   
   const handleSubmit = (e) =>{
     e.preventDefault();
