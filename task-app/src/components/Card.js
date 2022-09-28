@@ -8,6 +8,7 @@ const Card = ({ tasks, task, deleteTask }) => {
         <button 
             onClick={() => deleteTask(task.id)}
         >X</button>
+        <button onClick={() => setEditing(true)}>Edit</button>
         </div>
         <div>
             <h1> Task: {task.id}</h1>
