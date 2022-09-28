@@ -1,14 +1,14 @@
 import React from 'react'
 import './Card.css'
 
-const Card = ({ tasks, task, deleteTask }) => {
+const Card = ({ tasks, task, deleteTask, handleEdit }) => {
   return (
     <div className='card'>
         <div className="delete-btn">
         <button 
             onClick={() => deleteTask(task.id)}
         >X</button>
-        <button onClick={() => setEditing(true)}>Edit</button>
+        <button onClick={handleEdit}>Edit</button>
         </div>
         <div>
             <h1> Task: {task.id}</h1>

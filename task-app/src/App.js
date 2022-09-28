@@ -56,7 +56,11 @@ const App = () => {
   }
 
   // Edit Task
-  
+  const handleEditClick = (task) =>{
+    setEditing(true);
+    // send information on current task 
+    setNewTask({...task });
+  }
 
   return (
     <div className='App'>
@@ -66,37 +70,36 @@ const App = () => {
         {/* If false display default form */}
         {isEditing ? 
         <form>
-          <h2>Edit Task</h2>
-          <label htmlFor="">Write your task</label>
-          <input 
-          type="text" 
-          placeholder='write here....'
-          name='editTodo'
-          value={newTask.text}
-          onChange={handleEditInputChange}/>
-          <button
-          type='submit'>Update</button>
-          <button onClick={() => setEditing(false)}>Cancel</button>
-
+            <h2>Edit Task</h2>
+            <label htmlFor="">Write your task</label>
+            <input 
+            type="text" 
+            placeholder='write here....'
+            name='editTodo'
+            value={newTask.text}
+            onChange={handleEditInputChange}/>
+            <button
+            type='submit'>Update</button>
+            <button onClick={() => setEditing(false)}>Cancel</button>
         </form>
         : 
         <form action="/" className='form-container'onSubmit={handleSubmit}>
-          <label htmlFor="">Write your task</label>
-          <input 
-          type="text" 
-          placeholder='write here...'
-          onChange={handleChange}
-          value={task}
-          />
-          <button 
-          type="submit"
-          >
-            Add Task
-          </button>
+            <label htmlFor="">Write your task</label>
+            <input 
+            type="text" 
+            placeholder='write here...'
+            onChange={handleChange}
+            value={task}
+            />
+            <button 
+            type="submit"
+            >
+              Add Task
+            </button>
         </form>
         }
 
-        <Overview tasks={tasks} task={task} deleteTask={deleteTask}/>
+        <Overview tasks={tasks} task={task} deleteTask={deleteTask} handleEdit={handleEditClick}/>
     </div>
   )
 }
