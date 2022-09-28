@@ -55,11 +55,30 @@ const App = () => {
     setTasks(removeItem);
   }
 
-  // Edit Task
+  // Edit Task Click
   const handleEditClick = (task) =>{
     setEditing(true);
     // send information on current task 
     setNewTask({...task });
+  }
+
+  // Updating the edited Task
+  const handleUpdateTask = (id, updatedTodo) =>{
+
+    const updatedTask = tasks.map((task) => {
+      return task.id === id ? updatedTodo : task;
+    });
+
+    setEditing(false);
+    setTasks(updatedTask);
+
+  }
+
+  const handleEditFormSubmit = (e) =>{
+    e.preventDefault();
+
+    handleUpdateTask(newTask.id, newTask)
+
   }
 
   return (
@@ -69,7 +88,7 @@ const App = () => {
         {/* If editing is true, display an editing form */}
         {/* If false display default form */}
         {isEditing ? 
-        <form>
+        <form onSubmit={handleEditFormSubmit}>
             <h2>Edit Task</h2>
             <label htmlFor="">Write your task</label>
             <input 
@@ -79,7 +98,8 @@ const App = () => {
             value={newTask.text}
             onChange={handleEditInputChange}/>
             <button
-            type='submit'>Update</button>
+            type='submit'
+            >Update</button>
             <button onClick={() => setEditing(false)}>Cancel</button>
         </form>
         : 
