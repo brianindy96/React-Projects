@@ -24,6 +24,8 @@ const App = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
  }, [tasks])
 
+// ---------------------------------------------------------------
+// FUNCTIONS
 
  // function that handles Submit button clicked
  const handleSubmitBtn = (e) =>{
@@ -37,7 +39,6 @@ const App = () => {
       text: task.trim(),
     }])
   }
-
   setTask('');
  }
 
@@ -56,6 +57,20 @@ const App = () => {
 
     setTasks(removeItem)
  }
+
+//  EDITING
+
+const [isEditing, setIsEditing] = useState(false);
+const [newTask, setNewTask] = useState({});
+
+// sets isEditing to true everything we are trying to edit
+const handleEditClick = (task) =>{
+  setIsEditing(true);
+  console.log(isEditing);
+  // sends current information to current Task
+  setNewTask({...task});
+  console.log({...tasks});
+}
 
 
   return (
@@ -81,6 +96,7 @@ const App = () => {
               <li key={task.id}>
                 {task.text}
                 <button className="deleteBtn" onClick={() => deleteBtn(task.id)}>X</button>
+                <button className="editBtn" onClick={() => handleEditClick(task.id)}>Edit</button>
               </li>
               
             ))}
