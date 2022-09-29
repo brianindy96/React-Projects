@@ -67,9 +67,8 @@ const [newTask, setNewTask] = useState({});
 const handleEditClick = (task) =>{
   setIsEditing(true);
   console.log(isEditing);
-  // sends current information to current Task
+  // sends current task to current new Task
   setNewTask({...task});
-  console.log({...tasks});
 }
 
 //handles inputchange on editing
@@ -78,12 +77,24 @@ const handleEditInputChange = (e)=>{
     ...newTask,
       text: e.target.value,
   })
-  console.log(newTask);
+}
+
+// Updates information once edited
+
+const handleUpdate = (id, updatedTodo) =>{
+  const updatedTask = tasks.map((task) => {
+    return task.id === id ? updatedTask : task;
+  });
+
+  setIsEditing(false);
+  setTasks(updatedTask);
 }
 
 //handles formsubmit on editing
 const handleEditFormSubmit = (e) =>{
   e.preventDefault();
+
+  handleUpdate(newTask.id, newTask)
 }
 
   return (
@@ -91,7 +102,7 @@ const handleEditFormSubmit = (e) =>{
 
       {isEditing 
       ?
-        <form className="task-form" action="">
+        <form className="task-form" action="" onSubmit={handleEditFormSubmit}>
           <label htmlFor="">Edit your task:</label>
           <input 
           type="text"
