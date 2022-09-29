@@ -1,3 +1,6 @@
 .Display{
+    text-align: center;
+    padding: 20px;
     flex: 3;
+    border-top: 1px solid lightgrey;
 }
