@@ -7,6 +7,8 @@ const App = () => {
 
   const [person, setPerson] = useState([]);
 
+  const [isEditing, setIsEditing] = useState(false);
+
   const [state, setState] = useState({
     firstName: '',
     lastName: '',
