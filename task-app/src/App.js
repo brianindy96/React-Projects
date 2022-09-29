@@ -1,10 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import Container from './components/Container';
 
 const App = () => {
 
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() =>{
+    // gets Task from local storage by accessing the key: tasks
+    const savedTasks = localStorage.getItem("tasks");
+  
+    // if there are datas in savedTodos
+    if(savedTasks) {
+      // .parse returns javascript string as objects again
+      return JSON.parse(savedTasks);
+    } else{
+      return [];
+    };
+   });
+
+   //  once mounted, data will be stored in local storage with useEffect() hook
+ useEffect(() =>{
+  // setItem(key, value)
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+ }, [tasks])
+
   const [task, setTask] = useState('');
 
   const handleInputChange = (e) =>{
