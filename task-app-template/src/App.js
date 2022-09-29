@@ -7,12 +7,20 @@ const App = () => {
  const [tasks, setTasks] = useState([]);
  const [task, setTask] = useState('');
 
+ // function that handles Submit button clicked
+ const handleSubmitBtn = (e) =>{
+  e.preventDefault();
+
+
+ }
+
+ //function that handles input changes
 
 
   return (
     <div className="App">
 
-    <form className="task-form" action="">
+    <form className="task-form" action="" onSubmit={handleSubmitBtn}>
       <label htmlFor="">Write down your Task:</label>
       <input 
       type="text" 
@@ -24,7 +32,10 @@ const App = () => {
       
     {/* UI of Task Lists */}
     <ul>
-      {}
+      {/* {tasks.map((task) =>{
+        <li>{task.id}</li>
+        <li>{task.text}</li>
+      })} */}
     </ul>
     </div>
   );
