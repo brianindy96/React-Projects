@@ -98,12 +98,12 @@ const App = () => {
             value={newTask.text}
             onChange={handleEditInputChange}/>
             <button
-            type='submit'
+            type="submit"
             >Update</button>
             <button onClick={() => setEditing(false)}>Cancel</button>
         </form>
         : 
-        <form action="/" className='form-container'onSubmit={handleSubmit}>
+        <form className='form-container'onSubmit={handleSubmit}>
             <label htmlFor="">Write your task</label>
             <input 
             type="text" 
@@ -119,7 +119,7 @@ const App = () => {
         </form>
         }
 
-        <Overview tasks={tasks} task={task} deleteTask={deleteTask} handleEdit={handleEditClick}/>
+        <Overview tasks={tasks} task={task} newTask={newTask} deleteTask={deleteTask} handleEdit={handleEditClick} handleUpdate={handleUpdateTask}/>
     </div>
   )
 }

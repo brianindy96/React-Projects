@@ -1,6 +1,6 @@
 
 // initial state is empty
-export const postReducer = (state = [], action) =>{
+const postReducer = (state = [], action) =>{
     switch(action.type){
         // when ever an ADD_POST action is initiated, state concats the action's data in array
         case "ADD_POST":
@@ -9,3 +9,5 @@ export const postReducer = (state = [], action) =>{
             return state;
     }
 }
+
+export default postReducer

@@ -11,7 +11,8 @@ const store = createStore(postReducer);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider>
+    {/* Provider helps sends data from store into the App without sending any props between components */}
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>
