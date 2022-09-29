@@ -6,6 +6,13 @@
     flex-direction: column;
 }
 
+.task-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .task-form input{
     margin-top: 10px;
     text-align: center;

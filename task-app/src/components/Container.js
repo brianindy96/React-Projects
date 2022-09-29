@@ -5,11 +5,11 @@ import Display from './Display'
 import './Form.css'
 import './Display.css'
 
-const Container = ({ deleteBtn, handleSubmitBtn, handleInputChange, tasks}) => {
+const Container = ({ handleEditFormSubmit, handleEditInputChange, newTask, isEditing, handleEditClick, deleteBtn, handleSubmitBtn, handleInputChange, tasks}) => {
   return (
     <div className="Container">
-        <Form handleSubmitBtn={handleSubmitBtn} handleInputChange={handleInputChange}/>
-        <Display deleteBtn={deleteBtn} tasks={tasks}/>
+        <Form handleEditInputChange={handleEditInputChange} handleEditFormSubmit={handleEditFormSubmit} newTask={newTask} isEditing={isEditing} handleSubmitBtn={handleSubmitBtn} handleInputChange={handleInputChange}/>
+        <Display handleEditClick={handleEditClick} deleteBtn={deleteBtn} tasks={tasks}/>
     </div>
   )
 }

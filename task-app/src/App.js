@@ -34,10 +34,49 @@ const App = () => {
     setTasks(removeItem)
  }
 
+ //  EDITING
+
+ const [isEditing, setIsEditing] = useState(false);
+ const [newTask, setNewTask] = useState({});
+
+// sets isEditing to true everything we are trying to edit
+const handleEditClick = (task) =>{
+  setIsEditing(true);
+  console.log(isEditing);
+  // sends current task to current new Task
+  setNewTask({...task});
+}
+
+//handles inputchange on editing
+const handleEditInputChange = (e)=>{
+  setNewTask({
+    ...newTask,
+      text: e.target.value,
+  })
+}
+
+// Updates information once edited
+
+const handleUpdate = (id, updatedTodo) =>{
+  const updatedTask = tasks.map((task) => {
+    return task.id === id ? updatedTodo : task;
+  });
+
+  setIsEditing(false);
+  setTasks(updatedTask);
+}
+
+//handles formsubmit on editing
+const handleEditFormSubmit = (e) =>{
+  e.preventDefault();
+
+  handleUpdate(newTask.id, newTask)
+}
+
    
   return (
     <div className="App">
-      <Container deleteBtn={deleteBtn} tasks={tasks} handleInputChange={handleInputChange} handleSubmitBtn={handleSubmitBtn}/>
+      <Container isEditing={isEditing} newTask={newTask} handleEditClick={handleEditClick} handleEditInputChange={handleEditInputChange} handleEditFormSubmit={handleEditFormSubmit} deleteBtn={deleteBtn} tasks={tasks} handleInputChange={handleInputChange} handleSubmitBtn={handleSubmitBtn}/>
     </div>
   )
 }
