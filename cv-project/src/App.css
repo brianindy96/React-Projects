@@ -1,0 +1,17 @@
+.App{
+  text-align: center;
+}
+
+/* General */
+
+.general-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.general-info label, .general-info input{
+  margin-top: 10px;
+  padding: 4px;
+}
