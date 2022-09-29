@@ -80,7 +80,7 @@ const App = () => {
               // when mapping arrays, always refer KEY TO ELEMENT
               <li key={task.id}>
                 {task.text}
-                <button onClick={() => deleteBtn(task.id)}>X</button>
+                <button className="deleteBtn" onClick={() => deleteBtn(task.id)}>X</button>
               </li>
               
             ))}

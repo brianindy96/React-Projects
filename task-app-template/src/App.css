@@ -29,3 +29,15 @@
 .tasks-ui li{
     padding-top: 10px;
 }
+
+.deleteBtn{
+    background-color: red;
+    color: white;
+    font-weight: 800;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+}
