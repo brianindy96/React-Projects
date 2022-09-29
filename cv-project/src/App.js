@@ -12,6 +12,10 @@ const App = () => {
     lastName: '',
     email: '',
     phoneNum: '',
+    schoolName: '',
+    degreeName: '',
+    dateEnrolled: '',
+    dateGraduate: '',
   });
 
   const handleInputChange = (e) =>{
@@ -34,6 +38,10 @@ const App = () => {
         lastName: state.lastName,
         email: state.email,
         phoneNum: state.phoneNum,
+        schoolName: state.schoolName,
+        degreeName: state.degreeName,
+        dateEnrolled: state.dateEnrolled,
+        dateGraduate: state.dateGraduate,
       }])
     }
 
@@ -42,9 +50,11 @@ const App = () => {
       lastName: '',
       email: '',
       phoneNum: '',
+      schoolName: '',
+      degreeName: '',
+      dateEnrolled: '',
+      dateGraduate: '',
     });
-
-    console.log(person);
   }
   
   return (
@@ -97,25 +107,33 @@ const App = () => {
                 {/* School name */}
                 <label htmlFor="schoolName">School:</label>
                 <input 
+                name="schoolName"
+                onChange={handleInputChange}
                 id="schoolName"
                 type="text"
                 placeholder='write your school name here..' />
                 {/* Degree */}
                 <label htmlFor="degreeName">Degree:</label>
                 <input
+                name="degreeName"
+                onChange={handleInputChange}
                 id="degreeName" 
                 type="text"
                 placeholder='write your highest degree here..' />
                 {/* First enrolled date*/}
                 <label htmlFor="date-enrolled">Date first enrolled : </label>
                 <input 
+                name="dateEnrolled"
                 id="date-enrolled"
+                onChange={handleInputChange}
                 type="date"
                 />
                 {/* Graduation Date */}
                 <label htmlFor="date-graduation">Graduation date : </label>
                 <input 
+                name="dateGraduate"
                 id="date-graduation"
+                onChange={handleInputChange}
                 type="date"
                 />
             </div>
@@ -157,10 +175,14 @@ const App = () => {
     <ul>
       {person.map((user)=>(
         <div className="display-card" key={user.id}>
-          <div>First Name: {user.firstName}</div>
-          <div>Last Name: {user.lastName}</div>
-          <div>Email: {user.email}</div>
-          <div>Phone#: {user.phoneNum}</div>
+          <div><strong>First Name:</strong> {user.firstName}</div>
+          <div><strong>Last Name:</strong> {user.lastName}</div>
+          <div><strong>Email:</strong> {user.email}</div>
+          <div><strong>Phone#: </strong>{user.phoneNum}</div>
+          <div><strong>School Name:</strong> {user.schoolName}</div>
+          <div><strong>Degree Name:</strong> {user.degreeName}</div>
+          <div><strong>Date Enrolled:</strong> {user.dateEnrolled}</div>
+          <div><strong>Date Graduated: </strong>{user.dateGraduate}</div>
         </div>
       ))}
     </ul>
