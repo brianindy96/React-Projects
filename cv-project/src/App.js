@@ -179,7 +179,7 @@ const App = () => {
           </form>
         </div>
 
-    <ul>
+    <div className="Overview">
       {person.map((user)=>(
         <div className="display-card" key={user.id}>
           <h3>General Information:</h3>
@@ -199,7 +199,7 @@ const App = () => {
           <div><strong>Date End Work: </strong>{user.dateEndWork}</div>
         </div>
       ))}
-    </ul>
+    </div>
         
       
     </div>

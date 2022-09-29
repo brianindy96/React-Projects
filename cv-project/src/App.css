@@ -25,6 +25,7 @@
 }
 
 .display-card{
+  padding-bottom: 20px;
   margin-top: 10px;
   border: 1px solid black;
   display: flex;
@@ -36,4 +37,11 @@
 
 .display-card div{
   margin-top: 10px;
+}
+
+.Overview{
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
