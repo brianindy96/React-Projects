@@ -83,7 +83,7 @@ const handleEditInputChange = (e)=>{
 
 const handleUpdate = (id, updatedTodo) =>{
   const updatedTask = tasks.map((task) => {
-    return task.id === id ? updatedTask : task;
+    return task.id === id ? updatedTodo : task;
   });
 
   setIsEditing(false);
@@ -110,6 +110,8 @@ const handleEditFormSubmit = (e) =>{
           value={newTask.text}
           onChange={handleEditInputChange}
            />
+           <button type="submit">Update</button>
+           <button onClick={() => setIsEditing(false)}>Cancel</button>
         </form>
       :
       <form className="task-form" action="" onSubmit={handleSubmitBtn}>
@@ -132,7 +134,7 @@ const handleEditFormSubmit = (e) =>{
               <li key={task.id}>
                 {task.text}
                 <button className="deleteBtn" onClick={() => deleteBtn(task.id)}>X</button>
-                <button className="editBtn" onClick={() => handleEditClick(task.id)}>Edit</button>
+                <button className="editBtn" onClick={() => handleEditClick(task)}>Edit</button>
               </li>
               
             ))}
