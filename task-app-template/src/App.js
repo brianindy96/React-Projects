@@ -72,10 +72,35 @@ const handleEditClick = (task) =>{
   console.log({...tasks});
 }
 
+//handles inputchange on editing
+const handleEditInputChange = (e)=>{
+  setNewTask({
+    ...newTask,
+      text: e.target.value,
+  })
+  console.log(newTask);
+}
+
+//handles formsubmit on editing
+const handleEditFormSubmit = (e) =>{
+  e.preventDefault();
+}
 
   return (
     <div className="App">
 
+      {isEditing 
+      ?
+        <form className="task-form" action="">
+          <label htmlFor="">Edit your task:</label>
+          <input 
+          type="text"
+          placeholder="write down your task"
+          value={newTask.text}
+          onChange={handleEditInputChange}
+           />
+        </form>
+      :
       <form className="task-form" action="" onSubmit={handleSubmitBtn}>
         <label htmlFor="">Write down your Task:</label>
         <input 
@@ -86,7 +111,7 @@ const handleEditClick = (task) =>{
         value={task}
         />
         <button type="submit">Add Task</button>
-      </form>
+    </form>}
         
       {/* UI of Task Lists */}
       <div className="tasks-ui">
