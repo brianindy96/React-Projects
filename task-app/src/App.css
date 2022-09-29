@@ -3,40 +3,10 @@
   margin: 0;
 }
 
-.App {
+.App{
   text-align: center;
   min-height: 100vh;
-  width: 100vw;
-}
-
-/* Form Edit */
-.form-container{
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.form-container button, .form-container input, .form-container label{
-  margin-top: 0.5rem;
-}
-
-.form-container input{
-  padding: 0.5rem;
-  text-align: center;
-  width: 30rem;
-}
-
-.form-container button{
-  padding: 10px;
-  font-weight: 800;
-  color: white;
-  background-color: lightseagreen;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.form-container button:hover{
-    transform: scale(1.1);
 }
