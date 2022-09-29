@@ -39,27 +39,27 @@ const App = () => {
 
             <h2>Education</h2>
             {/* School name */}
-            <label htmlFor="firstNameInput">School:</label>
+            <label htmlFor="schoolName">School:</label>
             <input 
-            id="firstNameInput"
+            id="schoolName"
             type="text"
-            placeholder='write your first name here..' />
+            placeholder='write your school name here..' />
             {/* Degree */}
-            <label htmlFor="lastNameInput">Degree:</label>
+            <label htmlFor="degreeName">Degree:</label>
             <input
-            id="lastNameInput" 
+            id="degreeName" 
             type="text"
-            placeholder='write your first name here..' />
+            placeholder='write your highest degree here..' />
             {/* First enrolled date*/}
-            <label htmlFor="emailInput">Date first enrolled : </label>
+            <label htmlFor="date-enrolled">Date first enrolled : </label>
             <input 
-            id="emailInput"
+            id="date-enrolled"
             type="date"
             placeholder='write your email here..' />
             {/* Graduation Date */}
-            <label htmlFor="emailInput">Graduation date : </label>
+            <label htmlFor="date-graduation">Graduation date : </label>
             <input 
-            id="emailInput"
+            id="date-graduation"
             type="date"
             placeholder='write your email here..' />
             
