@@ -20,11 +20,31 @@ const App = () => {
       [e.target.name]: e.target.value,
     })
 
-    console.log(state);
+
   }
 
   const handleSubmit = (e)=>{
-    e.preventDefault();
+    e.preventDefault()
+
+    if (state !== ''){
+      setPerson([...person, {
+        id: person.length + 1,
+        // takes in the text from task state, and trims the spaces in between
+        firstName: state.firstName,
+        lastName: state.lastName,
+        email: state.email,
+        phoneNum: state.phoneNum,
+      }])
+    }
+
+    setState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNum: '',
+    });
+
+    console.log(person);
   }
   
   return (
@@ -133,6 +153,19 @@ const App = () => {
           <button type="submit">Submit</button>
           </form>
         </div>
+
+    <ul>
+      {person.map((user)=>(
+        <div className="display-card" key={user.id}>
+          <div>First Name: {user.firstName}</div>
+          <div>Last Name: {user.lastName}</div>
+          <div>Email: {user.email}</div>
+          <div>Phone#: {user.phoneNum}</div>
+        </div>
+      ))}
+    </ul>
+        
+      
     </div>
   )
 }

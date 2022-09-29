@@ -23,3 +23,12 @@
   padding: 7px;
   margin-top: 5px;
 }
+
+.display-card{
+  margin-top: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
