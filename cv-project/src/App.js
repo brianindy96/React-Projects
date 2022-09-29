@@ -16,6 +16,10 @@ const App = () => {
     degreeName: '',
     dateEnrolled: '',
     dateGraduate: '',
+    companyName: '',
+    positionName: '',
+    dateJobBegin: '',
+    dateEndWork: '',
   });
 
   const handleInputChange = (e) =>{
@@ -42,19 +46,14 @@ const App = () => {
         degreeName: state.degreeName,
         dateEnrolled: state.dateEnrolled,
         dateGraduate: state.dateGraduate,
+        companyName: state.companyName,
+        positionName: state.positionName,
+        dateJobBegin: state.dateJobBegin,
+        dateEndWork: state.dateEndWork,
       }])
     }
 
-    setState({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phoneNum: '',
-      schoolName: '',
-      degreeName: '',
-      dateEnrolled: '',
-      dateGraduate: '',
-    });
+    setState('');
   }
   
   return (
@@ -144,24 +143,32 @@ const App = () => {
               {/* Company Name */}
               <label htmlFor="companyName">Company Name:</label>
               <input 
+              onChange={handleInputChange}
+              name="companyName"
               id="companyName"
               type="text"
               placeholder='write your Company Name here..' />
               {/* Position */}
               <label htmlFor="positionName">Position Title:</label>
               <input
+              onChange={handleInputChange}
+              name="positionName"
               id="positionName" 
               type="text"
               placeholder='write your position title here..' />
               {/* First enrolled date*/}
               <label htmlFor="date-jobbegin">Date first enrolled : </label>
               <input 
+              onChange={handleInputChange}
+              name="dateJobBegin"
               id="date-jobbegin"
               type="date"
               />
               {/* Graduation Date */}
               <label htmlFor="date-endwork">End date : </label>
               <input 
+              onChange={handleInputChange}
+              name="dateEndWork"
               id="date-endwork"
               type="date"
               />
@@ -175,14 +182,21 @@ const App = () => {
     <ul>
       {person.map((user)=>(
         <div className="display-card" key={user.id}>
+          <h3>General Information:</h3>
           <div><strong>First Name:</strong> {user.firstName}</div>
           <div><strong>Last Name:</strong> {user.lastName}</div>
           <div><strong>Email:</strong> {user.email}</div>
           <div><strong>Phone#: </strong>{user.phoneNum}</div>
+          <h3>Education:</h3>
           <div><strong>School Name:</strong> {user.schoolName}</div>
           <div><strong>Degree Name:</strong> {user.degreeName}</div>
           <div><strong>Date Enrolled:</strong> {user.dateEnrolled}</div>
           <div><strong>Date Graduated: </strong>{user.dateGraduate}</div>
+          <h3>Work Experiences: </h3>
+          <div><strong>Company Name:</strong> {user.companyName}</div>
+          <div><strong>Position Name:</strong> {user.positionName}</div>
+          <div><strong>Date Begin Job:</strong> {user.dateJobBegin}</div>
+          <div><strong>Date End Work: </strong>{user.dateEndWork}</div>
         </div>
       ))}
     </ul>

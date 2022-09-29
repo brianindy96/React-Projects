@@ -31,4 +31,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 80vw;
+}
+
+.display-card div{
+  margin-top: 10px;
 }
