@@ -16,7 +16,6 @@ const App = () => {
     return [];
   };
  });
- 
  const [task, setTask] = useState('');
 
 //  once mounted, data will be stored in local storage with useEffect() hook
@@ -49,6 +48,15 @@ const App = () => {
     setTask(e.target.value)
  }
 
+//  function that deletes element
+ const deleteBtn = (id) =>{
+    const removeItem = tasks.filter((task)=>{
+      return task.id !== id
+    })
+
+    setTasks(removeItem)
+ }
+
 
   return (
     <div className="App">
@@ -70,7 +78,11 @@ const App = () => {
         <ol>
             {tasks.map((task) =>(
               // when mapping arrays, always refer KEY TO ELEMENT
-              <li key={task.id}>{task.text}</li>
+              <li key={task.id}>
+                {task.text}
+                <button onClick={() => deleteBtn(task.id)}>X</button>
+              </li>
+              
             ))}
           </ol>
       </div>
