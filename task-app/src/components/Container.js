@@ -5,11 +5,11 @@ import Display from './Display'
 import './Form.css'
 import './Display.css'
 
-const Container = ({ handleSubmitBtn, handleInputChange, tasks}) => {
+const Container = ({ deleteBtn, handleSubmitBtn, handleInputChange, tasks}) => {
   return (
     <div className="Container">
         <Form handleSubmitBtn={handleSubmitBtn} handleInputChange={handleInputChange}/>
-        <Display tasks={tasks}/>
+        <Display deleteBtn={deleteBtn} tasks={tasks}/>
     </div>
   )
 }

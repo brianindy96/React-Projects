@@ -25,10 +25,19 @@ const App = () => {
     }
     setTask('');
    }
+
+   const deleteBtn = (id) =>{
+    const removeItem = tasks.filter((task)=>{
+      return task.id !== id
+    })
+
+    setTasks(removeItem)
+ }
+
    
   return (
     <div className="App">
-      <Container tasks={tasks} handleInputChange={handleInputChange} handleSubmitBtn={handleSubmitBtn}/>
+      <Container deleteBtn={deleteBtn} tasks={tasks} handleInputChange={handleInputChange} handleSubmitBtn={handleSubmitBtn}/>
     </div>
   )
 }
