@@ -6,6 +6,7 @@
 .App{
     text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -19,4 +20,12 @@
 
 .task-form button, .task-form input{
     margin-top: 10px;
+}
+
+.tasks-ui{
+    margin-top: 10px;
+}
+
+.tasks-ui li{
+    padding-top: 10px;
 }
