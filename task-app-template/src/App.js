@@ -4,7 +4,19 @@ import { useState, useEffect } from 'react';
 const App = () => {
 
   // define the states of tasks and task's input value
- const [tasks, setTasks] = useState([]);
+ const [tasks, setTasks] = useState(() =>{
+  // gets Task from local storage by accessing the key: tasks
+  const savedTasks = localStorage.getItem("tasks");
+
+  // if there are datas in savedTodos
+  if(savedTasks) {
+    // .parse returns javascript string as objects again
+    return JSON.parse(savedTasks);
+  } else{
+    return [];
+  };
+ });
+ 
  const [task, setTask] = useState('');
 
 //  once mounted, data will be stored in local storage with useEffect() hook
