@@ -1,11 +1,18 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const App = () => {
 
   // define the states of tasks and task's input value
  const [tasks, setTasks] = useState([]);
  const [task, setTask] = useState('');
+
+//  once mounted, data will be stored in local storage with useEffect() hook
+ useEffect(() =>{
+  // setItem(key, value)
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+ }, [tasks])
+
 
  // function that handles Submit button clicked
  const handleSubmitBtn = (e) =>{
