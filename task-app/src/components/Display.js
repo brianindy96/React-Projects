@@ -1,8 +1,14 @@
 import React from 'react'
 
-const Display = () => {
+const Display = ({ tasks }) => {
   return (
-    <div className="Display">Display</div>
+    <div className="Display">
+        {tasks.map((task)=>(
+            <li key={task.id}>
+                {task.text}
+            </li>
+        ))}
+    </div>
   )
 }
 
