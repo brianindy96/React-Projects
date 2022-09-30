@@ -1,12 +1,28 @@
 .card{
     position: relative;
-    width: 150px;
-    height: 150px;
 }
 
 .card img{
+    width: 200px;
+    height: 200px;
     width: 100%;
     display: block;
     border: 2px solid var(--white);
     border-radius: 6px;
+}
+
+/* front of the card - the picture */
+
+/* the picture is hidden because card is not flipped */
+.card .front{
+    transform: rotateY(90deg);
+    position: absolute;
+}
+
+/* but when flipped, card is rotated back to front */
+
+.flipped .front{
+    transform: rotateY(0deg);
+    /* If want to see it in action, uncomment transition */
+    transition: 1.1s ease-in-out;
 }

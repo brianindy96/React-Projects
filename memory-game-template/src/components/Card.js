@@ -1,14 +1,14 @@
 import React from 'react'
 import "./Card.css";
 
-const Card = ({ card, handleChoice }) => {
+const Card = ({ card, handleChoice, flipped }) => {
 
     const handleClick = () =>{
         handleChoice(card)
     }
   return (
     <div className="card">
-        <div className="square">
+        <div className={flipped ? "flipped" : ""}>
             <img className="front" src={card.src} alt="Front of Card Img" />
             <img 
             className="back" 

@@ -6,7 +6,7 @@ const cardImgs = [
   { 'src':  "/img/bird.png", matched: false },
   { 'src': "/img/cat.png", matched: false },
   { 'src': "/img/dog.png", matched: false },
-  { 'src': "/img/bird.png", matched: false },
+  { 'src': "/img/iguana.png", matched: false },
   { 'src': "/img/turtle.png", matched: false },
   { 'src': "/img/dolphin.png", matched: false },
 ]
@@ -107,6 +107,7 @@ function App() {
           key={card.id} 
           card={card}
           handleChoice={handleChoice}
+          flipped={card === choiceOne || card === choiceTwo || card.matched}
           />
         ))}
       </div>
