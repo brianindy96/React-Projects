@@ -22,6 +22,11 @@ function App() {
   // Turns state
   const [turns, setTurns] = useState(0);
 
+  // State for Choice 1 and Choice 2
+
+  const [choiceOne, setChoiceOne] = useState(null);
+  const [choiceTwo, setChoiceTwo] = useState(null);
+
   // shuffle cards
   // this function is going to do 3 things
   // 1. duplicate the cards to make 12 objects in a new array
@@ -43,9 +48,14 @@ function App() {
       // Every time we click new Game, cards will be shuffled and turns will be back to 0 
       setTurns(0);
   }
-  
-  console.log(cards, turns);
 
+  // handling Card Choice
+  const handleChoice = (card) =>{
+    // if choiceOne does not have a value, then setChoiceTwo(card)
+    // if it has a value, setChoiceOne(card)
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+  }
+  
   return (
     <div className="App">
       <h1>Memory Game</h1>
@@ -53,7 +63,11 @@ function App() {
 
       <div className="card">
         {cards.map((card)=>(
-          <Card key={card.id} card={card}/>
+          <Card 
+          key={card.id} 
+          card={card}
+          handleChoice={handleChoice}
+          />
         ))}
       </div>
     </div>
