@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import Card from './components/Card';
 
 const cardImgs = [
-  { 'src':  "/img/bird.png" },
-  { 'src': "/img/cat.png" },
-  { 'src': "/img/dog.png" },
-  { 'src': "/img/bird.png" },
-  { 'src': "/img/turtle.png" },
-  { 'src': "/img/dolphine.png" },
+  { 'src':  "/img/bird.png", matched: false },
+  { 'src': "/img/cat.png", matched: false },
+  { 'src': "/img/dog.png", matched: false },
+  { 'src': "/img/bird.png", matched: false },
+  { 'src': "/img/turtle.png", matched: false },
+  { 'src': "/img/dolphine.png", matched: false },
 ]
 
 function App() {
@@ -16,12 +16,9 @@ function App() {
 
   // initally the state "cards" is an empty array
   //once we execute the shuffleCards function, the state is then changed to the shuffledCards array = 12 random ordered objects with an ID in it.
-
   const [cards, setCards] = useState([]);
-
   // Turns state
   const [turns, setTurns] = useState(0);
-
   // State for Choice 1 and Choice 2
 
   const [choiceOne, setChoiceOne] = useState(null);
@@ -64,7 +61,7 @@ function App() {
     setTurns(prevTurn => prevTurn + 1 );
   }
 
-  // compare 2 cards
+  // COMPARE 2 CARDS
   // this function only runs when choiceOne or choiceTwo is update
   useEffect(() =>{
     // if we have two of the values from handleChoice
@@ -72,15 +69,30 @@ function App() {
     if(choiceOne && choiceTwo){
       // use the properties of the state(here:src) to check if same
       if(choiceOne.src === choiceTwo.src){
-        console.log("Those cards match");
+        // prevCards is the cards array that we are currently using and we are going to update it.
+        setCards(prevCards =>{
+          // we go through the array through each card
+          return prevCards.map(card=>{
+            // check the sources of the card if it matches the choiceOne's card
+            // because choiceOne and choiceTwo are same, doesn't matter card.src===choiceTwo.src
+            if(card.src === choiceOne.src){
+              // if same, then access the properties of the cards, change matched: true
+              return {...card, matched: true}
+            } // if false, just return the card and go through the next card
+            else{
+              return card
+            }
+          })
+        })
         resetTurns()
       } else{
-        console.log("Those cards don't match! :(");
         resetTurns();
       }
     }
     // dependencies: when 
   }, [choiceOne, choiceTwo])
+
+  console.log(cards);
 
   
   return (
