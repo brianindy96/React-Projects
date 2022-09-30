@@ -12,10 +12,14 @@ const cardImgs = [
 
 function App() {
 
+
   // initally the state "cards" is an empty array
   //once we execute the shuffleCards function, the state is then changed to the shuffledCards array = 12 random ordered objects with an ID in it.
 
   const [cards, setCards] = useState([]);
+
+  // Turns state
+  const [turns, setTurns] = useState(0);
 
   // shuffle cards
   // this function is going to do 3 things
@@ -35,12 +39,16 @@ function App() {
       .map((card) => ({...card, id: Math.random() }));
 
       setCards(shuffledCards);
+      // Every time we click new Game, cards will be shuffled and turns will be back to 0 
+      setTurns(0);
   }
-
+  
+  console.log(cards, turns);
+  
   return (
     <div className="App">
       <h1>Memory Game</h1>
-      <button>New Game</button>
+      <button onClick={shuffleCards}>New Game</button>
     </div>
   );
 }
