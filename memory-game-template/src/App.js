@@ -86,14 +86,11 @@ function App() {
         })
         resetTurns()
       } else{
-        resetTurns();
+        setTimeout(()=> resetTurns(), 1000);
       }
     }
     // dependencies: when 
   }, [choiceOne, choiceTwo])
-
-  console.log(cards);
-
   
   return (
     <div className="App">
@@ -107,7 +104,10 @@ function App() {
           key={card.id} 
           card={card}
           handleChoice={handleChoice}
+          // flipped props
           flipped={card === choiceOne || card === choiceTwo || card.matched}
+          // disabled props
+          // disabled={}
           />
         ))}
       </div>

@@ -17,6 +17,7 @@
 .card .front{
     transform: rotateY(90deg);
     position: absolute;
+    transition: all ease-in 0.2s;
 }
 
 /* but when flipped, card is rotated back to front */
@@ -24,5 +25,21 @@
 .flipped .front{
     transform: rotateY(0deg);
     /* If want to see it in action, uncomment transition */
-    transition: 1.1s ease-in-out;
+    transition-delay: 0.2s;
+}
+
+/* back of the card - the picture */
+
+/* the picture is hidden because card is not flipped */
+.card .back{
+    transition-delay: 0.2s;
+    transition: all ease-in 0.2s;
+}
+
+/* but when flipped, card is rotated back to back */
+
+.flipped .back{
+    transform: rotateY(90deg);
+    /* If want to see it in action, uncomment transition */
+    transition-delay: 0s;
 }
