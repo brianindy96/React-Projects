@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 
 const cardImgs = [
   { "src": "../public/img/bird.png" },
@@ -10,6 +11,11 @@ const cardImgs = [
 ]
 
 function App() {
+
+  // initally the state "cards" is an empty array
+  //once we execute the shuffleCards function, the state is then changed to the shuffledCards array = 12 random ordered objects with an ID in it.
+
+  const [cards, setCards] = useState([]);
 
   // shuffle cards
   // this function is going to do 3 things
@@ -27,6 +33,8 @@ function App() {
       .sort(() => Math.random() -0.5)
     // goes through every card, leaves every properties as it is, but adds an id to each individual card
       .map((card) => ({...card, id: Math.random() }));
+
+      setCards(shuffledCards);
   }
 
   return (
