@@ -2,12 +2,12 @@ import './App.css';
 import { useState } from 'react';
 
 const cardImgs = [
-  { "src": "../public/img/bird.png" },
-  { "src": "../public/img/cat.png" },
-  { "src": "../public/img/dog.png" },
-  { "src": "../public/img/bird.png" },
-  { "src": "../public/img/turtle.png" },
-  { "src": "../public/img/dolphine.png" },
+  { 'src':  "/img/bird.png" },
+  { 'src': "/img/cat.png" },
+  { 'src': "/img/dog.png" },
+  { 'src': "/img/bird.png" },
+  { 'src': "/img/turtle.png" },
+  { 'src': "/img/dolphine.png" },
 ]
 
 function App() {
@@ -44,11 +44,22 @@ function App() {
   }
   
   console.log(cards, turns);
-  
+
   return (
     <div className="App">
       <h1>Memory Game</h1>
       <button onClick={shuffleCards}>New Game</button>
+
+      <div className="card">
+        {cards.map((card)=>(
+          <div className="card" key={card.id}>
+            <div>
+              <img className="front" src={card.src} alt="Front of Card Img" />
+              <img className="back" src="img/nasa-Yj1M5riCKk4-unsplash.jpg" alt="card back" />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
