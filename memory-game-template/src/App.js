@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import Card from './components/Card';
 
 const cardImgs = [
   { 'src':  "/img/bird.png" },
@@ -52,12 +53,7 @@ function App() {
 
       <div className="card">
         {cards.map((card)=>(
-          <div className="card" key={card.id}>
-            <div>
-              <img className="front" src={card.src} alt="Front of Card Img" />
-              <img className="back" src="img/nasa-Yj1M5riCKk4-unsplash.jpg" alt="card back" />
-            </div>
-          </div>
+          <Card card={card}/>
         ))}
       </div>
     </div>
