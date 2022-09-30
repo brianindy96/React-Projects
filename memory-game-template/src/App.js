@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from './components/Card';
 
 const cardImgs = [
@@ -55,11 +55,34 @@ function App() {
     // if it has a value, setChoiceOne(card)
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
+
+
+  // reset Turns
+  const resetTurns = () =>{
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setTurns(prevTurn => prevTurn + 1 );
+  }
+
+  // compare 2 cards
+  useEffect(() =>{
+    if(choiceOne && choiceTwo){
+      if(choiceOne.src === choiceTwo.src){
+        console.log("Those cards match");
+        resetTurns()
+      } else{
+        console.log("Those cards don't match! :(");
+        resetTurns();
+      }
+    }
+  }, [choiceOne, choiceTwo])
+
   
   return (
     <div className="App">
       <h1>Memory Game</h1>
       <button onClick={shuffleCards}>New Game</button>
+      <p>Turns: {turns}</p>
 
       <div className="card">
         {cards.map((card)=>(
