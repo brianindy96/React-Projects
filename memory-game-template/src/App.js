@@ -8,7 +8,7 @@ const cardImgs = [
   { 'src': "/img/dog.png", matched: false },
   { 'src': "/img/bird.png", matched: false },
   { 'src': "/img/turtle.png", matched: false },
-  { 'src': "/img/dolphine.png", matched: false },
+  { 'src': "/img/dolphin.png", matched: false },
 ]
 
 function App() {
@@ -101,7 +101,7 @@ function App() {
       <button onClick={shuffleCards}>New Game</button>
       <p>Turns: {turns}</p>
 
-      <div className="card">
+      <div className="card-grid">
         {cards.map((card)=>(
           <Card 
           key={card.id} 

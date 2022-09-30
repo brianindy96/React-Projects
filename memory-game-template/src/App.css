@@ -8,6 +8,7 @@
   max-width: 860px;
   /* when margin is set like this, it centralizes the 860px max-width */
   margin: 40px auto;
+  min-height: 100vh;
 }
 
 button{

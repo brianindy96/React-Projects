@@ -1,5 +1,7 @@
 .card{
     position: relative;
+    width: 150px;
+    height: 150px;
 }
 
 .card img{
@@ -7,5 +9,4 @@
     display: block;
     border: 2px solid var(--white);
     border-radius: 6px;
-    height: auto;
 }

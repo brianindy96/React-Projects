@@ -8,7 +8,7 @@ const Card = ({ card, handleChoice }) => {
     }
   return (
     <div className="card">
-        <div>
+        <div className="square">
             <img className="front" src={card.src} alt="Front of Card Img" />
             <img 
             className="back" 
