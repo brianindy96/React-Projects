@@ -53,7 +53,7 @@ function App() {
 
       <div className="card">
         {cards.map((card)=>(
-          <Card card={card}/>
+          <Card key={card.id} card={card}/>
         ))}
       </div>
     </div>
