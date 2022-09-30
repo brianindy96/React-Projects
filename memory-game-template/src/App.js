@@ -65,8 +65,12 @@ function App() {
   }
 
   // compare 2 cards
+  // this function only runs when choiceOne or choiceTwo is update
   useEffect(() =>{
+    // if we have two of the values from handleChoice
+    // only want to run the function when we have both choices handled
     if(choiceOne && choiceTwo){
+      // use the properties of the state(here:src) to check if same
       if(choiceOne.src === choiceTwo.src){
         console.log("Those cards match");
         resetTurns()
@@ -75,6 +79,7 @@ function App() {
         resetTurns();
       }
     }
+    // dependencies: when 
   }, [choiceOne, choiceTwo])
 
   
