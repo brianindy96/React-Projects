@@ -25,7 +25,7 @@
 .flipped .front{
     transform: rotateY(0deg);
     /* If want to see it in action, uncomment transition */
-    transition-delay: 0.1s;
+    transition-delay: 0.2s;
 }
 
 /* back of the card - the picture */

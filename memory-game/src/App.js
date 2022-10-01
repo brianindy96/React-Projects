@@ -42,6 +42,9 @@ function App() {
 
   const [turns, setTurns] = useState(0);
 
+  // Disbaled state
+  const [disabled, setDisabled] = useState(false);
+
   // 1. Shuffling Cards function
     // 1.1 Bring all the card Objects into array
     // 1.2 Scramble it by sorting with Math.random()
@@ -56,6 +59,9 @@ function App() {
     .map((card)=> ({...card, id: Math.random()}))
 
     setCards(shuffledCards);
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setTurns(0);
   }
 
   // 4. Making Card Choices
@@ -69,12 +75,16 @@ function App() {
     setChoiceTwo(null);
     // If turn = 0; 0 +1 = turn 1 ==> if turn = 1; 1+1= turn 2
     setTurns(prevTurns => prevTurns + 1);
+    setDisabled(false);
   }
 
   // 5. Compare two cards
   useEffect(()=>{
     // if we have two Choices value, then start comparison
     if(choiceOne && choiceTwo){
+      //setDisabled here to not consider anymore cards
+      setDisabled(true);
+      
       if(choiceOne.src === choiceTwo.src){
         // 6. set properties of the objects once matched as matched: true
         setCards(prevCards =>{
@@ -91,10 +101,15 @@ function App() {
         resetTurns();
       } else{
         console.log("not a match");
-        resetTurns();
+        setTimeout(()=> resetTurns(), 1500);
       }
     }
   },[choiceOne, choiceTwo]);
+
+  // 10. automatically start game on page is loaded
+  useEffect(()=> {
+    shuffleCards();
+  }, [])
 
   return (
     <div className="App">
@@ -116,6 +131,8 @@ function App() {
           // 7. Flipping Cards properties
           // 3 Scenarios that will happen for card to flipped
           flipped={card === choiceOne || card === choiceTwo || card.matched}
+          // 9. Disabling Card Selections
+          disabled={disabled}
           />
         ))}
       </div>
