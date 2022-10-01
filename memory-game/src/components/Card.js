@@ -11,7 +11,7 @@ const Card = ({ card, handleChoice, flipped }) => {
   return (
     <div className="card">
         {/* class name will be flipped if flipped is correct,  */}
-        <div className={"flipped" ? flipped : ""}>
+        <div className={flipped ? "flipped" : ""}>
             <img 
             className='back' 
             src="/img/background.jpg" 
