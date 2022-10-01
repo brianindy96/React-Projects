@@ -24,6 +24,10 @@ function App() {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
 
+  //Disabling Cards state before made two choices
+
+  const [disabled, setDisabled] = useState(false);
+
   // shuffle cards
   // this function is going to do 3 things
   // 1. duplicate the cards to make 12 objects in a new array
@@ -56,6 +60,8 @@ function App() {
 
   // reset Turns
   const resetTurns = () =>{
+    //We set the card to not be disabled, only once the turn resets again
+    setDisabled(false);
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns(prevTurn => prevTurn + 1 );
@@ -67,6 +73,8 @@ function App() {
     // if we have two of the values from handleChoice
     // only want to run the function when we have both choices handled
     if(choiceOne && choiceTwo){
+      // Here we only disabled the card, once we chose two choices
+      setDisabled(true);
       // use the properties of the state(here:src) to check if same
       if(choiceOne.src === choiceTwo.src){
         // prevCards is the cards array that we are currently using and we are going to update it.
@@ -107,7 +115,7 @@ function App() {
           // flipped props
           flipped={card === choiceOne || card === choiceTwo || card.matched}
           // disabled props
-          // disabled={}
+          disabled={disabled}
           />
         ))}
       </div>

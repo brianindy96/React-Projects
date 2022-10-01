@@ -1,10 +1,13 @@
 import React from 'react'
 import "./Card.css";
 
-const Card = ({ card, handleChoice, flipped }) => {
+const Card = ({ card, handleChoice, flipped, disabled }) => {
 
     const handleClick = () =>{
-        handleChoice(card)
+      // if disabled is false, only then will we be able to handleChoices again
+        if(!disabled){
+          handleChoice(card)
+        }
     }
   return (
     <div className="card">
