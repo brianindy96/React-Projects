@@ -73,7 +73,6 @@ function App() {
 
   // 5. Compare two cards
   useEffect(()=>{
-    console.log(cards);
     // if we have two Choices value, then start comparison
     if(choiceOne && choiceTwo){
       if(choiceOne.src === choiceTwo.src){
@@ -96,7 +95,7 @@ function App() {
       }
     }
   },[choiceOne, choiceTwo]);
-  
+
   return (
     <div className="App">
       <h1>Memory Game</h1>
@@ -114,6 +113,9 @@ function App() {
           key={card.id} 
           card={card}
           handleChoice={handleChoice}
+          // 7. Flipping Cards properties
+          // 3 Scenarios that will happen for card to flipped
+          flipped={card === choiceOne || card === choiceTwo || card.matched}
           />
         ))}
       </div>
