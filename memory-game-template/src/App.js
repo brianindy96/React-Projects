@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import Card from './components/Card';
 
 const cardImgs = [
-  { 'src':  "/img/bird.png", matched: false },
-  { 'src': "/img/cat.png", matched: false },
-  { 'src': "/img/dog.png", matched: false },
-  { 'src': "/img/iguana.png", matched: false },
-  { 'src': "/img/turtle.png", matched: false },
-  { 'src': "/img/dolphin.png", matched: false },
+  { 'src':  "/img/bird.jpg", matched: false },
+  { 'src': "/img/fish.jpg", matched: false },
+  { 'src': "/img/dog.jpg", matched: false },
+  { 'src': "/img/frog.jpg", matched: false },
+  { 'src': "/img/kang.jpg", matched: false },
+  { 'src': "/img/grass.jpg", matched: false },
 ]
 
 function App() {

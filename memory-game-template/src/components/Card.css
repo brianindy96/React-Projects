@@ -14,7 +14,6 @@
 
 .card img:hover{
     transform:scale(1.1);
-    transition: 0.3s ease-in-out;
 }
 
 /* front of the card - the picture */
