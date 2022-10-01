@@ -2,12 +2,20 @@ import React from 'react'
 import './Card.css'
 
 // 3. Creating a Card Component
-const Card = ({ card }) => {
+const Card = ({ card, handleChoice }) => {
+
+    const handleClick = () =>{
+        handleChoice(card);
+    }
   return (
     <div className="card">
         <div>
-            <img className='front' src="/img/background.jpg" alt="" />
-            <img className='back' src={card.src} alt="back img of card" />
+            <img 
+            className='back' 
+            src="/img/background.jpg" 
+            alt="back img of the card"
+            onClick={handleClick} />
+            <img className='front' src={card.src} alt="front img of card" />
         </div>
     </div>
   )

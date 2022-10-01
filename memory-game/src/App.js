@@ -33,6 +33,10 @@ function App() {
 
   const [cards, setCards] = useState([]);
 
+    // Choices states
+  const [choiceOne, setChoiceOne] = useState(null);
+  const [choiceTwo, setChoiceTwo] = useState(null);
+
   // 1. Shuffling Cards function
     // 1.1 Bring all the card Objects into array
     // 1.2 Scramble it by sorting with Math.random()
@@ -47,6 +51,14 @@ function App() {
     .map((card)=> ({...card, id: Math.random().toFixed(3)}))
 
     setCards(shuffledCards);
+  }
+
+  // 4. Making Card Choices
+  const handleChoice = (card) =>{
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+
+    console.log(choiceOne);
+    console.log(choiceTwo);
   }
 
   return (
@@ -64,6 +76,7 @@ function App() {
           <Card 
           key={card.id} 
           card={card}
+          handleChoice={handleChoice}
           />
         ))}
       </div>
