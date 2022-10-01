@@ -73,17 +73,30 @@ function App() {
 
   // 5. Compare two cards
   useEffect(()=>{
+    console.log(cards);
     // if we have two Choices value, then start comparison
     if(choiceOne && choiceTwo){
       if(choiceOne.src === choiceTwo.src){
-        console.log("it's a match");
+        // 6. set properties of the objects once matched as matched: true
+        setCards(prevCards =>{
+          console.log("It's a match!");
+          return prevCards.map(card=>{
+            if(card.src===choiceOne.src){
+              // returns whatever properties the card has, and changed the matched to true
+              return {...card, matched: true }
+            } else{
+              return card
+            }
+          })
+        })
         resetTurns();
       } else{
         console.log("not a match");
         resetTurns();
       }
     }
-  },[choiceOne, choiceTwo])
+  },[choiceOne, choiceTwo]);
+  
   return (
     <div className="App">
       <h1>Memory Game</h1>
