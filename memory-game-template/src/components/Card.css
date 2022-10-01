@@ -12,10 +12,6 @@
     cursor: pointer;
 }
 
-.card img:hover{
-    transform:scale(1.1);
-}
-
 /* front of the card - the picture */
 
 /* the picture is hidden because card is not flipped */
