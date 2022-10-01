@@ -42,13 +42,24 @@ function App() {
     // subtracting it by 0.5 will return a number that is either + or -
     // sort() goes through the array and puts everything in random Order each time
       .sort(() => Math.random() -0.5)
-    // goes through every card, leaves every properties as it is, but adds an id to each individual card
+      // goes through every card, leaves every properties as it is, but adds an id to each individual card
       .map((card) => ({...card, id: Math.random() }));
+
+      //everytime we shuffle the cards, choices go back to no value
+      setChoiceOne(null);
+      setChoiceTwo(null);
 
       setCards(shuffledCards);
       // Every time we click new Game, cards will be shuffled and turns will be back to 0 
       setTurns(0);
   }
+
+   // Starts a new gam automatically
+  // use Effect is first called once the user lands on a website and runs everytime its dependencies are changed
+
+  useEffect(()=>{
+    shuffleCards()
+  },[])
 
   // handling Card Choice
   const handleChoice = (card) =>{
@@ -99,7 +110,9 @@ function App() {
     }
     // dependencies: when 
   }, [choiceOne, choiceTwo])
-  
+
+
+ 
   return (
     <div className="App">
       <h1>Memory Game</h1>
