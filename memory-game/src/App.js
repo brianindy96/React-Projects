@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+import Card from './components/Card';
 
 // Step-by-Step
 
@@ -45,7 +46,7 @@ function App() {
     // 1.3 assigns a new id to each object
     .map((card)=> ({...card, id: Math.random().toFixed(3)}))
 
-    console.log(shuffledCards);
+    setCards(shuffledCards);
   }
 
   return (
@@ -55,6 +56,18 @@ function App() {
       className='newGameBtn'
       onClick={shuffleCards}
       >New Game</button>
+
+      {/* 2. Creating a card grid */}
+      <div className="cards-grid">
+        {cards.map((card)=>(
+          // 3. Creating a Card Component
+          <Card 
+          key={card.id} 
+          card={card}
+          />
+        ))}
+      </div>
+      
 
     </div>
   );

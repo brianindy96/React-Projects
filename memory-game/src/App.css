@@ -32,3 +32,10 @@ h1{
   cursor: pointer;
   font-size: 1em;
 }
+
+/* Card Grid */
+
+.cards-grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
