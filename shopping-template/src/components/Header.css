@@ -1,0 +1,24 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+
+.links{
+    display: flex;
+}
+
+.links a{
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+};
+
+.logo a{
+    text-decoration: none;
+}
