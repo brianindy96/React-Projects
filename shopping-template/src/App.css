@@ -2,3 +2,15 @@
   text-align: center;
 }
 
+.content{
+  display: flex;
+  min-height: 90vh;
+}
+
+.main{
+  flex: 3;
+}
+
+.cart{
+  flex: 1;
+}

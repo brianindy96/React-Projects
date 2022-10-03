@@ -2,7 +2,12 @@ import React from 'react'
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <div className="main">
+      <h2>Products</h2>
+      <div className="product-container">
+        {/* insert jsx here */}
+      </div>
+    </div>
   )
 }
 
