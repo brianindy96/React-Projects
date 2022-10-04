@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Card.css";
 
-const Card = ({ product }) => {
+const Card = ({ product, onAdd }) => {
 
 
   return (
@@ -12,7 +12,7 @@ const Card = ({ product }) => {
         <div className="image-box">
             <img src={product.image} alt={product.name}></img>
         </div>
-        <button className="addBtn">Add to Cart</button>
+        <button onClick={() => onAdd(product)} className="addBtn">Add to Cart</button>
     </div>
   )
 }

@@ -17,7 +17,7 @@ function App() {
         x.id === product.id ? {...exist, qty: exist.qty + 1} : x
         )
       );
-    } else{
+    } else {
         setCartItems([...cartItems, {...product, qty: 1}]);
       }
     };
