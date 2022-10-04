@@ -8,8 +8,9 @@ const Card = ({ product }) => {
         <p>{product.price}</p>
         <p>{product.size}</p>
         <div className="image-box">
-            <img src={product.image} alt="product images"></img>
+            <img src={product.image} alt={product.name}></img>
         </div>
+        <button className="addBtn">Add to Cart</button>
     </div>
   )
 }
