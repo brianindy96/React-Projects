@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Cart.css";
 
-const Cart = ({ cartItems, onAdd }) => {
+const Cart = ({ cartItems, onAdd, onRemove }) => {
   return (
     <div className="cart">
         <h2>Your Shopping Cart</h2>
@@ -14,6 +14,12 @@ const Cart = ({ cartItems, onAdd }) => {
                     <button onClick={() => onAdd(item)}>
                       +
                     </button>
+                    <button onClick={() => onRemove(item)}>
+                      -
+                    </button>
+                  </div>
+                  <div>
+                    {item.qty} x {item.price.toFixed(2)} pln
                   </div>
                 </div>
               ))}
