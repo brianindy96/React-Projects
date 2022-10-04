@@ -2,29 +2,35 @@ const data = {
     products: [
         {id: '1',
          name: "Dior Sauvage Eau de Toilette",
-         price: '599.00 pln',
+         price: '399.00 pln',
          size: "100ml",
+         image: "/img/dior.jpg"
         },
         {id: '2',
          name: "Armani acqua di gio: Profumo",
          price: '299.00 pln',
          size: "100ml",
+         image: "/img/armani.jpg"
         },
         {id: '3',
          name: "Versace Eros",
          price: '409.00 pln',
          size: "100ml",
-         image: '/img/armani.jpg',
+         image: '/img/versace.jpg',
         },
         {id: '4',
-         name: "Dior Sauvage Eau de Toilette",
-         price: '599.00pln',
+         name: "Chanel de Bleu",
+         price: '349.00pln',
          size: "100ml",
+         image: '/img/chanel.jpg',
         },
         {id: '5',
          name: "Azzaro Wanted By Night",
          price: '322.50pln',
          size: "100ml",
+         image: "/img/azzaro.jpg",
         }
     ]
 }
+
+export default data;
