@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import slideItems  from "../data"
+import { slideItems }  from "../data"
+
 
 const Container = styled.div`
     height: 85vh;
@@ -12,9 +13,7 @@ const Container = styled.div`
     /* Overflow when stacking 3 slides */
     overflow: hidden;
 `
-
 // Arrows
-
 const Arrow = styled.div`
     height: 50px;
     width: 50px;
@@ -39,6 +38,7 @@ const Arrow = styled.div`
 
 // Slides 
 
+// SLIDES STILL NOT RESPONSIVE!!!
 
 const Wrapper = styled.div`
     height: 100%;
@@ -102,10 +102,10 @@ const Slider = () => {
     const handleClick = (direction) =>{
         if(direction === "left"){
             setSlideIndex(slideIndex > 0 ? slideIndex-1 : 2);
-    } else{
-        setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
-    }
-    }
+        } else{
+            setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+        }
+    };
   return (
     <Container>
         <Arrow onClick={() => handleClick("left")} direction="back">
