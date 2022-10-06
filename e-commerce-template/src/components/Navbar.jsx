@@ -32,7 +32,8 @@ const Navbar = () => {
     <Container >
         <Wrapper>
             <Left>
-                Left
+                {/* Language Selector Component */}
+                {/* Search Component */}
             </Left>
             <Center>
                 Center
