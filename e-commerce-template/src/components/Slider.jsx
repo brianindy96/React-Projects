@@ -7,6 +7,9 @@ const Container = styled.div`
     height: 85vh;
     width: 100%;
     display: flex;
+    background-color: #fff;
+    /* Overflow when stacking 3 slides */
+    overflow: hidden;
 `
 
 // Arrows
@@ -14,6 +17,7 @@ const Container = styled.div`
 const Arrow = styled.div`
     height: 50px;
     width: 50px;
+    color: white;
     background-color: black;
     border-radius: 50%;
     display: flex;
@@ -36,7 +40,6 @@ const Arrow = styled.div`
 
 const Wrapper = styled.div`
     height: 100%;
-    background-color: coral;
 `;
 
 const Slide = styled.div`
@@ -55,12 +58,33 @@ const ImgContainer = styled.div`
 
 const Image = styled.img`
     height: 80%;
+    margin-top: 30px;
+
 `;
 
 const InfoContainer = styled.div`
-    flex: 1;
-    padding: 50px;
-    border: 1px solid purple;
+    flex: 1.2;
+    padding: 50px 70px;
+`
+
+const Title = styled.h1`
+    font-weight: bold;
+    font-size: 4.375rem;
+`
+const Info = styled.p`
+    margin: 50px 0;
+    line-height: 1.5rem;
+    font-size: 1.25rem;
+    letter-spacing: 3px;
+
+`
+const Button = styled.button`
+    padding: 10px;
+    border: 2px solid #252525;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background: none;
 `
 
 const Slider = () => {
@@ -74,7 +98,14 @@ const Slider = () => {
                 <ImgContainer>
                     <Image src="/img/shoppingone.png" />
                 </ImgContainer>
-                <InfoContainer />
+                <InfoContainer>
+                    <Title>SUMMER SALE</Title>
+                    <Info>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas libero porro nihil, nostrum itaque debitis asperiores ipsum voluptatum. Odio, asperiores.
+                    </Info>
+                    <Button>SHOW MORE</Button>
+                        
+                </InfoContainer>
             </Slide>
         </Wrapper>
         <Arrow direction="forward">
