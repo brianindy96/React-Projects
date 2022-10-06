@@ -1,16 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Search } from '@mui/icons-material';
 
 const Container = styled.div`
     height: 10vh;
-    color: white;
-    background-color: black;
-    display: flex;
-    align-items: center;
+    color: #fff;
+    background-color: #252525;
 `;
 
 const Wrapper = styled.div`
-    border: 1px solid white;
     display: flex;
     justify-content: space-between;
     padding: 30px;
@@ -18,6 +16,8 @@ const Wrapper = styled.div`
 
 const Left = styled.div`
     flex: 1;
+    display: flex;
+    align-items: center;
 `
 const Center = styled.div`
     flex: 1;
@@ -27,13 +27,23 @@ const Right = styled.div`
 
 `
 
-const Language = styled.span`
+const Input = styled.input`
+    border: none;
+`
 
+const Language = styled.span`
+    cursor: pointer;
 `
 
 const SearchContainer = styled.div`
-
+    margin-left: 25px;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    display: flex;
+    border-radius: 8px;
 `
+// Center
+
 
 const Navbar = () => {
   return (
@@ -44,8 +54,8 @@ const Navbar = () => {
                     EN
                 </Language>
                 <SearchContainer>
-                    {/* Input */}
-                    {/* Icon */}
+                    <Search />
+                    <Input placeholder="Search Here.."/>
                 </SearchContainer>
             </Left>
             <Center>
