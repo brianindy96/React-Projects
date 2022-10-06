@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -43,7 +43,8 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
-    transform: translateX(0vw)
+    transform: translateX(${props => props.slideIndex * -100}vw);
+    transition: all 1.5s ease;
 `;
 
 const Slide = styled.div`
@@ -96,18 +97,23 @@ const Button = styled.button`
 const Slider = () => {
 
     /* Set state for Slide */
+    const [slideIndex, setSlideIndex] = useState(0);
+    
     const handleClick = (direction) =>{
-
+        if(direction === "left"){
+            setSlideIndex(slideIndex > 0 ? slideIndex-1 : 2);
+    } else{
+        setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
     }
-
+    }
   return (
     <Container>
         <Arrow onClick={() => handleClick("left")} direction="back">
             <ArrowBackIosIcon style={{color: "#fff"}}/>
         </Arrow>
-        <Wrapper>
+        <Wrapper slideIndex={slideIndex}>
             {slideItems.map((item)=>(
-                <Slide key={item.id}>
+                <Slide key={item.id} >
                     <ImgContainer>
                         <Image src={item.img} />
                     </ImgContainer>
