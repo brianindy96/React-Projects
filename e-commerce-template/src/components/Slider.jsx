@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import slideItems  from "../data"
 
 const Container = styled.div`
     height: 85vh;
@@ -29,10 +30,11 @@ const Arrow = styled.div`
     bottom: 0;
     margin: auto;
     /* sending props */
-    /* left: ${props => props.direction === "back" && "10px"}; */
+    left: ${props => props.direction === "back" && "10px"};
     right: ${props => props.direction === "forward" && "10px"};
     cursor: pointer;
     opacity: 0.5;
+    z-index: 2;
 `;
 
 // Slides 
@@ -40,6 +42,8 @@ const Arrow = styled.div`
 
 const Wrapper = styled.div`
     height: 100%;
+    display: flex;
+    transform: translateX(0vw)
 `;
 
 const Slide = styled.div`
@@ -54,11 +58,13 @@ const ImgContainer = styled.div`
     border: 1px solid white;
     /* Height 100% to its parent */
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const Image = styled.img`
     height: 80%;
-    margin-top: 30px;
 
 `;
 
@@ -88,27 +94,34 @@ const Button = styled.button`
 `
 
 const Slider = () => {
+
+    /* Set state for Slide */
+    const handleClick = (direction) =>{
+
+    }
+
   return (
     <Container>
-        <Arrow direction="back">
+        <Arrow onClick={() => handleClick("left")} direction="back">
             <ArrowBackIosIcon style={{color: "#fff"}}/>
         </Arrow>
         <Wrapper>
-            <Slide>
-                <ImgContainer>
-                    <Image src="/img/shoppingone.png" />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>SUMMER SALE</Title>
-                    <Info>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas libero porro nihil, nostrum itaque debitis asperiores ipsum voluptatum. Odio, asperiores.
-                    </Info>
-                    <Button>SHOW MORE</Button>
-                        
-                </InfoContainer>
-            </Slide>
+            {slideItems.map((item)=>(
+                <Slide key={item.id}>
+                    <ImgContainer>
+                        <Image src={item.img} />
+                    </ImgContainer>
+                    <InfoContainer>
+                        <Title>{item.title}</Title>
+                        <Info>
+                            {item.desc}
+                        </Info>
+                        <Button>SHOW MORE</Button>
+                    </InfoContainer>
+                </Slide>
+            ))};
         </Wrapper>
-        <Arrow direction="forward">
+        <Arrow onClick={() => handleClick("right")} direction="forward">
             <ArrowForwardIosIcon style={{color: "#fff"}}/>
         </Arrow>
     </Container>
