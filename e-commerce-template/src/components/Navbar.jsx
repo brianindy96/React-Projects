@@ -11,7 +11,9 @@ const Container = styled.div`
 const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 30px;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
 `
 
 const Left = styled.div`
@@ -44,7 +46,12 @@ const SearchContainer = styled.div`
 `
 // Center
 
-
+const Logo = styled.h1`
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: 'Helvetica', sans-serif;
+    text-align: center;
+`
 const Navbar = () => {
   return (
     <Container >
@@ -59,7 +66,9 @@ const Navbar = () => {
                 </SearchContainer>
             </Left>
             <Center>
-                Center
+                <Logo>
+                    SPREE.
+                </Logo>
             </Center>
             <Right >
                 Right
