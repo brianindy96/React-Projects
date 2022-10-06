@@ -67,7 +67,7 @@ const Navbar = () => {
             </Left>
             <Center>
                 <Logo>
-                    SPREE.
+                    ODOR.
                 </Logo>
             </Center>
             <Right >
