@@ -27,13 +27,26 @@ const Right = styled.div`
 
 `
 
+const Language = styled.span`
+
+`
+
+const SearchContainer = styled.div`
+
+`
+
 const Navbar = () => {
   return (
     <Container >
         <Wrapper>
             <Left>
-                {/* Language Selector Component */}
-                {/* Search Component */}
+                <Language>
+                    EN
+                </Language>
+                <SearchContainer>
+                    {/* Input */}
+                    {/* Icon */}
+                </SearchContainer>
             </Left>
             <Center>
                 Center
