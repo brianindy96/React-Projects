@@ -6,7 +6,10 @@ const Container = styled.div`
     background-color: orange;
     color: white;
     font-weight: bold;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
 `
 const Announcement = () => {
   return (
