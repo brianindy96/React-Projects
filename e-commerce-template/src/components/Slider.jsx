@@ -4,7 +4,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const Container = styled.div`
-    height: 100vh;
+    height: 85vh;
     width: 100%;
     display: flex;
 `
@@ -17,15 +17,23 @@ const Arrow = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Positioning of the arrow divs */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    /* sending props */
+    /* left: ${props => props.direction === "back" && "10px"}; */
+    right: ${props => props.direction === "forward" && "10px"};
 `
 
 const Slider = () => {
   return (
     <Container>
-        <Arrow>
+        <Arrow direction="back">
             <ArrowBackIosIcon style={{color: "#fff"}}/>
         </Arrow>
-        <Arrow>
+        <Arrow direction="forward">
             <ArrowForwardIosIcon style={{color: "#fff"}}/>
         </Arrow>
     </Container>
