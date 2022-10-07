@@ -13,21 +13,45 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     background-color: #f5fbfd;
+    position: relative;
 `
 
 const Circle = styled.div`
-    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 50%;;
 `
 
 const Image = styled.img`
     height: 80%;
     object-fit: contain;
+    z-index: 2;
 `
 const Info = styled.div`
-    
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: lightgrey;
+    z-index: 3;
 `
 const Icon = styled.div`
     display: flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-left: 25px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const Product = ({ product }) => {
