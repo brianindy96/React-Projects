@@ -31,6 +31,7 @@ const Container = styled.div`
     background-color: #f5fbfd;
     position: relative;
 
+    /* Access attributes of Info once Container is hovered */
     &:hover ${Info}{
         opacity: 1;
     }
