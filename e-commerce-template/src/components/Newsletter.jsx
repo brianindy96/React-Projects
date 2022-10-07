@@ -33,6 +33,7 @@ const InputContainer = styled.div`
 const Input = styled.input`
     border: none;
     flex: 8;
+    outline: none;
     padding-left: 10px;
 `
 const Button = styled.button`
