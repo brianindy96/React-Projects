@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Facebook from '@mui/icons-material/Facebook';
 import { Instagram, Twitter } from '@mui/icons-material';
+import ApartmentIcon from '@mui/icons-material/Apartment';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import EmailIcon from '@mui/icons-material/Email';
 
 const Container = styled.div`
     min-height: 10vh;
@@ -73,6 +76,15 @@ const Right = styled.div`
     flex: 1;
 `
 
+const TitleRight = styled.h1`
+
+`
+
+const ContactItem = styled.p`
+
+`
+
+
 
 const Footer = () => {
   return (
@@ -107,11 +119,19 @@ const Footer = () => {
                 <ListItem>My Account</ListItem>
                 <ListItem>Terms</ListItem>
                 <ListItem>Premium Membership</ListItem>
-
             </List>
         </Center>
         <Right>
-            Right
+            <TitleRight> Contact Us</TitleRight>
+            <ContactItem><ApartmentIcon style={{marginRight: "5px"}}/>
+                349 Hollywood Boulevard, South London 92394
+            </ContactItem>
+            <ContactItem><LocalPhoneIcon style={{marginRight: "5px"}}/>
+                +34 203 204243
+            </ContactItem>
+            <ContactItem><EmailIcon style={{marginRight: "5px"}}/>
+                contact@odor.com
+            </ContactItem>
         </Right>
     </Container>
   )
