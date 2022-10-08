@@ -4,29 +4,31 @@ import Announcement from '../components/Announcement';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import Newsletter from "../components/Newsletter"
+import { Remove, Add } from '@mui/icons-material';
 
 const Container = styled.div`
     
 `
 
 const Wrapper = styled.div`
+    min-height: 80vh;
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
 `
 
 const ImageContainer = styled.div`
+    height: 100%;
+    width: 100%;
     flex: 1;
-    min-width: 500px;
-    padding: 30px;
 `
 
 const Image = styled.img`
-    object-fit: cover;
-    max-height:100%; 
-    max-width:100%;
+    width: 100%;  
+    display: block;  
 `
 const InfoContainer = styled.div`
+    height: 100%;
     flex: 1;
     margin-top: 20px;
     padding: 0 50px;
@@ -48,6 +50,7 @@ const Price = styled.span`
 // -------------------Filters------------------
 
 const FilterContainer = styled.div`
+    margin-top: 10px;
     width: 50%;
     display: flex;
     justify-content: space-between;
@@ -67,7 +70,7 @@ const FilterColor = styled.div`
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color ${props =>props.color};
+    background-color: ${props =>props.color};
     margin: 0px 5px;
     cursor: pointer;
 `
@@ -79,6 +82,45 @@ const FilterSizeOption = styled.option`
     
 `
 
+// -------------------- QUANTITY ----------------------
+const AddContainer = styled.div`
+    margin-top: 10px;   
+    display: flex;
+    align-items: center;   
+    width: 50%; 
+    justify-content: space-between;
+`
+
+const AmountContainer = styled.option`
+    display: flex;
+    background-color: white;
+    align-items: center;
+    font-weight: 700;
+`
+
+const Amount = styled.span`
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid teal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+`
+const Button = styled.button`
+    padding: 15px;
+    border: 2px solid teal;
+    background: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.5 ease-in-out;
+    font-weight: 500;
+
+    &:hover{
+        background-color: teal;
+    }
+`
 
 const Product = () => {
   return (
@@ -110,8 +152,15 @@ const Product = () => {
                             <FilterSizeOption>XL</FilterSizeOption>
                         </FilterSize>
                     </Filter>
-
                 </FilterContainer>
+                <AddContainer>
+                    <AmountContainer>
+                        <Remove />
+                        <Amount>1</Amount>
+                        <Add />
+                    </AmountContainer>
+                    <Button>ADD TO CART</Button>
+                </AddContainer>
             </InfoContainer>
         </Wrapper>
         <Newsletter />
