@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer"
+import { Add, Remove } from '@mui/icons-material';
 
 const Container = styled.div`
     
@@ -51,11 +52,78 @@ const Bottom = styled.div`
     justify-content: space-between;
 
 `
-
+// ----------------Info------------------------
 const Info = styled.div`
     flex: 3;
 `
 
+const Product = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
+const ProductDetail = styled.div`
+    flex: 2;
+    display: flex;
+`
+
+const Image = styled.img`
+    width: 200px;
+`
+
+const Details = styled.div`
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid red;
+`
+
+const ProductName = styled.span`
+    
+`
+
+const ProductId = styled.span`
+`
+
+const ProductColor = styled.div`
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: ${props => props.color}
+`
+
+const ProductSize = styled.span`
+    
+`
+
+const PriceDetail = styled.div`
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+`
+
+const ProductAmountContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 0 8px;
+`
+
+const ProductAmount = styled.div`
+    font-size: 20px;
+    margin: 5px;
+`
+
+const ProductPrice = styled.p`
+    margin-top: 10px;
+`
+
+
+// ---------------- Summary -------------------
 const Summary = styled.div`
     flex: 1;
 `
@@ -76,7 +144,27 @@ const Cart = () => {
                 <TopButton type="filled">CHECKOUT NOW</TopButton>
             </Top>
             <Bottom>
-                <Info>Info</Info>
+                <Info>
+                    <Product>
+                        <ProductDetail>
+                            <Image src="/img/shoe.png" />
+                            <Details>
+                                <ProductName><b>JESSIE THUNDER SHOES</b></ProductName>
+                                <ProductId><b>ID: </b></ProductId>
+                                <ProductColor color="brown"/>
+                                <ProductSize><b>Size:</b> 37.5</ProductSize>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            <ProductAmountContainer>
+                                <b><Add style={{margin: "0 5px", cursor: "pointer",}}/></b>
+                                <ProductAmount>2</ProductAmount>
+                                <b><Remove style={{margin: "0 5px", cursor: "pointer"}} /></b>
+                            </ProductAmountContainer>
+                            <ProductPrice>30,0 EUR</ProductPrice>
+                        </PriceDetail>
+                    </Product>
+                </Info>
                 <Summary>Summary</Summary>
             </Bottom>
         </Wrapper>
