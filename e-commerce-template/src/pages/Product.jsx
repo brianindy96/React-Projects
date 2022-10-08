@@ -48,22 +48,32 @@ const Price = styled.span`
 // -------------------Filters------------------
 
 const FilterContainer = styled.div`
-    
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
 `
 
 const Filter = styled.div`
-    
+    display: flex;
+    align-items: center;
 `
 
 const FilterTitle = styled.span`
-    
+    font-size: 20px;
+    font-weight: 200;
 `
 
 const FilterColor = styled.div`
-    
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color ${props =>props.color};
+    margin: 0px 5px;
+    cursor: pointer;
 `
 const FilterSize = styled.select`
-
+    margin-left: 10px;
+    padding: 5px;
 `
 const FilterSizeOption = styled.option`
     
@@ -86,9 +96,9 @@ const Product = () => {
                 <FilterContainer>
                     <Filter>
                         <FilterTitle>Color</FilterTitle>
-                        <FilterColor color="black"/>
-                        <FilterColor color="blue"/>
-                        <FilterColor color="gray"/>
+                        <FilterColor color="black" />
+                        <FilterColor color="blue" />
+                        <FilterColor color="gray" />
                     </Filter>
                     <Filter>
                         <FilterTitle>Size</FilterTitle>
