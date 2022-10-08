@@ -59,6 +59,7 @@ const Info = styled.div`
 
 const Product = styled.div`
     display: flex;
+    margin-top: 10px;
     justify-content: space-between;
 `
 
@@ -76,7 +77,6 @@ const Details = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border: 1px solid red;
 `
 
 const ProductName = styled.span`
@@ -122,6 +122,12 @@ const ProductPrice = styled.p`
     margin-top: 10px;
 `
 
+const Hr = styled.hr`
+    background-color: #eee;
+    border: none;
+    height: 1px;
+`
+
 
 // ---------------- Summary -------------------
 const Summary = styled.div`
@@ -164,8 +170,29 @@ const Cart = () => {
                             <ProductPrice>30,0 EUR</ProductPrice>
                         </PriceDetail>
                     </Product>
+                    <Hr />
+                    <Product>
+                        <ProductDetail>
+                            <Image src="/img/shirt.png" />
+                            <Details>
+                                <ProductName><b>PUSSY MAGNET T-SHIRT</b></ProductName>
+                                <ProductId><b>ID: </b></ProductId>
+                                <ProductColor color="black"/>
+                                <ProductSize><b>Size:</b> M</ProductSize>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            <ProductAmountContainer>
+                                <b><Add style={{margin: "0 5px", cursor: "pointer",}}/></b>
+                                <ProductAmount>2</ProductAmount>
+                                <b><Remove style={{margin: "0 5px", cursor: "pointer"}} /></b>
+                            </ProductAmountContainer>
+                            <ProductPrice>30,0 EUR</ProductPrice>
+                        </PriceDetail>
+                    </Product>
                 </Info>
-                <Summary>Summary</Summary>
+                <Summary>
+                </Summary>
             </Bottom>
         </Wrapper>
         <Footer />
