@@ -4,13 +4,19 @@ import styled from "styled-components"
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
-    background: url("/img/shirtrack.jpg");
+    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("/img/shirtrack.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 const Wrapper = styled.div`
-    
+    width: 50%;
+    padding: 20px;
+    background-color: #ffc4af;
+    border-radius: 10px;
 `
 
 const Title = styled.h1`
