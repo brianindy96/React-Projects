@@ -128,11 +128,45 @@ const Hr = styled.hr`
     height: 1px;
 `
 
-
 // ---------------- Summary -------------------
 const Summary = styled.div`
     flex: 1;
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    height: 50vh;
 `
+
+const SummaryTitle = styled.h2`
+    font-weight: 200;
+`
+
+const SummaryItem = styled.div`
+    margin: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+`
+
+const SummaryItemText = styled.span`
+    margin: 0 20px;
+    font-weight: ${(props) => props.type === "total" ? "800" : "200"};
+    /* IF ITS TOTAL, IT WILL BE 2REM */
+    font-size: ${(props) => props.type === "total" && "1.2rem"};
+`
+
+const SummaryItemPrice = styled.span`
+    font-weight: ${(props) => props.type === "total" && "800"};
+`
+
+const Button = styled.button`
+        width: 100%;
+        font-weight: 800;
+        background-color: black;
+        padding: 5px;
+        color: white;
+        cursor: pointer;
+`
+
 
 const Cart = () => {
   return (
@@ -192,6 +226,24 @@ const Cart = () => {
                     </Product>
                 </Info>
                 <Summary>
+                    <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+                    <SummaryItem>
+                        <SummaryItemText>Subtotal</SummaryItemText>
+                        <SummaryItemPrice>60 EUR</SummaryItemPrice>
+                    </SummaryItem>
+                    <SummaryItem>
+                        <SummaryItemText>Estimated Shipping</SummaryItemText>
+                        <SummaryItemPrice>5,90 EUR</SummaryItemPrice>
+                    </SummaryItem>
+                    <SummaryItem>
+                        <SummaryItemText>Shipping Discount</SummaryItemText>
+                        <SummaryItemPrice>-5,90 EUR</SummaryItemPrice>
+                    </SummaryItem>
+                    <SummaryItem>
+                        <SummaryItemText type="total">Total</SummaryItemText>
+                        <SummaryItemPrice type="total">60 EUR</SummaryItemPrice>
+                    </SummaryItem>
+                    <Button>CHECK OUT NOW</Button>
                 </Summary>
             </Bottom>
         </Wrapper>
