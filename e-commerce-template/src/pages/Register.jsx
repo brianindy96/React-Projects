@@ -20,21 +20,35 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.h1`
+    font-size: 1.2rem;
+    font-weight: 300;
 `
 const Form = styled.form`
-    
+    display: flex;
+    flex-wrap: wrap;
 `
 
 const Input = styled.input`
-    
+    flex: 1;
+    min-width: 40%;
+    margin: 20px 30px 0 0;
+    padding: 5px;
 `
 
 const Agreement = styled.p`
-    
+    margin-top: 20px;
+    font-size: 12px;
 `
 
 const Button = styled.button`
-    
+    margin-top: 10px;
+    width: 40%;
+    padding: 15px 20px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
 `
 const Register = () => {
   return (
@@ -42,12 +56,12 @@ const Register = () => {
         <Wrapper>
             <Title>Create an account</Title>
             <Form>
-                <Input placeholder="first-name" />
-                <Input placeholder="last name" />
-                <Input placeholder="username" />
-                <Input placeholder="email" />
-                <Input placeholder="password" />
-                <Input placeholder="confirm password" />
+                <Input required placeholder="first-name" />
+                <Input required placeholder="last name" />
+                <Input required placeholder="username" />
+                <Input required placeholder="email" />
+                <Input required placeholder="password" />
+                <Input required placeholder="confirm password" />
                 <Agreement>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, neque dolorem? Nisi nam, asperiores aliquid dignissimos necessitatibus perferendis dolore pariatur.
                 </Agreement>
