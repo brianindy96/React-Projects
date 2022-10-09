@@ -5,6 +5,7 @@ import { Instagram, Twitter } from '@mui/icons-material';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
+import {mobile} from "../responsive";
 
 const Container = styled.div`
     min-height: 10vh;
@@ -14,7 +15,7 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    flex-wrap: wrap;
+
 `
 
 const Left = styled.div`
@@ -25,10 +26,14 @@ const Left = styled.div`
 
 const Logo = styled.h1`
     margin: 0;
+
+    ${mobile({fontSize: "1.5rem"})}
+
 `
 
 const Desc = styled.p`
-    
+        ${mobile({fontSize: "0.8rem"})}
+
 `
 
 const SocialContainer = styled.div`
@@ -52,6 +57,8 @@ const SocialIcon = styled.div`
 // ----------------CENTER---------------
 const Center = styled.div`
     flex: 1;
+
+    ${mobile({display: "none"})}
 `
 const Title = styled.h3`
     /* margin-bottom: 30px; */
@@ -74,13 +81,21 @@ const ListItem = styled.li`
 
 const Right = styled.div`
     flex: 1;
+
+    ${mobile({marginLeft: "25px"})}
 `
 
 const TitleRight = styled.h1`
+    
+    
+    ${mobile({fontSize: "1.5rem"})}
 
 `
 
 const ContactItem = styled.p`
+
+
+    ${mobile({fontSize: "0.8rem"})}
 
 `
 
