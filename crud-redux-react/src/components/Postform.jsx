@@ -1,18 +1,44 @@
 import React, { Component } from 'react'
+// uses connect to send data to 
+import { connect } from 'react-redux'
 
-export class Postform extends Component {
+export class PostForm extends Component {
+
+
+    handleSubmit =(e) => {
+        e.preventDefault();
+        const title = this.getTitle.value;
+        const message = this.getMessage.value;
+        
+        const data = {
+            id: new Date(),
+            title,
+            message,
+        }
+
+        // sends action to 
+        this.props.dispatch({
+            type: 'ADD_POST',
+            data
+        })
+
+        this.getTitle.value='';
+        this.getMessage.value='';
+    }
   render() {
     return (
       <div>
         <h1>Create Post</h1>
-        <form action="">
-            <input type="text" placeholder="Enter Post Title" required />
+        <form onSubmit={this.handleSubmit} action="">
+            <input ref={(input)=> this.getTitle = input} type="text" placeholder="Enter Post Title" required />
             <br></br>
-            <textarea cols="30" rows="5" placeholder="Enter Post here" />
+            <textarea ref={(input)=> this.getMessage = input} cols="30" rows="5" placeholder="Enter Post here" />
+            <br></br>
+            <button type="submit">Post</button>
         </form>
       </div>
     )
   }
 }
 
-export default Postform
+export default connect()(PostForm);

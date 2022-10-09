@@ -1,6 +1,6 @@
 import './App.css'
 import AllPost from './components/AllPost'
-import Postform from './components/Postform'
+import Postform from './components/PostForm'
 
 function App() {
 
