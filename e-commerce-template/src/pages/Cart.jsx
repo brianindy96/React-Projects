@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer"
 import { Add, Remove } from '@mui/icons-material';
+import {mobile} from "../responsive"
 
 const Container = styled.div`
     
@@ -34,22 +35,32 @@ const TopButton = styled.button`
     background-color:  ${(props) =>
     props.type === "filled" ? "black" : "transparent"};
     color: ${(props) => props.type === "filled" && "white"};
+
+    ${mobile({margin: "0 4px"})};
+
 `
 
 const TopTexts = styled.div`
-    
+        ${mobile({display: "none"})};
+
 `
 
 const TopText = styled.span`
     text-decoration: underline;
     cursor: pointer;
     margin: 0px 10px;
+
+    ${mobile({margin: "0px 20px"})};
+
 `
 // ------------------------BOTTOM---------------------------
 
 const Bottom = styled.div`
     display: flex;
     justify-content: space-between;
+
+    ${mobile({flexDirection: "column"})};
+
 
 `
 // ----------------Info------------------------
@@ -66,10 +77,18 @@ const Product = styled.div`
 const ProductDetail = styled.div`
     flex: 2;
     display: flex;
+
+    ${mobile({width: "100%"})};
+
 `
 
 const Image = styled.img`
     width: 200px;
+
+    ${mobile({width: "150px", flex: "0.5"})};
+
+    
+
 `
 
 const Details = styled.div`
@@ -111,11 +130,16 @@ const ProductAmountContainer = styled.div`
     display: flex;
     align-items: center;
     margin: 0 8px;
+
+    ${mobile({margin: "0", fontSize: "0.8rem"})};
+
 `
 
 const ProductAmount = styled.div`
     font-size: 20px;
     margin: 5px;
+
+    ${mobile({fontSize: "18px"})};
 `
 
 const ProductPrice = styled.p`
@@ -135,6 +159,9 @@ const Summary = styled.div`
     border-radius: 10px;
     padding: 20px;
     height: 50vh;
+
+    ${mobile({marginTop: "20px"})};
+
 `
 
 const SummaryTitle = styled.h2`
