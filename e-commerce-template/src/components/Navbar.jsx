@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Search } from '@mui/icons-material';
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import {mobile} from "../responsive";
+import {mobile, tablet} from "../responsive";
 
 const Container = styled.div`
     color: #fff;
@@ -57,6 +57,8 @@ const Language = styled.span`
     cursor: pointer;
     
     ${mobile({display: "none"})}
+    ${tablet({display: "none"})};
+
 `
 
 const SearchContainer = styled.div`

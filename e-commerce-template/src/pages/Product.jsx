@@ -5,33 +5,41 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import Newsletter from "../components/Newsletter"
 import { Remove, Add } from '@mui/icons-material';
+import {mobile, tablet} from "../responsive"
 
 const Container = styled.div`
     
 `
 
 const Wrapper = styled.div`
-    min-height: 80vh;
+    min-height: 50vh;
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
 `
 
 const ImageContainer = styled.div`
-    height: 100%;
-    width: 100%;
     flex: 1;
+    min-width: 400px;
+
+    ${mobile({minWidth: "350px"})};
+    
+
 `
 
 const Image = styled.img`
     width: 100%;  
-    display: block;  
+    display: block;
+
 `
 const InfoContainer = styled.div`
     height: 100%;
     flex: 1;
     margin-top: 20px;
     padding: 0 50px;
+
+    ${mobile({padding: "10px"})};
+
 `
 
 const Title = styled.h1`
@@ -54,6 +62,9 @@ const FilterContainer = styled.div`
     width: 50%;
     display: flex;
     justify-content: space-between;
+
+    ${mobile({width: "100%"})};
+
 `
 
 const Filter = styled.div`
@@ -89,6 +100,10 @@ const AddContainer = styled.div`
     align-items: center;   
     width: 50%; 
     justify-content: space-between;
+
+    ${tablet({width: "100%"})}
+    ${mobile({width: "100%", marginTop: "20px"})};
+
 `
 
 const AmountContainer = styled.option`
@@ -115,7 +130,10 @@ const Button = styled.button`
     cursor: pointer;
     border-radius: 10px;
     transition: all 0.5 ease-in-out;
-    font-weight: 500;
+    font-weight: 700;
+
+    ${mobile({padding: "5px"})};
+
 
     &:hover{
         background-color: #e7e7e7;
