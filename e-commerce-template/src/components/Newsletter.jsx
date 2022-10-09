@@ -32,7 +32,7 @@ const InputContainer = styled.div`
     border: 1px solid lightgray;
     border-radius: 8px;
 
-    ${mobile({height: "25px"})}
+    ${mobile({height: "25px", width: "80%"})}
 `
 
 const Input = styled.input`
