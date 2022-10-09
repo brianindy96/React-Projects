@@ -7,6 +7,8 @@ const postReducer = (state = [], action) => {
         // if the action is ADD_POST, then setState of the initial object by accessing the data from action's object
         case 'ADD_POST':
             return state.concat([action.data]);
+        case 'DELETE_POST':
+            return state.filter((post) => post.id !== action.id)
     default:
         return state;
     }
