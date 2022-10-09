@@ -16,6 +16,9 @@ const Container = styled.div`
     align-items: center;
     padding: 20px;
 
+    ${mobile({flexDirection: "column", justifyContent: "flex-start"})}
+
+
 `
 
 const Left = styled.div`
@@ -82,7 +85,9 @@ const ListItem = styled.li`
 const Right = styled.div`
     flex: 1;
 
-    ${mobile({marginLeft: "25px"})}
+    ${mobile({fontSize: "1.5rem", width: "100%", marginTop: "10px"})}
+
+
 `
 
 const TitleRight = styled.h1`
