@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { slideItems }  from "../data"
-
+import {mobile} from "../responsive"
 
 const Container = styled.div`
     height: 85vh;
@@ -12,6 +12,9 @@ const Container = styled.div`
     background-color: #fff;
     /* Overflow when stacking 3 slides */
     overflow: hidden;
+
+    ${mobile({display: "none"})}
+
 `
 // Arrows
 const Arrow = styled.div`

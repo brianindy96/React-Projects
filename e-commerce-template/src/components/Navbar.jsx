@@ -11,7 +11,6 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-    background-color: green;
     min-height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -25,8 +24,9 @@ const Left = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
+    margin-left: 20px;
 
-    ${mobile({flex: "0.5"})}
+    ${mobile({flex: "0.5", marginLeft: "5px"})}
 
 `
 const Center = styled.div`
@@ -55,7 +55,7 @@ const Input = styled.input`
 
 const Language = styled.span`
     cursor: pointer;
-    margin-left: 10px;
+    
     ${mobile({display: "none"})}
 `
 
@@ -76,7 +76,7 @@ const Logo = styled.h1`
     font-family: 'Helvetica', sans-serif;
     text-align: center;
 
-    ${mobile({fontSize: "1.3rem", marginLeft: "10px"})}
+    ${mobile({fontSize: "1.3rem", marginLeft: "15px"})}
 
 `
 
@@ -85,7 +85,7 @@ const MenuItem = styled.div`
     margin-left: 25px;
     font-size: 0.9rem;
 
-    ${mobile({fontSize: "0.8rem", marginLeft: "15px"})}
+    ${mobile({fontSize: "0.7rem", marginLeft: "15px", fontWeight: "bold"})}
 
 `
 
@@ -99,15 +99,13 @@ const Navbar = () => {
                 </Language>
                 <SearchContainer>
                     <Search style={{
-                        color: "white", 
+                        color: "grey", 
+                        backgroundColor: "white",
                         fontSize: "1rem", 
                         cursor:"pointer",
-                        border: "1px solid lightgrey",
-                        borderRadius: "8px",
-                        marginRight: "5px",
                         padding: "5px",
                         }} />
-                    <Input />
+                    <Input placeholder='Search'/>
                 </SearchContainer>
             </Left>
             <Center>
