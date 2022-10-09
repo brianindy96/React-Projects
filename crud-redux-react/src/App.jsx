@@ -1,10 +1,13 @@
 import './App.css'
+import AllPost from './components/AllPost'
+import Postform from './components/Postform'
 
 function App() {
 
   return (
     <div className="App">
-      Hello
+      <Postform />
+      <AllPost />
     </div>
   )
 }
