@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {mobile, tablet} from "../responsive";
 
 const Container = styled.div`
     width: 100vw;
@@ -17,10 +18,14 @@ const Wrapper = styled.div`
     padding: 20px;
     background-color: #fefdf1;
     border-radius: 10px;
+
+    ${mobile({width: "70%", textAlign: "center"})}
+    ${tablet({width: "50%", textAlign: "center"})}
+
 `
 
 const Title = styled.h1`
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 300;
 `
 const Form = styled.form`
@@ -38,13 +43,16 @@ const Input = styled.input`
 const Button = styled.button`
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 40%;
+    width: 100%;
     padding: 15px 20px;
     background-color: teal;
     color: white;
     cursor: pointer;
     border: none;
     border-radius: 3px;
+    
+
+    ${mobile({width: "100%"})}
 `
 
 const Link = styled.a`
@@ -52,6 +60,9 @@ const Link = styled.a`
     font-size: 12px;
     text-decoration: underline;
     cursor: pointer;
+
+    ${mobile({fontSize: "10px"})}
+
 `
 
 const Login = () => {
