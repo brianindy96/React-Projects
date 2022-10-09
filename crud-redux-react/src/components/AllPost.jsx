@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+
+import EditPost from './EditPost';
 import Post from './Post';
 
 export class AllPost extends Component {
@@ -8,7 +10,9 @@ export class AllPost extends Component {
       <div>
         <h1>All Posts:</h1>
         {this.props.posts.map((post)=>(
-            <Post key={post.id} post={post} />
+            <div key={post.id}>
+                {post.editing ? <EditPost post={post} key={post.id}/> : <Post key={post.id} post={post} /> }
+            </div>
         ))}
       </div>
     )

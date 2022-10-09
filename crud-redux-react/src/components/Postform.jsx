@@ -14,12 +14,13 @@ export class PostForm extends Component {
             id: new Date(),
             title,
             message,
+            editing: false,
         }
 
         // sends action to 
         this.props.dispatch({
             type: 'ADD_POST',
-            data
+            data,
         })
 
         this.getTitle.value='';
@@ -29,7 +30,7 @@ export class PostForm extends Component {
     return (
       <div>
         <h1>Create Post</h1>
-        <form onSubmit={this.handleSubmit} action="">
+        <form onSubmit={this.handleSubmit}>
             <input ref={(input)=> this.getTitle = input} type="text" placeholder="Enter Post Title" required />
             <br></br>
             <textarea ref={(input)=> this.getMessage = input} cols="30" rows="5" placeholder="Enter Post here" />
