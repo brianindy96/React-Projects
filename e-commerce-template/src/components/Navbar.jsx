@@ -6,28 +6,34 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {mobile} from "../responsive";
 
 const Container = styled.div`
-    height: 10vh;
     color: #fff;
     background-color: #252525;
-
-    ${mobile({backgroundColor: "red"})}
 `;
 
 const Wrapper = styled.div`
+    background-color: green;
+    min-height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 25px;
-    padding-right: 25px;
+
+    ${mobile({justifyContent: "flex-start"})}
+
 `
 
 const Left = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
+
+    ${mobile({flex: "0.5"})}
+
 `
 const Center = styled.div`
     flex: 1;
+
+    ${mobile({flex: "0.5"})}
+
 `
 const Right = styled.div`
     flex: 1;
@@ -35,22 +41,32 @@ const Right = styled.div`
     margin-right: 25px;
     align-items: center;
     justify-content: flex-end;
+
+    ${mobile({flex: "2"})}
+
 `
 
 const Input = styled.input`
     border: none;
+
+    ${mobile({width: "50px"})}
+
 `
 
 const Language = styled.span`
     cursor: pointer;
+    margin-left: 10px;
+    ${mobile({display: "none"})}
 `
 
 const SearchContainer = styled.div`
     margin-left: 25px;
     padding: 5px;
-    border: 1px solid lightgrey;
     display: flex;
     border-radius: 8px;
+
+    ${mobile({marginLeft: "10px"})}
+
 `
 // Center
 
@@ -59,12 +75,18 @@ const Logo = styled.h1`
     font-size: 2rem;
     font-family: 'Helvetica', sans-serif;
     text-align: center;
+
+    ${mobile({fontSize: "1.3rem", marginLeft: "10px"})}
+
 `
 
 const MenuItem = styled.div`
     cursor: pointer;
     margin-left: 25px;
     font-size: 0.9rem;
+
+    ${mobile({fontSize: "0.8rem", marginLeft: "15px"})}
+
 `
 
 const Navbar = () => {
@@ -77,11 +99,15 @@ const Navbar = () => {
                 </Language>
                 <SearchContainer>
                     <Search style={{
-                        color: "gray", 
+                        color: "white", 
                         fontSize: "1rem", 
                         cursor:"pointer",
+                        border: "1px solid lightgrey",
+                        borderRadius: "8px",
+                        marginRight: "5px",
+                        padding: "5px",
                         }} />
-                    <Input placeholder="Search Here.."/>
+                    <Input />
                 </SearchContainer>
             </Left>
             <Center>
