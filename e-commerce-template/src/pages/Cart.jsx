@@ -72,6 +72,8 @@ const Product = styled.div`
     display: flex;
     margin-top: 10px;
     justify-content: space-between;
+
+    ${mobile({flexDirection: "column", marginBottom: "5px"})};
 `
 
 const ProductDetail = styled.div`
