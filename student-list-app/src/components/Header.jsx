@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export class EditStudent extends Component {
+export class Header extends Component {
   render() {
     return (
       <div>
-        
+        Hello from Header
       </div>
     )
   }
 }
 
-export default EditStudent
+export default Header
