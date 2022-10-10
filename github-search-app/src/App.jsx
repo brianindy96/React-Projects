@@ -6,6 +6,7 @@ import { thunk_action_creator } from './actions/fetchAction';
 // component that connects the App to redux-store
 import { connect } from "react-redux";
 
+// the app is taking props in from store (which digs deeper to reducers);
 function App(props) {
 
   // variable that holds the input value 
@@ -34,7 +35,10 @@ function App(props) {
          />
         <button type="submit" className="button">Search</button>
       </form>
-      
+      {props.data.isFetching ? <h3>Loading...</h3> : null}
+      {props.data.isError ? (
+        <h3>No such user exists.</h3>
+      ): null}
     </div>
   )
 }
