@@ -12,31 +12,54 @@ const Container = styled.div`
     border-radius: 8px;
     box-shadow: 5px 9px 24px -12px rgba(66, 68, 90, 1);
 `
-
-const ProductName = styled.h1`
-    
-`
-const ProductDesc = styled.p`
-
-`
-
 const ProductImg = styled.div`
     width: 100%;
 `
 
+const ProductName = styled.h1`
+    margin-top: 10px;
+    margin-bottom: 0;
+`
+
+const ProductInfo = styled.div`
+    
+`
+const ProductDesc = styled.p`
+    font-size: 0.8rem;
+    color: grey;
+`
+
+const ProductPrice = styled.p`
+    font-size: 1.3rem;
+
+`
 const Image = styled.img`
     width: 100%;
     object-fit: contain;
     height: 250px;
 `
+
+const AddToCartCon = styled.div`
+    
+`
+
+
 const Product = ({ product }) => {
+    console.log(product);
   return (
     <Container>
         <ProductImg>
-            <Image src={product.image} />
+            <Image src={product.image.url} />
         </ProductImg>
-        <ProductName>{product.name}</ProductName>
-        <ProductDesc>{product.description}</ProductDesc>
+        <ProductInfo>
+            <ProductName>{product.name}</ProductName>
+            <ProductDesc dangerouslySetInnerHTML={{ __html: product.description}} />
+            <ProductPrice>{product.price.formatted_with_symbol}</ProductPrice>
+        </ProductInfo>
+        <AddToCartCon>
+            
+        </AddToCartCon>
+        
     </Container>
   )
 }

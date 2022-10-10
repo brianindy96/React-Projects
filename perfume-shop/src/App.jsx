@@ -21,7 +21,7 @@ function App() {
     fetchProducts();
   }, []);
 
-  console.log(products);
+  // console.log(products);
   // Objects of our products in commerce.js
 
   return (
