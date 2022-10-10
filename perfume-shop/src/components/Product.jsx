@@ -11,6 +11,11 @@ const Container = styled.div`
     text-align: center;
     border-radius: 8px;
     box-shadow: 5px 9px 24px -12px rgba(66, 68, 90, 1);
+    transition: all 0.3s ease;
+
+    &:hover{
+        transform: scale(1.05);
+    }
 `
 const ProductImg = styled.div`
     width: 100%;
