@@ -22,18 +22,18 @@ const Wrapper = styled.div`
     grid-gap: 25px;
 `
 
-const Products = () => {
+const Products = ( { products }) => {
 
-    const products = [
-    {id: 1, name: "Chanel de Bleu", description: "Running Shoes", image: "/img/chanel.png"},
-    {id: 2, name: "Dior Sauvage", description: "Apple Cinnamon" , image: "/img/dior.jpg"},
-    {id: 3, name: "Armani di Giorgio", description: "Running Shoes" , image: "/img/armani.jpg"},
-    {id: 4, name: "Versace Eros", description: "Apple Cinnamon" , image: "/img/versace.jpg"},
-    {id: 5, name: "Azzaro Most Wanted", description: "Running Shoes", image: "/img/azzaro.jpg"},
-    {id: 6, name: "Dolce and Gabbana Lightblue", description: "Apple Cinnamon" , image: "/img/dior.jpg"},
-    {id: 7, name: "Tom Ford Ombre Leather", description: "Running Shoes" , image: "/img/tom.jpg"},
-    {id: 8, name: "Givenchy Gentleman", description: "Apple Cinnamon" , image: "/img/givenchy.jpg"},
-    ];
+    // const products = [
+    // {id: 1, name: "Chanel de Bleu", description: "Running Shoes", image: "/img/chanel.png"},
+    // {id: 2, name: "Dior Sauvage", description: "Apple Cinnamon" , image: "/img/dior.jpg"},
+    // {id: 3, name: "Armani di Giorgio", description: "Running Shoes" , image: "/img/armani.jpg"},
+    // {id: 4, name: "Versace Eros", description: "Apple Cinnamon" , image: "/img/versace.jpg"},
+    // {id: 5, name: "Azzaro Most Wanted", description: "Running Shoes", image: "/img/azzaro.jpg"},
+    // {id: 6, name: "Dolce and Gabbana Lightblue", description: "Apple Cinnamon" , image: "/img/dior.jpg"},
+    // {id: 7, name: "Tom Ford Ombre Leather", description: "Running Shoes" , image: "/img/tom.jpg"},
+    // {id: 8, name: "Givenchy Gentleman", description: "Apple Cinnamon" , image: "/img/givenchy.jpg"},
+    // ];
 
 
   return (
