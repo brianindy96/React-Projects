@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import Badge from '@mui/material/Badge';
 
 const Container = styled.div`
     height: 10vh;
@@ -33,7 +35,9 @@ const Navbar = () => {
                 </Logo>
             </LogoCon>
             <CartCon>
-                cart
+                <Badge badgeContent={4} color="primary">
+                    <ShoppingCartOutlinedIcon />
+                </Badge>
             </CartCon>
         </Wrapper>
     </Container>
