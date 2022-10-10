@@ -8,7 +8,7 @@ const Container = styled.div`
 `
 
 const Wrapper = styled.div`
-    background-color: black;
+    background-color: #252525;
     color: white;
     padding: 0px 40px;
     display: flex;
