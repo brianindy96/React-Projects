@@ -1,6 +1,12 @@
 import './App.css'
+import UserInfo from "./UserInfo"
 
-function App() {
+// dispatching action
+import { thunk_action_creator } from './actions/fetchAction';
+// component that connects the App to redux-store
+import { connect } from "react-redux";
+
+function App(props) {
 
   // variable that holds the input value 
   let getUsername;
@@ -8,8 +14,10 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const username = getUsername.value;
-    console.log(username);
-    
+    props.dispatch(thunk_action_creator(username));
+    getUsername.value = "";
+
+    console.log(props.data);
   }
   return (
     <div className="container">
@@ -31,4 +39,10 @@ function App() {
   )
 }
 
-export default App
+const mapStateToProps = state =>{
+  return{
+    data: state,
+  }
+}
+
+export default connect(mapStateToProps)(App);
