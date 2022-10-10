@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import IconButton from '@mui/material/IconButton';
 
 const Container = styled.div`
+    max-height: 600px;
     border: 1px solid lightgrey;
     padding: 20px;
     display: flex;
@@ -10,12 +13,8 @@ const Container = styled.div`
     align-items: center;
     text-align: center;
     border-radius: 8px;
+    position: relative;
     box-shadow: 5px 9px 24px -12px rgba(66, 68, 90, 1);
-    transition: all 0.3s ease;
-
-    &:hover{
-        transform: scale(1.05);
-    }
 `
 const ProductImg = styled.div`
     width: 100%;
@@ -45,7 +44,13 @@ const Image = styled.img`
 `
 
 const AddToCartCon = styled.div`
-    
+    position: absolute;
+    bottom: 0;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 `
 
 
@@ -62,7 +67,9 @@ const Product = ({ product }) => {
             <ProductPrice>{product.price.formatted_with_symbol}</ProductPrice>
         </ProductInfo>
         <AddToCartCon>
-            
+            <IconButton>
+                <AddShoppingCartIcon style={{padding: "0", margin: "0", height: "30px", width: "30px"}} />
+            </IconButton>
         </AddToCartCon>
         
     </Container>
