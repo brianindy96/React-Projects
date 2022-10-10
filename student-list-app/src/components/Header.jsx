@@ -8,8 +8,14 @@ export class Header extends Component {
         <div className="Wrapper">
             <Link>Home</Link>
             <button>
-                
+
             </button>
+            <div>
+                <ul>
+                    <li><Link to="/">All Students</Link></li>
+                    <li><Link to="/add">Add Students</Link></li>
+                </ul>
+            </div>
         </div>
       </div>
     )
