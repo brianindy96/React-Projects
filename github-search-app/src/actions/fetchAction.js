@@ -1,0 +1,22 @@
+import store from "../store";
+
+// fetches post
+export const fetch_post = () =>{
+    return{
+        type: "FETCH_USER"
+    }
+}
+
+// once received post
+export const receive_post = post =>{
+    return{
+        type: "FETCHED_USER",
+        data: post,
+    }
+}
+
+export const receive_error = () =>{
+    return{
+        type: "RECEIVE_ERROR"
+    }
+}
