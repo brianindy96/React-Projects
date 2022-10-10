@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import "./Header.css"
 
 export class Header extends Component {
   render() {
@@ -8,7 +9,7 @@ export class Header extends Component {
         <div className="Wrapper">
             <Link>Home</Link>
             <button>
-
+                
             </button>
             <div>
                 <ul>
