@@ -40,3 +40,5 @@ export const thunk_action_creator = username => {
             .catch(err => dispatch(receive_error));
     }
 }
+
+export default { thunk_action_creator} 

@@ -35,10 +35,16 @@ function App(props) {
          />
         <button type="submit" className="button">Search</button>
       </form>
+      {/* Loading message */}
       {props.data.isFetching ? <h3>Loading...</h3> : null}
+      {/* Error Message */}
       {props.data.isError ? (
         <h3>No such user exists.</h3>
       ): null}
+      {/* Display userinfo */}
+      {Object.keys(props.data.userData).length > 0 ? (
+        <UserInfo user={props.data.userData} />
+      ) : null}
     </div>
   )
 }

@@ -2,7 +2,7 @@ const UserInfo = props =>{
     return (
         <div className="user-info">
             <div className="avatar">
-                <img src={props.user.avatar.url} alt="avatar"/>
+                <img src={props.user.avatar_url} alt="avatar"/>
             </div>
             <div className="content">
                 <h1>{props.user.name}</h1>
