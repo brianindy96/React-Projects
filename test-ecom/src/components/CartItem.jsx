@@ -6,8 +6,9 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  border: 1px solid black;
-  padding: 20px 40px;
+  border: 1px solid lightgrey;
+  padding: 30px 40px;
+  margin-bottom: 20px;
 `
 
 const ItemImg = styled.img`
