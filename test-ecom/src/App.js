@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Products from './components/Products';
 import Cart from './components/Cart';
 import Navbar from './components/Navbar';
-
+import { Routes, Route } from "react-router"
 
 const App = () => {
 
@@ -47,11 +47,10 @@ const App = () => {
     <div className="app">
       <Navbar 
       totalItems={cart.total_items} />
-      <Products 
-      products={products}
-      onAddToCart={handleAddToCart}/>
-      <Cart 
-      cart={cart} />
+      <Routes>
+        <Route path='/' element={<Products products = {products} onAddToCart = {handleAddToCart}/>} />
+        <Route path='/cart' element={<Cart cart={cart} />} />
+      </Routes> 
     </div>
   )
 }
