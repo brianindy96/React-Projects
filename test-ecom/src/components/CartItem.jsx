@@ -3,6 +3,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Container = styled.div`
   display: flex;
@@ -37,7 +39,8 @@ const QtyCon = styled.div`
 `
 
 const Qty = styled.p`
-  
+  margin-left: 5px;
+  margin-right: 5px;
 `
 
 const ItemPrice = styled.div`
@@ -46,19 +49,6 @@ const ItemPrice = styled.div`
 
 const ItemRemove = styled.button`
   
-`
-
-const Plus = styled.button`
-  padding: 3px;
-  margin: 0 8px;
-  border-radius: 3px;
-  cursor: pointer;
-`
-const Minus = styled.button`
-  padding: 3px;
-  cursor: pointer;
-  margin: 0 8px;
-  border-radius: 3px;
 `
 const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
 
@@ -79,19 +69,20 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
       <ItemDetails>
         <ItemName>{item.name}</ItemName>
         <QtyCon>
-          <Minus 
-          onClick={() => item.quantity > 1 ? handleUpdateCartQty(item.id, item.quantity - 1) : handleRemoveFromCart()}>-</Minus>
+          <Button variant="container" style={{padding: "7px", marginRight: "5px"}}
+          onClick={() => item.quantity > 1 ? handleUpdateCartQty(item.id, item.quantity - 1) : handleRemoveFromCart()}>-</Button>
           <Qty>{item.quantity}</Qty>
-          <Plus onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>+</Plus>
+          <Button variant="container" style={{padding: "7px", marginLeft: "5px"}} onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>+</Button>
         </QtyCon>
         <ItemPrice>{item.line_total.formatted_with_symbol}</ItemPrice>
-      </ItemDetails>
-      <ItemRemove
+        <Button style={{marginTop: "10px"}} variant="outlined" startIcon={<DeleteIcon />}
         type="button"
         onClick={handleRemoveFromCart}
       >
         Remove
-      </ItemRemove>
+      </Button>
+      </ItemDetails>
+      
     </Container>
   );
 };
