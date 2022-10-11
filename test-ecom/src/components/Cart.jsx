@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CartItem from './CartItem';
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -58,7 +59,7 @@ const Cart = ({ cart }) => {
 
   const handleEmptyCart = () => {
     // onEmptyCart();
-    console.log("empty cart");
+    
   }
 
   const renderEmptyMessage = () => {
@@ -68,7 +69,8 @@ const Cart = ({ cart }) => {
 
     return (
       <EmptyMessage>
-        You have no items in your shopping cart, start adding some!
+        You have no items in your shopping cart,
+        <Link to="/">start adding some here!</Link> 
       </EmptyMessage>
     );
   }
