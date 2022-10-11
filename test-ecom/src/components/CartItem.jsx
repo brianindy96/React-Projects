@@ -10,10 +10,14 @@ const Container = styled.div`
   padding: 30px 40px;
   margin-bottom: 20px;
 `
-
-const ItemImg = styled.img`
+const ImgCon = styled.div`
   width: 150px;
-  
+  height: 150px;
+`
+const ItemImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 `
 
 const ItemDetails = styled.div`
@@ -69,7 +73,9 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
 
   return (
     <Container>
-      <ItemImg src={item.image.url} alt={item.name} />
+      <ImgCon>
+        <ItemImg src={item.image.url} alt={item.name} />
+      </ImgCon>
       <ItemDetails>
         <ItemName>{item.name}</ItemName>
         <QtyCon>

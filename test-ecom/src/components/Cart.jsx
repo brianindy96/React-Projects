@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CartItem from './CartItem';
 import PropTypes from "prop-types"
 import styled from "styled-components"
@@ -95,7 +95,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   return (
     <Container>
       <Title>Your Shopping Cart</Title>
-      {/* { renderEmptyMessage() } */}
+      { renderEmptyMessage() }
       <ProductCon>
         <Left>
           { renderItems() }
