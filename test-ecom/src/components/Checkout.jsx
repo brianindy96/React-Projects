@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
 import { Stepper, Step, StepLabel } from "@mui/material";
 import PaymentForm from './PaymentForm';
 import AddressForm from './AddressForm';
+import commerce from "../lib/commerce"
 
 const Container = styled.div`
     min-height: 80vh;
@@ -14,6 +15,7 @@ const Container = styled.div`
 `
 
 const Wrapper = styled.div`
+    margin-top: 30px;
     padding: 20px;
     width: 50%;
     box-shadow: 5px 9px 24px -12px rgba(66, 68, 90, 1);
@@ -24,9 +26,29 @@ const steps = [
     'Payment Details',
   ];
 
-const Checkout = () => {
+const Checkout = ({ cart }) => {
 
     const [activeStep, setActiveStep] = useState(0);
+    const [checkoutToken, setCheckoutToken] = useState(null);
+
+    // fetch checkoutTokenId
+    useEffect(() => {
+      const generateToken = async () => {
+        try{
+            const token = await commerce.checkout.generateToken(cart.id,{ type: 'cart' });
+
+            // console.log(token);
+
+            setCheckoutToken(token);
+        } catch (error){
+
+        }
+      }
+
+      generateToken();
+    //   the token has to be recreated, everytime the cart updates
+    }, [cart])
+    
 
     const Confirmation = () => (
         <div>
@@ -34,7 +56,10 @@ const Checkout = () => {
         </div>
     )
 
-    const Form = () => activeStep === 0 ? <AddressForm /> : <PaymentForm />
+    const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} /> : <PaymentForm />
+
+    // React Flow
+    // RENDER JSX => Useeffect 
   return (
     <Container>
         <Wrapper>
@@ -45,7 +70,8 @@ const Checkout = () => {
                 </Step>
             ))}
             </Stepper>
-            {activeStep === steps.length ? <Confirmation /> : <Form />}
+            {/* IF WE HAVE THE CHECKOUT TOKEN THEN RUNS THE FORM component */}
+            {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
         </Wrapper>
     </Container>
   )

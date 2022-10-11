@@ -66,7 +66,6 @@ const App = () => {
     fetchCart();
   }, []);
 
-  console.log(cart);
   
 
   return (
@@ -82,7 +81,7 @@ const App = () => {
         onEmptyCart={handleEmptyCart} 
         onRemoveFromCart={handleRemoveFromCart} 
         />} />
-        <Route exact path="/checkout" element={<Checkout />} /> 
+        <Route exact path="/checkout" element={<Checkout cart={cart} />} /> 
       </Routes> 
     </div>
   )
