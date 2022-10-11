@@ -5,6 +5,8 @@ import Products from './components/Products';
 import Cart from './components/Cart';
 import Navbar from './components/Navbar';
 import { Routes, Route } from "react-router"
+import Announcement from './components/Announcement';
+import Checkout from './components/Checkout';
 
 const App = () => {
 
@@ -71,14 +73,16 @@ const App = () => {
     <div className="app">
       <Navbar 
       totalItems={cart.total_items} />
+      <Announcement />
       <Routes>
-        <Route path='/' element={<Products products = {products} onAddToCart = {handleAddToCart}/>} />
-        <Route path='/cart' element={<Cart 
+        <Route exact path='/' element={<Products products = {products} onAddToCart = {handleAddToCart}/>} />
+        <Route exact path='/cart' element={<Cart 
         cart={cart} 
         onUpdateCartQty={handleUpdateCartQty} 
         onEmptyCart={handleEmptyCart} 
         onRemoveFromCart={handleRemoveFromCart} 
         />} />
+        <Route exact path="/checkout" element={<Checkout />} /> 
       </Routes> 
     </div>
   )

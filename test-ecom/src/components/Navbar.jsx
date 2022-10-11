@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import { Link, useLocation } from "react-router-dom"
 
 const Container = styled.div`
-    height: 10vh;
+    height: 8vh;
 `
 
 const Wrapper = styled.div`

@@ -3,6 +3,7 @@ import CartItem from './CartItem';
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { Link } from "react-router-dom";
+import Button from '@mui/material/Button';
 
 const Container = styled.div`
   width: 100%;
@@ -17,6 +18,7 @@ const ProductCon = styled.div`
 `
 
 const Left = styled.div`
+  text-align: center;
   flex: 2;
   margin: 0px 20px;
 `
@@ -26,19 +28,12 @@ const Right = styled.div`
 `
 
 const CartFooter = styled.div`
-  
-`
-
-const EmptyBtn = styled.button`
-  margin: 10px;
-`
-
-const CheckoutBtn = styled.button`
-  
+  margin-top: 10px;
+  display: flex;
 `
 
 const EmptyMessage = styled.p`
-  
+    font-size: 1.3rem;
 `
 
 const TotalContainer = styled.div`
@@ -95,16 +90,16 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
   return (
     <Container>
       <Title>Your Shopping Cart</Title>
-      { renderEmptyMessage() }
       <ProductCon>
         <Left>
+          { renderEmptyMessage() }
           { renderItems() }
         </Left>
         <Right>
           { renderTotal() }
           <CartFooter>
-            <EmptyBtn onClick={handleEmptyCart}>Empty cart</EmptyBtn>
-            <CheckoutBtn>Checkout</CheckoutBtn> 
+            <Button style={{padding: "2px 5px", margin: "0 10px"}} variant="contained" color="error" onClick={handleEmptyCart}>Empty cart</Button>
+            <Button color="success" variant="contained" as={Link} to ="/checkout" style={{textDecoration: "none"}}>Checkout</Button> 
           </CartFooter>
         </Right>
         

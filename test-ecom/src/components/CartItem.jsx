@@ -8,6 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const Container = styled.div`
   display: flex;
+  justify-content: center;
   border: 1px solid lightgrey;
   padding: 30px 40px;
   margin-bottom: 20px;
@@ -47,9 +48,6 @@ const ItemPrice = styled.div`
   
 `
 
-const ItemRemove = styled.button`
-  
-`
 const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
 
   const handleUpdateCartQty = (lineItemId, quantity) => {
