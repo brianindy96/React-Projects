@@ -55,11 +55,10 @@ const TotalPrice = styled.p`
   
 `
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
   const handleEmptyCart = () => {
-    // onEmptyCart();
-    
+    onEmptyCart();
   }
 
   const renderEmptyMessage = () => {
@@ -80,6 +79,8 @@ const Cart = ({ cart }) => {
       <CartItem
         item={lineItem}
         key={lineItem.id}
+        onUpdateCartQty={onUpdateCartQty}
+        onRemoveFromCart={onRemoveFromCart}
       />
     ))
   );
@@ -102,7 +103,7 @@ const Cart = ({ cart }) => {
         <Right>
           { renderTotal() }
           <CartFooter>
-            <EmptyBtn>Empty cart</EmptyBtn>
+            <EmptyBtn onClick={handleEmptyCart}>Empty cart</EmptyBtn>
             <CheckoutBtn>Checkout</CheckoutBtn> 
           </CartFooter>
         </Right>
@@ -118,7 +119,7 @@ const Cart = ({ cart }) => {
 
 Cart.propTypes = {
     cart: PropTypes.object,
-    // onEmptyCart: () => {},
+    onEmptyCart: () => {},
 };
 
 export default Cart;

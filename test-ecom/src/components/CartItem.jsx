@@ -56,7 +56,16 @@ const Minus = styled.button`
   margin: 0 8px;
   border-radius: 3px;
 `
-const CartItem = ({ item }) => {
+const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
+
+  const handleUpdateCartQty = (lineItemId, quantity) => {
+    onUpdateCartQty(lineItemId, quantity);
+  }
+
+	const handleRemoveFromCart = () => {
+		onRemoveFromCart(item.id);
+	}
+
 
   return (
     <Container>
@@ -64,14 +73,16 @@ const CartItem = ({ item }) => {
       <ItemDetails>
         <ItemName>{item.name}</ItemName>
         <QtyCon>
-          <Minus>-</Minus>
+          <Minus 
+          onClick={() => item.quantity > 1 ? handleUpdateCartQty(item.id, item.quantity - 1) : handleRemoveFromCart()}>-</Minus>
           <Qty>{item.quantity}</Qty>
-          <Plus>+</Plus>
+          <Plus onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>+</Plus>
         </QtyCon>
         <ItemPrice>{item.line_total.formatted_with_symbol}</ItemPrice>
       </ItemDetails>
       <ItemRemove
         type="button"
+        onClick={handleRemoveFromCart}
       >
         Remove
       </ItemRemove>

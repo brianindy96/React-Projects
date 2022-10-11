@@ -35,6 +35,30 @@ const App = () => {
     });
   }
 
+  const handleUpdateCartQty = (lineItemId, quantity) => {
+    commerce.cart.update(lineItemId, { quantity }).then((resp) => {
+      setCart(resp.cart);
+    }).catch((error) => {
+      console.log('There was an error updating the cart items', error);
+    });
+  };
+
+  const handleRemoveFromCart = (lineItemId) => {
+    commerce.cart.remove(lineItemId).then((resp) => {
+      setCart(resp.cart);
+    }).catch((error) => {
+      console.error('There was an error removing the item from the cart', error);
+    });
+  }
+
+  const handleEmptyCart = () => {
+    commerce.cart.empty().then((resp) => {
+      setCart(resp.cart);
+    }).catch((error) => {
+      console.error('There was an error emptying the cart', error);
+    });
+  }
+
   useEffect(() => {
     fetchProducts();
     fetchCart();
@@ -49,7 +73,12 @@ const App = () => {
       totalItems={cart.total_items} />
       <Routes>
         <Route path='/' element={<Products products = {products} onAddToCart = {handleAddToCart}/>} />
-        <Route path='/cart' element={<Cart cart={cart} />} />
+        <Route path='/cart' element={<Cart 
+        cart={cart} 
+        onUpdateCartQty={handleUpdateCartQty} 
+        onEmptyCart={handleEmptyCart} 
+        onRemoveFromCart={handleRemoveFromCart} 
+        />} />
       </Routes> 
     </div>
   )
