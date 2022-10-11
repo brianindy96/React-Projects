@@ -4,7 +4,7 @@ import { useFormContext, Controller } from "react-hook-form";
 import { TextField } from '@mui/material';
 
 const Container = styled.div`
-  
+
 `
 
 const FormInput = ({ name, label, required }) => {
@@ -23,7 +23,7 @@ const FormInput = ({ name, label, required }) => {
           defaultValue=""
           render= {({field}) => (
             <TextField
-            style={{padding: "0", margin: "0"}} 
+            style={{padding: "0", margin: "0", width: "100%"}} 
             {...field}
             label={label}
             required
