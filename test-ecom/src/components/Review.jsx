@@ -17,7 +17,7 @@ const Total = styled.p`
 const Subtotal = styled.p`
     
 `
-const Review = ({ checkoutToken }) => {
+const Review = ({ checkoutToken, backStep }) => {
   return (
     <Container>
         <Title>Order Summary: </Title>

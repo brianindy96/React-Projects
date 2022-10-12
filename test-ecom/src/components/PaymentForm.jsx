@@ -23,7 +23,7 @@ const BtnCon = styled.div`
 
 const stripePromise = loadStripe('...');
 
-const PaymentForm = ({ checkoutToken }) => {
+const PaymentForm = ({ checkoutToken, backStep }) => {
   return (
     <Container>
         <Review checkoutToken={checkoutToken} />
@@ -40,7 +40,7 @@ const PaymentForm = ({ checkoutToken }) => {
                 <br />
                 <br />
                 <BtnCon>
-                  <Button variant="outlined">back</Button>
+                  <Button variant="outlined" onClick={backStep}>back</Button>
                   <Button variant="contained">
                     pay { checkoutToken.live.subtotal.formatted_with_symbol}
                     </Button>
