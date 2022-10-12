@@ -31,6 +31,7 @@ const Checkout = ({ cart }) => {
 
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
+    const [shippingData, setShippingData] = useState({})
 
     // fetch checkoutTokenId
     useEffect(() => {
@@ -44,11 +45,20 @@ const Checkout = ({ cart }) => {
         } catch (error){
 
         }
-      }
+      };
 
       generateToken();
     //   the token has to be recreated, everytime the cart updates
-    }, [cart])
+    }, [cart]);
+
+    const addStep = () => setActiveStep((prevStep) => prevStep + 1);
+    const backStep = () => setActiveStep((prevStep) => prevStep - 1);
+
+    const next = (data) => {
+        setShippingData(data);
+
+        addStep();
+    };
     
 
     const Confirmation = () => (
@@ -57,7 +67,7 @@ const Checkout = ({ cart }) => {
         </div>
     )
 
-    const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} /> : <PaymentForm />
+    const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm />
 
     // React Flow
     // RENDER JSX => Useeffect 

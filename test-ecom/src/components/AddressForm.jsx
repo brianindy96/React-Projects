@@ -143,7 +143,7 @@ console.log(options);
         <Title>Shipping Address</Title>
         {/* spreads all the method from react-hook-form */}
         <FormProvider {...methods}>
-            <Form >
+            <Form onSubmit={methods.handleSubmit((data) => )} >
               <BasicDetails>
                 <FormInput name="firstName" label="First Name" />         
                 <FormInput name="lastName" label="Last Name"/>          
