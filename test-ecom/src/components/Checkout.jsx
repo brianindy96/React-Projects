@@ -19,6 +19,7 @@ const Wrapper = styled.div`
     padding: 20px;
     width: 50%;
     box-shadow: 5px 9px 24px -12px rgba(66, 68, 90, 1);
+    margin-bottom: 30px;
 
 `
 const steps = [

@@ -47,14 +47,14 @@ const AddressForm = ({ checkoutToken }) => {
     
         // ------------------COUNTRIES------------------------------
     const fetchShippingCountries = async(checkoutTokenId) => {
-      const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
+      const countries = await commerce.services.localeListShippingCountries(checkoutTokenId);
 
       // after we receive checkoutToken, we receive countries list as OBJECTS
       
 
-      console.log(Object.values(countries));
+      // console.log(countries.countries);
       // ["CN", "TH", "JP", "LA", "SG"]
-      setShippingCountries(Object.values(countries));
+      setShippingCountries(countries.countries);
 
       
     }
@@ -70,20 +70,20 @@ const AddressForm = ({ checkoutToken }) => {
     ));
 
     const fetchSubdivisions = async (countryCode) => {
-        const { subdivisions } = await commerce.services.localeListSubdivisions(countryCode);
+        const subdivisions = await commerce.services.localeListSubdivisions(countryCode);
 
 
-        console.log(subdivisions);
+        // console.log(subdivisions.subdivisions);
+        // { AH: "Anhui Sheng", BG... sd.f sd.f.s}
+        // console.log(Object.values(subdivisions));
 
-        console.log(Object.values(subdivisions));
-
-        setShippingSubdivisions(subdivisions);
+        setShippingSubdivisions(subdivisions.subdivisions);
+        
     }
 
 // -------------------------------useEffects----------------------------
     useEffect(() => {
       fetchShippingCountries(checkoutToken.id);
-
     }, [])
 
     // WE CAN'T CALL fetchSubdivisions in the same useEffect function
@@ -93,10 +93,12 @@ const AddressForm = ({ checkoutToken }) => {
       // If there is a shippingCountry, then call fetchSubdivisions
       if(shippingCountry) {
         fetchSubdivisions(shippingCountry)
+        // console.log(shippingCountry);
       };
     }, [shippingCountry]);
 
     // console.log(shippingCountry);
+    // CN
     // console.log(shippingCountries);
   return (
     <Container>
@@ -115,11 +117,11 @@ const AddressForm = ({ checkoutToken }) => {
               <SelectCon>
                 <InputLabel>Shipping Country</InputLabel>
                 <Select value={shippingCountry} fullWidth onChange={(e)=> setShippingCountry(e.target.value)}>
-                  {countries.map((country)=>(
-                    <MenuItem style={{textAlign: "center"}} key={country.id} value={country.code}>
-                      {country.label}
-                    </MenuItem>
-                  ))};
+                    {countries.map((country)=>(
+                      <MenuItem style={{textAlign: "center"}} key={country.id} value={country.id}>
+                        {country.label}
+                      </MenuItem>
+                    ))};
                  
                 </Select>
               </SelectCon>
@@ -127,7 +129,7 @@ const AddressForm = ({ checkoutToken }) => {
                 <InputLabel>Shipping Subdivision</InputLabel>
                 <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
                  {subdivisions.map((subdivision)=>(
-                    <MenuItem key={subdivision.id} value={subdivision.name}>
+                    <MenuItem key={subdivision.id} value={subdivision.id}>
                       {subdivision.label}
                     </MenuItem>
                  ))}
