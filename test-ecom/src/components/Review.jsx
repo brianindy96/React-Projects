@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from "styled-components"
-import { List, ListItem, ListItemText } from "@mui/material"
+import { List, ListItem, ListItemText, Divider } from "@mui/material"
 
 const Container = styled.div`
     
 `
 
 const Title = styled.h3`
-    
+    margin-left: 20px;
 `
 
 const Total = styled.p`
@@ -21,7 +21,7 @@ const Review = ({ checkoutToken }) => {
   return (
     <Container>
         <Title>Order Summary: </Title>
-        <hr style={{color: "lightgray"}}></hr>
+        <Divider />
         <List>
             {checkoutToken.live.line_items.map((product) => (
                 <ListItem key={product.name}>
