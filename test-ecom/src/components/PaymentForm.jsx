@@ -84,9 +84,9 @@ const PaymentForm = ({ addStep, checkoutToken, backStep, onCaptureCheckout, ship
                 <br />
                 <BtnCon>
                   <Button variant="outlined" onClick={backStep}>back</Button>
-                  <Button variant="contained">
+                  <Button type="submit" disabled={!stripe} variant="contained">
                     pay { checkoutToken.live.subtotal.formatted_with_symbol}
-                    </Button>
+                  </Button>
                 </BtnCon>
               </form>
             )}

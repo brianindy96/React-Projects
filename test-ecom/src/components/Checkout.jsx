@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import styled from "styled-components";
-import { Stepper, Step, StepLabel } from "@mui/material";
+import { Stepper, Step, StepLabel, Divider, Button, CircularProgress } from "@mui/material";
 import PaymentForm from './PaymentForm';
 import AddressForm from './AddressForm';
 import commerce from "../lib/commerce"
+import { Link, useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
     min-height: 80vh;
@@ -22,17 +23,38 @@ const Wrapper = styled.div`
     margin-bottom: 30px;
 
 `
+
+// --------------CONFIRMATION STYLES -----------------------
+
+const Summary = styled.div`
+    
+`
+
+const SumTitle = styled.h2`
+    
+`
+
+const OrderRef = styled.h3`
+
+`
+const CircleCon = styled.div`
+    
+`
+
+const ErrorMessage = styled.h3``
+
 const steps = [
     'Shipping Address',
     'Payment Details',
-  ];
+];
 
 const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
-    const [activeStep, setActiveStep] = useState(1);
+    const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
-    const [shippingData, setShippingData] = useState({})
-
+    const [shippingData, setShippingData] = useState({});
+    //
+    const navigate = useNavigate();
     // fetch checkoutTokenId
     useEffect(() => {
       const generateToken = async () => {
@@ -43,7 +65,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
             setCheckoutToken(token);
         } catch (error){
-
+            navigate.pushState('/');
         }
       };
 
@@ -60,19 +82,43 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         addStep();
     };
     
+    // -------------------- CONFIRMATION------------------------
 
-    const Confirmation = () => (
-        <div>
-            Confirmation
-        </div>
-    )
+    let Confirmation = () => order.customer ? (
+        <>
+            <Summary>
+                <SumTitle>Thank you for your purchase, {order.customer.firstname} {order.customer.lastname}</SumTitle>
+                <Divider />
+                <OrderRef>Order Ref: {order.customer_reference}</OrderRef>
+            </Summary>
+            <br />
+            <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
+        </>
+    ) : (
+        <>
+            <CircleCon>
+                <CircularProgress />
+            </CircleCon>
+        </>
+    );
+
+    // FROM APP.js
+    if(error){
+        <>
+            <ErrorMessage>Error: {error}</ErrorMessage>
+            <br />
+            <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
+        </>
+    }
+
+    // -----------------------FORM-----------------------
 
     const Form = () => activeStep === 0 ? 
     <AddressForm checkoutToken={checkoutToken} next={next} /> 
     // sends shippingData from AddressForm to Paymentform
     : <PaymentForm onCaptureCheckout={onCaptureCheckout} addStep={addStep} backStep={backStep} shippingData={shippingData} checkoutToken={checkoutToken} />
 
-    // React Flow
+    // HOW REACT FLOW
     // RENDER JSX => Useeffect 
   return (
     <Container>

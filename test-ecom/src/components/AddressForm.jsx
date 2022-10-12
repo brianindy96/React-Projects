@@ -5,7 +5,7 @@ import FormInput from './FormInput';
 import commerce from "../lib/commerce.js"
 import Button from '@mui/material/Button';
 
-import { Select, SelectChangeEvent, MenuItem, InputLabel} from "@mui/material";
+import { Select, MenuItem, InputLabel} from "@mui/material";
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
