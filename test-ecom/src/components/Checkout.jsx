@@ -67,7 +67,10 @@ const Checkout = ({ cart }) => {
         </div>
     )
 
-    const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm />
+    const Form = () => activeStep === 0 ? 
+    <AddressForm checkoutToken={checkoutToken} next={next} /> 
+    // sends shippingData from AddressForm to Paymentform
+    : <PaymentForm shippingData={shippingData} />
 
     // React Flow
     // RENDER JSX => Useeffect 

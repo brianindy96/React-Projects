@@ -40,7 +40,7 @@ const BtnCon = styled.div`
 
 
 
-const AddressForm = ({ checkoutToken }) => {
+const AddressForm = ({ checkoutToken, next }) => {
     // gives us all the methods from react-hook-form to use
     const methods = useForm();
     
@@ -143,7 +143,8 @@ console.log(options);
         <Title>Shipping Address</Title>
         {/* spreads all the method from react-hook-form */}
         <FormProvider {...methods}>
-            <Form onSubmit={methods.handleSubmit((data) => )} >
+                  {/* if we just pass in data, it only accounts 6 FormInputs, not Select */}
+            <Form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption}))} >
               <BasicDetails>
                 <FormInput name="firstName" label="First Name" />         
                 <FormInput name="lastName" label="Last Name"/>          
