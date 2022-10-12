@@ -29,7 +29,7 @@ const steps = [
 
 const Checkout = ({ cart }) => {
 
-    const [activeStep, setActiveStep] = useState(0);
+    const [activeStep, setActiveStep] = useState(1);
     const [checkoutToken, setCheckoutToken] = useState(null);
     const [shippingData, setShippingData] = useState({})
 
@@ -70,7 +70,7 @@ const Checkout = ({ cart }) => {
     const Form = () => activeStep === 0 ? 
     <AddressForm checkoutToken={checkoutToken} next={next} /> 
     // sends shippingData from AddressForm to Paymentform
-    : <PaymentForm shippingData={shippingData} />
+    : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} />
 
     // React Flow
     // RENDER JSX => Useeffect 
