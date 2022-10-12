@@ -27,7 +27,7 @@ const CartCon = styled.div`
 const Logo = styled.h1`
     
 `
-const Navbar = () => {
+const Navbar = ({totalItems}) => {
   return (
     <Container>
         <Wrapper>
@@ -38,7 +38,7 @@ const Navbar = () => {
             </LogoCon>
             <CartCon>
                 <IconButton style={{color: "white"}}>
-                    <Badge badgeContent={4} color="primary">
+                    <Badge badgeContent={totalItems} color="primary">
                         <ShoppingCartOutlinedIcon />
                     </Badge>
                 </IconButton>

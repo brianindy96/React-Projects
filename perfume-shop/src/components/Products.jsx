@@ -22,7 +22,7 @@ const Wrapper = styled.div`
     grid-gap: 25px;
 `
 
-const Products = ( { products }) => {
+const Products = ( { products , onAddToCart  }) => {
 
     // const products = [
     // {id: 1, name: "Chanel de Bleu", description: "Running Shoes", image: "/img/chanel.png"},
@@ -41,7 +41,7 @@ const Products = ( { products }) => {
         <Title>Our Products:</Title>
         <Wrapper>
             {products.map((product)=>(
-                <Product key={product.id} product={product} />
+                <Product key={product.id} onAddToCart={onAddToCart} product={product} />
             ))}
         </Wrapper>
     </Container>

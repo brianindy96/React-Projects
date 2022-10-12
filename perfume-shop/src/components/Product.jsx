@@ -54,8 +54,7 @@ const AddToCartCon = styled.div`
 `
 
 
-const Product = ({ product }) => {
-    console.log(product);
+const Product = ({ product, onAddToCart}) => {
   return (
     <Container>
         <ProductImg>
@@ -67,7 +66,7 @@ const Product = ({ product }) => {
             <ProductPrice>{product.price.formatted_with_symbol}</ProductPrice>
         </ProductInfo>
         <AddToCartCon>
-            <IconButton>
+            <IconButton onClick={()=> onAddToCart(product.id, 1)}>
                 <AddShoppingCartIcon style={{padding: "0", margin: "0", height: "30px", width: "30px"}} />
             </IconButton>
         </AddToCartCon>

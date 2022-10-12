@@ -8,13 +8,13 @@ function App() {
   
   // state inside the store
   // useSelector is a callback function
-  // basically returning the state from the store here
+  // BASICALLY RETURNING THE STATE FROM THE STORE HERE
   // const state = useSelector((state) => state)
   // OUTPUT: Object {account:0}
-
     const account = useSelector((state) => state.account)
     // console.log(account);
     //  OUTPUT: 0
+    // DISPATCH IS ASYNC; THEREFORE WE NEED MIDDLEWARE CONFIGURED IN STORE
     const dispatch = useDispatch();
 
     // const AC = bindActionCreators(actionCreators, dispatch);

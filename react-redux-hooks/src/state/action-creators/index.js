@@ -1,5 +1,6 @@
 // ACTION CREATOR
 
+// the amount parameter will be given from components
 export const depositMoney = (amount) =>{
     return (dispatch) => {
         dispatch({
@@ -9,6 +10,7 @@ export const depositMoney = (amount) =>{
     }
 }
 
+// the amount parameter will be given from components
 export const withdrawMoney = (amount) =>{
     return (dispatch) => {
         dispatch({

@@ -31,11 +31,12 @@ const Summary = styled.div`
 `
 
 const SumTitle = styled.h2`
-    
+    font-weight: 400;
+
 `
 
 const OrderRef = styled.h3`
-
+    font-weight: 400;
 `
 const CircleCon = styled.div`
     
