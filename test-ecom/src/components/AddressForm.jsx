@@ -42,8 +42,8 @@ const AddressForm = ({ checkoutToken }) => {
     const [shippingCountry, setShippingCountry] = useState('')
     const [shippingSubdivisions, setShippingSubdivisions] = useState([])
     const [shippingSubdivision, setShippingSubdivision] = useState('')
-    // const [shippingOptions, setShippingOptions] = useState([])
-    // const [shippingOption, setShippingOption] = useState('')
+    const [shippingOptions, setShippingOptions] = useState([])
+    const [shippingOption, setShippingOption] = useState('')
     
         // ------------------COUNTRIES------------------------------
     const fetchShippingCountries = async(checkoutTokenId) => {
@@ -81,6 +81,29 @@ const AddressForm = ({ checkoutToken }) => {
         
     }
 
+// -----------------------------SHIPPING OPTIONS---------------------
+
+
+const options = shippingOptions.map((choice) => (
+  { id: choice.id,
+    label: `${choice.description} - (${choice.price.formatted_with_symbol})`
+  })
+);
+
+const fetchShippingOptions = async (checkoutTokenId, country, region = null) => {
+  const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region});
+
+  console.log(options);
+
+  const shippingOption = options[0] || null;
+  setShippingOptions(options)
+  console.log(options);
+  setShippingOption(shippingOption)
+  
+}
+
+console.log(options);
+
 // -------------------------------useEffects----------------------------
     useEffect(() => {
       fetchShippingCountries(checkoutToken.id);
@@ -100,6 +123,13 @@ const AddressForm = ({ checkoutToken }) => {
     // console.log(shippingCountry);
     // CN
     // console.log(shippingCountries);
+
+    useEffect(() => {
+      if(shippingSubdivision) {
+        fetchShippingOptions(checkoutToken.id, shippingCountry, shippingSubdivision);
+      }
+    }, [shippingSubdivision])
+    
   return (
     <Container>
         <Title>Shipping Address</Title>
@@ -135,14 +165,16 @@ const AddressForm = ({ checkoutToken }) => {
                  ))}
                 </Select>
               </SelectCon>
-              {/* <SelectCon>
-                <InputLabel>Shipping City</InputLabel>
-                <Select value='' fullWidth onChange=''>
-                  <MenuItem key='' value=''>
-                    Select Me
-                  </MenuItem>
+              <SelectCon>
+                <InputLabel>Shipping Options</InputLabel>
+                <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
+                  {options.map((option)=>(
+                    <MenuItem key={option.id} value={option.id}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
                 </Select>
-              </SelectCon>  */}
+              </SelectCon> 
             </Form>
         </FormProvider>
     </Container>
