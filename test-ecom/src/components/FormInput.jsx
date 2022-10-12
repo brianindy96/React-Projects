@@ -7,7 +7,7 @@ const Container = styled.div`
 
 `
 
-const FormInput = ({ name, label, required }) => {
+const FormInput = ({ name, label }) => {
 
   const { control } = useFormContext();
 
@@ -21,7 +21,7 @@ const FormInput = ({ name, label, required }) => {
           control={control}
           name={name}
           label={label}
-          required={required}
+          required
           defaultValue=""
           render= {({field}) => (
             <TextField

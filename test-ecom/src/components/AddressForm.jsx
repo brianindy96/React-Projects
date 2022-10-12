@@ -3,8 +3,10 @@ import { useForm, FormProvider } from "react-hook-form";
 import styled from "styled-components";
 import FormInput from './FormInput';
 import commerce from "../lib/commerce.js"
+import Button from '@mui/material/Button';
 
 import { Select, SelectChangeEvent, MenuItem, InputLabel} from "@mui/material";
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
 
@@ -27,6 +29,12 @@ const BasicDetails = styled.div`
 
 const SelectCon = styled.div`
   
+`
+
+const BtnCon = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
 `
 
 
@@ -137,16 +145,16 @@ console.log(options);
         <FormProvider {...methods}>
             <Form >
               <BasicDetails>
-                <FormInput required name="firstName" label="First Name" />         
-                <FormInput required name="lastName" label="Last Name"/>          
-                <FormInput required name="address" label="Address" />          
-                <FormInput required name="email" label="Email" />           
-                <FormInput required name="city" label="City" />
-                <FormInput required name="zip" label="ZIP/Postal Code" />
+                <FormInput name="firstName" label="First Name" />         
+                <FormInput name="lastName" label="Last Name"/>          
+                <FormInput name="address" label="Address" />          
+                <FormInput name="email" label="Email" />           
+                <FormInput name="city" label="City" />
+                <FormInput name="zip" label="ZIP/Postal Code" />
               </BasicDetails>
               <SelectCon>
                 <InputLabel>Shipping Country</InputLabel>
-                <Select value={shippingCountry} fullWidth onChange={(e)=> setShippingCountry(e.target.value)}>
+                <Select displayEmpty value={shippingCountry} fullWidth onChange={(e)=> setShippingCountry(e.target.value)}>
                     {countries.map((country)=>(
                       <MenuItem style={{textAlign: "center"}} key={country.id} value={country.id}>
                         {country.label}
@@ -157,7 +165,7 @@ console.log(options);
               </SelectCon>
                <SelectCon>
                 <InputLabel>Shipping Subdivision</InputLabel>
-                <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
+                <Select displayEmpty value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
                  {subdivisions.map((subdivision)=>(
                     <MenuItem key={subdivision.id} value={subdivision.id}>
                       {subdivision.label}
@@ -167,14 +175,18 @@ console.log(options);
               </SelectCon>
               <SelectCon>
                 <InputLabel>Shipping Options</InputLabel>
-                <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
+                <Select displayEmpty value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
                   {options.map((option)=>(
                     <MenuItem key={option.id} value={option.id}>
                       {option.label}
                     </MenuItem>
                   ))}
                 </Select>
-              </SelectCon> 
+              </SelectCon>
+              <BtnCon>
+                    <Button component={Link} to="/cart" variant="outlined">Back to Cart</Button>
+                    <Button type="submit" color="primary" variant="contained">Next</Button>
+              </BtnCon>
             </Form>
         </FormProvider>
     </Container>
