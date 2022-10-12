@@ -1,11 +1,12 @@
 import './App.css'
 import { useState } from "react";
-// import keys from "./keys";
+import { keys }  from "./keys";
 
-// const api = {
-//   key: keys.API_KEY,
-//   base: keys.BASE_URL,
-// };
+
+const api = {
+  keys: keys.API_KEY,
+  base: keys.BASE_URL,
+};
 
 function App() {
 
@@ -17,34 +18,69 @@ function App() {
   return date;
 }
 
+
+  // Hooks
+  // the city you want to search
+  const [query, setQuery] = useState('');
+  const [weather, setWeather] = useState({});
+
+
+  const search = (e)=>{
+    // when we press enter, fetch data and setWeather(results)
+    if(e.key === "Enter"){
+      fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.keys}`)
+        .then((response) => response.json())
+          .then((results) => {
+            setQuery("");
+            setWeather(results);
+          })
+        };
+    }
+
+    console.log(query);
+    console.log(weather);
+  
   return (
-    <div className="App cloudy">
+    <div className={
+      typeof weather.main !== "undefined"
+       ? weather.main.temp < 18 
+       ? "App cold" 
+       : "App sunny"
+        :"App"
+      }>
       <main>
         <div className="search-container">
           <input 
           type="text" 
           placeholder='Search...'
           className='search-bar'
+          onChange={(e) => setQuery(e.target.value)}
+          value={query}
+          onKeyPress={search}
           />
         </div>
-        <div>
+        {typeof weather.main != "undefined" ? (
+          <div>
           <div className="location-container">
             <div className="location">
-              Bangkok, Thailand
+              {weather.name}, {weather.sys.country}
             </div>
             <div className="date">
-              Oct 12 2022
+              {dataBuild(new Date())}
             </div>
             <div className='weather-container'>
               <div className="temperature">
-                30 °C
+                {Math.round(weather.main.temp)} °C
               </div>
               <div className="weather">
-                Sunny
+                {weather.weather[0].main}
               </div>
             </div>
           </div>
         </div>
+        ) : (
+            ""
+        )};
       </main>
     </div>
   )

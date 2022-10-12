@@ -21,8 +21,23 @@
   box-shadow: 7px 6px 24px -5px rgba(66, 68, 90, 1);
 }
 
-.App.cloudy{
-  background-image: url("img/cloudy.jpg");
+.App.sunny {
+  background-image: linear-gradient(to bottom,
+      rgba(255, 167, 16, 0.52),
+      rgba(196, 221, 69, 0.73)),
+    url("img/sunny.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.2s ease;
+}
+
+.App.cold {
+  background-image: linear-gradient(to bottom,
+      rgba(0, 229, 255, 0.52),
+      rgba(0, 0, 0, 0.73)),
+    url("img/cold.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
   transition: 0.2s ease;
 }
 
