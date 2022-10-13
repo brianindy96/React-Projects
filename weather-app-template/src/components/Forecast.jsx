@@ -1,13 +1,13 @@
 import React from 'react'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-const Forecast = () => {
+const Forecast = ({ title }) => {
   return (
     <div>
         <div className="flex items-center justify-start mt-6 ">
             <span><AccessTimeIcon className="text-white mr-2"/></span>
             <p className='font-medium uppercase text-white'>
-                Hourly Forecast: 
+                {title}
             </p>
         </div>
         <hr className='my-2'/>
