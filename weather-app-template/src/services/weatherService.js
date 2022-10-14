@@ -8,9 +8,7 @@ const api = {
     base: BASE_URL,
 };
 
-console.log(api.base);
-
-const getWeatherData = (infoType, searchParams,) =>{
+export const getWeatherData = (infoType, searchParams,) =>{
     const url = new URL(api.base + "/" + infoType);
     url.search = new URLSearchParams({...searchParams, appid: api.key});
 
@@ -19,4 +17,39 @@ const getWeatherData = (infoType, searchParams,) =>{
             .then((data) => data);
 }
 
-export default getWeatherData;
+export const formatCurrentWeather = (data) => {
+    // here the data is the JSON that we want
+    const {
+        coord: {lat,lon},
+        main: {
+            temp,
+            feels_like,
+            temp_min,
+            temp_max,
+            humidity,
+        },
+        name,
+        dt,
+        sys: {
+            country,
+            sunrise,
+            sunset,
+        },
+        weather,
+        wind: {speed} 
+    } = data
+
+    const {main: details, icon} = weather[0];
+
+    return {lat, lon, temp, feels_like, temp_min, details, icon, temp_max, humidity, name, dt, sunrise, country, sunset, weather, speed};
+};
+
+export const getFormattedWeatherData = async (searchParams) => {
+    const formattedCurrentWeather = await getWeatherData('weather', searchParams)
+        // when there's only one parameter, just put like this
+        .then(formatCurrentWeather)
+
+        return formattedCurrentWeather;
+}
+
+
