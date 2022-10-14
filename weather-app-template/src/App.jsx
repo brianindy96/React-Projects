@@ -8,7 +8,7 @@ import TopButtons from './components/TopButtons'
 import { getFormattedWeatherData } from "./services/weatherServices"
 function App() {
 
-  const [query, setQuery ] = useState({q: 'london'});
+  const [query, setQuery ] = useState({q: 'chiang mai'});
   const [units, setUnits ] = useState('metric');
   const [weather, setWeather] = useState(null);
 

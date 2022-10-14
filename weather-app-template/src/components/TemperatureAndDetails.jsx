@@ -7,8 +7,9 @@ import WbTwilightIcon from '@mui/icons-material/WbTwilight';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import ExploreIcon from '@mui/icons-material/Explore';
+import { formatToLocalTime, iconUrlFromCode } from '../services/weatherServices';
 
-const TemperatureAndDetails = ({ weather: {deg, feels_like, humidity, icon, main, speed, sunrise, sunset, temp, temp_max, temp_min}}) => {
+const TemperatureAndDetails = ({ weather: {deg, feels_like, humidity, icon, main, speed, sunrise, sunset, temp, temp_max, temp_min, timezone, dt}}) => {
   return (
     <div>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
@@ -16,12 +17,12 @@ const TemperatureAndDetails = ({ weather: {deg, feels_like, humidity, icon, main
       </div>
     {/* TEMPERATURE DETAILS */}
       <div className="flex flex-row items-center justify-between text-white py-3">
-        <img src={`${icon}`} alt="" className="w-20" />
-        <p className='text-5xl'>{`${temp}°`}</p>
+        <img src={iconUrlFromCode(icon)} alt="" className="w-20" />
+        <p className='text-5xl'>{`${temp.toFixed()}°`}</p>
         <div className='flex flex-col space-y-2'>
             <div className="flex font-light text-sm items-center justify-center">
                 <ThermostatIcon></ThermostatIcon>
-                <span className='font-medium ml-1'>Feels Like: {`${feels_like}°`}</span>
+                <span className='font-medium ml-1'>Feels Like: {`${feels_like.toFixed()}°`}</span>
             </div>
             <div className="flex font-light text-sm items-center justify-center">
                 <InvertColorsIcon></InvertColorsIcon>
@@ -42,7 +43,7 @@ const TemperatureAndDetails = ({ weather: {deg, feels_like, humidity, icon, main
             <WbSunnyIcon></WbSunnyIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Rise: {`${sunrise}`}
+                    Rise: {formatToLocalTime(sunrise, timezone, "hh:mm a")}
                 </span>
             </p>
             <p className='font-light'>|</p>
@@ -50,7 +51,7 @@ const TemperatureAndDetails = ({ weather: {deg, feels_like, humidity, icon, main
             <WbTwilightIcon></WbTwilightIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Sunset: {`${sunset}`}
+                    Sunset: {formatToLocalTime(sunset, timezone, "hh:mm a")}
                 </span>
             </p>
             <p className='font-light'>|</p>
@@ -58,7 +59,7 @@ const TemperatureAndDetails = ({ weather: {deg, feels_like, humidity, icon, main
             <WhatshotIcon></WhatshotIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Highest: {`${temp_max}°`}
+                    Highest: {`${temp_max.toFixed()}°`}
                 </span>
             </p>
             <p className='font-light'>|</p>
@@ -66,7 +67,7 @@ const TemperatureAndDetails = ({ weather: {deg, feels_like, humidity, icon, main
             <AcUnitIcon></AcUnitIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Lowest: {`${temp_min}°`}
+                    Lowest: {`${temp_min.toFixed()}°`}
                 </span>
             </p>
             <p className='font-light'>|</p>
