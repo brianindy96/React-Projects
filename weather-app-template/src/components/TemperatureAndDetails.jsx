@@ -9,11 +9,13 @@ import WhatshotIcon from '@mui/icons-material/Whatshot';
 import ExploreIcon from '@mui/icons-material/Explore';
 import { formatToLocalTime, iconUrlFromCode } from '../services/weatherServices';
 
-const TemperatureAndDetails = ({ weather: {deg, feels_like, humidity, icon, main, speed, sunrise, sunset, temp, temp_max, temp_min, timezone, dt}}) => {
+const TemperatureAndDetails = ({ weather: {description, deg, feels_like, humidity, icon, main, speed, sunrise, sunset, temp, temp_max, temp_min, timezone, dt}}) => {
   return (
     <div>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
-        <p>{`${main}`}</p>
+        <h3>{`${main}  ->`}</h3>
+        <br />
+        <p>{`${description}`}</p>
       </div>
     {/* TEMPERATURE DETAILS */}
       <div className="flex flex-row items-center justify-between text-white py-3">

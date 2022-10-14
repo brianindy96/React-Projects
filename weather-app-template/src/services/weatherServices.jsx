@@ -32,9 +32,10 @@ const formatCurrentWeather = (data) => {
     } = data;
 
     // weather is an array
-    const {main, icon} = weather[0];
+    const {main, icon, description} = weather[0];
 
     return {lat, 
+            description,
             lon, 
             temp, 
             feels_like, 
