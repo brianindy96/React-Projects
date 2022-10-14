@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Forecast from './components/Forecast'
 import Inputs from './components/Inputs'
@@ -8,22 +8,29 @@ import TopButtons from './components/TopButtons'
 import { getFormattedWeatherData } from "./services/weatherServices"
 function App() {
 
+  const [query, setQuery ] = useState({q: 'berlin'});
+  const [units, setUnits ] = useState('metric');
+  const [weather, setWeather] = useState(null);
 
   const fetchCurrentWeather = async () =>{
-    const data = await getFormattedWeatherData({q: "london"});
-    console.log(data);
+    const data = await getFormattedWeatherData({...query, units});
+    
+    setWeather(data);
+
   }
+
+  console.log(weather);
 
   useEffect(()=>{
     fetchCurrentWeather();
-  },[])
+  },[query, units])
 
   return (
     <div className="mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl shadow-gray-400">
       <TopButtons />
       <Inputs />
-      <TimeAndLocation />
-      <TemperatureAndDetails />
+      <TimeAndLocation weather={weather} />
+      <TemperatureAndDetails weather={weather} />
       {/* <Forecast title={"Hourly Forecast"} />
       <Forecast title={"Daily Forecast"} /> */}
     </div>

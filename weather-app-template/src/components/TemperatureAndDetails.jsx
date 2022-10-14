@@ -6,6 +6,7 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import WbTwilightIcon from '@mui/icons-material/WbTwilight';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
+import ExploreIcon from '@mui/icons-material/Explore';
 
 const TemperatureAndDetails = () => {
   return (
@@ -29,6 +30,10 @@ const TemperatureAndDetails = () => {
             <div className="flex font-light text-sm items-center justify-center ">
                 <AirIcon></AirIcon>
                 <span className='font-medium ml-1'>Wind: 32°</span>
+            </div>
+            <div className="flex font-light text-sm items-center justify-center ">
+                <ExploreIcon></ExploreIcon>
+                <span className='font-medium ml-1'>Wind Direction: </span>
             </div>
         </div>
       </div>
