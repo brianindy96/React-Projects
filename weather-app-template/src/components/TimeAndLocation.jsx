@@ -1,16 +1,19 @@
 import React from 'react'
+import { formatToLocalTime } from '../services/weatherServices'
 
-const TimeAndLocation = () => {
+const TimeAndLocation = ({ weather: {dt, timezone, country, name}}) => {
   return (
     <div>
         <div className="flex items-center justify-center my-6">
         <p className="text-white text-xl font-extralight">
-          13th October 2022, 11:13 Uhr
+          {formatToLocalTime(dt, timezone)}
         </p>
       </div>
 
       <div className="flex items-center justify-center my-3">
-        <p className="text-white text-3xl font-medium">Berlin, Deutschland</p>
+        <p className="text-white text-3xl font-medium">
+          {`${name}, ${country}`}
+        </p>
       </div>
     </div>
   )

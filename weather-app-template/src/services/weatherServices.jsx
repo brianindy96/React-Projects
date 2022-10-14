@@ -1,3 +1,5 @@
+import { DateTime } from "luxon";
+
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -59,4 +61,11 @@ export const getFormattedWeatherData = async (searchParams) => {
         return formattedCurrentWeather;
 };
 
+export const formatToLocalTime = (
+    secs, 
+    zone, 
+    format = "cccc, dd LLL yyyy' | Local Time: 'hh:mm a") => 
+    DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
+
+export const iconUrlFromCode = (code) => `http://openweathermap.org/img/n/${code}@2x.png`
 
