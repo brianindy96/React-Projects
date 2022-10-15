@@ -47,7 +47,6 @@ const Inputs = ({ setQuery, units, setUnits}) => {
             placeholder='Search your City here..' 
             className='text-xl font-light p-2 w-full shadow-xl focus:outline-none capitalize'
             />
-            {console.log(city)}
             <IconButton>
               <SearchIcon 
               onClick={handleSearch}
