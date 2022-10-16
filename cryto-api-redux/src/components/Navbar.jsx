@@ -14,7 +14,7 @@ const Navbar = () => {
                 <Link to ="/">Cryptoverse</Link>
             </Typography.Title>
         </div>
-        <Menu>
+        <Menu theme="dark">
             <Menu.Item icon={<HomeOutlined />}>
                 <Link to="/">Home</Link>
             </Menu.Item>
