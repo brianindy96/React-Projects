@@ -8,7 +8,13 @@ export const userSlice = createSlice({
     },
     reducers:{
         update: (state, action) =>{
-            
-        }
-    }
-})
+            state.name = action.payload.name;
+            state.email = action.payload.email;
+        },
+    },
+});
+
+// exporting actions
+export const { update } = userSlice.actions;
+// exporting reducer to store.js
+export default userSlice.reducer;

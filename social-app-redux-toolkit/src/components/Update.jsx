@@ -1,8 +1,13 @@
 import React from 'react'
 import "./update.css";
 import Warning from './Warning';
+import { useState } from 'react';
 
 const Update = () => {
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
   return (
     <div className="update">
       <div className="updateWrapper">
@@ -28,6 +33,7 @@ const Update = () => {
                 className="formInput"
                 type="text"
                 placeholder="user.name"
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className="formItem">
@@ -36,6 +42,8 @@ const Update = () => {
                 className="formInput"
                 type="text"
                 placeholder="user.email"
+                onChange={(e) => setEmail(e.target.value)}
+
               />
             </div>
             <div className="formItem">
@@ -45,7 +53,6 @@ const Update = () => {
             <button
               disabled="user"
               className="updateButton"
-              
             >
               Update
             </button>
