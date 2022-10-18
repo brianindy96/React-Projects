@@ -2,20 +2,45 @@ import React from 'react'
 import "./update.css";
 import Warning from './Warning';
 import { useState } from 'react';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { update, remove } from '../redux/userSlice';
 
 const Update = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  // useSelector to READ data
   const user = useSelector((state) => state.user);
+  // useDispatch to dispatch action
 
+  // update our state name, email to store and make it global instead
+  const dispatch = useDispatch();
+
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    // 
+    dispatch(update({name, email}));
+
+  }
+
+  const handleRemove = (e) => {
+    e.preventDefault();
+
+    dispatch(remove());
+
+  }
   return (
     <div className="update">
       <div className="updateWrapper">
         <h3 className="updateTitle">Update Your Account</h3>
         <Warning />
-        <button className="delete">Delete Account</button>
+        <button 
+        className="delete"
+        onClick={handleRemove}
+        >
+          Delete Account
+        </button>
         <div className="updateContainer">
           <form>
             <div className="formItem">
@@ -53,8 +78,9 @@ const Update = () => {
               <input className="formInput" type="password" />
             </div>
             <button
-              disabled="user"
+              // disabled={!user}
               className="updateButton"
+              onClick={handleClick}
             >
               Update
             </button>
