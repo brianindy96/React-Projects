@@ -1,9 +1,12 @@
-import React from 'react'
-import styled from 'styled-components';
+import { useSelector } from 'react-redux'
 import { ArrowDropDown } from "@mui/icons-material";
 import "./navbar.css";
 
 const Navbar = () => {
+  // access store. then its reducer
+  // useSelector to READ data from data
+  const name = useSelector((state) => state.user.name);
+
   return (
     <div className="navbar">
       <div className="navbarWrapper">

@@ -2,11 +2,13 @@ import React from 'react'
 import "./update.css";
 import Warning from './Warning';
 import { useState } from 'react';
+import { useSelector } from "react-redux";
 
 const Update = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const user = useSelector((state) => state.user);
 
   return (
     <div className="update">
@@ -32,7 +34,7 @@ const Update = () => {
               <input
                 className="formInput"
                 type="text"
-                placeholder="user.name"
+                placeholder={user.name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
@@ -41,7 +43,7 @@ const Update = () => {
               <input
                 className="formInput"
                 type="text"
-                placeholder="user.email"
+                placeholder={user.email}
                 onChange={(e) => setEmail(e.target.value)}
 
               />
