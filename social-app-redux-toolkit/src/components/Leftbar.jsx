@@ -13,23 +13,14 @@ import {
     Settings,
     ShoppingBasketOutlined,
   } from "@mui/icons-material";
+import MenuLink from "./MenuLink";
+import "./leftbar.css";
 
-const LeftbarCon = styled.div`
-    
-`
-
-const MenuLink = styled.div`
-    
-`
-
-const LeftWrapper = styled.div`
-    height: 100vh;
-`
 const Leftbar = () => {
   return (
-    <LeftbarCon>
-      <LeftWrapper>
-        <MenuLink icon={<HomeOutlined />} text="Homepage">Hi</MenuLink>
+    <div className="leftbar">
+      <div className="leftbarWrapper">
+        <MenuLink icon={<HomeOutlined />} text="Homepage" />
         <MenuLink icon={<List />} text="Lists" />
         <MenuLink icon={<ShoppingBasketOutlined />} text="Products" />
         <MenuLink icon={<GroupOutlined />} text="Groups" />
@@ -40,8 +31,8 @@ const Leftbar = () => {
         <MenuLink icon={<HearingOutlined />} text="Wishlist" />
         <MenuLink icon={<Settings />} text="Settings" />
         <MenuLink icon={<ExitToAppOutlined />} text="Logout" />
-      </LeftWrapper>
-    </LeftbarCon>
+      </div>
+    </div>
   )
 }
 
