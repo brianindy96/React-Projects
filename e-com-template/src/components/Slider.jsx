@@ -1,7 +1,8 @@
-import {useState} from 'react'
+// import {useState} from 'react'
 import styled from "styled-components";
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
+import {sliderItems} from "../data"
 
 const Container = styled.div`
     width: 100%;
@@ -79,7 +80,7 @@ const Button = styled.button`
 `
 
 const Slider = () => {
-    const [slideIndex, setSlideIndex] = useState(0);
+    /* const [slideIndex, setSlideIndex] = useState(0); */
 
     const handleClick = (direction) => {};
   return (
@@ -88,39 +89,18 @@ const Slider = () => {
             <KeyboardArrowLeftOutlinedIcon/>
         </Arrow>
         <Wrapper>
-            {/* Slide 1 */}
-            <Slide bg="f5fafd">
-                <ImgContainer>
-                    <Image src='/img/shoppingone.png' />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>SUMMER SALE</Title>
-                    <Desc>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, vel!</Desc>
-                    <Button>SHOW NOW</Button>
-                </InfoContainer>
-            </Slide>
-            {/* Slide 2 */}
-            <Slide bg="fcf1ed">
-                <ImgContainer>
-                    <Image src='/img/shoppingtwo.png' />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>SUMMER SALE</Title>
-                    <Desc>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, vel!</Desc>
-                    <Button>SHOW NOW</Button>
-                </InfoContainer>
-            </Slide>
-            {/* Slide 3 */}
-            <Slide bg="fbf0f4">
-                <ImgContainer>
-                    <Image src='/img/shoppingthree.png' />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>SUMMER SALE</Title>
-                    <Desc>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, vel!</Desc>
-                    <Button>SHOW NOW</Button>
-                </InfoContainer>
-            </Slide>
+            {sliderItems.map((item)=>(
+                <Slide key={item.id} bg={item.bg}>
+                    <ImgContainer>
+                        <Image src={item.img} />
+                    </ImgContainer>
+                    <InfoContainer>
+                        <Title>{item.title}</Title>
+                        <Desc>{item.desc}</Desc>
+                        <Button>SHOW NOW</Button>
+                    </InfoContainer>
+                </Slide>
+            ))};     
         </Wrapper>
         <Arrow direction="right">
             <KeyboardArrowRightOutlinedIcon/>
