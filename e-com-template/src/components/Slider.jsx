@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 import styled from "styled-components";
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
@@ -9,6 +9,8 @@ const Container = styled.div`
     display: flex;
     display: flex;
     position: relative;
+    /* Hide the slides */
+    overflow: hidden;
 `
 
 const Arrow = styled.div`
@@ -28,10 +30,13 @@ const Arrow = styled.div`
     opacity: 0.5;
     left: ${props=> props.direction === "left" && "10px"};
     right: ${props => props.direction === "right" && "10px"};
+    z-index: 2;
 `
 
 const Wrapper = styled.div`
     height: 100%;
+    display: flex;
+    transform: translateX(0vw)
 `
 
 const Slide = styled.div`
@@ -39,6 +44,7 @@ const Slide = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
+    background-color: #${props=> props.bg }
 `
 const ImgContainer = styled.div`
     flex: 1;
@@ -73,15 +79,41 @@ const Button = styled.button`
 `
 
 const Slider = () => {
+    const [slideIndex, setSlideIndex] = useState(0);
+
+    const handleClick = (direction) => {};
   return (
     <Container>
-        <Arrow direction="left">
+        <Arrow direction="left" onClick={() => handleClick("left")}>
             <KeyboardArrowLeftOutlinedIcon/>
         </Arrow>
         <Wrapper>
-            <Slide>
+            {/* Slide 1 */}
+            <Slide bg="f5fafd">
                 <ImgContainer>
                     <Image src='/img/shoppingone.png' />
+                </ImgContainer>
+                <InfoContainer>
+                    <Title>SUMMER SALE</Title>
+                    <Desc>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, vel!</Desc>
+                    <Button>SHOW NOW</Button>
+                </InfoContainer>
+            </Slide>
+            {/* Slide 2 */}
+            <Slide bg="fcf1ed">
+                <ImgContainer>
+                    <Image src='/img/shoppingtwo.png' />
+                </ImgContainer>
+                <InfoContainer>
+                    <Title>SUMMER SALE</Title>
+                    <Desc>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, vel!</Desc>
+                    <Button>SHOW NOW</Button>
+                </InfoContainer>
+            </Slide>
+            {/* Slide 3 */}
+            <Slide bg="fbf0f4">
+                <ImgContainer>
+                    <Image src='/img/shoppingthree.png' />
                 </ImgContainer>
                 <InfoContainer>
                     <Title>SUMMER SALE</Title>
