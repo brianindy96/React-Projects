@@ -36,6 +36,7 @@ const Arrow = styled.div`
 
 const Wrapper = styled.div`
     height: 100%;
+    transition: all 1.5s ease;
     display: flex;
     transform: translateX(${props=> props.slideIndex * -100 }vw);
 `
@@ -109,7 +110,7 @@ const Slider = () => {
                 </Slide>
             ))};     
         </Wrapper>
-        <Arrow direction="right">
+        <Arrow direction="right" onClick={() => handleClick("right")}>
             <KeyboardArrowRightOutlinedIcon/>
         </Arrow>
     </Container>
