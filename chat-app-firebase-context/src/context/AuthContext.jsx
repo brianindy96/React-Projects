@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
             setLoading(false)
             {user !== null && navigate('/chats')}
         })
-    }, [user, history]);
+    }, [user, navigate]);
 
     const value = { user };
 
