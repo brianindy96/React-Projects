@@ -9,16 +9,20 @@ const Container = styled.div`
 const Wrapper = styled.div` 
   padding: 10px 20px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 `
 
 const Left = styled.div`
   flex: 1;
   display: flex;
+  align-items: center;
+
 `
 
 const Center = styled.div`
   flex: 1;
+  text-align: center;
 
 `
 
@@ -34,7 +38,20 @@ const Language = styled.span`
 `
 
 const SearchContainer = styled.div`
-  
+  border: 0.5px solid lightgray;
+  margin-left: 10px;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+`
+
+const Input = styled.input`
+  border: none;
+`
+
+const Logo = styled.h1`
+
 `
 
 const Navbar = () => {
@@ -46,11 +63,14 @@ const Navbar = () => {
             EN
           </Language>
           <SearchContainer>
+            <Input />
             <SearchIcon />
           </SearchContainer>
         </Left>
         <Center>
-          Center
+          <Logo>
+            NOTINO.
+          </Logo>
         </Center>
         <Right>
           Right
