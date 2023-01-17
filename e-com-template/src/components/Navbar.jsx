@@ -4,16 +4,39 @@ import styled from "styled-components";
 
 const Container = styled.div`
   height: 60px;
-  background-color: black;
-  color: white;
-  text-align: center;
-  padding-top: 10px;
+`
+
+const Wrapper = styled.div` 
+  padding: 10px 20px;
+  display: flex;
+`
+
+const Left = styled.div`
+  flex: 1;
+`
+
+const Center = styled.div`
+  flex: 1;
+`
+
+const Right = styled.div`
+  flex: 1;
 `
 
 const Navbar = () => {
   return (
     <Container>
-      Navbar
+      <Wrapper>
+        <Left>
+          Left
+        </Left>
+        <Center>
+          Center
+        </Center>
+        <Right>
+          Right
+        </Right>
+      </Wrapper>
     </Container>
   )
 }
