@@ -14,13 +14,12 @@ const Container = styled.div`
     background-color: #f5fbfd;
     position: relative;
     margin-bottom: 20px;
-    z-index: -3;
 `
 
 const Circle = styled.div`
     position: absolute;
     top: 0;
-    z-index: -1;
+    z-index: 1;
     bottom: 0;
     margin: auto;
     background-color: white;
@@ -31,7 +30,7 @@ const Circle = styled.div`
 `
 const Image = styled.img`
     height: 75%;
-    
+    z-index: 2;
 `
 
 const Info =styled.div`
@@ -40,6 +39,7 @@ const Info =styled.div`
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,6 +55,12 @@ const Icon = styled.div`
     justify-content: center;
     align-items: center;
     margin: 10px;
+    transition: all 0.5s ease;
+
+    &:hover{
+        background-color: #e9f5f5;
+        transform: scale(1.1);
+    }
 `
 
 
