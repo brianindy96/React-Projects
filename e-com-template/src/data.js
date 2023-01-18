@@ -39,3 +39,38 @@ export const categories = [
         title: "FOR WOMEN",
     },
 ]
+
+export const popularProducts = [
+    {
+        id: 1,
+        img: "/img/shoe.png"
+    },
+    {
+        id: 2,
+        img: "/img/shirt.png"
+    },
+    {
+        id: 3,
+        img: "/img/shoe.png"
+    },
+    {
+        id: 4,
+        img: "/img/shoe.png"
+    },
+    {
+        id: 5,
+        img: "/img/shoe.png"
+    },
+    {
+        id: 6,
+        img: "/img/shoe.png"
+    },
+    {
+        id: 7,
+        img: "/img/shoe.png"
+    },
+    {
+        id: 8,
+        img: "/img/shoe.png"
+    },
+]
