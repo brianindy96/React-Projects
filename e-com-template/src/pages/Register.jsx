@@ -30,6 +30,7 @@ const Title = styled.h1`
     margin-bottom: 20px;
 `
 const Form = styled.form`
+    display: flex;
     flex-wrap: wrap;
     width: 70%;
 
