@@ -47,7 +47,14 @@ const Info =styled.div`
 `
 
 const Icon = styled.div`
-    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
 `
 
 
