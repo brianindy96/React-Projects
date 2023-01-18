@@ -3,6 +3,9 @@ import styled from "styled-components";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneIcon from '@mui/icons-material/Phone';
+import MailIcon from '@mui/icons-material/Mail';
 
 const Container = styled.div`
     display: flex;
@@ -71,6 +74,12 @@ const Right = styled.div`
     flex: 1;
 `
 
+const ContactItem = styled.p`
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+`
+
 
 const Footer = () => {
   return (
@@ -107,7 +116,19 @@ const Footer = () => {
             </List>
         </Center>
         <Right>
-            Right
+            <Title>Contact</Title>
+            <ContactItem>
+                <LocationOnIcon style={{marginRight: "10px"}} />
+                Heinrich-Mussmann-Strasse 20, 35923
+            </ContactItem>
+            <ContactItem>
+                <PhoneIcon style={{marginRight: "10px"}} />
+                +12 234 34234
+            </ContactItem>
+            <ContactItem>
+                <MailIcon style={{marginRight: "10px"}} />
+                contact@notino.dev
+            </ContactItem>
         </Right>
     </Container>
   )
