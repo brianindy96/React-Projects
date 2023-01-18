@@ -72,6 +72,7 @@ const ListItem = styled.li`
 // Right
 const Right = styled.div`
     flex: 1;
+    padding: 20px;
 `
 
 const ContactItem = styled.p`
