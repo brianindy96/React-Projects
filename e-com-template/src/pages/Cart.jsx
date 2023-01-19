@@ -118,11 +118,24 @@ const PriceDetail = styled.div`
 const ProductAmountContainer = styled.div`
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 `
 const ProductAmount = styled.span`
-    margin: 0 10px;
-    font-size: 20px;
+    margin: 0 15px;
+    font-size: 24px;
     font-weight: 300;
+`
+
+const ProductPrice = styled.span`
+    font-size: 24px;
+    font-weight: 200;
+`
+
+// Line Break
+const Hr = styled.hr`
+    background-color: #eee;
+    border: none;
+    height: 1px;
 `
 
 const Cart = () => {
@@ -147,7 +160,7 @@ const Cart = () => {
                         <ProductDetail>
                             <Image src="/img/shoe.png" />
                             <Details>
-                                <ProductName><b>Product: </b>Jessie Thunder Shoes</ProductName>
+                                <ProductName><b>Product: </b>JESSIE THUNDER SHOES</ProductName>
                                 <ProductId><b>ID: </b>98342345232</ProductId>
                                 <ProductColour color="brown"/>
                                 <ProductSize><b>Size: </b>37.5</ProductSize>
@@ -159,6 +172,29 @@ const Cart = () => {
                                     <ProductAmount>2</ProductAmount>
                                 <RemoveIcon />
                             </ProductAmountContainer>
+                            <Hr></Hr>
+                            <ProductPrice>$ 30.00</ProductPrice>
+                        </PriceDetail>
+                    </Product>
+                    <Hr />
+                    <Product>
+                        <ProductDetail>
+                            <Image src="/img/shoe.png" />
+                            <Details>
+                                <ProductName><b>Product: </b>JESSIE THUNDER SHOES</ProductName>
+                                <ProductId><b>ID: </b>98342345232</ProductId>
+                                <ProductColour color="brown"/>
+                                <ProductSize><b>Size: </b>37.5</ProductSize>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            <ProductAmountContainer>
+                                <AddIcon />
+                                    <ProductAmount>2</ProductAmount>
+                                <RemoveIcon />
+                            </ProductAmountContainer>
+                            <Hr></Hr>
+                            <ProductPrice>$ 30.00</ProductPrice>
                         </PriceDetail>
                     </Product>
                 </Info>
