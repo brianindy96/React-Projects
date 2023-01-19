@@ -3,6 +3,8 @@ import styled from "styled-components"
 import Announcement from '../components/Announcement'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const Container = styled.div`
     
@@ -107,6 +109,20 @@ const ProductSize = styled.span`
 
 const PriceDetail = styled.div`
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+
+const ProductAmountContainer = styled.div`
+    display: flex;
+    align-items: center;
+`
+const ProductAmount = styled.span`
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: 300;
 `
 
 const Cart = () => {
@@ -138,7 +154,11 @@ const Cart = () => {
                             </Details>
                         </ProductDetail>
                         <PriceDetail>
-                            price
+                            <ProductAmountContainer>
+                                <AddIcon />
+                                    <ProductAmount>2</ProductAmount>
+                                <RemoveIcon />
+                            </ProductAmountContainer>
                         </PriceDetail>
                     </Product>
                 </Info>
