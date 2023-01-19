@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar'
 import Newsletter from '../components/Newsletter'
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import {mobile} from "../responsive.js"
 
 const Container = styled.div`
     
@@ -14,21 +15,27 @@ const Container = styled.div`
 const Wrapper = styled.div`
     padding: 50px;
     display: flex;
+    ${mobile({padding: "20px", flexDirection: "column"})}
 
 `
 
 const ImgContainer = styled.div`
     flex: 1;
+
 `
 
 const Image = styled.img`
     width: 100%;
     height: 90vh;
     object-fit: contain;
+    ${mobile({height: "50vh", objectFit: "cover"})}
+
 `
 const InfoContainer = styled.div`
     flex: 1;
     padding: 0 50px;
+    ${mobile({textAlign: "center", padding: "0 20px"})}
+
 `
 
 const Title = styled.h1`
@@ -37,11 +44,15 @@ const Title = styled.h1`
 
 const Desc = styled.p`
     margin: 20px 0px;
+    ${mobile({margin: "10px 0"})}
+
 `
 
 const Price = styled.span`
     font-weight: 100;
     font-size: 40px;
+    ${mobile({fontSize: "30px"})}
+
 `
 
 const FilterContainer = styled.div`
@@ -49,11 +60,15 @@ const FilterContainer = styled.div`
     margin: 30px 0px;
     justify-content: space-between;
     width: 50%;
+    ${mobile({width: "100%",flexWrap: "wrap", justifyContent: "center", alignItems: "center", marginBottom: "10px"})}
+
 `
 
 const Filter = styled.div`
     display: flex;
     align-items: center;
+    ${mobile({marginBottom: "10px"})}
+
 `
 
 const FilterTitle = styled.span`
@@ -90,12 +105,17 @@ const AddContainer = styled.div`
     align-items: center;
     width: 50%;
     justify-content: space-between;
+    ${mobile({flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%"})}
+    
 `
 
 const AmountContainer = styled.option`
     display: flex;
     align-items: center;
     font-weight: 700;
+    ${mobile({marginBottom: "20px"})}
+    
+
 `
 
 const Amount = styled.span`
@@ -114,6 +134,7 @@ const Button = styled.button`
     background-color: white;
     font-weight: 500;
     cursor: pointer;
+    ${mobile({width: "100%"})}
 
     &:hover{
         background-color: #f8f4f4;
