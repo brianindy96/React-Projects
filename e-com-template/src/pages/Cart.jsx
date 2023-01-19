@@ -20,15 +20,31 @@ const Top = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 20px;
 `
 
 const TopButton = styled.button`
     padding: 10px;
     font-weight: 400;
     cursor: pointer;
+
+    border: ${props => props.type === "filled" && "none"};
+    background-color: ${props => 
+        props.type === "filled" ? "black" : "transparent"};
+    color: ${props => props.type === "filled" && "white"};
 `
 
 const Bottom = styled.div`
+`
+
+const TopTexts = styled.div`
+    
+`
+
+const TopText = styled.span`
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 0 10px;
 `
 
 const Cart = () => {
@@ -40,11 +56,14 @@ const Cart = () => {
             <Title>YOUR CART</Title>
             <Top>
                 <TopButton>CONTINUE SHOPPING</TopButton>
-                
-                <TopButton>CHECK OUT NOW</TopButton>
+                <TopTexts>
+                    <TopText>Shopping Cart(2)</TopText>
+                    <TopText>Your Wishlist (0)</TopText>
+                </TopTexts>
+                <TopButton type="filled">CHECK OUT NOW</TopButton>
             </Top>
             <Bottom>
-
+                
             </Bottom>
         </Wrapper>
         <Footer />
