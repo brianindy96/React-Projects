@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import {mobile} from "../responsive"
 
 const Container = styled.div`
     
@@ -23,12 +24,14 @@ const Top = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    ${mobile({padding: "10px 0"})}
 `
 
 const TopButton = styled.button`
     padding: 10px;
     font-weight: 400;
     cursor: pointer;
+    ${mobile({padding: "5px"})}
 
     border: ${props => props.type === "filled" && "none"};
     background-color: ${props => 
@@ -37,13 +40,17 @@ const TopButton = styled.button`
 `
 
 const TopTexts = styled.div`
-    
+    ${mobile({display: "flex"})}
+
 `
 
 const TopText = styled.span`
     text-decoration: underline;
     cursor: pointer;
     margin: 0 10px;
+    ${mobile({display: "none"})}
+
+    
 `
 
 // Bottom
@@ -52,6 +59,8 @@ const Bottom = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    ${mobile({flexDirection: "column"})}
+
 `
 
 
@@ -64,6 +73,8 @@ const Info = styled.div`
 const Product = styled.div`
     display: flex;
     justify-content: space-between;
+    ${mobile({flexDirection: "column"})}
+
 `
 
 // ProductDetails
@@ -71,6 +82,8 @@ const Product = styled.div`
 const ProductDetail = styled.div`
     flex: 2;
     display: flex;
+    ${mobile({flexDirection: "column"})}
+
 `
 
 const Image = styled.img`
@@ -81,6 +94,7 @@ const Details = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
 `
  
 const ProductName = styled.span`
@@ -110,6 +124,8 @@ const PriceDetail = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    ${mobile({marginBottom: "10px"})}
+
 `
 
 const ProductAmountContainer = styled.div`
@@ -126,6 +142,8 @@ const ProductAmount = styled.span`
 const ProductPrice = styled.span`
     font-size: 24px;
     font-weight: 200;
+    ${mobile({fontWeight: "700"})}
+
 `
 
 // Line Break
@@ -144,11 +162,15 @@ const Summary = styled.div`
     padding: 20px;
     height: 50vh;
     margin-left: 20px;
+    ${mobile({width: "90%", marginLeft: "0"})}
+
 `
 
 const SummaryTitle = styled.h1`
     margin-bottom: 10px;
     font-weight: 200;
+    ${mobile({fontSize: "24px", marginBottom: "0"})}
+
 `
 
 // Summary Item
@@ -195,7 +217,6 @@ const Cart = () => {
             </Top>
             <Bottom>
                 <Info>
-                    Info
                     <Product>
                         <ProductDetail>
                             <Image src="/img/shoe.png" />
