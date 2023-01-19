@@ -61,6 +61,54 @@ const Summary = styled.div`
     flex: 1;
 `
 
+// Product 
+const Product = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
+// ProductDetails
+
+const ProductDetail = styled.div`
+    flex: 2;
+    display: flex;
+`
+
+const Image = styled.img`
+    width: 250px;
+`
+const Details = styled.div`
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+`
+ 
+const ProductName = styled.span`
+    
+`
+const ProductId = styled.span`
+    
+`
+
+const ProductColour = styled.div`
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: ${props=>props.color};
+    box-shadow: 8px 8px 24px -20px rgba(66, 68, 90, 1); 
+`
+
+const ProductSize = styled.span`
+    
+`
+
+// Price
+
+const PriceDetail = styled.div`
+    flex: 1;
+`
+
 const Cart = () => {
   return (
     <Container>
@@ -77,7 +125,23 @@ const Cart = () => {
                 <TopButton type="filled">CHECK OUT NOW</TopButton>
             </Top>
             <Bottom>
-                <Info>Info</Info>
+                <Info>
+                    Info
+                    <Product>
+                        <ProductDetail>
+                            <Image src="/img/shoe.png" />
+                            <Details>
+                                <ProductName><b>Product: </b>Jessie Thunder Shoes</ProductName>
+                                <ProductId><b>ID: </b>98342345232</ProductId>
+                                <ProductColour color="brown"/>
+                                <ProductSize><b>Size: </b>37.5</ProductSize>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            price
+                        </PriceDetail>
+                    </Product>
+                </Info>
                 <Summary>Summary:</Summary>
             </Bottom>
         </Wrapper>
