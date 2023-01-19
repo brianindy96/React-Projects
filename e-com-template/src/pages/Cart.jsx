@@ -17,7 +17,15 @@ const Title = styled.h1`
 `
 
 const Top = styled.div`
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`
+
+const TopButton = styled.button`
+    padding: 10px;
+    font-weight: 400;
+    cursor: pointer;
 `
 
 const Bottom = styled.div`
@@ -31,7 +39,9 @@ const Cart = () => {
         <Wrapper>
             <Title>YOUR CART</Title>
             <Top>
-
+                <TopButton>CONTINUE SHOPPING</TopButton>
+                
+                <TopButton>CHECK OUT NOW</TopButton>
             </Top>
             <Bottom>
 
