@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
+import { mobile } from '../responsive'
 
 const Container = styled.div`
     width: 100vw;
@@ -22,6 +23,8 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content :center;
     align-items: center;
+    ${mobile({width: "80%"})}
+
 `
 
 const Title = styled.h1`
@@ -33,6 +36,8 @@ const Form = styled.form`
     width: 70%;
     display: flex;
     flex-direction: column;
+    ${mobile({width: "85%"})}
+
 
 `
 const Input = styled.input`
@@ -40,6 +45,7 @@ const Input = styled.input`
     margin: 10px 0;
     min-width: 40%;
     padding: 10px;
+    
 `
 
 const Button = styled.button`
@@ -51,6 +57,8 @@ const Button = styled.button`
     cursor: pointer;
     padding: 15px;
     font-weight: 600;
+    ${mobile({width: "100%"})}
+
 `
 
 const Link = styled.a`
