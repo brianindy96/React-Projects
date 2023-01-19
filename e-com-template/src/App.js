@@ -1,5 +1,6 @@
 import './App.css';
-import Login from './pages/Login';
+import Cart from './pages/Cart';
+// import Login from './pages/Login';
 // import Product from './pages/Product';
 // import Register from './pages/Register';
 // import Home from './pages/Home';
@@ -8,7 +9,7 @@ import Login from './pages/Login';
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Cart />
     </div>
   );
 }
