@@ -15,10 +15,13 @@ const CardContainer = styled.div`
 
 const CardTitle = styled.h2`
     font-size: 36px;
+    margin-bottom: 10px;
 `
 
 const ProductImg = styled.img`
-    width: 150px;
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
 `
 
 const ProductDesc = styled.p`
