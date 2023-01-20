@@ -5,11 +5,11 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const CardContainer = styled.div`
     width: 250px;
     border: 1px solid lightgrey;
-    min-height: 350px;
+    min-height: 300px;
     margin: 10px;
     border-radius: 25px;
     padding: 10px;
-    background-color: #f8f8f8;
+    background-color: white;
     box-shadow: 8px 8px 17px -20px rgba(66, 68, 90, 1);
 `
 
@@ -26,11 +26,13 @@ const ProductImg = styled.img`
 
 const ProductDesc = styled.p`
     font-style: italic;
+    margin-top: 10px;
 `
 
 const ProductPrice = styled.p`
     font-size: 20px;
     font-weight: 600;
+    margin-top: 10px;
 `
 
 const Icon = styled.div`
