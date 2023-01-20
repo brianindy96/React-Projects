@@ -79,7 +79,7 @@ const Logo = styled.h1`
 
 `
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
   return (
     <Container>
       <Wrapper>
@@ -99,7 +99,7 @@ const Navbar = () => {
         </Center>
         <Right>
           <MenuItem>
-            <Badge badgeContent={4} color="success">
+            <Badge badgeContent={totalItems} color="success">
               <ShoppingCartOutlinedIcon color="action" />
             </Badge>
           </MenuItem>

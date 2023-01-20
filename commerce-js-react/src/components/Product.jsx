@@ -49,9 +49,13 @@ const Icon = styled.div`
     padding: 0 5px;
 `
 
-const Product = ({ product }) => {
+const Product = ({ product, onAddToCart }) => {
 
     const { result } = stripHtml(product.description);
+
+    const handleAddToCart = () => {
+        onAddToCart(product.id, 1);
+    }
 
   return (
         <CardContainer>
@@ -63,7 +67,10 @@ const Product = ({ product }) => {
             </ProductInfo>
             
             <Icon>
-                <AddShoppingCartIcon style={{cursor: "pointer", color: "blue"}} />
+                <AddShoppingCartIcon 
+                style={{cursor: "pointer", color: "blue"}}
+                onClick={() => onAddToCart(product.id, 1)}
+                />
             </Icon>
         </CardContainer>
   )

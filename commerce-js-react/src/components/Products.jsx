@@ -41,12 +41,16 @@ const Wrapper = styled.div`
     justify-content: center;
     padding: 20px 50px;
 `
-const Products = ( {products}) => {
+const Products = ( {products, onAddToCart}) => {
   return (
     <Container>
       <Wrapper>
         {products.map((product)=>(
-          <Product key={product.id} product={product} />
+          <Product 
+          key={product.id} 
+          product={product}
+          onAddToCart={onAddToCart}
+          />
         ))}
       </Wrapper>
         

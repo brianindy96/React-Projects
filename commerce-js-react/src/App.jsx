@@ -29,6 +29,15 @@ function App() {
     setCart(cart);
   };
 
+  // AddToCart
+
+  const handleAddToCart = async (productId, quantity) => {
+    const item = commerce.cart.add(productId, quantity);
+
+    setCart(item.cart);
+  }
+
+
   // UseEffects for execution
 
   
@@ -41,8 +50,13 @@ function App() {
 
   return (
     <Container>
-      <Navbar />
-      <Products products={products} />
+      <Navbar
+      totalItems={cart.total_items}
+      />
+      <Products 
+      products={products}
+      onAddToCart={handleAddToCart}
+      />
     </Container>
   )
 }
