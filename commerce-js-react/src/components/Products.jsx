@@ -36,10 +36,11 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     text-align: center;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 20px 50px;
 `
 const Products = ( {products}) => {

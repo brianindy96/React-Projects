@@ -5,7 +5,7 @@ import { stripHtml } from 'string-strip-html';
 import { PropTypes } from 'prop-types';
 
 const CardContainer = styled.div`
-    width: 250px;
+    width: 350px;
     border: 1px solid lightgrey;
     min-height: 300px;
     margin: 10px;
@@ -16,7 +16,7 @@ const CardContainer = styled.div`
 `
 
 const CardTitle = styled.h2`
-    font-size: 36px;
+    font-size: 24px;
     margin-bottom: 10px;
 `
 
