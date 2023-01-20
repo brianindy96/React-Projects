@@ -4,10 +4,13 @@ import styled from 'styled-components'
 import Navbar from './components/Navbar'
 import commerce from "./lib/commerce"
 import { useState, useEffect } from "react"
+import Cart from './components/Cart'
 
 const Container = styled.div`
   
 `
+
+
 function App() {
   // Products
   const [products, setProducts ] = useState([]);
@@ -46,17 +49,18 @@ function App() {
     fetchCart();
   }, [])
 
-  console.log(cart);
+  console.log(cart.line_items);
 
   return (
     <Container>
       <Navbar
       totalItems={cart.total_items}
       />
-      <Products 
+      {/* <Products 
       products={products}
       onAddToCart={handleAddToCart}
-      />
+      /> */}
+      <Cart cart={cart}/>
     </Container>
   )
 }
