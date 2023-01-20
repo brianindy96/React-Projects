@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from "styled-components"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { stripHtml } from 'string-strip-html';
+import { PropTypes } from 'prop-types';
 
 const CardContainer = styled.div`
     width: 250px;
@@ -42,17 +44,24 @@ const Icon = styled.div`
 `
 
 const Product = ({ product }) => {
+
+    const { result } = stripHtml(product.description);
+
   return (
         <CardContainer>
             <CardTitle>{product.name}</CardTitle>
-            <ProductImg src={product.img} alt="Product image here"/>
-            <ProductDesc>{product.description}</ProductDesc>
-            <ProductPrice>$ {product.price}</ProductPrice>
+            <ProductImg src={product.image.url} alt="Product image here"/>
+            <ProductDesc>{result}</ProductDesc>
+            <ProductPrice>$ {product.price.formatted_with_symbol}</ProductPrice>
             <Icon>
                 <AddShoppingCartIcon />
             </Icon>
         </CardContainer>
   )
 }
+
+Product.propTypes = {
+  product: PropTypes.object,
+};
 
 export default Product
