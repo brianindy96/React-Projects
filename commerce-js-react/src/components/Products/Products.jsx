@@ -8,7 +8,8 @@ const products = [
         id: 1,
         name: "Shoes",
         description: "running shoes",
-        price: 30.00
+        price: 30.00,
+        img: ""
     },
     {
         id: 2,
@@ -16,10 +17,19 @@ const products = [
         description: "normal shirt",
         price: 15.00
     },
+    {
+      id: 3,
+      name: "T-Shirt",
+      description: "normal t-shirt",
+      price: 25.00
+  },
 ]
 
 const Container = styled.div`
-    
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
 `
 const Products = () => {
   return (
