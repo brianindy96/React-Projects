@@ -9,6 +9,7 @@ const Container = styled.div`
   
 `
 function App() {
+  // Products
   const [products, setProducts ] = useState([]);
 
   const fetchProducts = async () => {
@@ -18,12 +19,26 @@ function App() {
 
   }
 
+
+  // Carts
+  const [cart, setCart] = useState({});
+  
+  const fetchCart = async () => {
+    const cart = await commerce.cart.retrieve();
+
+    setCart(cart);
+  };
+
+  // UseEffects for execution
+
+  
   useEffect(() => {
     fetchProducts();
+    fetchCart();
   }, [])
 
-  console.log(products);
-  
+  console.log(cart);
+
   return (
     <Container>
       <Navbar />
