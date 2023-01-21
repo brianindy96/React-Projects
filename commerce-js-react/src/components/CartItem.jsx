@@ -59,9 +59,9 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
             </ProductInfo>
             <QtyContainer>
                 <AmountContainer>
-                    <AddIcon onClick={() => onUpdateCartQty(item.id, item.quantity + 1)} />
+                    <AddIcon style={{cursor: "pointer"}} onClick={() => onUpdateCartQty(item.id, item.quantity + 1)} />
                     <ProductQty>{item.quantity}</ProductQty>
-                    <RemoveIcon onClick={() => onUpdateCartQty(item.id, item.quantity - 1)} />
+                    <RemoveIcon style={{cursor: "pointer"}} onClick={() => onUpdateCartQty(item.id, item.quantity - 1)} />
                 </AmountContainer>  
                 <RemoveButton onClick={() => onRemoveFromCart(item.id)}>Remove</RemoveButton>
             </QtyContainer>
