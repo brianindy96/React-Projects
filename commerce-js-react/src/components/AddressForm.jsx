@@ -18,6 +18,13 @@ const AddressForm = () => {
 
     const methods = useForm();
 
+    // Fetch Shipping Countries
+
+    const fetchShippingCountries = async (checkoutTokenId) => {
+        const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
+
+        setShippingCountries(countries);
+    }
 
   return (
     <Container>
