@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components"
 import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from "@mui/material"
 import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
 import Confirmation from "./Confirmation";
+import commerce from "../lib/commerce"
 
 const Container = styled.div`
   width: 100vw;
@@ -21,9 +22,11 @@ const steps = [
   'Payment details',
 ];
 
-const Checkout = () => {
+const Checkout = ({ cart }) => {
 
+  // States
   const [activeStep, setActiveStep] = useState(0);
+  const [checkoutToken, setCheckoutToken] = useState(null);
 
   //Confirmation
 
@@ -36,8 +39,32 @@ const Checkout = () => {
 
   // Form component
   const Form = () => activeStep === 0
-  ? <AddressForm />
+  ? <AddressForm checkoutToken={checkoutToken} />
   : <PaymentForm />
+
+
+  // useEffect
+  
+  useEffect(() => {
+    const generateToken = async () => {
+      try {
+        const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' });
+
+        console.log(token);
+
+        setCheckoutToken(token);
+        
+
+      } catch(error){
+
+      }
+    }
+
+    generateToken();
+  
+  }, [])
+
+  
 
   return (
     <Container>

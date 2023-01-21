@@ -72,7 +72,7 @@ function App() {
     fetchCart();
   }, [2])
 
-  console.log(cart.line_items);
+  // console.log(cart.line_items);
 
   return (
     <Container>
