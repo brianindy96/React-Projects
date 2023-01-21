@@ -49,7 +49,7 @@ const Icon = styled.div`
     padding: 0 5px;
 `
 
-const Product = ({ product, onAddToCart }) => {
+const Product = ({ product, onAddToCart, cart }) => {
 
     const { result } = stripHtml(product.description);
 
@@ -70,6 +70,7 @@ const Product = ({ product, onAddToCart }) => {
                 <AddShoppingCartIcon 
                 style={{cursor: "pointer", color: "blue"}}
                 onClick={() => onAddToCart(product.id, 1)}
+                cart={cart}
                 />
             </Icon>
         </CardContainer>

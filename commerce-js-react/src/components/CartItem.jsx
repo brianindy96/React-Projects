@@ -42,8 +42,13 @@ const ProductInfo = styled.div`
     flex-direction: column;
     margin-left: 20px;
 `
-
-const CartItem = ({ item }) => {
+const QtyContainer = styled.div`
+    
+`
+const RemoveButton = styled.button`
+    
+`
+const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   return (
     <Container>
             <ItemImg src={item.image.url} />
@@ -52,11 +57,15 @@ const CartItem = ({ item }) => {
                 <ItemPrice>Price: {item.price.formatted_with_symbol}</ItemPrice>
                 <ProductId>Product ID: {item.product_id}</ProductId>
             </ProductInfo>
-            <AmountContainer>
-                <AddIcon />
-                <ProductQty>{item.quantity}</ProductQty>
-                <RemoveIcon />
-            </AmountContainer>     
+            <QtyContainer>
+                <AmountContainer>
+                    <AddIcon onClick={() => onUpdateCartQty(item.id, item.quantity + 1)} />
+                    <ProductQty>{item.quantity}</ProductQty>
+                    <RemoveIcon onClick={() => onUpdateCartQty(item.id, item.quantity - 1)} />
+                </AmountContainer>  
+                <RemoveButton onClick={() => onRemoveFromCart(item.id)}>Remove</RemoveButton>
+            </QtyContainer>
+
     </Container>
   )
 }

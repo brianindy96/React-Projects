@@ -2,7 +2,7 @@ import React from 'react'
 import CartItem from './CartItem'
 import styled from 'styled-components'
 import { PropTypes } from 'prop-types';
-
+import { Link } from 'react-router-dom';
 const Container = styled.div`
     padding: 20px;
 `
@@ -47,21 +47,36 @@ const EmptyCartMSG = styled.p`
     
 `
 
-const Cart = ({ cart }) => {
+const ReturnHome = styled.button`
+    padding: 2px 10px;
 
-    const handleEmptyCart = () => {
-        onEmptyCart();
-    }
+`
+
+const EmptyContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const Cart = ({ cart, handleEmptyCart, handleUpdateCartQty, handleRemoveFromCart }) => {
+
 
     const renderEmptyMessage = () => {
         if (cart.total_unique_items > 0) {
             return;
         } return (
-        <EmptyCartMSG>
-            You have no items in your shopping cart, start adding some!
-        </EmptyCartMSG>
+        <EmptyContainer>
+            <EmptyCartMSG style={{marginBottom: "10px"}}>
+                You have no items in your shopping cart, start adding some!
+            </EmptyCartMSG>
+            <Link to="/">
+                    <ReturnHome>GO SHOPPING</ReturnHome>
+            </Link>
+        </EmptyContainer>
+            
         )
-    }
+    };
 
     const renderTotal = () => (
         <div className="cart__total">
@@ -80,13 +95,15 @@ const Cart = ({ cart }) => {
                 <CartItem
                     item={lineItem}
                     key={lineItem.id}
+                    onUpdateCartQty={handleUpdateCartQty}
+                    onRemoveFromCart={handleRemoveFromCart}
                 />
                 ))}
             </CardContainer>
             <Summary>
                 {renderTotal()}
                 <CartFooter>
-                    <EmptyBtn>Empty Cart</EmptyBtn>
+                    <EmptyBtn onClick={handleEmptyCart}>Empty Cart</EmptyBtn>
                     <CheckOutBtn>Checkout</CheckOutBtn>
                 </CartFooter>
             </Summary>

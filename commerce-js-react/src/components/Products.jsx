@@ -41,7 +41,7 @@ const Wrapper = styled.div`
     justify-content: center;
     padding: 20px 50px;
 `
-const Products = ( {products, onAddToCart}) => {
+const Products = ( {products, onAddToCart, cart}) => {
   return (
     <Container>
       <Wrapper>
@@ -50,6 +50,7 @@ const Products = ( {products, onAddToCart}) => {
           key={product.id} 
           product={product}
           onAddToCart={onAddToCart}
+          cart={cart}
           />
         ))}
       </Wrapper>
