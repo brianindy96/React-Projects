@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import { InputLabel, Select, MenuItem, Button, Grid, Typography } from "@mui/material"
 import { useForm, FormProvider } from "react-hook-form"
-
+import FormInput from './FormInput'
 
 const Container = styled.div`
     

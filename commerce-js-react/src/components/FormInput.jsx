@@ -1,22 +1,14 @@
 import React from 'react'
 import styled from "styled-components"
 import { useFormContext, Controller } from "react-hook-form";
-import { TextField } from '@mui/material';
-
-const Container = styled.div`
-
-`
+import { TextField, Grid } from '@mui/material';
 
 const FormInput = ({ name, label }) => {
 
   const { control } = useFormContext();
 
-
-
-  
-
   return (
-    <Container>
+    <Grid>
         <Controller 
           control={control}
           name={name}
@@ -33,7 +25,7 @@ const FormInput = ({ name, label }) => {
             />
           )}
         />
-    </Container>
+    </Grid>
   )
 }
 
