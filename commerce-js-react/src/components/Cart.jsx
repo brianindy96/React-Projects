@@ -3,6 +3,7 @@ import CartItem from './CartItem'
 import styled from 'styled-components'
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
+
 const Container = styled.div`
     padding: 20px;
 `
@@ -104,7 +105,9 @@ const Cart = ({ cart, handleEmptyCart, handleUpdateCartQty, handleRemoveFromCart
                 {renderTotal()}
                 <CartFooter>
                     <EmptyBtn onClick={handleEmptyCart}>Empty Cart</EmptyBtn>
-                    <CheckOutBtn>Checkout</CheckOutBtn>
+                    <Link to="/checkout">
+                        <CheckOutBtn>Checkout</CheckOutBtn>
+                    </Link>
                 </CartFooter>
             </Summary>
         </CartContent>

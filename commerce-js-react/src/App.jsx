@@ -6,6 +6,7 @@ import commerce from "./lib/commerce"
 import { useState, useEffect } from "react"
 import Cart from './components/Cart'
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Checkout from './components/Checkout'
 
 const Container = styled.div`
   
@@ -94,6 +95,9 @@ function App() {
           handleRemoveFromCart={handleRemoveFromCart}
           handleEmptyCart={handleEmptyCart}
           />} />
+          <Route path="/checkout" element={<Checkout />}>
+            
+          </Route>
       </Routes>      
     </Container>
   )
