@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styled from "styled-components"
 import { InputLabel, Select, MenuItem, Button, Grid, Typography } from "@mui/material"
 import { useForm, FormProvider } from "react-hook-form"
 import FormInput from './FormInput'
-
+import commerce from '../lib/commerce'
 const Container = styled.div`
     
 `
@@ -23,8 +23,14 @@ const AddressForm = ({ checkoutToken }) => {
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
 
+        console.log(countries);
         setShippingCountries(countries);
     }
+
+    useEffect(() => {
+      fetchShippingCountries(checkoutToken.id)
+    }, [])
+    
 
   return (
     <Container>

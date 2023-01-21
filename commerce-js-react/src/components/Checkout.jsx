@@ -62,7 +62,7 @@ const Checkout = ({ cart }) => {
 
     generateToken();
   
-  }, [])
+  }, [cart])
 
   
 
@@ -78,7 +78,8 @@ const Checkout = ({ cart }) => {
               </Step>
             ))}
           </Stepper>
-          {activeStep === steps.length ? <Confirmation /> : <Form />}
+          {/* Only renders form if checkoutToken exists */}
+          {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form />}
         </Paper>
       </Wrapper>
     </Container>
