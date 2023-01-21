@@ -5,6 +5,7 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {mobile} from "../responsive";
 import { Link } from "react-router-dom"
+import { useLocation } from 'react-router-dom';
 
 const Container = styled.div`
   height: 60px;
@@ -80,6 +81,10 @@ const Logo = styled.h1`
 `
 
 const Navbar = ({ totalItems }) => {
+
+  const location = useLocation();
+
+
   return (
     <Container>
       <Wrapper>
@@ -100,13 +105,15 @@ const Navbar = ({ totalItems }) => {
           </Logo>
         </Center>
         <Right>
+        {location.pathname === "/" && (
           <MenuItem>
-            <Badge badgeContent={totalItems} color="success">
-              <Link to="/cart">
-                <ShoppingCartOutlinedIcon color="action" />
-              </Link>
-            </Badge>
+          <Badge badgeContent={totalItems} color="success">
+            <Link to="/cart">
+              <ShoppingCartOutlinedIcon color="action" />
+            </Link>
+          </Badge>
           </MenuItem>
+        )}
         </Right>
       </Wrapper>
     </Container>
