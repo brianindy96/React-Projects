@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import commerce from "./lib/commerce"
 import { useState, useEffect } from "react"
 import Cart from './components/Cart'
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 const Container = styled.div`
   
@@ -47,7 +48,7 @@ function App() {
   useEffect(() => {
     fetchProducts();
     fetchCart();
-  }, [])
+  }, [2])
 
   console.log(cart.line_items);
 
@@ -56,11 +57,15 @@ function App() {
       <Navbar
       totalItems={cart.total_items}
       />
-      {/* <Products 
-      products={products}
-      onAddToCart={handleAddToCart}
-      /> */}
-      <Cart cart={cart}/>
+      <Routes>
+        <Route path="/" element={
+          <Products 
+            products={products}
+            onAddToCart={handleAddToCart}
+          />
+        } />
+        <Route path="/cart" element={<Cart cart={cart}/>} />
+      </Routes>      
     </Container>
   )
 }

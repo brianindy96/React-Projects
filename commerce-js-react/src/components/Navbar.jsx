@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {mobile} from "../responsive";
-
+import { Link } from "react-router-dom"
 
 const Container = styled.div`
   height: 60px;
@@ -94,13 +94,17 @@ const Navbar = ({ totalItems }) => {
         </Left>
         <Center>
           <Logo>
-            NOTINO.
+            <Link to="/" style={{textDecoration: "none", color: "black"}}>
+              NOTINO.
+            </Link>
           </Logo>
         </Center>
         <Right>
           <MenuItem>
             <Badge badgeContent={totalItems} color="success">
-              <ShoppingCartOutlinedIcon color="action" />
+              <Link to="/cart">
+                <ShoppingCartOutlinedIcon color="action" />
+              </Link>
             </Badge>
           </MenuItem>
         </Right>
