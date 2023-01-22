@@ -36,15 +36,16 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   let Confirmation = () => (order.customer ? (
     <>
       <div>
-        <Typography variant="h5">Thank you for your purchase, firstName lastName!</Typography>
+        <Typography variant="h6"  gutterBottom>Thank you for your purchase, <strong>{order.customer.firstname} {order.customer.lastname}</strong>!</Typography>
         <Divider />
-        <Typography variant="subtitle2">Order ref: ref</Typography>
+        <br/>
+        <Typography variant="subtitle2">Order ref: {order.customer_reference}</Typography>
       </div>
       <br />
       <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
     </>
   ) : (
-    <div>
+    <div style={{textAlign: "center"}}>
       <CircularProgress />
     </div>
   ));
@@ -102,7 +103,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     <Container>
       <Wrapper>
         <Paper style={{width: "50%", padding: "20px"}}>
-          <Typography variant="h4" align="center">Checkout</Typography>
+          <Typography variant="h4" align="center" gutterBottom>Checkout</Typography>
           <Stepper activeStep={activeStep} style={{marginBottom: "20px"}}>
             {steps.map((step) => (
               <Step key={step}>
