@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     position: relative;
+    padding: 100px 0;
 `
 
 const HeaderList = styled.ul`
@@ -14,6 +15,7 @@ const HeaderList = styled.ul`
     font-family: "Syncopate", sans-serif;
     color: #626262;
     text-transform: uppercase;
+    list-style: none;
 `
 
 const HeaderListItem = styled.li`
@@ -22,6 +24,7 @@ const HeaderListItem = styled.li`
 `
 
 const Title = styled.h1`
+    margin-bottom: 50px;
     font-size: 20vw;
     text-transform: uppercase;
     text-align: center;
