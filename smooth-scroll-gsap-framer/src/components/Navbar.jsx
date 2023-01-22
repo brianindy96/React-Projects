@@ -8,6 +8,10 @@ const Container = styled.div`
     font-size: 24px;
     letter-spacing: 1px;
     font-family: 'Syncopate', sans-serif;
+    color: #464646;
+    font-weight: 600;
+    text-transform: uppercase;
+
 `
 
 
