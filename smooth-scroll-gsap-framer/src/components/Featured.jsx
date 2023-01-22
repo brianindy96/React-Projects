@@ -3,7 +3,9 @@ import styled from "styled-components"
 
 const Featured = () => {
   return (
-    <div>Featured</div>
+    <div>
+        
+    </div>
   )
 }
 

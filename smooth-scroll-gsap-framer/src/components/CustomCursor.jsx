@@ -3,7 +3,9 @@ import styled from "styled-components"
 
 const CustomCursor = () => {
   return (
-    <div>CustomCursor</div>
+    <div>
+        
+    </div>
   )
 }
 
