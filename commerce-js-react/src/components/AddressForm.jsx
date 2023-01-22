@@ -4,8 +4,10 @@ import { InputLabel, Select, MenuItem, Button, Grid, Typography } from "@mui/mat
 import { useForm, FormProvider } from "react-hook-form"
 import FormInput from './FormInput'
 import commerce from '../lib/commerce'
+import { Link } from 'react-router-dom'
+
 const Container = styled.div`
-    
+
 `
 
 const AddressForm = ({ checkoutToken }) => {
@@ -125,6 +127,12 @@ const AddressForm = ({ checkoutToken }) => {
                     </Grid>
                 </Grid>
             </form>
+            <br></br>
+            <div style={{display: "flex", justifyContent: "space-between"}}>
+                <Button component={Link} to="/cart" variant="outlined">Back to Cart</Button>
+                <Button type="submit" variant="contained" color="primary">Next</Button>
+
+            </div>
         </FormProvider>
     </Container>
   )
