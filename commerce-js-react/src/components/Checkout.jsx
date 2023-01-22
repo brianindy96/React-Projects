@@ -77,7 +77,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         
 
       } catch(error){
-        navigate.pushState('/');
+        if (activeStep !== steps.length) navigate('/');
       }
     }
 
