@@ -16,6 +16,7 @@ const HeaderList = styled.ul`
     color: #626262;
     text-transform: uppercase;
     list-style: none;
+    font-weight: 600;
 `
 
 const HeaderListItem = styled.li`
