@@ -22,7 +22,7 @@ const steps = [
   'Payment details',
 ];
 
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
   // States
   const [activeStep, setActiveStep] = useState(0);
@@ -41,7 +41,7 @@ const Checkout = ({ cart }) => {
   // Form component
   const Form = () => activeStep === 0
   ? <AddressForm checkoutToken={checkoutToken} next={next} />
-  : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken}/>
+  : <PaymentForm nextStep={nextStep} onCaptureCheckout={onCaptureCheckout} shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep}/>
 
 
   // useEffect
