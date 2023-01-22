@@ -10,7 +10,7 @@ const Container = styled.div`
 
 `
 
-const AddressForm = ({ checkoutToken }) => {
+const AddressForm = ({ checkoutToken, next }) => {
     const [shippingCountries, setShippingCountries] = useState([]);
     const [shippingCountry, setShippingCountry] = useState('');
     const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -59,10 +59,10 @@ const AddressForm = ({ checkoutToken }) => {
     const fetchShippingOptions = async (checkoutTokenId, country, region = null) => {
         const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region });
     
-        console.log(options)
+        // console.log(options)
         setShippingOptions(options);
 
-        console.log(options[0].id);
+        // console.log(options[0].id);
         setShippingOption(options[0].id);
     }
 
@@ -87,7 +87,7 @@ const AddressForm = ({ checkoutToken }) => {
     <Container>
         <Typography variant="h6" gutterBottom>Shipping Address</Typography>
         <FormProvider {...methods}>
-            <form>
+            <form onSubmit={methods.handleSubmit((data)=> next({ ...data, shippingCountry, shippingSubdivision, shippingOption}))}>
                 <Grid container spacing={3} style={{padding: "20px", display: "flex", justifyContent: "center", gridTemplateColumns: "1fr 1fr", gridGap: "20px"}}>
                     <FormInput required name="firstName" label="First Name" />
                     <FormInput required name="lastName" label="Last Name" />
@@ -126,13 +126,14 @@ const AddressForm = ({ checkoutToken }) => {
                         </Select>
                     </Grid>
                 </Grid>
-            </form>
-            <br></br>
-            <div style={{display: "flex", justifyContent: "space-between"}}>
+                <br></br>
+                <div style={{display: "flex", justifyContent: "space-between"}}>
                 <Button component={Link} to="/cart" variant="outlined">Back to Cart</Button>
                 <Button type="submit" variant="contained" color="primary">Next</Button>
 
             </div>
+            </form>
+            
         </FormProvider>
     </Container>
   )
