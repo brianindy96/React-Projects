@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect  } from "react";
 import styled from "styled-components"
 import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from "@mui/material"
 import AddressForm from "./AddressForm";
 import PaymentForm from "./PaymentForm";
-import Confirmation from "./Confirmation";
 import commerce from "../lib/commerce"
+import { Link, useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -24,6 +24,8 @@ const steps = [
 
 const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
+  const navigate = useNavigate();
+
   // States
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
@@ -31,11 +33,29 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
   //Confirmation
 
-  const Confirmation = () => (
+  let Confirmation = () => (order.customer ? (
+    <>
+      <div>
+        <Typography variant="h5">Thank you for your purchase, firstName lastName!</Typography>
+        <Divider />
+        <Typography variant="subtitle2">Order ref: ref</Typography>
+      </div>
+      <br />
+      <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
+    </>
+  ) : (
     <div>
-      Confirmation
+      <CircularProgress />
     </div>
-  )
+  ));
+
+  if(error){
+    <>
+      <Typography variant="h5">Error: {error}</Typography>
+      <br />
+
+    </>
+  }
 
 
   // Form component
@@ -57,7 +77,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
         
 
       } catch(error){
-
+        navigate.pushState('/');
       }
     }
 

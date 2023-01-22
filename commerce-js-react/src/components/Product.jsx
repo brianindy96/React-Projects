@@ -54,8 +54,9 @@ const Product = ({ product, onAddToCart, cart }) => {
     const { result } = stripHtml(product.description);
 
     const handleAddToCart = () => {
+
         onAddToCart(product.id, 1);
-    }
+      }
 
   return (
         <CardContainer>
@@ -68,9 +69,9 @@ const Product = ({ product, onAddToCart, cart }) => {
             
             <Icon>
                 <AddShoppingCartIcon 
-                style={{cursor: "pointer", color: "blue"}}
-                onClick={() => onAddToCart(product.id, 1)}
                 cart={cart}
+                style={{cursor: "pointer", color: "blue"}}
+                onClick={handleAddToCart}
                 />
             </Icon>
         </CardContainer>

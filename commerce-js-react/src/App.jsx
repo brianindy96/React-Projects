@@ -38,7 +38,7 @@ function App() {
   // AddToCart
 
   const handleAddToCart = async (productId, quantity) => {
-    const { cart } = commerce.cart.add(productId, quantity);
+    const { cart } = await commerce.cart.add(productId, quantity);
 
     setCart(cart);
   }
@@ -99,7 +99,7 @@ function App() {
   useEffect(() => {
     fetchProducts();
     fetchCart();
-  }, [2])
+  }, [])
 
   // console.log(cart.line_items);
 
