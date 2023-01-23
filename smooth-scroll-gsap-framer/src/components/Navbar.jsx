@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from "styled-components"
+import { gsap } from "gsap";
+
 
 const Container = styled.div`
     display: flex;
@@ -16,6 +18,18 @@ const Container = styled.div`
 
 
 const Navbar = () => {
+
+  useEffect(() => {
+    
+    gsap.to(
+      ".navbar", { 
+        duration: 2,
+        y: 20
+      }); 
+    }, [])
+  
+  
+    
   return (
     <Container className='navbar' data-scroll-section>
         <div>menu</div>

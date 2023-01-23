@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import gsap from "gsap"
-import SplitText from "../utils/Split3.min.js"
+import { gsap } from "gsap"
+
 
 const Container = styled.section`
     position: relative;
@@ -36,17 +36,38 @@ const Title = styled.h1`
 
 
 
-const Header = () => {
+export default function Header () {
+
+    useEffect(() => {
+
+        gsap.to(
+            ".header-title", { duration: 2.5,
+            ease: "power2.out",
+            y: -100
+            });
+            
+        gsap.to(
+            ".header-menu", { duration: 2.5,
+            ease: "power2.out",
+            x: -80
+            });    
+
+        
+      
+    }, [])
+    
+
   return (
-    <Container className='header-container' data-scroll-section>
+    <Container 
+    className='header-container' 
+    data-scroll-section>
         <HeaderList className='header-menu'>
             <HeaderListItem>Intro</HeaderListItem>
             <HeaderListItem>About</HeaderListItem>
             <HeaderListItem>Featured</HeaderListItem>
         </HeaderList>
-        <Title className='header-text'>Art Objects</Title>
+        <Title className="header-title"id='header-text'>Art Objects</Title>
     </Container>
   )
 }
 
-export default Header
