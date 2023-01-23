@@ -34,14 +34,52 @@ const images = [
 ];
 
 const Container = styled.section`
-  
+    background-color: #d53f41;
+    margin-left: -5vw;
+    margin-right: -5vw;
+    position: relative;
 `
 
 const GalleryContainer = styled.div`
-  
+  height: 80vh;
+
+  padding: 10vh 0;
+  width: 400%;
+  display: flex;
+  flex-wrap: nowrap;
 `
 
 const GalleryCounter = styled.div`
+  position: absolute;
+  top: 10%;
+  left: 100px;
+  z-index: 1;
+  mix-blend-mode: difference;
+  line-height: 16px;
+  color: #dbd8d6;
+
+  font-family: "Bai Jamjuree";
+  font-weight: 600;
+
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+`
+
+const ActiveImg = styled.span`
+  
+`
+
+const Divider = styled.span`
+  content: '';
+  background-color: white;
+  width: 6.25vw;
+  margin: 7px 10px;
+  height: 1px;
+  display: inline-block;
+`
+
+const ImageLengths = styled.span`
   
 `
 const Gallery = () => {
@@ -50,10 +88,12 @@ const Gallery = () => {
 
 
   return (
-    <Container>
-      <GalleryContainer>
-        <GalleryCounter>
-
+    <Container className='gallery-wrap'>
+      <GalleryContainer className='gallery'>
+        <GalleryCounter className="gallery-counter">
+          <ActiveImg>{activeImage}</ActiveImg>
+          <Divider />
+          <ImageLengths>{images.length}</ImageLengths>
         </GalleryCounter>
         {images.map((image, index) => (
           <GalleryItem 
