@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import './App.css'
 import About from './components/About'
 import CustomCursor from './components/CustomCursor'
@@ -47,6 +47,29 @@ function App() {
 
   // Preloader
   const [preloader, setPreloader] = useState(true);
+
+  // Preloader timer
+  const [timer, setTimer] = useState(6);
+
+  const id = useRef(null)
+
+  const clear = () => {
+    window.clearInterval(id.current);
+    setPreloader(false);
+  }
+
+  useEffect(() => {
+    id.current = window.setInterval(()=>{
+      setTimer((timer)=> timer - 1)
+    }, 1000)
+  }, [])
+
+  useEffect(() => {
+    if(timer === 0){
+      clear();
+    }
+  }, [timer])
+  
 
   return (
     <>
