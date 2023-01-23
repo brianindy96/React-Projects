@@ -9,6 +9,8 @@ import Header from './components/Header'
 import Navbar from './components/Navbar'
 import styled from 'styled-components'
 
+import useLocoScroll from './hooks/useLocoScroll'
+
 
 const Container = styled.div`
     padding: 0 5vw;
@@ -49,6 +51,8 @@ function App() {
   // Preloader
   const [preloader, setPreloader] = useState(true);
 
+  useLocoScroll(!preloader);
+
   // Preloader timer
   const [timer, setTimer] = useState(4);
 
@@ -81,7 +85,7 @@ function App() {
           <LoaderSubtitle>Chiang Mai</LoaderSubtitle>
         </LoaderWrapper>
       ) : (
-      <Container className='main-container'
+      <Container className='main-container' id='main-container'
       data-scroll-container
       >
           <Navbar />
