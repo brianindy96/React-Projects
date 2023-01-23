@@ -45,6 +45,7 @@ const LoaderSubtitle = styled.h2`
 
 function App() {
 
+  //--------------------- LOADER------------------------------------
   // Preloader
   const [preloader, setPreloader] = useState(true);
 
@@ -80,7 +81,9 @@ function App() {
           <LoaderSubtitle>Chiang Mai</LoaderSubtitle>
         </LoaderWrapper>
       ) : (
-      <Container className='main-container'>
+      <Container className='main-container'
+      data-scroll-container
+      >
           <Navbar />
           <Header />
           <Featured />

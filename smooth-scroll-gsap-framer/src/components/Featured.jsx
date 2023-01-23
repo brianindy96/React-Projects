@@ -58,7 +58,9 @@ const LilyImg = styled.img`
 
 const Featured = () => {
   return (
-    <Container>
+    <Container className='featured-section'
+    data-scroll-section
+    >
         <FeaturedRowLayout>
             <GreenName name="green">green</GreenName>
             <GreenImg src="https://images.unsplash.com/photo-1598838073192-05c942ede858?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=934&q=100" />

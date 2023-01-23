@@ -13,7 +13,9 @@ const Desc = styled.p`
 const About = () => {
   return (
     <Container>
-      <SectionHeader title="about" />
+      <SectionHeader title="about" 
+      data-scroll-section
+      />
       <Desc>
         Flirty Flowers is a blog about flowers and the floral designers who make
         them into art. Creativity and the art of ‘making’ require dialogue. The

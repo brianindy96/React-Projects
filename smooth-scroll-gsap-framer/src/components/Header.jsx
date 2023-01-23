@@ -36,7 +36,7 @@ const Title = styled.h1`
 
 const Header = () => {
   return (
-    <Container className='header-container'>
+    <Container className='header-container' data-scroll-section>
         <HeaderList className='header-menu'>
             <HeaderListItem>Intro</HeaderListItem>
             <HeaderListItem>About</HeaderListItem>

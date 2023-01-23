@@ -17,7 +17,7 @@ const Title = styled.h1`
 
 const Footer = () => {
   return (
-    <Container>
+    <Container className='footer' data-scroll-section>
         <SectionHeader title="Made in"/>
         <Title className='location' id='location=text'>Chiang Mai</Title>
     </Container>

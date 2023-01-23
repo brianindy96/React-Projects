@@ -17,7 +17,7 @@ const Container = styled.div`
 
 const Navbar = () => {
   return (
-    <Container>
+    <Container className='navbar' data-scroll-section>
         <div>menu</div>
         <div>Flirty Flowers</div>
         <div>cart</div>

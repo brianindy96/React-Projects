@@ -90,7 +90,7 @@ const Gallery = () => {
 
 
   return (
-    <Container className='gallery-wrap'>
+    <Container className='gallery-wrap' data-scroll-section>
       <GalleryContainer className='gallery'>
         <GalleryCounter className="gallery-counter">
           <ActiveImg>{activeImage}</ActiveImg>

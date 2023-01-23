@@ -75,7 +75,7 @@ const Desc = styled.p`
 
 const GalleryItem = ({ src, category, subtitle, title, updateActiveImage, index }) => {
   return (
-    <Container className='gallery-item-wrapper'>
+    <Container className='gallery-item-wrapper' data-scroll-section>
       <div></div>
       <Wrapper className="gallery-item">
         <ItemInfo>
