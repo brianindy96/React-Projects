@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import About from './components/About'
 import CustomCursor from './components/CustomCursor'
@@ -14,22 +14,60 @@ const Container = styled.div`
     padding: 0 5vw;
 `
 
+const LoaderWrapper = styled.div`
+    background-color: #191919;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+`
+
+const LoaderTitle = styled.h1`
+    color: #dbd8d6;
+    font-size: 8rem;
+    margin-bottom: 50px;
+    font-family: "Bai Jamjuree", sans-serif;
+    font-weight: 600;
+`
+
+const LoaderSubtitle = styled.h2`
+    color: #dbd8d6;
+    font-size: 1.7rem;
+    font-family: "Bodoni Moda", sans-serif;
+    font-style: italic;
+
+`
+
 
 function App() {
 
+  // Preloader
+  const [preloader, setPreloader] = useState(true);
 
   return (
     <>
       <CustomCursor />
-
+      {preloader ? (
+        <LoaderWrapper className='loader-wrapper absolute'>
+          <LoaderTitle>Flirty Flowers</LoaderTitle>
+          <LoaderSubtitle>Chiang Mai</LoaderSubtitle>
+        </LoaderWrapper>
+      ) : (
       <Container className='main-container'>
-        <Navbar />
-        <Header />
-        <Featured />
-        <About />
-        <Gallery />
-        <Footer />
+          <Navbar />
+          <Header />
+          <Featured />
+          <About />
+          <Gallery />
+          <Footer />
       </Container>
+      )}
+      
+      
     </>
   )
 }
