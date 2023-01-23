@@ -49,7 +49,7 @@ function App() {
   const [preloader, setPreloader] = useState(true);
 
   // Preloader timer
-  const [timer, setTimer] = useState(6);
+  const [timer, setTimer] = useState(4);
 
   const id = useRef(null)
 
