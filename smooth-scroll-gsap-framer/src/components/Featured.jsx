@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from "styled-components"
 
-const Container = styled.div`
+const Container = styled.section`
     display: grid;
+    /* height: 100vh; */
     grid-template-columns: 1fr 3fr;
     align-items: center;
 `
@@ -40,9 +41,6 @@ const LilyName = styled.h6`
     transform-origin: left bottom;
     justify-self: self-end;
 
-    transform: translateX(100%) rotate(-90deg);
-    transform-origin: left bottom;
-    justify-self: self-end;
 `
 
 const GreenImg = styled.img`

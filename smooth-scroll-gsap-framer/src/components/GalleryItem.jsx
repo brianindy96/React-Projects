@@ -20,13 +20,15 @@ const Wrapper = styled.div`
 
 const ItemInfo = styled.div`
   position: absolute;
-  bottom: 10%;
+  top: 50%;
   z-index: 1;
   transform: translateX(-20%);
   color: #dbd8d6;
 `
 
 const ItemImg = styled.img`
+  top: 0%;
+  position: absolute;
     background-size: cover;
     background-position: center;
     transform-origin: center;
@@ -44,10 +46,12 @@ const InfoTitle = styled.h1`
   font-weight: 600;
   font-size: 6vw;
   -webkit-font-smoothing: antialiased;
+  margin: 10px 0;
 `
 
 const Subtitle = styled.h6`
   position: relative;
+  margin: 20px 0;
       line-height: 6vw;
       color: transparent;
       font-family: "Bodoni Moda";
@@ -58,13 +62,14 @@ const Subtitle = styled.h6`
 `
 
 const Desc = styled.p`
-   position: relative;
+      position: relative;
+      margin: 10px 0;
       line-height: 24px;
       font-family: "Bai Jamjuree";
       font-weight: 400;
       font-size: 24px;
       -webkit-font-smoothing: antialiased;
-      margin-top: 2vh;
+
 
 `
 

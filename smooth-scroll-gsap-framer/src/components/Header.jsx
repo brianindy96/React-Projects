@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Container = styled.div`
+const Container = styled.section`
     position: relative;
-    padding: 100px 0;
 `
 
 const HeaderList = styled.ul`
@@ -25,7 +24,7 @@ const HeaderListItem = styled.li`
 `
 
 const Title = styled.h1`
-    margin-bottom: 50px;
+    margin: 0;
     font-size: 20vw;
     text-transform: uppercase;
     text-align: center;
@@ -37,13 +36,13 @@ const Title = styled.h1`
 
 const Header = () => {
   return (
-    <Container>
-        <HeaderList>
+    <Container className='header-container'>
+        <HeaderList className='header-menu'>
             <HeaderListItem>Intro</HeaderListItem>
             <HeaderListItem>About</HeaderListItem>
             <HeaderListItem>Featured</HeaderListItem>
         </HeaderList>
-        <Title>Art Objects</Title>
+        <Title className='header-text'>Art Objects</Title>
     </Container>
   )
 }

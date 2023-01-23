@@ -22,7 +22,7 @@ function App() {
     <>
       <CustomCursor />
 
-      <Container>
+      <Container className='main-container'>
         <Navbar />
         <Header />
         <Featured />

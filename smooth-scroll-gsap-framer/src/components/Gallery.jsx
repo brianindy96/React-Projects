@@ -37,12 +37,14 @@ const Container = styled.section`
     background-color: #d53f41;
     margin-left: -5vw;
     margin-right: -5vw;
+    padding: 0;
     position: relative;
+    min-height: 80vh;
 `
 
 const GalleryContainer = styled.div`
   height: 80vh;
-
+  position: relative;
   padding: 10vh 0;
   width: 400%;
   display: flex;
