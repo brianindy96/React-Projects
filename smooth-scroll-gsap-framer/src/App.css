@@ -2,6 +2,7 @@ body{
   font-family: "Poppins", sans-serif;
   
   background-color: #f5f0ec;
+  scroll-behavior: smooth;
 }
 
 section{
