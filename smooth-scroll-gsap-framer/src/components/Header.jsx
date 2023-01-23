@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
+import gsap from "gsap"
+import SplitText from "../utils/Split3.min.js"
 
 const Container = styled.section`
     position: relative;
