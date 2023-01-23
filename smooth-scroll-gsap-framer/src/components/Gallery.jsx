@@ -39,7 +39,7 @@ const Container = styled.section`
     margin-right: -5vw;
     padding: 0;
     position: relative;
-    min-height: 80vh;
+    min-height: 110vh;
 `
 
 const GalleryContainer = styled.div`
