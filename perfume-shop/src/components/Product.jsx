@@ -53,10 +53,7 @@ const Product = ({ product }) => {
         <InfoContainer>
             <h5>{product.name}</h5>
             <p>{product.price}</p>
-            <Rate style={{display: "flex", alignItems: "center"}}>
-                <Rating name="read-only" value={product.rating} readOnly />
-                <span style={{color: "#a2a1a1", marginLeft: "5px"}}>({product.reviews})</span>
-            </Rate>
+            
             <AddCartContainer>
                 <IconButton color='primary'>
                     <AddShoppingCartOutlinedIcon />
