@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import KeyboardArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardArrowLeftOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
+import { mobileL, tablet } from '../responsive';
 
 const Container = styled.div`
     height: 70vh;
@@ -11,6 +12,9 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     position: relative;
+    ${tablet({display: "none"})};
+    ${mobile({display: "none"})};
+
 `
 
 const Wrapper = styled.div`
