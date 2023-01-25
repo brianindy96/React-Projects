@@ -9,11 +9,13 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { mobileL, tablet } from "../responsive";
 
 const Container = styled.div`
-    max-width: 1580px;
-    margin: 0 auto;
+    background-color: black;
+    color: white;
 `
 const Wrapper = styled.div`
     width: 100%;
+    max-width: 1580px;
+    margin: 0 auto;
     min-height: 10vh;
     padding: 20px;
     display: flex;
@@ -42,6 +44,7 @@ const Logo = styled.h1`
     margin: 0 2rem;
     ${tablet({marginLeft: "1rem"})}
     ${mobileL({marginLeft: "0"})}
+    text-transform: uppercase;
 
 
 `
@@ -94,7 +97,7 @@ const Navbar = () => {
     <Container>
         <Wrapper>
             <Left>
-                <Logo>NOTINO.</Logo>
+                <Logo>la fragilité.</Logo>
             </Left>
             <Center>
                 

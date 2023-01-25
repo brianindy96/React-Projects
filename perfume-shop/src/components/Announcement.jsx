@@ -7,6 +7,7 @@ const Container = styled.div`
     min-height: 3vh;
     width: 100%;
     padding: 5px;
+    font-size: 0.9rem;
 `
 
 const Wrapper = styled.section`
