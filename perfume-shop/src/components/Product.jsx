@@ -53,7 +53,7 @@ const Product = ({ product }) => {
         <InfoContainer>
             <h5>{product.name}</h5>
             <p>{product.price}</p>
-            
+            <p style={{fontSize: "10px", fontStyle: "italic"}}>{product.desc}</p>
             <AddCartContainer>
                 <IconButton color='primary'>
                     <AddShoppingCartOutlinedIcon />

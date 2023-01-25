@@ -5,7 +5,7 @@ import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRig
 import { mobileL, tablet } from '../responsive';
 
 const Container = styled.div`
-    height: 65vh;
+    height: 80vh;
     background-color: #ffe4ab;
     width: 100%;
     display: flex;

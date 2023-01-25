@@ -7,6 +7,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import Button from '@mui/material/Button';
 import { mobileL, tablet } from '../responsive';
+
 const Container = styled.div`
   min-height: 80vh;
   width: 100%;
@@ -49,8 +50,10 @@ const ProductName = styled.h1`
 `
 
 const ProductDesc = styled.p`
-    font-size: 12px;
+    font-size: 14px;
     width: 80%;
+    font-style: italic;
+    line-height: 1.2rem;
 `
 
 const Hr = styled.hr`
@@ -58,7 +61,7 @@ const Hr = styled.hr`
     border: none;
     height: 1px;
     width: 90%;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 10px;
 `
 
@@ -116,7 +119,7 @@ const ProductInfo = () => {
         </Left>
         <Right>
             <ProductName>Acqua di Gioia</ProductName>
-            <ProductDesc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ratione, dignissimos aperiam deserunt impedit rerum natus molestiae omnis doloremque sed?</ProductDesc>
+            <ProductDesc>It's a recipe of contrasts: Crisp bergamot and spicy pepper top notes announce the scent, followed by floral, amber, vanilla, and cedar for a strong but well-rounded finish. And it plays a long game: Sauvage lasts all day, and it wears well in every season.</ProductDesc>
             <Hr />
             <Price>$ 490.00</Price>
             <Hr />

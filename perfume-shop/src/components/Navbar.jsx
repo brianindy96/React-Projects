@@ -7,6 +7,7 @@ import { styled as style } from '@mui/material/styles';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { mobileL, tablet } from "../responsive";
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     background-color: black;
@@ -103,7 +104,9 @@ const Navbar = () => {
     <Container>
         <Wrapper>
             <Left>
-                <Logo>la fragilité.</Logo>
+                <Link to="/" style={{textDecoration: "none", color: "white"}}>
+                    <Logo>la fragilité.</Logo>
+                </Link>
             </Left>
             <Center>
                 
@@ -118,11 +121,13 @@ const Navbar = () => {
                     <AccountSpan>Account</AccountSpan>
                 </Account>
                 <Cart>
+                    <Link to="/cart" style={{textDecoration: "none", color: "white"}}>
                     <IconButton aria-label="cart">
                         <StyledBadge badgeContent={4} color="secondary">
                             <ShoppingCartOutlinedIcon style={{color: "#606060"}} />
                         </StyledBadge>
-                    </IconButton>   
+                    </IconButton> 
+                    </Link>  
                 </Cart>
             </Right>
         </Wrapper>
