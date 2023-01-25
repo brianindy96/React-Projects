@@ -6,6 +6,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCart';
 import { styled as style } from '@mui/material/styles';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import {mobileL, tablet, laptopL, desktopL} from "../responsive";
 
 const Container = styled.div`
     max-width: 100vw;
@@ -37,6 +38,8 @@ const Logo = styled.h1`
     font-family: "Syncopate", sans-serif;
     font-size: 2rem;
     margin: 0 2rem;
+    ${mobileL({marginLeft: "0"})}
+
 `
 
 const Cart = styled.div`
@@ -52,6 +55,10 @@ const StyledBadge = style(Badge)(({ theme }) => ({
   },
 }));
  
+const AccountSpan = styled.span`
+    ${mobileL({display: "none"})}
+
+`
 
 const Account = styled.div`
     display: flex;
@@ -66,6 +73,8 @@ const SearchContainer = styled.div`
     border: 1px solid #606060;
     border-radius: 5px;
     padding: 3px;
+    ${mobileL({display: "none"})}
+
 `
 
 const Search = styled.input`
@@ -92,7 +101,7 @@ const Navbar = () => {
                 </SearchContainer>
                 <Account>
                     <PermIdentityOutlinedIcon style={{margin: "0 5px"}} />
-                    <span>Account</span>
+                    <AccountSpan>Account</AccountSpan>
                 </Account>
                 <Cart>
                     <IconButton aria-label="cart">
