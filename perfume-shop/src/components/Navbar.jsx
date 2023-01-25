@@ -6,7 +6,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCart';
 import { styled as style } from '@mui/material/styles';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import {mobileL, tablet, laptopL, desktopL} from "../responsive";
+import { mobileL, tablet } from "../responsive";
 
 const Container = styled.div`
     max-width: 100vw;
@@ -25,6 +25,7 @@ const Left = styled.div`
 
 const Center = styled.div`
     flex: 1;
+    
 `
 
 const Right = styled.div`
@@ -38,7 +39,9 @@ const Logo = styled.h1`
     font-family: "Syncopate", sans-serif;
     font-size: 2rem;
     margin: 0 2rem;
+    ${tablet({marginLeft: "1rem"})}
     ${mobileL({marginLeft: "0"})}
+
 
 `
 
@@ -74,6 +77,7 @@ const SearchContainer = styled.div`
     border-radius: 5px;
     padding: 3px;
     ${mobileL({display: "none"})}
+    ${tablet({display: "none"})}
 
 `
 

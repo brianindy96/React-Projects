@@ -15,31 +15,11 @@ export const mobileL = (props) => {
 
 export const tablet = (props) => {
     return css`
-        @media only screen and (max-width: 768px){
+        @media only screen and (max-width: 810px){
             ${props}
         }
     `
 }
 
-// Laptop
-
-
-export const laptopL = (props) => {
-    return css`
-        @media only screen and (max-width: 1440px){
-            ${props}
-        }
-    `
-}
-
-// Desktop
-
-export const desktopL = (props) => {
-    return css`
-        @media only screen and (max-width: 2560px){
-            ${props}
-        }
-    `
-}
 
 
