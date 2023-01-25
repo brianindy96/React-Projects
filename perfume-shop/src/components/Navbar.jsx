@@ -9,7 +9,8 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { mobileL, tablet } from "../responsive";
 
 const Container = styled.div`
-    max-width: 100vw;
+    max-width: 1580px;
+    margin: 0 auto;
 `
 const Wrapper = styled.div`
     width: 100%;
