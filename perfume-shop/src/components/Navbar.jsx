@@ -20,15 +20,21 @@ const Wrapper = styled.div`
     padding: 20px;
     display: flex;
     align-items: center;
+
 `
 
 const Left = styled.div`
     flex: 1;
+    ${tablet({flex: "2"})}
+    ${mobileL({flex: "2"})}
+
+
 `
 
 const Center = styled.div`
     flex: 1;
-    
+    ${tablet({display: "none"})}
+
 `
 
 const Right = styled.div`
@@ -42,8 +48,8 @@ const Logo = styled.h1`
     font-family: "Syncopate", sans-serif;
     font-size: 2rem;
     margin: 0 2rem;
-    ${tablet({marginLeft: "1rem"})}
-    ${mobileL({marginLeft: "0"})}
+    ${tablet({marginLeft: "1rem", fontSize: "1.7rem"})}
+    ${mobileL({margin: "0 5px", fontSize: "1.3rem"})}
     text-transform: uppercase;
 
 
@@ -114,7 +120,7 @@ const Navbar = () => {
                 <Cart>
                     <IconButton aria-label="cart">
                         <StyledBadge badgeContent={4} color="secondary">
-                            <ShoppingCartOutlinedIcon />
+                            <ShoppingCartOutlinedIcon style={{color: "#606060"}} />
                         </StyledBadge>
                     </IconButton>   
                 </Cart>

@@ -13,7 +13,7 @@ const Container = styled.div`
     align-items: center;
     position: relative;
     ${tablet({display: "none"})};
-    ${mobile({display: "none"})};
+    ${mobileL({display: "none"})};
 
 `
 
