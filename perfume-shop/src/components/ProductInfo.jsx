@@ -6,12 +6,14 @@ import { IconButton } from '@mui/material';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import Button from '@mui/material/Button';
-
+import { mobileL, tablet } from '../responsive';
 const Container = styled.div`
   min-height: 80vh;
   width: 100%;
   padding: 20px;
   display: flex;
+  ${tablet({flexDirection: "column"})}
+
 `
 
 const Left = styled.div`
@@ -24,6 +26,10 @@ const Left = styled.div`
 const Right = styled.div`
     flex: 1;
     padding-top: 25px;
+    ${tablet({margin: "0 auto", padding: "5px 70px"})}
+    ${mobileL({margin: "0 auto", padding: "5px 30px"})}
+
+
 `
 
 const ImgContainer = styled.div`
