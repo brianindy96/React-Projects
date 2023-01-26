@@ -1,5 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Button } from '@mui/material'
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
+import { IconButton } from '@mui/material';
 
 const Container = styled.div`
   min-height: 90vh;
@@ -23,11 +27,6 @@ const CartContainer = styled.div`
    flex: 3;
 `
 
-const SummaryContainer = styled.div`
-   flex: 1;
-   margin-left: 40px;
-   margin-top: 20px;
-`
 
 const Item = styled.div`
     margin: 20px 0;
@@ -36,7 +35,7 @@ const Item = styled.div`
 `
 
 const ProductName = styled.h1`
-
+  font-size: 1.4rem;
 `
 
 const ImgContainer = styled.div`
@@ -61,15 +60,51 @@ const Details = styled.div`
 `
 
 const AmountContainer = styled.div`
+  text-align: center;
 `
 
 const Price = styled.h3`
 
 `
 
+
+const QtyContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const Qty = styled.span`
+  margin: 5px 5px;
+`
+
+const SummaryContainer = styled.div`
+   flex: 1;
+   margin-left: 40px;
+   padding: 8px;
+`
+
+
+const SubTotal = styled.span`
   
 `
+
+const SubTotalPrice = styled.span`
+  
+`
+
+const SubDetails = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+`
+
+const BtnContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  align-items: center;
+`
+
 
 const Hr = styled.hr`
   background-color: #f3f3f3;
@@ -80,9 +115,9 @@ const CartSummary = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>Your Shopping Cart</Title>
         <Content>
           <CartContainer>
+          <Title>Your Shopping Cart</Title>
             <Item>
               <ImgContainer>
                 <Img src='https://www.guerlain.com/dw/image/v2/BDCZ_PRD/on/demandware.static/-/Sites-GSA_master_catalog/default/dwc77ad64f/primary_packshot_3/2022/Fragrance/Mon_Guerlain/G013139_3346470131392_MON-G-17-EDP-50ML-SPR.png?sw=700&sh=700'/>
@@ -93,7 +128,15 @@ const CartSummary = () => {
               </Details>
               <AmountContainer>
                 <Price>$549.00</Price>
-                <Qty>Qty: <strong>2</strong></Qty>
+                <QtyContainer>
+                  <IconButton>
+                    <RemoveIcon />
+                  </IconButton>
+                  <Qty>2</Qty>
+                  <IconButton>
+                    <AddIcon />
+                  </IconButton>
+                </QtyContainer>
               </AmountContainer>
             </Item>
             <Hr />
@@ -107,7 +150,15 @@ const CartSummary = () => {
               </Details>
               <AmountContainer>
                 <Price>$549.00</Price>
-                <Qty>Qty: <strong>2</strong></Qty>
+                <QtyContainer>
+                  <IconButton>
+                    <RemoveIcon />
+                  </IconButton>
+                  <Qty>2</Qty>
+                  <IconButton>
+                    <AddIcon />
+                  </IconButton>
+                </QtyContainer>
               </AmountContainer>
             </Item>
             <Hr />
@@ -121,13 +172,30 @@ const CartSummary = () => {
               </Details>
               <AmountContainer>
                 <Price>$549.00</Price>
-                <Qty>Qty: <strong>2</strong></Qty>
+                <QtyContainer>
+                  <IconButton>
+                    <RemoveIcon />
+                  </IconButton>
+                  <Qty>2</Qty>
+                  <IconButton>
+                    <AddIcon />
+                  </IconButton>
+                </QtyContainer>
               </AmountContainer>
             </Item>
             <Hr />
           </CartContainer>
           <SummaryContainer>
             <Title>Summary</Title>
+            <SubDetails>
+              <SubTotal>Subtotal</SubTotal>
+              <SubTotalPrice>$1,350.00</SubTotalPrice>
+            </SubDetails>
+            <Hr style={{marginTop: "10px", marginBottom: "0"}}/>
+            <BtnContainer>
+              <Button style={{height: "40px", flex: "1", margin: "5px"}} variant="contained">CHECK OUT</Button>
+              <Button style={{height: "40px", padding: "0", flex: "1"}} variant="outlined">CONTINUE SHOPPING</Button>
+            </BtnContainer>
           </SummaryContainer>
         </Content>
         
