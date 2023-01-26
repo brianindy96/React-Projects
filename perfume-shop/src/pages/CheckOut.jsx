@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Stepper from '@mui/material/Stepper';
 import { Typography, Paper } from '@mui/material';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import AddressForm from '../components/AddressForm';
+import PaymentForm from '../components/PaymentForm';
 
 const steps = [
     'Address Forms',
@@ -28,20 +29,28 @@ const Wrapper = styled.div`
 `
 
 const CheckOut = () => {
+
+    const [activeStep, setActiveStep] = useState(0);
+
+    const Form = () => activeStep === 0 ? 
+        <AddressForm /> : <PaymentForm />
+    
+
+    
+
   return (
     <Container>
         <Wrapper>
             <Paper sx={{ padding: "20px", width: "720px"}}>
                 <Typography variant="h4" align="center" gutterBottom>Checkout</Typography>
-                <Stepper activeStep={0} style={{marginBottom: "20px"}}>
+                <Stepper activeStep={activeStep} style={{marginBottom: "20px"}}>
                     {steps.map((step) => (
                     <Step key={step}>
                         <StepLabel>{step}</StepLabel>
                     </Step>
                     ))}
                 </Stepper>
-                {/* <AddressForm or PaymentForm */}
-                <AddressForm />
+                <Form />
             </Paper>
         </Wrapper>
     </Container>

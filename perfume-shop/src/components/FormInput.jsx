@@ -13,6 +13,7 @@ const FormInput = ({ name, label}) => {
             fullWidth
             name={name}
             label={label}
+            defaultValue=""
             render= {({field}) => (
               <TextField
               style={{padding: "0 5px", margin: "10px", width: "100%"}} 
