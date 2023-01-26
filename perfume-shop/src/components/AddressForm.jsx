@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useForm, FormProvider } from "react-hook-form"
+import FormInput from './FormInput'
 
 const Container = styled.div`
     
 `
 
-const FormInput = styled.input`
-    margin: 10px;
-`
 
 const FormContainer = styled.form`
     display: flex;
@@ -18,9 +17,14 @@ const FormContainer = styled.form`
 `
 
 const AddressForm = () => {
+
+    const methods = useForm();
+
+
   return (
     <Container>
-        <FormContainer action="#">
+        <FormProvider {...methods}>
+        <FormContainer>
             <FormInput required name="firstName" label="First Name" />
             <FormInput required name="lastName" label="Last Name" />
             <FormInput required name="address1" label="Address" />
@@ -28,6 +32,8 @@ const AddressForm = () => {
             <FormInput required name="city" label="City" />
             <FormInput required name="zip" label="ZIP/Postal Code" />
         </FormContainer>
+        </FormProvider>
+        
     </Container>
   )
 }
