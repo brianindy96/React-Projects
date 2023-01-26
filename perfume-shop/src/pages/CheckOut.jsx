@@ -4,6 +4,7 @@ import Stepper from '@mui/material/Stepper';
 import { Typography, Paper } from '@mui/material';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
+import AddressForm from '../components/AddressForm';
 
 const steps = [
     'Address Forms',
@@ -30,7 +31,7 @@ const CheckOut = () => {
   return (
     <Container>
         <Wrapper>
-            <Paper sx={{ padding: "20px"}}>
+            <Paper sx={{ padding: "20px", width: "720px"}}>
                 <Typography variant="h4" align="center" gutterBottom>Checkout</Typography>
                 <Stepper activeStep={0} style={{marginBottom: "20px"}}>
                     {steps.map((step) => (
@@ -40,6 +41,7 @@ const CheckOut = () => {
                     ))}
                 </Stepper>
                 {/* <AddressForm or PaymentForm */}
+                <AddressForm />
             </Paper>
         </Wrapper>
     </Container>
