@@ -34,7 +34,7 @@ const ItemPrice = styled.span`
 `
 
 const ItemQty = styled.span`
-    
+    color: #a3a3a3;
 `
 
 const ItemSize = styled.span`

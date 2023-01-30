@@ -4,7 +4,7 @@ import { Button } from '@mui/material'
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { IconButton } from '@mui/material';
-
+import { Link } from 'react-router-dom';
 const Container = styled.div`
   min-height: 90vh;
 `
@@ -193,7 +193,9 @@ const CartSummary = () => {
             </SubDetails>
             <Hr style={{marginTop: "10px", marginBottom: "0"}}/>
             <BtnContainer>
-              <Button style={{height: "40px", flex: "1", margin: "5px"}} variant="contained">CHECK OUT</Button>
+              <Link to="/checkout">
+                <Button style={{height: "40px", flex: "1", margin: "5px"}} variant="contained">CHECK OUT</Button>
+              </Link>
               <Button style={{height: "40px", padding: "0", flex: "1"}} variant="outlined">CONTINUE SHOPPING</Button>
             </BtnContainer>
           </SummaryContainer>
