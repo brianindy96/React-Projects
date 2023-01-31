@@ -4,12 +4,12 @@ import CartSummary from '../components/CartSummary'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
-const Cart = () => {
+const Cart = ({ cart }) => {
   return (
     <>
-        <Navbar />
+        <Navbar cart={cart}/>
         <Announcement />
-        <CartSummary />
+        <CartSummary cart={cart} />
         <Footer/>
     </>
   )

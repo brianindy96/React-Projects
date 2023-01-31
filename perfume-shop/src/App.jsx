@@ -47,10 +47,6 @@ function App() {
     fetchProducts();
   
   }, [])
-
-  useEffect(() => {
-
-  }, [cart])
   
   
 
@@ -63,7 +59,9 @@ function App() {
           onAddToCart={handleAddToCart}
         />} />
         <Route path="/product" element={<SingleProduct />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart 
+        cart={cart}
+        />} />
         <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </div>
