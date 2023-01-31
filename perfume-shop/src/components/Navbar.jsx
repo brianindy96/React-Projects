@@ -123,7 +123,7 @@ const Navbar = ({ cart }) => {
                 <Cart>
                     <Link to="/cart" style={{textDecoration: "none", color: "white"}}>
                     <IconButton aria-label="cart">
-                        <StyledBadge badgeContent={4} color="secondary">
+                        <StyledBadge badgeContent={cart.total_items} color="secondary">
                             <ShoppingCartOutlinedIcon style={{color: "#606060"}} />
                         </StyledBadge>
                     </IconButton> 

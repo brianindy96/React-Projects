@@ -31,14 +31,27 @@ function App() {
 
   }
 
+  // Add to Cart
+
+  const handleAddToCart = async (productId, quantity) => {
+    const item = await commerce.cart.add(productId, quantity);
+
+    setCart(item.cart)
+  }
+
+
+
   useEffect(() => {
     fetchCart();
 
     fetchProducts();
   
-    console.log(cart);
-    console.log(products);
   }, [])
+
+  useEffect(() => {
+
+  }, [cart])
+  
   
 
   return (
@@ -47,6 +60,7 @@ function App() {
         <Route path="/" element={<Home 
           cart={cart}
           products={products}
+          onAddToCart={handleAddToCart}
         />} />
         <Route path="/product" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />

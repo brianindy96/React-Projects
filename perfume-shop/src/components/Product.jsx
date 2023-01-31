@@ -46,7 +46,13 @@ const AddCartContainer = styled.div`
     justify-content: flex-end;
 `
 
-const Product = ({ product }) => {
+const Product = ({ product, onAddToCart }) => {
+
+    const handleAddToCart = () => {
+
+    onAddToCart(product.id, 1);
+    }
+    
   return (
     <Card>
         <ImgContainer>
@@ -56,7 +62,7 @@ const Product = ({ product }) => {
             <h5>{product.name}</h5>
             <p>{product.price.formatted_with_symbol}</p>
             <p style={{fontSize: "10px", fontStyle: "italic"}}>{product.desc}</p>
-            <AddCartContainer>
+            <AddCartContainer onClick={handleAddToCart}>
                 <IconButton color='primary'>
                     <AddShoppingCartOutlinedIcon />
                 </IconButton>

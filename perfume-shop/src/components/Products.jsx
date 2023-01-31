@@ -24,14 +24,18 @@ const CardContainer = styled.div`
   grid-template-columns: repeat(4,1fr);
   grid-gap: 50px;
 `
-const Products = ({ products }) => {
+const Products = ({ products, onAddToCart }) => {
   return (
     <Container>
         <Wrapper>
             <Title>Products</Title>
             <CardContainer>
               {products.map((product)=>(
-                <Product key={product.id} product={product}/>
+                <Product 
+                key={product.id} 
+                product={product}
+                onAddToCart={onAddToCart}
+                />
               ))}
             </CardContainer>
         </Wrapper>
