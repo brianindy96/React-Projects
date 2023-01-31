@@ -8,17 +8,19 @@ import PropTypes from "prop-types";
 
 const Card = styled.div`
     width: 350px;
-    height: 400px;
+    height: 370px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-
+    border: 1px solid #f0f0f0;
+    padding: 10px 20px;
+    box-shadow: 8px 8px 24px -28px rgba(66, 68, 90, 1);
 `
 
 const ImgContainer = styled.div`
     flex: 1;
     height: 60%;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     border-radius: 2%;
 `
 
@@ -30,7 +32,7 @@ const Img = styled.img`
 
 const InfoContainer = styled.div`
     flex: 1;
-    padding: 10px
+    padding: 10px;
 
 `
 
@@ -60,9 +62,6 @@ const Product = ({ product }) => {
                 </IconButton>
             </AddCartContainer>
         </InfoContainer>
-        
-        
-        
     </Card>
   )
 }
