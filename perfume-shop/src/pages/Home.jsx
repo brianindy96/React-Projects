@@ -6,10 +6,10 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Products from '../components/Products'
 
-const Home = () => {
+const Home = ({ cart }) => {
   return (
     <>
-      <Navbar />
+      <Navbar cart={cart} />
       <Announcement />
       <Banner />
       <Categories />

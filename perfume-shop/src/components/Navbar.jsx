@@ -99,7 +99,7 @@ const Search = styled.input`
     margin-right: 10px;
     border: none;
 `
-const Navbar = () => {
+const Navbar = ({ cart }) => {
   return (
     <Container>
         <Wrapper>
