@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Rating from "@mui/material/Rating"
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import IconButton from '@mui/material/IconButton';
-
+import PropTypes from "prop-types";
 
 
 const Card = styled.div`
@@ -48,11 +48,11 @@ const Product = ({ product }) => {
   return (
     <Card>
         <ImgContainer>
-            <Img src={product.img}/>
+            <Img src={product.image?.url}/>
         </ImgContainer>
         <InfoContainer>
             <h5>{product.name}</h5>
-            <p>{product.price}</p>
+            <p>{product.price.formatted_with_symbol}</p>
             <p style={{fontSize: "10px", fontStyle: "italic"}}>{product.desc}</p>
             <AddCartContainer>
                 <IconButton color='primary'>
@@ -66,5 +66,9 @@ const Product = ({ product }) => {
     </Card>
   )
 }
+
+Product.propTypes = {
+  product: PropTypes.object,
+};
 
 export default Product

@@ -1,70 +1,8 @@
 import React from 'react'
 import styled from "styled-components"
 import Product from './Product'
+import PropTypes from 'prop-types';
 
-const products = [
-  {
-    id: 1,
-    img: "/img/shoe.png",
-    name: "armani",
-    price: "$30.00",
-    desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, consequatur?",
-    rating: "4",
-    reviews: "239"
-
-  },
-  {
-    id: 2,
-    img: "https://wypsikaj.pl/665-large_default/giorgio-armani-acqua-di-gioia-100ml-edp.jpg",
-    name: "versace",
-    price: "$30.00",
-    desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, consequatur?",
-    rating: "2",
-    reviews: "512"
-  },
-  {
-    id: 3,
-    img: "https://cdn.scentbird.com/product/rebrand/943571.png",
-    name: "dior",
-    price: "$30.00",
-    desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, consequatur?",
-    rating: "5",
-    reviews: "4,234"
-  },
-  {
-    id: 4,
-    img: "https://www.chanel.com/images//t_one/w_0.51,h_0.51,c_crop/q_auto:good,f_auto,fl_lossy,dpr_1.2/w_620/coco-noir-eau-de-parfum-spray-3-4fl-oz--packshot-default-113660-9519205842974.jpg",
-    name: "chanel",
-    price: "$30.00",
-    desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste, consequatur?",
-    rating: "3",
-    reviews: "332"
-  },
-  {
-    id: 5,
-    img: "",
-    name: "aventus creed",
-    desc: "",
-  },
-  {
-    id: 6,
-    img: "",
-    name: "mont blanc",
-    desc: "",
-  },
-  {
-    id: 7,
-    img: "",
-    name: "byredo",
-    desc: "",
-  },
-  {
-    id: 8,
-    img: "",
-    name: "tom ford",
-    desc: "",
-  },
-]
 const Container = styled.div`
     margin: 0 20px;
     min-height: 100vh;
@@ -86,7 +24,7 @@ const CardContainer = styled.div`
   grid-template-columns: repeat(4,1fr);
   grid-gap: 50px;
 `
-const Products = () => {
+const Products = ({ products }) => {
   return (
     <Container>
         <Wrapper>
@@ -100,5 +38,9 @@ const Products = () => {
     </Container>
   )
 }
+
+Products.propTypes = {
+  products: PropTypes.array,
+};
 
 export default Products

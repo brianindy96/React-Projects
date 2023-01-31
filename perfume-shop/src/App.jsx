@@ -11,6 +11,7 @@ import commerce from './lib/commerce'
 function App() {
 
   const [cart, setCart] = useState({});
+  const [products, setProducts] = useState([]);
 
   // Retrieve Cart
 
@@ -20,10 +21,23 @@ function App() {
     setCart(getCart);
   }
 
+  // Fetch Products
+
+  const fetchProducts = async () => {
+    const products = await commerce.products.list();
+
+    console.log(products.data)
+    setProducts(products.data);
+
+  }
+
   useEffect(() => {
     fetchCart();
+
+    fetchProducts();
   
     console.log(cart);
+    console.log(products);
   }, [])
   
 
@@ -32,6 +46,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home 
           cart={cart}
+          products={products}
         />} />
         <Route path="/product" element={<SingleProduct />} />
         <Route path="/cart" element={<Cart />} />
