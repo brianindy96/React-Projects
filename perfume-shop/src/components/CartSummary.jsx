@@ -107,7 +107,9 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
               <Link to="/checkout">
                 <Button style={{height: "40px", flex: "1", margin: "5px"}} variant="contained">CHECK OUT</Button>
               </Link>
-              <Button style={{height: "40px", padding: "0", flex: "1"}} variant="outlined">CONTINUE SHOPPING</Button>
+              <Link to="/">
+                <Button style={{height: "40px", flex: "1"}} variant="outlined">CONTINUE SHOPPING</Button>
+              </Link>
             </BtnContainer>
           </SummaryContainer>
         </Content>
