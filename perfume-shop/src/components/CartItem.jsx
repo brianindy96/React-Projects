@@ -59,6 +59,11 @@ const Hr = styled.hr`
 `
 
 const CartItem = ({ item }) => {
+
+    const handleUpdateCartQty = (lineItemId, quantity) => {
+        onUpdateCartQty(lineItemId, quantity);
+    }
+    
   return (
     <>
         <Item>

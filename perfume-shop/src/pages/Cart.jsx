@@ -4,12 +4,12 @@ import CartSummary from '../components/CartSummary'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, onUpdateCartQty }) => {
   return (
     <>
-        <Navbar cart={cart}/>
+        <Navbar cart={cart} onUpdateCartQty={onUpdateCartQty}/>
         <Announcement />
-        <CartSummary cart={cart} />
+        <CartSummary cart={cart} onUpdateCartQty={onUpdateCartQty} />
         <Footer/>
     </>
   )

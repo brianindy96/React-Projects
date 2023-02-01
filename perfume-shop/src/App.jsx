@@ -39,6 +39,14 @@ function App() {
     setCart(item.cart)
   }
 
+  // Update Cart Quantity
+
+  const handleUpdateCartQty = async (lineItemId, quantity) => {
+    const item = await commerce.cart.update(lineItemId, { quantity });
+
+    setCart(item.cart)
+  }
+
 
 
   useEffect(() => {
@@ -57,11 +65,15 @@ function App() {
           cart={cart}
           products={products}
           onAddToCart={handleAddToCart}
+          onUpdateCartQty={handleUpdateCartQty}
         />} />
-        <Route path="/product" element={<SingleProduct />} />
+        <Route path="/product" element={<SingleProduct
+        onUpdateCartQty={handleUpdateCartQty}
+        cart={cart}
+        />} />
         <Route path="/cart" element={<Cart 
         cart={cart}
-        products={products}
+        onUpdateCartQty={handleUpdateCartQty}
         />} />
         <Route path="/checkout" element={<Checkout />} />
       </Routes>
