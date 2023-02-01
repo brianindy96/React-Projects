@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useForm, FormProvider } from "react-hook-form"
 import FormInput from './FormInput'
 import { Button, Grid, InputLabel, MenuItem, Select } from '@mui/material'
+import commerce from '../lib/commerce'
 
 const Container = styled.div`
     
@@ -66,6 +67,15 @@ const AddressForm = () => {
     const [shippingOption, setShippingOption] = useState('');
 
 
+    // Fetch Shipping Countries
+
+    const fetchShippingCountries = async (checkoutTokenId) => {
+        const response = await commerce.services.localeListShippingCountries(checkoutTokenId);
+
+        setShippingCountries(response);
+    }
+
+    
   return (
     <Container>
         <FormProvider onSubmit={(data) => handleSubmit(data)} {...methods}>
