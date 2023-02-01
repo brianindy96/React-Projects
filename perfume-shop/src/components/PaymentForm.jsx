@@ -37,6 +37,10 @@ const ItemQty = styled.span`
     color: #a3a3a3;
 `
 
+const ItemId = styled.span`
+    color: #575757;
+`
+
 const ItemSize = styled.span`
     
 `
@@ -76,48 +80,38 @@ const BtnContainer = styled.div`
     margin-top: 10px;
 `
 
-const PaymentForm = () => {
-  return (
+const PaymentForm = ({ shippingData, checkoutToken}) => {
+    console.log(checkoutToken);
+  
+    return (
     <Container>
         <Title>Order Summary</Title>
-        <Item>
-            <ItemName>Versace Eros</ItemName>
+        {checkoutToken.live.line_items.map((item)=> (
+            <Item key={item.id}>
+            <ItemName>{item.name}</ItemName>
             <ItemAmount>
                 <ItemDesc>
-                    <ItemQty>Quantity: 2</ItemQty>
+                    <ItemId>Product ID: {item.product_id}</ItemId>
+                    <ItemQty>Quantity: {item.quantity}</ItemQty>
                 </ItemDesc>
-                
-                <ItemPrice>$65.00</ItemPrice>
+                <ItemPrice>{item.price.formatted_with_symbol}</ItemPrice>
             </ItemAmount>
         </Item>
-        <Item>
-            <ItemName>Armani Si</ItemName>
-            <ItemAmount>
-                <ItemQty>Quantity: 1</ItemQty>
-                <ItemPrice>$90.00</ItemPrice>
-            </ItemAmount>
-        </Item>
-        <Item>
-            <ItemName>Keyboard</ItemName>
-            <ItemAmount>
-                <ItemQty>Quantity: 2</ItemQty>
-                <ItemPrice>$65.00</ItemPrice>
-            </ItemAmount>
-        </Item>
+        ))}
         <Hr />
         <br />
         <Total>
             <SubTotal>
                 <SubTitle>Subtotal:</SubTitle>
-                <Cost>$1000.00 </Cost>
+                <Cost>{checkoutToken.live.subtotal.formatted_with_symbol}</Cost>
             </SubTotal>
             <SubTotal>
                 <SubTitle>Shipping Fee:</SubTitle>
-                <Cost>$20.00 </Cost>
+                <Cost>{checkoutToken.live.shipping.price.formatted_with_symbol}</Cost>
             </SubTotal>
             <SubTotal>
                 <SubTitle>Total:</SubTitle>
-                <Cost><strong>$1020.00</strong> </Cost>
+                <Cost><strong>{checkoutToken.live.total.formatted_with_symbol}</strong> </Cost>
             </SubTotal>
         </Total>
         <Hr />
@@ -126,7 +120,7 @@ const PaymentForm = () => {
         
         <BtnContainer>
             <Button variant="outlined" style={{width: "100px"}}>Back</Button>
-            <Button variant="contained" color="primary">PAY $1020.00</Button>
+            <Button variant="contained" color="primary">PAY {checkoutToken.live.total.formatted_with_symbol}</Button>
         </BtnContainer>
     </Container>
   )

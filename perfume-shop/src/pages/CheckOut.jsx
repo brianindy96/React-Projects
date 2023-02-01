@@ -14,14 +14,15 @@ const steps = [
 ];
 
 const Container = styled.div`
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background-color: #f3f3f3;
+    
 `
 
 
 const Wrapper = styled.div`
-    height: 100%;
+    min-height: 100%;
     width: 90%;
     display: flex;
     align-items: center;
@@ -45,6 +46,7 @@ const CheckOut = ({ cart }) => {
         : 
         <PaymentForm 
         shippingData={shippingData}
+        checkoutToken={checkoutToken}
         />
 
     // Confirmation
@@ -104,7 +106,7 @@ const CheckOut = ({ cart }) => {
   return (
     <Container>
         <Wrapper>
-            <Paper sx={{ padding: "20px", width: "720px"}}>
+            <Paper sx={{ padding: "20px", width: "720px", margin: "20px 0px"}}>
                 <Typography variant="h4" align="center" gutterBottom>Checkout</Typography>
                 <Stepper activeStep={activeStep} style={{marginBottom: "20px"}}>
                     {steps.map((step) => (
