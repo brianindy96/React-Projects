@@ -117,7 +117,8 @@ const PaymentForm = ({ shippingData, checkoutToken}) => {
         <Hr />
         <Payment>Payment Method</Payment>
         {/* Stripe */}
-        
+
+        <Hr />
         <BtnContainer>
             <Button variant="outlined" style={{width: "100px"}}>Back</Button>
             <Button variant="contained" color="primary">PAY {checkoutToken.live.total.formatted_with_symbol}</Button>
