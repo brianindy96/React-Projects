@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useForm, FormProvider } from "react-hook-form"
 import FormInput from './FormInput'
@@ -51,6 +51,19 @@ const AddressForm = () => {
 
         console.log(data);
     }
+
+    // States of Shipping Choices
+    // shipping countries
+    const [shippingCountries, setShippingCountries] = useState([]);
+    const [shippingCountry, setShippingCountry] = useState('');
+
+    // shipping city
+    const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
+    const [shippingSubdivision, setShippingSubdivision] = useState('');
+
+    // shipping options
+    const [shippingOptions, setShippingOptions] = useState([]);
+    const [shippingOption, setShippingOption] = useState('');
 
 
   return (
