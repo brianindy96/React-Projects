@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useForm, FormProvider } from "react-hook-form"
 import FormInput from './FormInput'
@@ -43,7 +43,7 @@ const Hr = styled.hr`
 
 
 
-const AddressForm = () => {
+const AddressForm = ({ cart, checkoutToken }) => {
 
     const methods = useForm();
 
@@ -58,6 +58,8 @@ const AddressForm = () => {
     const [shippingCountries, setShippingCountries] = useState([]);
     const [shippingCountry, setShippingCountry] = useState('');
 
+    const countries = Object.entries(shippingCountries).map(([code, name]) => ({id: code, label: name}));
+
     // shipping city
     const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
     const [shippingSubdivision, setShippingSubdivision] = useState('');
@@ -70,12 +72,20 @@ const AddressForm = () => {
     // Fetch Shipping Countries
 
     const fetchShippingCountries = async (checkoutTokenId) => {
-        const response = await commerce.services.localeListShippingCountries(checkoutTokenId);
+        const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
 
-        setShippingCountries(response);
+        setShippingCountries(countries);
+
+        setShippingCountry(Object.keys(countries)[0])
     }
 
-    
+    // ComponentDidMount
+    useEffect(() => {
+      fetchShippingCountries(checkoutToken.id)
+
+    }, [cart])
+
+        
   return (
     <Container>
         <FormProvider onSubmit={(data) => handleSubmit(data)} {...methods}>
@@ -90,11 +100,13 @@ const AddressForm = () => {
                 <SelectContainer>
                     <SelectItem>
                         <InputLabel>Shipping Country</InputLabel>
-                        <Select value={""} fullWidth onChange>
-                            <MenuItem key={""} value={""}>
-                                Select Me
-                            </MenuItem>
-                        </Select>
+                            <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
+                            {countries.map((country)=>(
+                                <MenuItem key={country.id} value={country.id}>
+                                    {country.label}
+                                </MenuItem>   
+                            ))}
+                            </Select>
                     </SelectItem>
                     <SelectItem>
                         <InputLabel>Shipping City</InputLabel>

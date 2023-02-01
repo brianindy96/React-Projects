@@ -29,24 +29,37 @@ const Wrapper = styled.div`
     margin: 0 auto;
 `
 
+
+
 const CheckOut = ({ cart }) => {
 
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null)
+    
     const Form = () => activeStep === 0 ? 
-        <AddressForm /> : <PaymentForm />
+        <AddressForm cart={cart} checkoutToken={checkoutToken}/> : <PaymentForm />
 
+    // Confirmation
+
+    const Confirmation = () => {
+        return(
+            <div>
+                Confirmation
+            </div>
+        )
+    }
     // CheckOutTokenId
 
     const generateCheckoutToken = async () => {
-        if(cart.line_items.length){
+        try{
             const token = await commerce.checkout.generateToken(cart.id, {  type: "cart" });
 
             setCheckoutToken(token);
-        } else{
+        } catch(error){
             console.log("token was not generated")
         }
     }
+
 
 
     useEffect(() => {
@@ -72,7 +85,7 @@ const CheckOut = ({ cart }) => {
                     </Step>
                     ))}
                 </Stepper>
-                <Form />
+                {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form cart={cart} checkoutToken={checkoutToken} /> }
             </Paper>
         </Wrapper>
     </Container>
