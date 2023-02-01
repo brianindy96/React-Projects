@@ -85,7 +85,7 @@ const BtnContainer = styled.div`
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 
-const PaymentForm = ({ shippingData, checkoutToken, backStep, nextStep}) => {
+const PaymentForm = ({ shippingData, checkoutToken, backStep, nextStep, onCaptureCheckout}) => {
 
 
     const handleSubmit = async (event, elements, stripe) => {
@@ -120,7 +120,7 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, nextStep}) => {
             }
           }
     
-        //   onCaptureCheckout(checkoutToken.id, orderData);
+          onCaptureCheckout(checkoutToken.id, orderData);
     
         //   timeout(); 
           

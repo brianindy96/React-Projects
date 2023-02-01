@@ -32,7 +32,7 @@ const Wrapper = styled.div`
 
 
 
-const CheckOut = ({ cart }) => {
+const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
 
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null)
@@ -49,6 +49,7 @@ const CheckOut = ({ cart }) => {
         checkoutToken={checkoutToken}
         backStep={backStep}
         nextStep={nextStep}
+        onCaptureCheckout={onCaptureCheckout}
         />
 
     // Confirmation
