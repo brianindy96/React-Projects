@@ -49,7 +49,7 @@ const BtnContainer = styled.div`
 
 
 
-const AddressForm = ({ cart, checkoutToken }) => {
+const AddressForm = ({ cart, checkoutToken, next }) => {
 
     const methods = useForm();
 
@@ -131,8 +131,9 @@ const AddressForm = ({ cart, checkoutToken }) => {
         
   return (
     <Container>
-        <FormProvider onSubmit={(data) => handleSubmit(data)} {...methods}>
-        <FormContainer>
+        <FormProvider {...methods}>
+            {/* Submits the form, takes the data through next() */}
+        <FormContainer onSubmit={methods.handleSubmit((data)=> next({ ...data, shippingCountry, shippingSubdivision, shippingOption}))}>
             <Inputs>
                 <FormInput required name="firstName" label="First Name" />
                 <FormInput required name="lastName" label="Last Name" />
@@ -177,9 +178,8 @@ const AddressForm = ({ cart, checkoutToken }) => {
             <Link to="/cart">
                 <Button style={{height: "40px", flex: "1", margin: "20px", marginTop: "20px"}} variant="outlined">Back to Cart</Button>
             </Link>
-            <Button style={{height: "40px", flex: "1", margin: "20px", marginTop: "20px"}} variant="contained">Continue</Button>
+            <Button type="submit" style={{height: "40px", flex: "1", margin: "20px", marginTop: "20px"}} variant="contained">Next</Button>
             </BtnContainer>
-            
         </FormContainer>
         </FormProvider>
         

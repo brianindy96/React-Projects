@@ -35,9 +35,17 @@ const CheckOut = ({ cart }) => {
 
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null)
-    
+    const [shippingData, setShippingData] = useState({})
     const Form = () => activeStep === 0 ? 
-        <AddressForm cart={cart} checkoutToken={checkoutToken}/> : <PaymentForm />
+        <AddressForm 
+        cart={cart} 
+        next={next} 
+        checkoutToken={checkoutToken}
+        /> 
+        : 
+        <PaymentForm 
+        shippingData={shippingData}
+        />
 
     // Confirmation
 
@@ -59,6 +67,26 @@ const CheckOut = ({ cart }) => {
             console.log("token was not generated")
         }
     }
+
+    // Next Btn
+
+    const nextStep = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
+
+    const backStep = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    }
+
+    // data comes from AddressForm, then passed into ShippingData
+    // passes the shippingData to PaymentForm
+    const next = (data) => {
+        setShippingData(data);
+
+        nextStep();
+    }
+
+    
 
 
 
