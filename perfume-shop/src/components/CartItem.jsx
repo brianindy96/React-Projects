@@ -58,12 +58,16 @@ const Hr = styled.hr`
   border: none;
 `
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
 
     const handleUpdateCartQty = (lineItemId, quantity) => {
         onUpdateCartQty(lineItemId, quantity);
     }
-    
+
+    const handleRemoveFromCart = () => {
+        onRemoveFromCart(item.id);
+      }
+
   return (
     <>
         <Item>
@@ -77,11 +81,11 @@ const CartItem = ({ item }) => {
         <AmountContainer>
             <Price>{item.line_total.formatted_with_symbol}</Price>
             <QtyContainer>
-                <IconButton>
+                <IconButton onClick={() => item.quantity > 1 ? handleUpdateCartQty(item.id, item.quantity - 1) : handleRemoveFromCart()}>
                     <RemoveIcon />
                 </IconButton>
                     <Qty>{item.quantity}</Qty>
-                <IconButton>
+                <IconButton onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>
                     <AddIcon />
                 </IconButton>
             </QtyContainer>

@@ -47,6 +47,14 @@ function App() {
     setCart(item.cart)
   }
 
+  // Remove from Cart
+
+  const handleRemoveFromCart = async (lineItemId) => {
+    const item = await commerce.cart.remove(lineItemId);
+
+    setCart(item.cart)
+  }
+
 
 
   useEffect(() => {
@@ -66,16 +74,21 @@ function App() {
           products={products}
           onAddToCart={handleAddToCart}
           onUpdateCartQty={handleUpdateCartQty}
+          onRemoveFromCart={handleRemoveFromCart}
         />} />
         <Route path="/product" element={<SingleProduct
         onUpdateCartQty={handleUpdateCartQty}
         cart={cart}
+        onRemoveFromCart={handleRemoveFromCart}
         />} />
         <Route path="/cart" element={<Cart 
         cart={cart}
         onUpdateCartQty={handleUpdateCartQty}
+        onRemoveFromCart={handleRemoveFromCart}
         />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<Checkout 
+        cart={cart}
+        />} />
       </Routes>
     </div>
   )

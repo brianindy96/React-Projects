@@ -58,7 +58,7 @@ align-items: center;
 const EmptyMsg = styled.p`
   
 `
-const CartSummary = ({ cart }) => {
+const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
 
   const handleEmptyCart = () => {
     onEmptyCart();
@@ -79,6 +79,8 @@ const CartSummary = ({ cart }) => {
         <CartItem
           item={lineItem}
           key={lineItem.id}
+          onRemoveFromCart={onRemoveFromCart}
+          onUpdateCartQty={onUpdateCartQty}
         />
       ))
     );
