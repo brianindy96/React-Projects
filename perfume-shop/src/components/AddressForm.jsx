@@ -64,9 +64,13 @@ const AddressForm = ({ cart, checkoutToken }) => {
     const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
     const [shippingSubdivision, setShippingSubdivision] = useState('');
 
+    const subdivisions = Object.entries(shippingSubdivisions).map(([code, name]) => ({id: code, label: name}));
+
     // shipping options
     const [shippingOptions, setShippingOptions] = useState([]);
     const [shippingOption, setShippingOption] = useState('');
+
+    const options = shippingOptions.map((sO) => ({ id: sO.id, label: `${sO.description} - (${sO.price.formatted_with_symbol})`}))
 
 
     // Fetch Shipping Countries
@@ -79,11 +83,44 @@ const AddressForm = ({ cart, checkoutToken }) => {
         setShippingCountry(Object.keys(countries)[0])
     }
 
-    // ComponentDidMount
+    // Fetch Subdivisions
+
+    const fetchSubdivisions = async (countryCode) => {
+        const { subdivisions } = await commerce.services.localeListSubdivisions(countryCode);
+
+        setShippingSubdivisions(subdivisions);
+
+        setShippingSubdivision(Object.keys(subdivisions)[0])
+    }
+
+    // Fetch Options
+
+    const fetchShippingOptions = async(checkoutTokenId, country, region = null) => {
+        const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region });
+    
+        setShippingOptions(options);
+
+        setShippingOption(options[0].id);
+    }
+
+    // useEffect
     useEffect(() => {
       fetchShippingCountries(checkoutToken.id)
 
     }, [cart])
+
+    useEffect(() => {
+        // if there is shippingCountries then fetch subdivisions
+        if(shippingCountry) fetchSubdivisions(shippingCountry)
+
+    }, [shippingCountry])
+
+    useEffect(() => {
+        // if there is shippingCountries then fetch subdivisions
+        if(shippingSubdivision) fetchShippingOptions(checkoutToken.id, shippingCountry, shippingSubdivision)
+
+    }, [shippingSubdivision])
+    
 
         
   return (
@@ -110,18 +147,22 @@ const AddressForm = ({ cart, checkoutToken }) => {
                     </SelectItem>
                     <SelectItem>
                         <InputLabel>Shipping City</InputLabel>
-                        <Select value={""} fullWidth onChange>
-                            <MenuItem key={""} value={""}>
-                                Select Me
-                            </MenuItem>
-                        </Select>
+                        <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
+                            {subdivisions.map((subdivision)=>(
+                                <MenuItem key={subdivision.id} value={subdivision.id}>
+                                    {subdivision.label}
+                                </MenuItem>   
+                            ))}
+                            </Select>
                     </SelectItem>
                     <SelectItem>
                         <InputLabel>Shipping Options</InputLabel>
-                        <Select value={""} fullWidth onChange>
-                            <MenuItem key={""} value={""}>
-                                Select Me
-                            </MenuItem>
+                        <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
+                            {options.map((option)=>(
+                                <MenuItem key={option.id} value={option.id}>
+                                    {option.label}
+                                </MenuItem>   
+                            ))}
                         </Select>
                     </SelectItem>
                 </SelectContainer>
