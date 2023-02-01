@@ -4,6 +4,7 @@ import { useForm, FormProvider } from "react-hook-form"
 import FormInput from './FormInput'
 import { Button, Grid, InputLabel, MenuItem, Select } from '@mui/material'
 import commerce from '../lib/commerce'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     
@@ -39,6 +40,11 @@ const Hr = styled.hr`
     background-color: #f3f3f3;
     height: 2px;
     border: none;
+`
+
+const BtnContainer = styled.div`
+    display: flex;
+    align-items: center;
 `
 
 
@@ -167,7 +173,13 @@ const AddressForm = ({ cart, checkoutToken }) => {
                     </SelectItem>
                 </SelectContainer>
             </Inputs>
+            <BtnContainer>
+            <Link to="/cart">
+                <Button style={{height: "40px", flex: "1", margin: "20px", marginTop: "20px"}} variant="outlined">Back to Cart</Button>
+            </Link>
             <Button style={{height: "40px", flex: "1", margin: "20px", marginTop: "20px"}} variant="contained">Continue</Button>
+            </BtnContainer>
+            
         </FormContainer>
         </FormProvider>
         
