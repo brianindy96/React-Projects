@@ -84,10 +84,10 @@ const CartSummary = ({ cart }) => {
     );
 
     const renderTotal = () => (
-      <div className="cart__total">
-        <p className="cart__total-title">Subtotal:</p>
-        <p className="cart__total-price">{cart.subtotal.formatted_with_symbol}</p>
-      </div>
+      <SubDetails>
+        <SubTotal>Subtotal</SubTotal>
+        <SubTotalPrice>{cart.subtotal.formatted_with_symbol}</SubTotalPrice>
+      </SubDetails>
     );
 
   return (
@@ -100,11 +100,7 @@ const CartSummary = ({ cart }) => {
           </CartContainer>
           <SummaryContainer>
             <Title>Summary</Title>
-            <SubDetails>
-              <SubTotal>Subtotal</SubTotal>
-              <SubTotalPrice>$1,350.00</SubTotalPrice>
-            </SubDetails>
-            <Hr style={{marginTop: "10px", marginBottom: "0"}}/>
+            {renderTotal()}
             <BtnContainer>
               <Link to="/checkout">
                 <Button style={{height: "40px", flex: "1", margin: "5px"}} variant="contained">CHECK OUT</Button>
