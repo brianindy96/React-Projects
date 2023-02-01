@@ -47,6 +47,8 @@ const CheckOut = ({ cart }) => {
         <PaymentForm 
         shippingData={shippingData}
         checkoutToken={checkoutToken}
+        backStep={backStep}
+        nextStep={nextStep}
         />
 
     // Confirmation

@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button } from '@mui/material'
+import { Elements, CardElement, ElementsConsumer } from "@stripe/react-stripe-js"
+import { loadStripe } from '@stripe/stripe-js'
+
 const Container = styled.div`
     
 `
@@ -70,7 +73,7 @@ const SubTitle = styled.span`
 `
 
 const Payment = styled.h3`
-    margin-top: 10px;
+    margin: 20px 0px;
 `
 
 const BtnContainer = styled.div`
@@ -79,9 +82,51 @@ const BtnContainer = styled.div`
     align-items: center;
     margin-top: 10px;
 `
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
-const PaymentForm = ({ shippingData, checkoutToken}) => {
-    console.log(checkoutToken);
+
+const PaymentForm = ({ shippingData, checkoutToken, backStep, nextStep}) => {
+
+
+    const handleSubmit = async (event, elements, stripe) => {
+        event.preventDefault();
+    
+        if (!stripe || !elements) return;
+    
+        const cardElement = elements.getElement(CardElement);
+    
+        const { error, paymentMethod } = await stripe.createPaymentMethod({ type: 'card', card: cardElement });
+    
+        if(error){
+          console.log(error)
+        } else {
+          const orderData = {
+            line_items: checkoutToken.live.line_items,
+            customer: { firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email },
+            shipping: {
+              name: "Primary", 
+              street: shippingData.address1, 
+              town_city: shippingData.city, 
+              county_state: shippingData.shippingSubdivision,
+              postal_zip_code: shippingData.zip,
+              country: shippingData.shippingCountry
+            },
+            fulfillment: { shipping_method: shippingData.shippingOption },
+            payment: {
+              gateway: "stripe", 
+              stripe: {
+                payment_method_id: paymentMethod.id
+              }
+            }
+          }
+    
+        //   onCaptureCheckout(checkoutToken.id, orderData);
+    
+        //   timeout(); 
+          
+          nextStep();
+        }
+      }
   
     return (
     <Container>
@@ -117,12 +162,22 @@ const PaymentForm = ({ shippingData, checkoutToken}) => {
         <Hr />
         <Payment>Payment Method</Payment>
         {/* Stripe */}
-
-        <Hr />
-        <BtnContainer>
-            <Button variant="outlined" style={{width: "100px"}}>Back</Button>
-            <Button variant="contained" color="primary">PAY {checkoutToken.live.total.formatted_with_symbol}</Button>
-        </BtnContainer>
+        <Elements stripe={stripePromise}>
+            <ElementsConsumer>
+            {({ elements, stripe})=>(
+                <form onSubmit={(e)=> handleSubmit(e, elements, stripe)}>
+                <CardElement />
+                <br /><br />
+                <div style={{ display: "flex", justifyContent: "space-between"}}>
+                    <Button variant="outlined" onClick={backStep}>Back</Button>
+                    <Button type="submit" variant="contained" disabled={!stripe} color="primary">
+                    Pay {checkoutToken.live.subtotal.formatted_with_symbol }
+                    </Button>
+                </div>
+                </form>
+            )}
+            </ElementsConsumer>
+        </Elements>
     </Container>
   )
 }
