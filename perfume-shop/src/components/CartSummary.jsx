@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Button } from '@mui/material'
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
-import { IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
+import CartItem from './CartItem';
+import PropTypes from "prop-types";
+
+
 const Container = styled.div`
   min-height: 90vh;
 `
@@ -26,164 +27,76 @@ const Title = styled.h2`
 const CartContainer = styled.div`
    flex: 3;
 `
-
-
-const Item = styled.div`
-    margin: 20px 0;
-    display: flex;
-
-`
-
-const ProductName = styled.h1`
-  font-size: 1.4rem;
-`
-
-const ImgContainer = styled.div`
-  width: 200px;
-  background-color: #f5f5f5;
-  height: 200px;
-`
-
-const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`
-
-const Size = styled.p`
-
-`
-
-const Details = styled.div`
-  flex: 1;
-  margin-left: 3rem;
-`
-
-const AmountContainer = styled.div`
-  text-align: center;
-`
-
-const Price = styled.h3`
-
-`
-
-
-const QtyContainer = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-const Qty = styled.span`
-  margin: 5px 5px;
-`
-
 const SummaryContainer = styled.div`
-   flex: 1;
-   margin-left: 40px;
-   padding: 8px;
+flex: 1;
+margin-left: 40px;
+padding: 8px;
 `
 
 
 const SubTotal = styled.span`
-  
+
 `
 
 const SubTotalPrice = styled.span`
-  
+
 `
 
 const SubDetails = styled.div`
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
+margin-top: 20px;
+display: flex;
+justify-content: space-between;
 `
 
 const BtnContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-  align-items: center;
+display: flex;
+justify-content: space-between;
+margin: 20px 0;
+align-items: center;
 `
 
-
-const Hr = styled.hr`
-  background-color: #f3f3f3;
-  height: 2px;
-  border: none;
+const EmptyMsg = styled.p`
+  
 `
-const CartSummary = () => {
+const CartSummary = ({ cart }) => {
+
+  const handleEmptyCart = () => {
+    onEmptyCart();
+  }
+
+  const renderEmptyMessage = () => {
+    if (cart.total_unique_items > 0) {
+      return;
+    }
+
+    return (
+      <EmptyMsg>You have no items in your shopping cart, start adding some!</EmptyMsg>
+    )
+    };
+
+    const renderItems = () => (
+      cart.line_items.map((lineItem) => (
+        <CartItem
+          item={lineItem}
+          key={lineItem.id}
+        />
+      ))
+    );
+
+    const renderTotal = () => (
+      <div className="cart__total">
+        <p className="cart__total-title">Subtotal:</p>
+        <p className="cart__total-price">{cart.subtotal.formatted_with_symbol}</p>
+      </div>
+    );
+
   return (
     <Container>
       <Wrapper>
         <Content>
           <CartContainer>
           <Title>Your Shopping Cart</Title>
-            <Item>
-              <ImgContainer>
-                <Img src='https://www.guerlain.com/dw/image/v2/BDCZ_PRD/on/demandware.static/-/Sites-GSA_master_catalog/default/dwc77ad64f/primary_packshot_3/2022/Fragrance/Mon_Guerlain/G013139_3346470131392_MON-G-17-EDP-50ML-SPR.png?sw=700&sh=700'/>
-              </ImgContainer>
-              <Details>
-                <ProductName>Guerlain: Rose Bouquet</ProductName>
-                <Size>Size: <strong>100 ml</strong></Size>
-              </Details>
-              <AmountContainer>
-                <Price>$549.00</Price>
-                <QtyContainer>
-                  <IconButton>
-                    <RemoveIcon />
-                  </IconButton>
-                  <Qty>2</Qty>
-                  <IconButton>
-                    <AddIcon />
-                  </IconButton>
-                </QtyContainer>
-              </AmountContainer>
-            </Item>
-            <Hr />
-            <Item>
-              <ImgContainer>
-                <Img src='https://www.guerlain.com/dw/image/v2/BDCZ_PRD/on/demandware.static/-/Sites-GSA_master_catalog/default/dwc77ad64f/primary_packshot_3/2022/Fragrance/Mon_Guerlain/G013139_3346470131392_MON-G-17-EDP-50ML-SPR.png?sw=700&sh=700'/>
-              </ImgContainer>
-              <Details>
-                <ProductName>Guerlain: Rose Bouquet</ProductName>
-                <Size>Size: <strong>100 ml</strong></Size>
-              </Details>
-              <AmountContainer>
-                <Price>$549.00</Price>
-                <QtyContainer>
-                  <IconButton>
-                    <RemoveIcon />
-                  </IconButton>
-                  <Qty>2</Qty>
-                  <IconButton>
-                    <AddIcon />
-                  </IconButton>
-                </QtyContainer>
-              </AmountContainer>
-            </Item>
-            <Hr />
-            <Item>
-              <ImgContainer>
-                <Img src='https://www.guerlain.com/dw/image/v2/BDCZ_PRD/on/demandware.static/-/Sites-GSA_master_catalog/default/dwc77ad64f/primary_packshot_3/2022/Fragrance/Mon_Guerlain/G013139_3346470131392_MON-G-17-EDP-50ML-SPR.png?sw=700&sh=700'/>
-              </ImgContainer>
-              <Details>
-                <ProductName>Guerlain: Rose Bouquet</ProductName>
-                <Size>Size: <strong>100 ml</strong></Size>
-              </Details>
-              <AmountContainer>
-                <Price>$549.00</Price>
-                <QtyContainer>
-                  <IconButton>
-                    <RemoveIcon />
-                  </IconButton>
-                  <Qty>2</Qty>
-                  <IconButton>
-                    <AddIcon />
-                  </IconButton>
-                </QtyContainer>
-              </AmountContainer>
-            </Item>
-            <Hr />
+          {renderItems()}  
           </CartContainer>
           <SummaryContainer>
             <Title>Summary</Title>
@@ -205,5 +118,10 @@ const CartSummary = () => {
     </Container>
   )
 }
+
+CartSummary.propTypes = {
+  cart: PropTypes.object,
+  onEmptyCart: () => {},
+};
 
 export default CartSummary
