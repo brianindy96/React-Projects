@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useForm, FormProvider } from "react-hook-form"
 import FormInput from './FormInput'
-import { Button } from '@mui/material'
+import { Button, Grid, InputLabel, MenuItem, Select } from '@mui/material'
 
 const Container = styled.div`
     
@@ -21,6 +21,23 @@ const Inputs = styled.div`
     flex-wrap: wrap;
     justify-content: space-around;
     
+`
+
+const SelectContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    text-align: center;
+`
+
+const SelectItem = styled.div`
+    margin-top: 20px;
+`
+
+const Hr = styled.hr`
+    background-color: #f3f3f3;
+    height: 2px;
+    border: none;
 `
 
 
@@ -47,8 +64,34 @@ const AddressForm = () => {
                 <FormInput required name="email" label="Email" />
                 <FormInput required name="city" label="City" />
                 <FormInput required name="zip" label="ZIP/Postal Code" />
+                <SelectContainer>
+                    <SelectItem>
+                        <InputLabel>Shipping Country</InputLabel>
+                        <Select value={""} fullWidth onChange>
+                            <MenuItem key={""} value={""}>
+                                Select Me
+                            </MenuItem>
+                        </Select>
+                    </SelectItem>
+                    <SelectItem>
+                        <InputLabel>Shipping City</InputLabel>
+                        <Select value={""} fullWidth onChange>
+                            <MenuItem key={""} value={""}>
+                                Select Me
+                            </MenuItem>
+                        </Select>
+                    </SelectItem>
+                    <SelectItem>
+                        <InputLabel>Shipping Options</InputLabel>
+                        <Select value={""} fullWidth onChange>
+                            <MenuItem key={""} value={""}>
+                                Select Me
+                            </MenuItem>
+                        </Select>
+                    </SelectItem>
+                </SelectContainer>
             </Inputs>
-            <Button style={{height: "40px", flex: "1", margin: "10px 20px"}} variant="contained">Continue</Button>
+            <Button style={{height: "40px", flex: "1", margin: "20px", marginTop: "20px"}} variant="contained">Continue</Button>
         </FormContainer>
         </FormProvider>
         

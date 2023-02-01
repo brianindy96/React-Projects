@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 
 const CheckOut = () => {
 
-    const [activeStep, setActiveStep] = useState(1);
+    const [activeStep, setActiveStep] = useState(0);
 
     const Form = () => activeStep === 0 ? 
         <AddressForm /> : <PaymentForm />
