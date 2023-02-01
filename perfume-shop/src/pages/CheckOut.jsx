@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Stepper from '@mui/material/Stepper';
-import { Typography, Paper } from '@mui/material';
+import { Typography, Paper, Button } from '@mui/material';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import AddressForm from '../components/AddressForm';
 import PaymentForm from '../components/PaymentForm';
 import commerce from '../lib/commerce';
+import { Link } from 'react-router-dom';
 
 const steps = [
     'Address Forms',
@@ -56,9 +57,12 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
 
     const Confirmation = () => {
         return(
-            <div>
-                Confirmation
-            </div>
+            <>
+                <h2>Confirmation</h2>
+                <Link to="/">
+                    <Button variant="outlined">Back to home</Button>
+                </Link>
+            </>
         )
     }
     // CheckOutTokenId

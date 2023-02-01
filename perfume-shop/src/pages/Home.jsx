@@ -10,7 +10,6 @@ const Home = ({ cart, products, onAddToCart }) => {
   return (
     <>
       <Navbar cart={cart} />
-      <Announcement />
       <Banner />
       <Categories />
       <Products products={products} onAddToCart={onAddToCart} />

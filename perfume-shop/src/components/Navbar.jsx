@@ -10,8 +10,7 @@ import { mobileL, tablet } from "../responsive";
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-    background-color: black;
-    color: white;
+
 `
 const Wrapper = styled.div`
     width: 100%;
@@ -46,6 +45,7 @@ const Right = styled.div`
 `
 
 const Logo = styled.h1`
+    color: black;
     font-family: "Syncopate", sans-serif;
     font-size: 2rem;
     margin: 0 2rem;
@@ -76,7 +76,7 @@ const AccountSpan = styled.span`
 
 const Account = styled.div`
     display: flex;
-    color: #606060;
+    color: black;
     margin-right: 10px;
     cursor: pointer;
 `
@@ -84,7 +84,7 @@ const Account = styled.div`
 const SearchContainer = styled.div`
     display: flex;
     align-items: center;
-    border: 1px solid #606060;
+    border: 1px solid black;
     border-radius: 5px;
     padding: 3px;
     ${mobileL({display: "none"})}
@@ -114,7 +114,7 @@ const Navbar = ({ cart }) => {
             <Right>
                 <SearchContainer>
                     <Search placeholder='Search here..'/>
-                    <SearchOutlinedIcon style={{color: "#8f8f8f", cursor: "pointer"}} />
+                    <SearchOutlinedIcon style={{color: "black", cursor: "pointer"}} />
                 </SearchContainer>
                 <Account>
                     <PermIdentityOutlinedIcon style={{margin: "0 5px"}} />
@@ -124,7 +124,7 @@ const Navbar = ({ cart }) => {
                     <Link to="/cart" style={{textDecoration: "none", color: "white"}}>
                     <IconButton aria-label="cart">
                         <StyledBadge badgeContent={cart.total_items} color="secondary">
-                            <ShoppingCartOutlinedIcon style={{color: "#606060"}} />
+                            <ShoppingCartOutlinedIcon style={{color: "#black"}} />
                         </StyledBadge>
                     </IconButton> 
                     </Link>  
