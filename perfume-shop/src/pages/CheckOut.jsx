@@ -38,44 +38,39 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null)
     const [shippingData, setShippingData] = useState({})
+    
     const Form = () => activeStep === 0 ? 
         <AddressForm 
-        cart={cart} 
         next={next} 
         checkoutToken={checkoutToken}
         /> 
         : 
         <PaymentForm 
+        cart={cart}
         shippingData={shippingData}
         checkoutToken={checkoutToken}
         backStep={backStep}
         nextStep={nextStep}
         onCaptureCheckout={onCaptureCheckout}
+        error={error}
         />
 
     // Confirmation
 
-    const Confirmation = () => {
-        return(
+    const Confirmation = () => order.customer ? (
             <>
                 <h2>Confirmation</h2>
+                <p>Thank you for your purchase: {order.customer.firstName}</p>
                 <Link to="/">
                     <Button variant="outlined">Back to home</Button>
                 </Link>
             </>
-        )
-    }
-    // CheckOutTokenId
-
-    const generateCheckoutToken = async () => {
-        try{
-            const token = await commerce.checkout.generateToken(cart.id, {  type: "cart" });
-
-            setCheckoutToken(token);
-        } catch(error){
-            console.log("token was not generated")
-        }
-    }
+            
+        ) : (
+            <>
+                <div className='circle'></div>
+            </>
+        );
 
     // Next Btn
 
@@ -91,6 +86,7 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
     // passes the shippingData to PaymentForm
     const next = (data) => {
         setShippingData(data);
+        console.log(data);
 
         nextStep();
     }
@@ -100,11 +96,24 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
 
 
     useEffect(() => {
-        generateCheckoutToken();
+        const generateToken = async () => {
+          try {
+            const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' });
+    
+            // console.log(token);
+    
+            setCheckoutToken(token);
+            
+    
+          } catch(error){
+            if (activeStep !== steps.length) navigate('/');
+          }
+        }
+    
+        generateToken();
 
-        console.log(checkoutToken);
-        
-    }, [])
+      
+      }, [cart])
     
     
 

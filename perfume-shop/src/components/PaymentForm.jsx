@@ -85,7 +85,7 @@ const BtnContainer = styled.div`
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 
-const PaymentForm = ({ shippingData, checkoutToken, backStep, nextStep, onCaptureCheckout}) => {
+const PaymentForm = ({ cart, shippingData, checkoutToken, backStep, nextStep, onCaptureCheckout}) => {
 
 
     const handleSubmit = async (event, elements, stripe) => {
@@ -119,10 +119,18 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, nextStep, onCaptur
               }
             }
           }
+          
+          console.log(shippingData);
+
+          console.log(checkoutToken.live.line_items);
+
+          console.log(orderData);
     
+          console.log(checkoutToken.id);
           onCaptureCheckout(checkoutToken.id, orderData);
     
         //   timeout(); 
+
           
           nextStep();
         }
@@ -166,14 +174,14 @@ const PaymentForm = ({ shippingData, checkoutToken, backStep, nextStep, onCaptur
             <ElementsConsumer>
             {({ elements, stripe})=>(
                 <form onSubmit={(e)=> handleSubmit(e, elements, stripe)}>
-                <CardElement />
-                <br /><br />
-                <div style={{ display: "flex", justifyContent: "space-between"}}>
-                    <Button variant="outlined" onClick={backStep}>Back</Button>
-                    <Button type="submit" variant="contained" disabled={!stripe} color="primary">
-                    Pay {checkoutToken.live.subtotal.formatted_with_symbol }
-                    </Button>
-                </div>
+                    <CardElement />
+                    <br /><br />
+                    <div style={{ display: "flex", justifyContent: "space-between"}}>
+                        <Button variant="outlined" onClick={backStep}>Back</Button>
+                        <Button type="submit" variant="contained" disabled={!stripe} color="primary">
+                            Pay {checkoutToken.live.subtotal.formatted_with_symbol }
+                        </Button>
+                    </div>
                 </form>
             )}
             </ElementsConsumer>

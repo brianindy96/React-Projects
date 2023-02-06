@@ -53,12 +53,6 @@ const AddressForm = ({ cart, checkoutToken, next }) => {
 
     const methods = useForm();
 
-    const handleSubmit = (event, data) =>{
-        event.preventDefault();
-
-        console.log(data);
-    }
-
     // States of Shipping Choices
     // shipping countries
     const [shippingCountries, setShippingCountries] = useState([]);
@@ -113,7 +107,7 @@ const AddressForm = ({ cart, checkoutToken, next }) => {
     useEffect(() => {
       fetchShippingCountries(checkoutToken.id)
 
-    }, [cart])
+    }, [])
 
     useEffect(() => {
         // if there is shippingCountries then fetch subdivisions

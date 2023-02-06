@@ -1,11 +1,10 @@
 import React from 'react'
 import { TextField, Grid } from '@mui/material'
-import { useForm, Controller } from 'react-hook-form'
+import { useFormContext, Controller } from 'react-hook-form'
 
 const FormInput = ({ name, label}) => {
 
-  const { control } = useForm();
-
+  const { control } = useFormContext();
   return (
     <Grid item xs={12} sm={6} style={{width: "300px"}}>
         <Controller
