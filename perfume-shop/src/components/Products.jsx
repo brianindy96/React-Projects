@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 import Product from './Product'
 import PropTypes from 'prop-types';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 
 const Container = styled.div`
     margin: 0 20px;
@@ -24,11 +25,39 @@ const CardContainer = styled.div`
   grid-template-columns: repeat(4,1fr);
   grid-gap: 50px;
 `
+
+const Filter = styled.div`
+  width: 100%;
+  justify-content: flex-end;
+  display: flex;
+  padding-right: 40px;
+`
+
+const SortFilter = styled.option`
+  
+`
+
+const Sort = styled.select`
+  
+`
 const Products = ({ products, onAddToCart }) => {
+
+  // sortOrder state
+  const [sortOrder, setSortOrder] = useState('');
+
   return (
     <Container>
         <Wrapper>
             <Title>Products</Title>
+            <Filter>
+              <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+                <InputLabel>Sort Price</InputLabel>
+                <Select label="Price">
+                  <MenuItem>Low-High</MenuItem>
+                  <MenuItem>High-Low</MenuItem>
+                </Select>
+              </FormControl>
+            </Filter>
             <CardContainer>
               {products.map((product)=>(
                 <Product 
