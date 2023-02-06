@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Stepper from '@mui/material/Stepper';
-import { Typography, Paper, Button } from '@mui/material';
+import { Typography, Paper, Button, CircularProgress } from '@mui/material';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import AddressForm from '../components/AddressForm';
 import PaymentForm from '../components/PaymentForm';
 import commerce from '../lib/commerce';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const steps = [
     'Address Forms',
@@ -31,13 +31,24 @@ const Wrapper = styled.div`
     margin: 0 auto;
 `
 
+const Hr = styled.hr`
+    background-color: lightgrey;
+    border: none;
+    height: 1px;
+`
+
+
 
 
 const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
 
+    const navigate = useNavigate();
+
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null)
     const [shippingData, setShippingData] = useState({})
+    const [isFinished, setIsFinished] = useState(false);
+
     
     const Form = () => activeStep === 0 ? 
         <AddressForm 
@@ -46,6 +57,7 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
         /> 
         : 
         <PaymentForm 
+        timeout={timeout}
         cart={cart}
         shippingData={shippingData}
         checkoutToken={checkoutToken}
@@ -60,17 +72,35 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
     const Confirmation = () => order.customer ? (
             <>
                 <h2>Confirmation</h2>
-                <p>Thank you for your purchase: {order.customer.firstName}</p>
+                <Typography variant="h6" style={{margin: "10px 0px"}} >Thank you for your purchase: <strong> {order.customer.firstname} {order.customer.lastname}</strong> </Typography>
+                <Hr />
+                <Typography style={{margin: "10px 0px"}}><strong>Order Ref: </strong> {order.customer_reference}</Typography>
                 <Link to="/">
                     <Button variant="outlined">Back to home</Button>
                 </Link>
             </>
-            
-        ) : (
+        ) : isFinished ? (
             <>
-                <div className='circle'></div>
-            </>
-        );
+                <div>
+                   <Typography variant="h6" style={{margin: "20px 0px"}}  gutterBottom>Thank you for your purchase!</Typography>
+                   <Hr />
+               </div>
+               <br />
+               <Button component={Link} to="/" style={{margin: "20px 0px", padding: "5px"}} variant="outlined" type="button">Back to Home</Button>
+            </> 
+        ): (
+             <div style={{textAlign: "center"}}>
+               <CircularProgress />
+             </div>
+           );
+
+        if(error){
+             <>
+               <Typography variant="h5">Error: {error}</Typography>
+               <br />
+         
+             </>
+        }
 
     // Next Btn
 
@@ -91,9 +121,14 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
         nextStep();
     }
 
+    // setTimeout
+    const timeout = () => {
+        setTimeout(() => {
+        setIsFinished(true);
+        }, 3000);
+    }
+
     
-
-
 
     useEffect(() => {
         const generateToken = async () => {
@@ -131,7 +166,7 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
                     </Step>
                     ))}
                 </Stepper>
-                {activeStep === steps.length ? <Confirmation /> : checkoutToken && <Form cart={cart} checkoutToken={checkoutToken} /> }
+                {activeStep === steps.length ? <Confirmation order={order} /> : checkoutToken && <Form cart={cart} checkoutToken={checkoutToken} /> }
             </Paper>
         </Wrapper>
     </Container>

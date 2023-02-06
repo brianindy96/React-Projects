@@ -85,7 +85,7 @@ const BtnContainer = styled.div`
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 
-const PaymentForm = ({ cart, shippingData, checkoutToken, backStep, nextStep, onCaptureCheckout}) => {
+const PaymentForm = ({ timeout, shippingData, checkoutToken, backStep, nextStep, onCaptureCheckout}) => {
 
 
     const handleSubmit = async (event, elements, stripe) => {
@@ -120,21 +120,21 @@ const PaymentForm = ({ cart, shippingData, checkoutToken, backStep, nextStep, on
             }
           }
           
-          console.log(shippingData);
+        //   console.log(shippingData);
 
-          console.log(checkoutToken.live.line_items);
+        //   console.log(checkoutToken.live.line_items);
 
-          console.log(orderData);
+        //   console.log(orderData);
     
-          console.log(checkoutToken.id);
-          onCaptureCheckout(checkoutToken.id, orderData);
+        //   console.log(checkoutToken.id);
+        onCaptureCheckout(checkoutToken.id, orderData);
     
-        //   timeout(); 
+        timeout(); 
 
           
-          nextStep();
+        nextStep();
         }
-      }
+    }
   
     return (
     <Container>

@@ -27,7 +27,6 @@ function App() {
   const fetchProducts = async () => {
     const products = await commerce.products.list();
 
-    console.log(products.data)
     setProducts(products.data);
 
   }
@@ -70,14 +69,13 @@ function App() {
     try {
         const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
 
-        console.log(incomingOrder);
         setOrder(incomingOrder);
 
         refreshCart();
 
 
       } catch(error){
-          console.log(error);
+          console.log("There is an error");
       }
     }
 
@@ -87,8 +85,6 @@ function App() {
     fetchProducts();
 
     fetchCart();
-
-    console.log(order);
 
   
   }, [])
