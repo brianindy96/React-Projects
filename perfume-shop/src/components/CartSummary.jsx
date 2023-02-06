@@ -55,8 +55,23 @@ margin: 20px 0;
 align-items: center;
 `
 
+// Empty Messages
+
+const EmptyContainer = styled.div`
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`
+
+const Back = styled.button`
+  margin-top: 20px;
+  padding: 5px;
+`
 const EmptyMsg = styled.p`
-  
+  text-align: center;
 `
 const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
 
@@ -70,7 +85,12 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
     }
 
     return (
-      <EmptyMsg>You have no items in your shopping cart, start adding some!</EmptyMsg>
+      <EmptyContainer>
+        <EmptyMsg>You have no items in your shopping cart, start adding some!</EmptyMsg>
+        <Link to="/">
+          <Button style={{marginTop: "20px", }}variant="outlined">Start Shopping</Button>
+        </Link>
+      </EmptyContainer>
     )
     };
 
@@ -99,6 +119,7 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
           <CartContainer>
           <Title>Your Shopping Cart</Title>
           {renderItems()}  
+          {renderEmptyMessage()}
           </CartContainer>
           <SummaryContainer>
             <Title>Summary</Title>
