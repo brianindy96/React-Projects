@@ -45,6 +45,11 @@ const Products = ({ products, onAddToCart }) => {
   // sortOrder state
   const [sortOrder, setSortOrder] = useState('');
 
+  const handleChange = (e) => {
+
+    e.preventDefault();
+    setSortOrder(e.target.value);
+  }
   return (
     <Container>
         <Wrapper>
@@ -52,9 +57,15 @@ const Products = ({ products, onAddToCart }) => {
             <Filter>
               <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                 <InputLabel>Sort Price</InputLabel>
-                <Select label="Price">
-                  <MenuItem>Low-High</MenuItem>
-                  <MenuItem>High-Low</MenuItem>
+                <Select 
+                value={sortOrder} 
+                label="Price"
+                onChange={handleChange}
+                >
+                  {/* {console.log(sortOrder)} */}
+                  <MenuItem value={"rec"}>Recommended</MenuItem>
+                  <MenuItem value={"asc"}>Low-High</MenuItem>
+                  <MenuItem value={"desc"}>High-Low</MenuItem>
                 </Select>
               </FormControl>
             </Filter>
