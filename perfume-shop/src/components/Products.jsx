@@ -43,7 +43,7 @@ const Sort = styled.select`
 const Products = ({ products, onAddToCart }) => {
 
   // sortOrder state
-  const [sortOrder, setSortOrder] = useState('');
+  const [sortOrder, setSortOrder] = useState('rec');
 
   const handleChange = (e) => {
 
@@ -62,7 +62,7 @@ const Products = ({ products, onAddToCart }) => {
                 label="Price"
                 onChange={handleChange}
                 >
-                  {/* {console.log(sortOrder)} */}
+                  {console.log(sortOrder)}
                   <MenuItem value={"rec"}>Recommended</MenuItem>
                   <MenuItem value={"asc"}>Low-High</MenuItem>
                   <MenuItem value={"desc"}>High-Low</MenuItem>

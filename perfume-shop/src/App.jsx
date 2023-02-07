@@ -14,6 +14,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState({})
   const [errorMsg, setErrorMsg] = useState('')
+  
   // Retrieve Cart
 
   const fetchCart = async () => {
