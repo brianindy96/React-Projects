@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import commerce from '../lib/commerce';
 import styled from "styled-components"
 import Product from './Product'
 import PropTypes from 'prop-types';
@@ -40,8 +41,23 @@ const SortFilter = styled.option`
 const Sort = styled.select`
   
 `
-const Products = ({ sortBy, handleSort, products, onAddToCart, sortOrder }) => {
 
+
+const Products = ({ onAddToCart }) => {
+
+  const [products, setProducts] = useState([]);
+  const [sortOrder, setSortOrder] = useState('');
+  const [sortBy, setSortBy] = useState('sort_order');
+
+
+  const fetchProducts = async (name, order) => {
+  // const products = await commerce.products.list(value);
+     const products = await commerce.products.list({ sortBy: name, sortOrder: order});
+  // const products = await commerce.products.list();
+
+      setProducts(products.data);
+
+}
   // sortOrder state
 
   const handleChange = (e) => {
@@ -53,9 +69,15 @@ const Products = ({ sortBy, handleSort, products, onAddToCart, sortOrder }) => {
     const second = splitArray[1];
     console.log(first);
     console.log(second);
+    setSortBy(first);
+    setSortOrder(second);
     // handleSort(first, second);
-    
   }
+
+  useEffect(() => {
+    fetchProducts(sortBy, sortOrder);
+  }, [sortBy, sortOrder])
+  
 
   return (
     <Container>

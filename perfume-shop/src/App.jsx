@@ -11,11 +11,9 @@ import commerce from './lib/commerce'
 function App() {
 
   const [cart, setCart] = useState({});
-  const [products, setProducts] = useState([]);
   const [order, setOrder] = useState({})
   const [errorMsg, setErrorMsg] = useState('')
-  const [sortOrder, setSortOrder] = useState('');
-  const [sortBy, setSortBy] = useState('sort_order');
+
 
   // Retrieve Cart
 
@@ -27,14 +25,7 @@ function App() {
 
   // Fetch Products
 
-  const fetchProducts = async (name, order) => {
-    // const products = await commerce.products.list(value);
-    const products = await commerce.products.list({ sortBy: name, sortOrder: order});
-    // const products = await commerce.products.list();
-
-    setProducts(products.data);
-
-  }
+  
 
   // Add to Cart
 
@@ -84,20 +75,15 @@ function App() {
       }
     }
 
-    const handleSort = (first, second) => {
-      setSortBy(first);
-      setSortOrder(second)
-    }
 
 
 
   useEffect(() => {
-    fetchProducts(sortBy, sortOrder);
 
     fetchCart();
 
   
-  }, [sortBy, sortOrder])
+  }, [])
   
   
 
@@ -106,13 +92,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home 
           cart={cart}
-          products={products}
           onAddToCart={handleAddToCart}
           onUpdateCartQty={handleUpdateCartQty}
           onRemoveFromCart={handleRemoveFromCart}
-          sortOrder={sortOrder}
-          handleSort={handleSort}
-          sortBy={sortBy}
         />} />
         <Route path="/product" element={<SingleProduct
         onUpdateCartQty={handleUpdateCartQty}

@@ -12,7 +12,7 @@ const Home = ({ cart, products, onAddToCart }) => {
       <Navbar cart={cart} />
       <Banner />
       <Categories />
-      <Products products={products} onAddToCart={onAddToCart} />
+      <Products onAddToCart={onAddToCart} />
       <Footer />
     </>
   )
