@@ -99,6 +99,7 @@ function App() {
         <Route path="/:id" element={<SingleProduct
         onUpdateCartQty={handleUpdateCartQty}
         cart={cart}
+        onAddToCart={handleAddToCart}
         onRemoveFromCart={handleRemoveFromCart}
         />} />
         <Route path="/cart" element={<Cart 

@@ -5,10 +5,17 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import ProductInfo from '../components/ProductInfo'
 import commerce from '../lib/commerce'
+import { CircularProgress } from '@mui/material'
+import PropTypes from 'prop-types';
 
-const SingleProduct = ({ cart }) => {
+const SingleProduct = ({ cart, onAddToCart, onRemoveFromCart, onUpdateCartQty }) => {
 
   const { id } = useParams();
+
+
+  // loading screen wait for fetching products
+
+  const [loading, setLoading] = useState(false);
 
 
   const [products, setProducts] = useState([])
@@ -27,22 +34,32 @@ const SingleProduct = ({ cart }) => {
     setProduct(resp);
   }
 
-  
-
-
+  // useEffects
   useEffect(() => {
+    setLoading(true);
     fetchProducts();
-
+    
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000);
   }, [])
+
 
   return (
     <>
         <Navbar cart={cart} />
         <Announcement />
-        <ProductInfo product={product}  />
+        {
+          loading === true ? (
+            <CircularProgress />
+          ) : (
+            <ProductInfo product={product}  />
+          )
+        }   
         <Footer />
     </>
   )
 }
+
 
 export default SingleProduct

@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import { mobileL, tablet } from '../responsive';
 import { useParams } from 'react-router-dom';
 import Product from './Product';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
   min-height: 80vh;
@@ -66,7 +67,7 @@ const Hr = styled.hr`
     margin-bottom: 10px;
 `
 
-const Price = styled.h2`
+const Cost = styled.h2`
     
 `
 
@@ -110,7 +111,9 @@ const Delievery = styled.div`
     display: flex;
     margin-top: 20px;
 `
-const ProductInfo = ({ product }) => {
+const ProductInfo = ({ product, price }) => {
+
+    
   return (
     <Container>
         <Left>
@@ -120,9 +123,9 @@ const ProductInfo = ({ product }) => {
         </Left>
         <Right>
             <ProductName>{product.name}</ProductName>
-            <ProductDesc>{product.description}</ProductDesc>
+            <ProductDesc dangerouslySetInnerHTML={{__html: product.description}} />
             <Hr />
-            <Price>$ 490.00</Price>
+            <Cost></Cost>
             <Hr />
             <Subtitle>Choose Size:</Subtitle>
             <SizeContainer>
@@ -158,5 +161,11 @@ const ProductInfo = ({ product }) => {
     </Container>
   )
 }
+
+ProductInfo.propTypes = {
+    product: PropTypes.object,
+};
+
+
 
 export default ProductInfo

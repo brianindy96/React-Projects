@@ -45,16 +45,12 @@ const Sort = styled.select`
 `
 
 
-const Products = ({ onAddToCart, callback }) => {
+const Products = ({ onAddToCart }) => {
 
   const [products, setProducts] = useState([]);
   const [sortOrder, setSortOrder] = useState('');
   const [sortBy, setSortBy] = useState('sort_order');
 
-  // callback
-  const handleCallBack = () => {
-    callback(products);
-  }
 
   const fetchProducts = async (name, order) => {
   // const products = await commerce.products.list(value);
