@@ -14,7 +14,9 @@ function App() {
   const [products, setProducts] = useState([]);
   const [order, setOrder] = useState({})
   const [errorMsg, setErrorMsg] = useState('')
-  
+  const [sortOrder, setSortOrder] = useState('');
+  const [sortBy, setSortBy] = useState('sort_order');
+
   // Retrieve Cart
 
   const fetchCart = async () => {
@@ -25,8 +27,10 @@ function App() {
 
   // Fetch Products
 
-  const fetchProducts = async () => {
-    const products = await commerce.products.list();
+  const fetchProducts = async (name, order) => {
+    // const products = await commerce.products.list(value);
+    const products = await commerce.products.list({ sortBy: name, sortOrder: order});
+    // const products = await commerce.products.list();
 
     setProducts(products.data);
 
@@ -80,15 +84,20 @@ function App() {
       }
     }
 
+    const handleSort = (first, second) => {
+      setSortBy(first);
+      setSortOrder(second)
+    }
+
 
 
   useEffect(() => {
-    fetchProducts();
+    fetchProducts(sortBy, sortOrder);
 
     fetchCart();
 
   
-  }, [])
+  }, [sortBy, sortOrder])
   
   
 
@@ -101,6 +110,9 @@ function App() {
           onAddToCart={handleAddToCart}
           onUpdateCartQty={handleUpdateCartQty}
           onRemoveFromCart={handleRemoveFromCart}
+          sortOrder={sortOrder}
+          handleSort={handleSort}
+          sortBy={sortBy}
         />} />
         <Route path="/product" element={<SingleProduct
         onUpdateCartQty={handleUpdateCartQty}

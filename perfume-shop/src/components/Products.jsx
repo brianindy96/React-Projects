@@ -40,16 +40,23 @@ const SortFilter = styled.option`
 const Sort = styled.select`
   
 `
-const Products = ({ products, onAddToCart }) => {
+const Products = ({ sortBy, handleSort, products, onAddToCart, sortOrder }) => {
 
   // sortOrder state
-  const [sortOrder, setSortOrder] = useState('rec');
 
   const handleChange = (e) => {
 
-    e.preventDefault();
-    setSortOrder(e.target.value);
+    const a = e.target.value;
+    const splitArray = a.split(",")
+    console.log(splitArray);
+    const first = splitArray[0];
+    const second = splitArray[1];
+    console.log(first);
+    console.log(second);
+    // handleSort(first, second);
+    
   }
+
   return (
     <Container>
         <Wrapper>
@@ -58,14 +65,15 @@ const Products = ({ products, onAddToCart }) => {
               <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                 <InputLabel>Sort Price</InputLabel>
                 <Select 
-                value={sortOrder} 
+                // value={sortOrder} 
                 label="Price"
                 onChange={handleChange}
                 >
                   {console.log(sortOrder)}
-                  <MenuItem value={"rec"}>Recommended</MenuItem>
-                  <MenuItem value={"asc"}>Low-High</MenuItem>
-                  <MenuItem value={"desc"}>High-Low</MenuItem>
+                  {console.log(sortBy)}
+                  <MenuItem value={"sort_by,"} label={'sort_by'}>Recommended</MenuItem>
+                  <MenuItem value={"price,asc"} label={'price'}>Low-High</MenuItem>
+                  <MenuItem value={"price,desc"} label={'price'}>High-Low</MenuItem>
                 </Select>
               </FormControl>
             </Filter>
