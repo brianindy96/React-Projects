@@ -36,15 +36,14 @@ const Right = styled.div`
 `
 
 const ImgContainer = styled.div`
-    width: 80%;
-    height: 90%;
-    background-color: #f8f8f8;
+    width: 500px;
+    height: 500px;
 `
 
 const Img = styled.img`
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 `
 
 const ProductName = styled.h1`
@@ -112,18 +111,16 @@ const Delievery = styled.div`
     margin-top: 20px;
 `
 const ProductInfo = ({ product }) => {
-
-
   return (
     <Container>
         <Left>
             <ImgContainer>
-                <Img alt='Img'/>
+                <Img src={product.image?.url} alt='Img'/>
             </ImgContainer>
         </Left>
         <Right>
-            <ProductName></ProductName>
-            <ProductDesc>It's a recipe of contrasts: Crisp bergamot and spicy pepper top notes announce the scent, followed by floral, amber, vanilla, and cedar for a strong but well-rounded finish. And it plays a long game: Sauvage lasts all day, and it wears well in every season.</ProductDesc>
+            <ProductName>{product.name}</ProductName>
+            <ProductDesc>{product.description}</ProductDesc>
             <Hr />
             <Price>$ 490.00</Price>
             <Hr />

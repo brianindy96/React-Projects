@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 import SingleProduct from '../pages/SingleProduct';
+import Home from '../pages/Home';
 
 
 const Card = styled.div`
@@ -66,15 +67,10 @@ const Product = ({ product, onAddToCart }) => {
     onAddToCart(product.id, 1);
     }
 
-
-
-  
-
-    
   return (
     <Card>
         <ImgContainer>
-            <Link element={<SingleProduct product={product} />} to={`/product/${product.id}`}>
+            <Link element={<Home product={product} />} to={`/${product.id}`}>
                 <Img src={product.image?.url}/>
             </Link>
         </ImgContainer>

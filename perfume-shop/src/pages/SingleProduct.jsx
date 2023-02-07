@@ -8,7 +8,7 @@ import commerce from '../lib/commerce'
 
 const SingleProduct = ({ cart }) => {
 
-  const { productId } = useParams();
+  const { id } = useParams();
 
 
   const [products, setProducts] = useState([])
@@ -22,9 +22,12 @@ const SingleProduct = ({ cart }) => {
     
     setProducts(data);
 
-    }
+    const resp = data.find((prod) => prod.id === id);
 
+    setProduct(resp);
+  }
 
+  
 
 
   useEffect(() => {
@@ -36,7 +39,7 @@ const SingleProduct = ({ cart }) => {
     <>
         <Navbar cart={cart} />
         <Announcement />
-        <ProductInfo  />
+        <ProductInfo product={product}  />
         <Footer />
     </>
   )
