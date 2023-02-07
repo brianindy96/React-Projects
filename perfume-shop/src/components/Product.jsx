@@ -17,6 +17,16 @@ const Card = styled.div`
     box-shadow: 8px 8px 24px -28px rgba(66, 68, 90, 1);
 `
 
+const ProductBrand = styled.h5`
+    color: grey;
+    letter-spacing: 1px;
+    font-style: italic;
+`
+
+const ProductName = styled.h4`
+    
+`
+
 const ImgContainer = styled.div`
     flex: 1;
     height: 60%;
@@ -59,7 +69,8 @@ const Product = ({ product, onAddToCart }) => {
             <Img src={product.image?.url}/>
         </ImgContainer>
         <InfoContainer>
-            <h5>{product.name}</h5>
+            <ProductBrand>{product.seo.title}</ProductBrand>
+            <ProductName>{product.name}</ProductName>
             <p>{product.price.formatted_with_symbol}</p>
             <p style={{fontSize: "10px", fontStyle: "italic"}}>{product.desc}</p>
             <AddCartContainer onClick={handleAddToCart}>
