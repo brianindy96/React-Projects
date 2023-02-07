@@ -52,7 +52,7 @@ const Products = ({ onAddToCart }) => {
 
   const fetchProducts = async (name, order) => {
   // const products = await commerce.products.list(value);
-     const products = await commerce.products.list({ sortBy: name, sortOrder: order});
+     const products = await commerce.products.list({ sortBy: name, sortDirection: order});
   // const products = await commerce.products.list();
 
       setProducts(products.data);
@@ -76,7 +76,10 @@ const Products = ({ onAddToCart }) => {
 
   useEffect(() => {
     fetchProducts(sortBy, sortOrder);
-  }, [sortBy, sortOrder])
+
+  }, [sortOrder])
+
+  
   
 
   return (
