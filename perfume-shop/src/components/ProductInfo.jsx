@@ -7,6 +7,8 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import Button from '@mui/material/Button';
 import { mobileL, tablet } from '../responsive';
+import { useParams } from 'react-router-dom';
+import Product from './Product';
 
 const Container = styled.div`
   min-height: 80vh;
@@ -109,16 +111,18 @@ const Delievery = styled.div`
     display: flex;
     margin-top: 20px;
 `
-const ProductInfo = () => {
+const ProductInfo = ({ product }) => {
+
+
   return (
     <Container>
         <Left>
             <ImgContainer>
-                <Img src='https://wypsikaj.pl/665-large_default/giorgio-armani-acqua-di-gioia-100ml-edp.jpg' alt='Img'/>
+                <Img alt='Img'/>
             </ImgContainer>
         </Left>
         <Right>
-            <ProductName>Acqua di Gioia</ProductName>
+            <ProductName></ProductName>
             <ProductDesc>It's a recipe of contrasts: Crisp bergamot and spicy pepper top notes announce the scent, followed by floral, amber, vanilla, and cedar for a strong but well-rounded finish. And it plays a long game: Sauvage lasts all day, and it wears well in every season.</ProductDesc>
             <Hr />
             <Price>$ 490.00</Price>

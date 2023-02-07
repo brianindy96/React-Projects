@@ -4,6 +4,8 @@ import styled from "styled-components"
 import Product from './Product'
 import PropTypes from 'prop-types';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import SingleProduct from '../pages/SingleProduct';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
     margin: 0 20px;
@@ -43,12 +45,16 @@ const Sort = styled.select`
 `
 
 
-const Products = ({ onAddToCart }) => {
+const Products = ({ onAddToCart, callback }) => {
 
   const [products, setProducts] = useState([]);
   const [sortOrder, setSortOrder] = useState('');
   const [sortBy, setSortBy] = useState('sort_order');
 
+  // callback
+  const handleCallBack = () => {
+    callback(products);
+  }
 
   const fetchProducts = async (name, order) => {
   // const products = await commerce.products.list(value);
@@ -74,6 +80,7 @@ const Products = ({ onAddToCart }) => {
     // handleSort(first, second);
   }
 
+  
   useEffect(() => {
     fetchProducts(sortBy, sortOrder);
 
@@ -90,27 +97,24 @@ const Products = ({ onAddToCart }) => {
               <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                 <InputLabel>Sort Price</InputLabel>
                 <Select 
-                // value={sortOrder} 
                 label="Price"
                 onChange={handleChange}
                 >
-                  {console.log(sortOrder)}
-                  {console.log(sortBy)}
                   <MenuItem value={"sort_by,"} label={'sort_by'}>Recommended</MenuItem>
                   <MenuItem value={"price,asc"} label={'price'}>Low-High</MenuItem>
                   <MenuItem value={"price,desc"} label={'price'}>High-Low</MenuItem>
                 </Select>
               </FormControl>
             </Filter>
-            <CardContainer>
-              {products.map((product)=>(
-                <Product 
-                key={product.id} 
-                product={product}
-                onAddToCart={onAddToCart}
-                />
-              ))}
-            </CardContainer>
+              <CardContainer>
+                {products.map((product)=>(
+                  <Product 
+                  key={product.id} 
+                  product={product}
+                  onAddToCart={onAddToCart}
+                  />
+                ))}
+              </CardContainer>
         </Wrapper>
     </Container>
   )

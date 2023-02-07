@@ -6,13 +6,13 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Products from '../components/Products'
 
-const Home = ({ cart, products, onAddToCart }) => {
+const Home = ({ cart, onAddToCart, callback }) => {
   return (
     <>
       <Navbar cart={cart} />
       <Banner />
       <Categories />
-      <Products onAddToCart={onAddToCart} />
+      <Products callback={callback} onAddToCart={onAddToCart} />
       <Footer />
     </>
   )

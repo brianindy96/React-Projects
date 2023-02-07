@@ -13,6 +13,15 @@ function App() {
   const [cart, setCart] = useState({});
   const [order, setOrder] = useState({})
   const [errorMsg, setErrorMsg] = useState('')
+  
+  //Callback from child
+  const [products, setProducts] = useState([])
+  
+  const callback = payload => {
+    setProduct(payload);
+
+    console.log(products);
+  }
 
 
   // Retrieve Cart
@@ -95,8 +104,9 @@ function App() {
           onAddToCart={handleAddToCart}
           onUpdateCartQty={handleUpdateCartQty}
           onRemoveFromCart={handleRemoveFromCart}
+          callback={callback}
         />} />
-        <Route path="/product" element={<SingleProduct
+        <Route path="/product/:id" element={<SingleProduct
         onUpdateCartQty={handleUpdateCartQty}
         cart={cart}
         onRemoveFromCart={handleRemoveFromCart}

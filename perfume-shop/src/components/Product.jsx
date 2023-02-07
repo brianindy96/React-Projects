@@ -4,9 +4,12 @@ import Rating from "@mui/material/Rating"
 import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import IconButton from '@mui/material/IconButton';
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
+import SingleProduct from '../pages/SingleProduct';
 
 
 const Card = styled.div`
+    color: black;
     width: 350px;
     height: 370px;
     border-radius: 10px;
@@ -62,11 +65,18 @@ const Product = ({ product, onAddToCart }) => {
 
     onAddToCart(product.id, 1);
     }
+
+
+
+  
+
     
   return (
     <Card>
         <ImgContainer>
-            <Img src={product.image?.url}/>
+            <Link element={<SingleProduct product={product} />} to={`/product/${product.id}`}>
+                <Img src={product.image?.url}/>
+            </Link>
         </ImgContainer>
         <InfoContainer>
             <ProductBrand>{product.seo.title}</ProductBrand>
