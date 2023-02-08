@@ -112,19 +112,19 @@ const Navbar = ({ cart }) => {
                 
             </Center>   
             <Right>
-                <SearchContainer>
+                {/* <SearchContainer>
                     <Search placeholder='Search here..'/>
                     <SearchOutlinedIcon style={{color: "black", cursor: "pointer"}} />
                 </SearchContainer>
                 <Account>
                     <PermIdentityOutlinedIcon style={{margin: "0 5px"}} />
                     <AccountSpan>Account</AccountSpan>
-                </Account>
+                </Account> */}
                 <Cart>
                     <Link to="/cart" style={{textDecoration: "none", color: "white"}}>
                     <IconButton aria-label="cart">
-                        <StyledBadge badgeContent={cart.total_items} color="secondary">
-                            <ShoppingCartOutlinedIcon style={{color: "#black"}} />
+                        <StyledBadge badgeContent={cart.total_items} color="primary">
+                            <ShoppingCartOutlinedIcon style={{color: "black"}} />
                         </StyledBadge>
                     </IconButton> 
                     </Link>  

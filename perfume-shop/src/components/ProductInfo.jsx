@@ -87,6 +87,7 @@ const Size = styled.div`
     text-align: center;
     margin-right: 20px;
     cursor: ${props => props.disabled ? "not-allowed" : "pointer"} ;
+    border: ${props => props.disabled ? "" : "2px solid #16d601;"};
     
     &:hover{
         background-color: ${props => props.disabled ? "#7c7a7a" : "#ededed"}
@@ -144,7 +145,7 @@ const ProductInfo = ({ product, onAddToCart }) => {
                 <SizeContainer>
                     <Size disabled>30mL</Size>
                     <Size disabled>50mL</Size>
-                    <Size>100mL</Size>
+                    <Size >100mL</Size>
                 </SizeContainer>
                 <Hr/>
                 {/* Quantity */}
