@@ -57,7 +57,7 @@ const SingleProduct = ({ cart, onAddToCart, onRemoveFromCart, onUpdateCartQty })
     
     setTimeout(() => {
       setLoading(false)
-    }, 600);
+    }, 1000);
   }, [])
 
 

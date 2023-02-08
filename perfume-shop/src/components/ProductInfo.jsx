@@ -141,6 +141,10 @@ const ProductInfo = ({ product, price }) => {
                     <Size>100mL</Size>
                 </SizeContainer>
                 <Hr/>
+                {/* Quantity */}
+                {/* handleAddToCart */}
+                {/* on handleAddTocart, the quantity is dependant to the quantity shown in UI */}
+                {/* the quantity on UI is incremented or decremented by user  */}
                 <Subtitle>Quantity: </Subtitle>
                 <QtyContainer>
                     <IconButton>
