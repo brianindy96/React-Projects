@@ -87,7 +87,7 @@ const Back = styled.button`
 const EmptyMsg = styled.p`
   text-align: center;
 `
-const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
+const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart }) => {
 
   const handleEmptyCart = () => {
     onEmptyCart();
@@ -111,6 +111,7 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
     const renderItems = () => (
       cart.line_items.map((lineItem) => (
         <CartItem
+          onDeleteFromCart={onDeleteFromCart}
           item={lineItem}
           key={lineItem.id}
           onRemoveFromCart={onRemoveFromCart}

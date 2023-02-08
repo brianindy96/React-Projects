@@ -20,7 +20,7 @@ const Description = styled.h2`
   color: #4444ec;
   margin-bottom: 10px;
 `
-const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
+const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart }) => {
   
   const [loading, setLoading] = useState(false)
     
@@ -43,7 +43,12 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
                 <CircularProgress />
               </DisplayScreen>
           ) : (
-            <CartSummary onRemoveFromCart={onRemoveFromCart} cart={cart} onUpdateCartQty={onUpdateCartQty} />
+            <CartSummary 
+            onRemoveFromCart={onRemoveFromCart} 
+            cart={cart} 
+            onUpdateCartQty={onUpdateCartQty}
+            onDeleteFromCart={onDeleteFromCart}
+            />
           )
         }
         <Footer/>

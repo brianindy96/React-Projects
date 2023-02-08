@@ -5,6 +5,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { IconButton } from '@mui/material';
 import { mobileL, tablet } from "../responsive";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Item = styled.div`
 margin: 20px 0;
@@ -48,6 +49,9 @@ const Size = styled.p`
 const Details = styled.div`
 flex: 1;
 margin-left: 3rem;
+display: flex;
+justify-content: center;
+flex-direction: column;
 
 ${mobileL({textAlign: "center", marginLeft: "0", marginBottom: "10px"})}
 
@@ -55,6 +59,10 @@ ${mobileL({textAlign: "center", marginLeft: "0", marginBottom: "10px"})}
 
 const AmountContainer = styled.div`
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     ${mobileL({width: "100%"})}
     ${tablet({marginLeft: "20px", marginTop: "3px"})}
@@ -70,6 +78,7 @@ const QtyContainer = styled.div`
 display: flex;
 align-items: center;
 
+
 ${mobileL({justifyContent: "center"})}
 
 `
@@ -83,7 +92,7 @@ const Hr = styled.hr`
   border: none;
 `
 
-const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
+const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart }) => {
 
     const handleUpdateCartQty = (lineItemId, quantity) => {
         onUpdateCartQty(lineItemId, quantity);
@@ -116,6 +125,9 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
                         <AddIcon />
                     </IconButton>
                 </QtyContainer>
+                <IconButton onClick={() => handleRemoveFromCart(item.id)} style={{padding: "5px"}}>
+                    <DeleteIcon style={{color: "#212020", cursor: "pointer"}}/>
+                </IconButton>
             </AmountContainer>
         </Item>
     <Hr />

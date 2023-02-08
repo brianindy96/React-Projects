@@ -51,6 +51,14 @@ function App() {
     setCart(item.cart)
   }
 
+  // Delete Product from cart
+
+  const handleDeleteFromCart = async () => {
+    const item = await commerce.cart.delete();
+
+    setCart(item.cart);
+  }
+
   // RefreshCart
 
   const refreshCart = async () => {
@@ -105,6 +113,7 @@ function App() {
         cart={cart}
         onUpdateCartQty={handleUpdateCartQty}
         onRemoveFromCart={handleRemoveFromCart}
+        onDeleteFromCart={handleDeleteFromCart}
         />} />
         <Route path="/checkout" element={<Checkout 
         cart={cart}
