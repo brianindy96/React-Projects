@@ -69,7 +69,7 @@ const PaymentForm = ({ addStep, checkoutToken, backStep, onCaptureCheckout, ship
 
   return (
     <Container>
-        <Review checkoutToken={checkoutToken} />
+        {/* <Review checkoutToken={checkoutToken} /> */}
         <Divider />
         <PaymentTitle>Payment Method:</PaymentTitle>
 

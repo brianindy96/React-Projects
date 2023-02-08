@@ -24,7 +24,7 @@ const Navbar = () => {
     gsap.to(
       ".navbar", { 
         duration: 2,
-        y: 20
+        y: 50,
       }); 
     }, [])
   

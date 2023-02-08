@@ -49,7 +49,7 @@ export default function Header () {
         gsap.to(
             ".header-menu", { duration: 2.5,
             ease: "power2.out",
-            x: -80
+            x: -80,
             });    
 
         

@@ -12,9 +12,6 @@ const FormInput = ({ name, label }) => {
   const { control } = useFormContext();
 
 
-
-  
-
   return (
     <Container>
         <Controller 

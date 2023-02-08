@@ -30,6 +30,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
+  const [isFinished, setIsFinished] = useState(false);
 
   //Confirmation
 
@@ -44,7 +45,16 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
       <br />
       <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
     </>
-  ) : (
+  ) : isFinished ? (
+   <>
+      <div>
+          <Typography variant="h6"  gutterBottom>Thank you for your purchase!</Typography>
+          <Divider />
+      </div>
+      <br />
+      <Button component={Link} to="/" variant="outlined" type="button">Back to Home</Button>
+   </> 
+  ): (
     <div style={{textAlign: "center"}}>
       <CircularProgress />
     </div>
@@ -62,7 +72,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   // Form component
   const Form = () => activeStep === 0
   ? <AddressForm checkoutToken={checkoutToken} next={next} />
-  : <PaymentForm nextStep={nextStep} onCaptureCheckout={onCaptureCheckout} shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep}/>
+  : <PaymentForm timeout={timeout} nextStep={nextStep} onCaptureCheckout={onCaptureCheckout} shippingData={shippingData} checkoutToken={checkoutToken} backStep={backStep}/>
 
 
   // useEffect
@@ -94,6 +104,12 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
 
     nextStep();
     console.log(activeStep);
+  }
+
+  const timeout = () => {
+    setTimeout(() => {
+      setIsFinished(true);
+    }, 3000);
   }
 
 
