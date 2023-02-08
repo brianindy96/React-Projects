@@ -7,7 +7,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import Button from '@mui/material/Button';
 import { mobileL, tablet } from '../responsive';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Product from './Product';
 import PropTypes from 'prop-types';
 
@@ -25,6 +25,9 @@ const Left = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* Position relative to BackBtn */
+    position: relative;
 `
 
 const Right = styled.div`
@@ -129,6 +132,14 @@ const AddToCartBtn = styled(Button)`
     ${mobileL({width: "100%", textAlign: "center"})}
 `
 
+const BackBtn = styled.span`
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: lightgrey;
+    text-decoration: none;
+`
+
 const ProductInfo = ({ product, onAddToCart }) => {
 
     // Quantity state
@@ -144,6 +155,7 @@ const ProductInfo = ({ product, onAddToCart }) => {
         {(product) ? (
             <>
             <Left>
+            <BackBtn><Link style={{textDecoration: "none", color: "grey"}} to="/">← Back to Products</Link></BackBtn>
             <ImgContainer>
                 <Img src={product.image?.url} alt='Img'/>
             </ImgContainer>
