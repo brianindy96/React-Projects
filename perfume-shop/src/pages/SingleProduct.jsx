@@ -19,9 +19,10 @@ const DisplayScreen = styled.div`
 
 `
 
-const Description = styled.h2`
-  color: #4444ec;
+const Description = styled.p`
+  color: #000000;
   margin-bottom: 10px;
+  font-size: 1.2rem;
 `
 
 const SingleProduct = ({ cart, onAddToCart, onRemoveFromCart, onUpdateCartQty }) => {

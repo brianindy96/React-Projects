@@ -141,7 +141,7 @@ const ProductInfo = ({ product, onAddToCart }) => {
   return (
     <Container>
         {/* Product came, but can't access price */}
-        {product ? (
+        {(product) ? (
             <>
             <Left>
             <ImgContainer>

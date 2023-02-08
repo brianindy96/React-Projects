@@ -39,6 +39,12 @@ const Hr = styled.hr`
     height: 1px;
 `
 
+const DisplayScreen = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 
 
 
@@ -130,7 +136,7 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
         }, 3000);
     }
 
-    
+    const [loading, setLoading] = useState(false)    
 
     useEffect(() => {
         const generateToken = async () => {
@@ -146,14 +152,15 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
             if (activeStep !== steps.length) navigate('/');
           }
         }
-    
+        
+        setLoading(true);
         generateToken();
-
-      
+        setTimeout(() => {
+            setLoading(false);
+        }, 10000);
       }, [cart])
     
     
-
     
 
   return (
@@ -168,10 +175,15 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
                     </Step>
                     ))}
                 </Stepper>
-                {activeStep === steps.length ? 
-                <Confirmation order={order} /> 
-                : checkoutToken && 
-                <Form cart={cart} checkoutToken={checkoutToken} /> }
+                    {loading === true && (
+                    <div style={{display: "flex", justifyContent: "center"}}>
+                        <CircularProgress />
+                    </div>
+                    )}
+                    {activeStep === steps.length ? 
+                    <Confirmation order={order} /> 
+                    : (checkoutToken && !loading) && 
+                    <Form cart={cart} checkoutToken={checkoutToken} /> }
             </Paper>
         </Wrapper>
     </Container>

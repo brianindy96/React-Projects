@@ -101,7 +101,7 @@ const Search = styled.input`
 `
 const Navbar = ({ cart }) => {
   return (
-    <Container>
+    <Container id="navbar">
         <Wrapper>
             <Left>
                 <Link to="/" style={{textDecoration: "none", color: "white"}}>
