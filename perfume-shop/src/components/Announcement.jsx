@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-    background-color: #f8bd50;
+    background-color: #86b5fc;
     font-weight: 600;
     min-height: 3vh;
     width: 100%;

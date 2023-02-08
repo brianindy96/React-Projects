@@ -10,7 +10,7 @@ import { mobileL, tablet } from "../responsive";
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-
+    ${tablet({borderBottom: "1px solid #e9e9e9"})}
 `
 const Wrapper = styled.div`
     width: 100%;
