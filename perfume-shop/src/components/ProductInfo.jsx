@@ -116,48 +116,57 @@ const ProductInfo = ({ product, price }) => {
     
   return (
     <Container>
-        <Left>
+        {/* Product came, but can't access price */}
+        {product ? (
+            <>
+            <Left>
             <ImgContainer>
                 <Img src={product.image?.url} alt='Img'/>
             </ImgContainer>
-        </Left>
-        <Right>
-            <ProductName>{product.name}</ProductName>
-            <ProductDesc dangerouslySetInnerHTML={{__html: product.description}} />
-            <Hr />
-            <Cost></Cost>
-            <Hr />
-            <Subtitle>Choose Size:</Subtitle>
-            <SizeContainer>
-                <Size>30mL</Size>
-                <Size>50mL</Size>
-                <Size>100mL</Size>
-            </SizeContainer>
-            <Hr/>
-            <Subtitle>Quantity: </Subtitle>
-            <QtyContainer>
-                <IconButton>
-                    <RemoveIcon />
-                </IconButton>
-                <Amount>2</Amount>
-                <IconButton>
-                    <AddIcon />
-                </IconButton>
-            </QtyContainer>
-            <Button color="primary" variant="contained" style={{padding: "5px 20px"}}>ADD TO CART</Button>
-            <Hr />
-            <Delievery>
-                <LocalShippingIcon />
-                <SubSubTitle>Free Delievery</SubSubTitle>
-            </Delievery>
-            <Details><u>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, libero!</u></Details>
-            <Hr />
-            <Delievery>
-                <ShoppingBagIcon />
-                <SubSubTitle>Return Delievery</SubSubTitle>
-            </Delievery>
-            <Details>Lorem ipsum dolor, sit amet <u>consecteturadipisicing elit</u> . Rerum, doloremque!</Details>
-        </Right>
+            </Left>
+            <Right>
+                <ProductName>{product.name}</ProductName>
+                <ProductDesc dangerouslySetInnerHTML={{__html: product.description}} />
+                <Hr />
+                <Cost>{product.price?.formatted_with_symbol}</Cost>
+                <Hr />
+                <Subtitle>Choose Size:</Subtitle>
+                <SizeContainer>
+                    <Size>30mL</Size>
+                    <Size>50mL</Size>
+                    <Size>100mL</Size>
+                </SizeContainer>
+                <Hr/>
+                <Subtitle>Quantity: </Subtitle>
+                <QtyContainer>
+                    <IconButton>
+                        <RemoveIcon />
+                    </IconButton>
+                    <Amount>2</Amount>
+                    <IconButton>
+                        <AddIcon />
+                    </IconButton>
+                </QtyContainer>
+                <Button color="primary" variant="contained" style={{padding: "5px 20px"}}>ADD TO CART</Button>
+                <Hr />
+                <Delievery>
+                    <LocalShippingIcon />
+                    <SubSubTitle>Free Delievery</SubSubTitle>
+                </Delievery>
+                <Details><u>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, libero!</u></Details>
+                <Hr />
+                <Delievery>
+                    <ShoppingBagIcon />
+                    <SubSubTitle>Return Delievery</SubSubTitle>
+                </Delievery>
+                <Details>Lorem ipsum dolor, sit amet <u>consecteturadipisicing elit</u> . Rerum, doloremque!</Details>
+            </Right>
+            </>
+        ) : (
+            <>
+                <p>No product</p>
+            </>
+        )}
     </Container>
   )
 }

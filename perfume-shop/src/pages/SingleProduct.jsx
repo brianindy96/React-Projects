@@ -7,6 +7,22 @@ import ProductInfo from '../components/ProductInfo'
 import commerce from '../lib/commerce'
 import { CircularProgress } from '@mui/material'
 import PropTypes from 'prop-types';
+import styled from 'styled-components'
+
+const DisplayScreen = styled.div`
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+`
+
+const Description = styled.h2`
+  color: #4444ec;
+  margin-bottom: 10px;
+`
 
 const SingleProduct = ({ cart, onAddToCart, onRemoveFromCart, onUpdateCartQty }) => {
 
@@ -22,10 +38,10 @@ const SingleProduct = ({ cart, onAddToCart, onRemoveFromCart, onUpdateCartQty })
   const [product, setProduct] = useState([])
   
   const fetchProducts = async () => {
-    const products = await commerce.products.list();
+    const prods = await commerce.products.list();
   
 
-    const data = products.data
+    const data = prods.data
     
     setProducts(data);
 
@@ -41,7 +57,7 @@ const SingleProduct = ({ cart, onAddToCart, onRemoveFromCart, onUpdateCartQty })
     
     setTimeout(() => {
       setLoading(false)
-    }, 3000);
+    }, 1000);
   }, [])
 
 
@@ -51,7 +67,10 @@ const SingleProduct = ({ cart, onAddToCart, onRemoveFromCart, onUpdateCartQty })
         <Announcement />
         {
           loading === true ? (
-            <CircularProgress />
+            <DisplayScreen>
+                <Description>Fetching Product...</Description>
+                <CircularProgress />
+            </DisplayScreen>
           ) : (
             <ProductInfo product={product}  />
           )
