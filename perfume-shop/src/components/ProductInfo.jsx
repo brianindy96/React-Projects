@@ -48,7 +48,8 @@ const Img = styled.img`
 `
 
 const ProductName = styled.h1`
-    
+    ${mobileL({width: "100%", textAlign: "center"})}
+
 `
 
 const ProductDesc = styled.p`
@@ -56,6 +57,8 @@ const ProductDesc = styled.p`
     width: 80%;
     font-style: italic;
     line-height: 1.4rem;
+    ${mobileL({width: "100%", textAlign: "center"})}
+
 `
 
 const Hr = styled.hr`
@@ -68,7 +71,8 @@ const Hr = styled.hr`
 `
 
 const Cost = styled.h2`
-    
+    ${mobileL({width: "100%", textAlign: "center", fontSize: "2rem"})}
+
 `
 
 const Subtitle = styled.h3`
@@ -97,6 +101,9 @@ const Size = styled.div`
 const QtyContainer = styled.div`
     display: flex;
     margin-top: 10px;
+
+    ${mobileL({ width: "100%", justifyContent: "center", textAlign: "center"})}
+
 `
 
 const Amount = styled.span`
@@ -116,6 +123,11 @@ const Delievery = styled.div`
     display: flex;
     margin-top: 20px;
 `
+
+const AddToCartBtn = styled(Button)`
+    ${mobileL({width: "100%", textAlign: "center"})}
+`
+
 const ProductInfo = ({ product, onAddToCart }) => {
 
     // Quantity state
@@ -162,12 +174,12 @@ const ProductInfo = ({ product, onAddToCart }) => {
                         <AddIcon />
                     </IconButton>
                 </QtyContainer>
-                <Button 
+                <AddToCartBtn 
                 color="primary" 
                 variant="contained" 
                 style={{padding: "5px 20px"}}
                 onClick={handleAddToCart}
-                >ADD TO CART</Button>
+                >ADD TO CART</AddToCartBtn>
                 <Hr />
                 <Delievery>
                     <LocalShippingIcon />
