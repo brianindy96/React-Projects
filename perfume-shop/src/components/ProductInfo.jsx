@@ -56,7 +56,8 @@ const ProductName = styled.h1`
 `
 
 const ProductDesc = styled.p`
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 400;
     width: 80%;
     font-style: italic;
     line-height: 1.4rem;
@@ -69,11 +70,15 @@ const Hr = styled.hr`
     border: none;
     height: 1px;
     width: 90%;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 10px;
 `
 
-const Cost = styled.h2`
+const Cost = styled.span`
+
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1px;
     ${mobileL({width: "100%", textAlign: "center", fontSize: "2rem"})}
 
 `

@@ -95,6 +95,7 @@ const Products = ({ onAddToCart }) => {
                 <Select 
                 label="Price"
                 onChange={handleChange}
+                displayEmpty
                 >
                   <MenuItem value={"sort_by,"} label={'sort_by'}>Recommended</MenuItem>
                   <MenuItem value={"price,asc"} label={'price'}>Low-High</MenuItem>
