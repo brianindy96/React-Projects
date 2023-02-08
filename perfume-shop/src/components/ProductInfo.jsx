@@ -115,10 +115,14 @@ const Delievery = styled.div`
     display: flex;
     margin-top: 20px;
 `
-const ProductInfo = ({ product, price }) => {
+const ProductInfo = ({ product, onAddToCart }) => {
 
     // Quantity state
     const [qty, setQty] = useState(1);
+
+    const handleAddToCart = () => {
+        onAddToCart(product.id, qty)
+    }
     
   return (
     <Container>
@@ -157,7 +161,12 @@ const ProductInfo = ({ product, price }) => {
                         <AddIcon />
                     </IconButton>
                 </QtyContainer>
-                <Button color="primary" variant="contained" style={{padding: "5px 20px"}}>ADD TO CART</Button>
+                <Button 
+                color="primary" 
+                variant="contained" 
+                style={{padding: "5px 20px"}}
+                onClick={handleAddToCart}
+                >ADD TO CART</Button>
                 <Hr />
                 <Delievery>
                     <LocalShippingIcon />
