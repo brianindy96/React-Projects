@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
@@ -117,6 +117,8 @@ const Delievery = styled.div`
 `
 const ProductInfo = ({ product, price }) => {
 
+    // Quantity state
+    const [qty, setQty] = useState(1);
     
   return (
     <Container>
@@ -147,11 +149,11 @@ const ProductInfo = ({ product, price }) => {
                 {/* the quantity on UI is incremented or decremented by user  */}
                 <Subtitle>Quantity: </Subtitle>
                 <QtyContainer>
-                    <IconButton>
+                    <IconButton onClick={() => qty != 1 && setQty(prev => prev - 1)}>
                         <RemoveIcon />
                     </IconButton>
-                    <Amount>2</Amount>
-                    <IconButton>
+                    <Amount>{qty}</Amount>
+                    <IconButton onClick={() => setQty(prev => prev + 1)}>
                         <AddIcon />
                     </IconButton>
                 </QtyContainer>

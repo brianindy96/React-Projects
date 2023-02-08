@@ -72,7 +72,12 @@ const SingleProduct = ({ cart, onAddToCart, onRemoveFromCart, onUpdateCartQty })
                 <CircularProgress />
             </DisplayScreen>
           ) : (
-            <ProductInfo product={product}  />
+            <ProductInfo 
+            product={product} 
+            cart={cart}
+            onAddToCart={onAddToCart}
+            onUpdateCartQty={onUpdateCartQty}
+            />
           )
         }   
         <Footer />
