@@ -52,10 +52,10 @@ const ProductName = styled.h1`
 `
 
 const ProductDesc = styled.p`
-    font-size: 14px;
+    font-size: 16px;
     width: 80%;
     font-style: italic;
-    line-height: 1.2rem;
+    line-height: 1.4rem;
 `
 
 const Hr = styled.hr`
@@ -81,12 +81,16 @@ const SizeContainer = styled.div`
 `
 
 const Size = styled.div`
-    background-color: #ededed;
+    background-color:  #ededed;
     padding: 1px 3px;
     width: 70px;
     text-align: center;
     margin-right: 20px;
-    cursor: pointer;
+    cursor: ${props => props.disabled ? "not-allowed" : "pointer"} ;
+    
+    &:hover{
+        background-color: ${props => props.disabled ? "#7c7a7a" : "#ededed"}
+    }
 `
 
 const QtyContainer = styled.div`
@@ -132,8 +136,8 @@ const ProductInfo = ({ product, price }) => {
                 <Hr />
                 <Subtitle>Choose Size:</Subtitle>
                 <SizeContainer>
-                    <Size>30mL</Size>
-                    <Size>50mL</Size>
+                    <Size disabled>30mL</Size>
+                    <Size disabled>50mL</Size>
                     <Size>100mL</Size>
                 </SizeContainer>
                 <Hr/>
@@ -153,7 +157,7 @@ const ProductInfo = ({ product, price }) => {
                     <LocalShippingIcon />
                     <SubSubTitle>Free Delievery</SubSubTitle>
                 </Delievery>
-                <Details><u>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, libero!</u></Details>
+                <Details><u>Lorem ipsum dolor sit amet consectetur adipisicing elit. Free shipping for 500 EUR and domestic!</u></Details>
                 <Hr />
                 <Delievery>
                     <ShoppingBagIcon />
