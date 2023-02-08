@@ -23,8 +23,13 @@ function App() {
     setCart(getCart);
   }
 
-  // Fetch Products
+  // EmptyCart
 
+  const handleEmptyCart = async () => {
+    const empty = await commerce.cart.empty();
+
+    setCart(empty);
+  }
   
 
   // Add to Cart
@@ -114,6 +119,7 @@ function App() {
         onUpdateCartQty={handleUpdateCartQty}
         onRemoveFromCart={handleRemoveFromCart}
         onDeleteFromCart={handleDeleteFromCart}
+        onEmptyCart={handleEmptyCart}
         />} />
         <Route path="/checkout" element={<Checkout 
         cart={cart}

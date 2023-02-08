@@ -20,7 +20,7 @@ const Description = styled.h2`
   color: #4444ec;
   margin-bottom: 10px;
 `
-const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart }) => {
+const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart, onEmptyCart }) => {
   
   const [loading, setLoading] = useState(false)
     
@@ -48,6 +48,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart }) => 
             cart={cart} 
             onUpdateCartQty={onUpdateCartQty}
             onDeleteFromCart={onDeleteFromCart}
+            onEmptyCart={onEmptyCart}
             />
           )
         }

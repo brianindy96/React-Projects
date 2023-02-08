@@ -87,7 +87,7 @@ const Back = styled.button`
 const EmptyMsg = styled.p`
   text-align: center;
 `
-const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart }) => {
+const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
   const handleEmptyCart = () => {
     onEmptyCart();
@@ -97,6 +97,7 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart
     if (cart.total_unique_items > 0) {
       return;
     }
+
 
     return (
       <EmptyContainer>
@@ -111,7 +112,6 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart
     const renderItems = () => (
       cart.line_items.map((lineItem) => (
         <CartItem
-          onDeleteFromCart={onDeleteFromCart}
           item={lineItem}
           key={lineItem.id}
           onRemoveFromCart={onRemoveFromCart}
@@ -138,7 +138,8 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart
           {cart.line_items && renderItems()}  
           {renderEmptyMessage()}
           </CartContainer>
-          <SummaryContainer>
+          {cart.line_items && (
+            <SummaryContainer>
             <Title>Summary</Title>
             {cart.subtotal && renderTotal()}
             <BtnContainer>
@@ -149,7 +150,16 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart, onDeleteFromCart
                 <SummaryBtn style={{height: "40px", flex: "1"}} back variant="outlined">CONTINUE SHOPPING</SummaryBtn>
               </Link>
             </BtnContainer>
+            <Button 
+            fullWidth 
+            variant="contained" 
+            color="error"
+            onClick={handleEmptyCart}
+            >
+              Clear Cart
+            </Button>
           </SummaryContainer>
+          )}
         </Content>
         
       </Wrapper>
