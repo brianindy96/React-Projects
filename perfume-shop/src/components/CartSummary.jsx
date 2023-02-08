@@ -4,7 +4,7 @@ import { Button } from '@mui/material'
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
 import PropTypes from "prop-types";
-
+import { mobileL, tablet } from '../responsive';
 
 const Container = styled.div`
   min-height: 90vh;
@@ -18,6 +18,9 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   display: flex;
+
+  ${mobileL({flexDirection: "column"})}
+
 `
 
 const Title = styled.h2`
@@ -53,6 +56,9 @@ display: flex;
 justify-content: space-between;
 margin: 20px 0;
 align-items: center;
+
+${tablet({flexDirection: "column"})}
+
 `
 
 // Empty Messages
@@ -128,7 +134,7 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
             {cart.subtotal && renderTotal()}
             <BtnContainer>
               <Link to="/checkout">
-                <Button style={{height: "40px", flex: "1", margin: "5px"}} variant="contained">CHECK OUT</Button>
+                <Button style={{height: "40px", flex: "1", margin: "10px 5px"}} variant="contained">CHECK OUT</Button>
               </Link>
               <Link to="/">
                 <Button style={{height: "40px", flex: "1"}} variant="outlined">CONTINUE SHOPPING</Button>

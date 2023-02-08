@@ -18,7 +18,7 @@ const Container = styled.div`
     min-height: 100vh;
     width: 100vw;
     background-color: #f3f3f3;
-    
+    display: flex;
 `
 
 
