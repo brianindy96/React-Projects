@@ -57,6 +57,7 @@ const AmountContainer = styled.div`
     text-align: center;
 
     ${mobileL({width: "100%"})}
+    ${tablet({marginLeft: "20px", marginTop: "3px"})}
 
 `
 
@@ -97,26 +98,26 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
   return (
     <>
         <Item id="item">
-        <ImgContainer>
-            <Img src={item.image.url} alt={item.name}/>
-        </ImgContainer>
-        <Details>
-            <ProductName>{item.name}</ProductName>
-            <Size>Size: <strong>100 ml</strong></Size>
-        </Details>
-        <AmountContainer>
-            <Price>{item.line_total.formatted_with_symbol}</Price>
-            <QtyContainer>
-                <IconButton onClick={() => item.quantity > 1 ? handleUpdateCartQty(item.id, item.quantity - 1) : handleRemoveFromCart()}>
-                    <RemoveIcon />
-                </IconButton>
-                    <Qty>{item.quantity}</Qty>
-                <IconButton onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>
-                    <AddIcon />
-                </IconButton>
-            </QtyContainer>
-        </AmountContainer>
-    </Item>
+            <ImgContainer>
+                <Img src={item.image.url} alt={item.name}/>
+            </ImgContainer>
+            <Details>
+                <ProductName>{item.name}</ProductName>
+                <Size>Size: <strong>100 ml</strong></Size>
+            </Details>
+            <AmountContainer>
+                <Price>{item.line_total.formatted_with_symbol}</Price>
+                <QtyContainer>
+                    <IconButton onClick={() => item.quantity > 1 ? handleUpdateCartQty(item.id, item.quantity - 1) : handleRemoveFromCart()}>
+                        <RemoveIcon />
+                    </IconButton>
+                        <Qty>{item.quantity}</Qty>
+                    <IconButton onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>
+                        <AddIcon />
+                    </IconButton>
+                </QtyContainer>
+            </AmountContainer>
+        </Item>
     <Hr />
     </>
   )

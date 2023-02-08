@@ -8,6 +8,8 @@ import { mobileL, tablet } from '../responsive';
 
 const Container = styled.div`
   min-height: 90vh;
+
+  ${tablet({minHeight: "60vh"})}
 `
 
 const Wrapper = styled.div`
@@ -59,6 +61,12 @@ align-items: center;
 
 ${tablet({flexDirection: "column"})}
 
+`
+
+const SummaryBtn = styled(Button)`
+  ${mobileL({width: "150px"})}
+
+  ${tablet({width: "200px"})}
 `
 
 // Empty Messages
@@ -134,10 +142,10 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
             {cart.subtotal && renderTotal()}
             <BtnContainer>
               <Link to="/checkout">
-                <Button style={{height: "40px", flex: "1", margin: "10px 5px"}} variant="contained">CHECK OUT</Button>
+                <SummaryBtn style={{height: "40px", flex: "1", margin: "10px 5px"}} variant="contained">CHECK OUT</SummaryBtn>
               </Link>
               <Link to="/">
-                <Button style={{height: "40px", flex: "1"}} variant="outlined">CONTINUE SHOPPING</Button>
+                <SummaryBtn style={{height: "40px", flex: "1"}} back variant="outlined">CONTINUE SHOPPING</SummaryBtn>
               </Link>
             </BtnContainer>
           </SummaryContainer>

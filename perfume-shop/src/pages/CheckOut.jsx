@@ -8,7 +8,7 @@ import AddressForm from '../components/AddressForm';
 import PaymentForm from '../components/PaymentForm';
 import commerce from '../lib/commerce';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { mobileL, tablet } from '../responsive';
 const steps = [
     'Address Forms',
     'Payment Method',
@@ -19,6 +19,7 @@ const Container = styled.div`
     width: 100vw;
     background-color: #f3f3f3;
     display: flex;
+
 `
 
 
@@ -29,6 +30,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+
 `
 
 const Hr = styled.hr`
