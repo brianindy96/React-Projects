@@ -177,6 +177,7 @@ const PaymentForm = ({ timeout, shippingData, checkoutToken, backStep, nextStep,
             <ElementsConsumer>
             {({ elements, stripe})=>(
                 <form onSubmit={(e)=> handleSubmit(e, elements, stripe)}>
+                    <p style={{color: "grey", fontSize: "0.8rem", marginBottom: "10px"}}>*just put in "424242424242424242" for card info*</p>
                     <CardElement />
                     <br /><br />
                     <div style={{ display: "flex", justifyContent: "space-between"}}>

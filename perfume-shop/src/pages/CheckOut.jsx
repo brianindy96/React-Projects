@@ -133,7 +133,7 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
     const timeout = () => {
         setTimeout(() => {
         setIsFinished(true);
-        }, 3000);
+        }, 8000);
     }
 
     const [loading, setLoading] = useState(false)    
