@@ -91,7 +91,8 @@ const Size = styled.div`
     text-align: center;
     margin-right: 20px;
     cursor: ${props => props.disabled ? "not-allowed" : "pointer"} ;
-    border: ${props => props.disabled ? "" : "2px solid #16d601;"};
+    border: ${props => props.disabled ? "" : "1px solid #787878;"};
+    color: ${props => props.disabled ? "#858585" : "black"};
     
     &:hover{
         background-color: ${props => props.disabled ? "#7c7a7a" : "#ededed"}

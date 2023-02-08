@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Button } from '@mui/material'
 import { Link } from 'react-router-dom';
@@ -112,18 +112,20 @@ const CartSummary = ({ cart, onUpdateCartQty, onRemoveFromCart }) => {
       </SubDetails>
     );
 
+    
   return (
     <Container>
       <Wrapper>
         <Content>
+          {}
           <CartContainer>
           <Title>Your Shopping Cart</Title>
-          {renderItems()}  
+          {cart.line_items && renderItems()}  
           {renderEmptyMessage()}
           </CartContainer>
           <SummaryContainer>
             <Title>Summary</Title>
-            {renderTotal()}
+            {cart.subtotal && renderTotal()}
             <BtnContainer>
               <Link to="/checkout">
                 <Button style={{height: "40px", flex: "1", margin: "5px"}} variant="contained">CHECK OUT</Button>

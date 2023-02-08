@@ -68,6 +68,8 @@ const CartItem = ({ item, onUpdateCartQty, onRemoveFromCart }) => {
         onRemoveFromCart(item.id);
       }
 
+
+
   return (
     <>
         <Item>
