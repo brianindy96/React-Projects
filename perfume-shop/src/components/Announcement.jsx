@@ -19,7 +19,7 @@ const Announcement = () => {
   return (
     <Container>
         <Wrapper>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.<strong> FREE SHIPPING OVER $500.00 </strong> 
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.<strong> FREE SHIPPING UNTIL FOREVER</strong> 
         </Wrapper>
     </Container>
   )

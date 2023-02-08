@@ -14,11 +14,12 @@ const Title = styled.h3`
 `
 
 const Item = styled.div`
-    margin: 20px 5px;
+    margin: 25px 5px;
 `
 
-const ItemName = styled.h4`
-    font-size: 1.2rem;
+const ItemName = styled.span`
+    font-size: 1.1rem;
+    font-weight: 600;
 `
 
 const ItemAmount = styled.div`
@@ -28,7 +29,7 @@ const ItemAmount = styled.div`
 
 const ItemDesc = styled.span`
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
 `
 
 const ItemPrice = styled.span`
@@ -37,6 +38,7 @@ const ItemPrice = styled.span`
 `
 
 const ItemQty = styled.span`
+    font-size: 0.9rem;
     color: #a3a3a3;
 `
 
@@ -69,9 +71,10 @@ const Cost = styled.span`
 `
 
 const SubTitle = styled.span`
-    font-weight: 800;
+     font-size: ${props => props.total && "1.1rem"};
+     font-weight: ${props => props.total ? "800" : "600"};
 `
-
+// Payment
 const Payment = styled.h3`
     margin: 20px 0px;
 `
@@ -141,13 +144,13 @@ const PaymentForm = ({ timeout, shippingData, checkoutToken, backStep, nextStep,
         <Title>Order Summary</Title>
         {checkoutToken.live.line_items.map((item)=> (
             <Item key={item.id}>
-            <ItemName>{item.name}</ItemName>
-            <ItemAmount>
-                <ItemDesc>
-                    <ItemId>Product ID: {item.product_id}</ItemId>
-                    <ItemQty>Quantity: {item.quantity}</ItemQty>
-                </ItemDesc>
+            <ItemDesc>
+                <ItemName>{item.name}</ItemName>
                 <ItemPrice>{item.price.formatted_with_symbol}</ItemPrice>
+            </ItemDesc>
+            <ItemAmount>
+                {/* <ItemId>Product ID: {item.product_id}</ItemId> */}
+                <ItemQty>Quantity: {item.quantity}</ItemQty>
             </ItemAmount>
         </Item>
         ))}
@@ -163,7 +166,7 @@ const PaymentForm = ({ timeout, shippingData, checkoutToken, backStep, nextStep,
                 <Cost>{checkoutToken.live.shipping.price.formatted_with_symbol}</Cost>
             </SubTotal>
             <SubTotal>
-                <SubTitle>Total:</SubTitle>
+                <SubTitle total>Total:</SubTitle>
                 <Cost><strong>{checkoutToken.live.total.formatted_with_symbol}</strong> </Cost>
             </SubTotal>
         </Total>

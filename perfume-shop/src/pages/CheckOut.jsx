@@ -157,7 +157,7 @@ const CheckOut = ({ cart, order, onCaptureCheckout, error }) => {
         generateToken();
         setTimeout(() => {
             setLoading(false);
-        }, 10000);
+        }, 6000);
       }, [cart])
     
     
