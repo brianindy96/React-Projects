@@ -88,7 +88,7 @@ const Products = ({ onAddToCart }) => {
   return (
     <Container>
         <Wrapper>
-            <Title>Products</Title>
+            <Title id="products">Products</Title>
             <Filter>
               <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
                 <InputLabel>Sort Price</InputLabel>

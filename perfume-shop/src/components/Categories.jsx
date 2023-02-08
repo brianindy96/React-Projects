@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { mobileL, tablet } from '../responsive'
+import Products from './Products'
 const Container = styled.div`
     min-height: 70vh;
     ${tablet({display: "none"})}
@@ -56,7 +57,7 @@ const Opacity = styled.div`
     opacity: 0.5;
 `
 
-const Btn = styled.button`
+const Btn = styled.a`
     z-index: 3;
     padding: 3px 10px;
     border: 1px solid white;
@@ -65,6 +66,7 @@ const Btn = styled.button`
     color: white;
     cursor: pointer;
     transition: 0.2s ease;
+    text-decoration: none;
 
     &:hover{
         transform: scale(1.1);
@@ -78,7 +80,7 @@ const Categories = () => {
             <ImgContainer>
                 <Info>
                     <Title>FEATURED</Title>
-                    <Btn>EXPLORE</Btn>
+                    <Btn href="#products">EXPLORE</Btn>
                 </Info>
                 <Opacity></Opacity>
                 <Img src='/img/img1.jpg'/>
@@ -86,7 +88,7 @@ const Categories = () => {
             <ImgContainer>
                 <Info>
                     <Title>FEATURED</Title>
-                    <Btn>EXPLORE</Btn>
+                    <Btn href="#products">EXPLORE</Btn>
                 </Info>
                 <Opacity></Opacity>
                 <Img src='/img/img2.jpg'/>
@@ -94,7 +96,7 @@ const Categories = () => {
             <ImgContainer>
                 <Info>
                     <Title>FEATURED</Title>
-                    <Btn>EXPLORE</Btn>
+                    <Btn href="#products">EXPLORE</Btn>
                 </Info>
                 <Opacity></Opacity>
                 <Img src='/img/img3.jpg'/>
