@@ -7,31 +7,32 @@ import ThermostatIcon from '@mui/icons-material/Thermostat';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import WbTwilightIcon from '@mui/icons-material/WbTwilight';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
+import { iconUrlFromCode } from '../services/weatherService';
 
-const TemperatureAndDetails = () => {
+const TemperatureAndDetails = ({ weather}) => {
   return (
     <div>
         <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
-        <h3>Main</h3>
-        <br />
-        <p>Description</p>
+            <p className='text-white text-xl'>{weather.details}</p>
+            <br />
+            <p>{weather.desc}</p>
       </div>
     {/* TEMPERATURE DETAILS */}
       <div className="flex flex-row items-center justify-between text-white py-3">
-        <img src="" alt="SUN" className="w-20" />
-        <p className='text-5xl'>Temp°</p>
+        <img src={iconUrlFromCode(weather.icon)} alt="SUN" className="w-20" />
+        <p className='text-5xl'>{weather.temp}°</p>
         <div className='flex flex-col space-y-2'>
             <div className="flex font-light text-sm items-center justify-center">
                 <ThermostatIcon></ThermostatIcon>
-                <span className='font-medium ml-1'>Feels Like: 50</span>
+                <span className='font-medium ml-1'>Feels Like: 50°</span>
             </div>
             <div className="flex font-light text-sm items-center justify-center">
                 <InvertColorsIcon></InvertColorsIcon>
-                <span className='font-medium ml-1'>Humidity: 20 g/kg`</span>
+                <span className='font-medium ml-1'>Humidity: {weather.humidity} g/kg</span>
             </div>
             <div className="flex font-light text-sm items-center justify-center ">
                 <AirIcon></AirIcon>
-                <span className='font-medium ml-1'>Wind: 234</span>
+                <span className='font-medium ml-1'>Wind: {weather.speed} m/s</span>
             </div>
             <div className="flex font-light text-sm items-center justify-center ">
                 <ExploreIcon></ExploreIcon>
@@ -44,7 +45,7 @@ const TemperatureAndDetails = () => {
             <WbSunnyIcon></WbSunnyIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Rise: 
+                    Rise: {weather.sunrise} format
                 </span>
             </p>
             <p className='font-light'>|</p>
@@ -52,7 +53,7 @@ const TemperatureAndDetails = () => {
             <WbTwilightIcon></WbTwilightIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Sunset: 
+                    Sunset: {weather.sunset} 
                 </span>
             </p>
             <p className='font-light'>|</p>
@@ -60,7 +61,7 @@ const TemperatureAndDetails = () => {
             <WhatshotIcon></WhatshotIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Highest: 
+                    Highest: {weather.temp_max}°
                 </span>
             </p>
             <p className='font-light'>|</p>
@@ -68,7 +69,7 @@ const TemperatureAndDetails = () => {
             <AcUnitIcon></AcUnitIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Lowest: 
+                    Lowest: {weather.temp_min}°
                 </span>
             </p>
             <p className='font-light'>|</p>
