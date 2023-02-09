@@ -29,7 +29,7 @@ const Nav = () => {
   return (
     <div className='flex items-center justify-center my-6'>
         {cities.map((city) =>(
-            <button className='text-white text-lg font-medium px-5' key={city.id}>{city.title}</button>
+            <button key={city.id} className='text-white text-lg font-medium px-5'>{city.title}</button>
         ))}
     </div>
   )
