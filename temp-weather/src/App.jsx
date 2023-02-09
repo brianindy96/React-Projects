@@ -20,10 +20,12 @@ function App() {
 
   // State
   const [weather, setWeather] = useState([]);
+  const [query, setQuery] = useState({q: 'berlin'});
+  const [units, setUnits] = useState('metric');
   
   // Fetch Weather to global
   const fetchWeather = async () => {
-    const data = await getFormattedWeatherData({q: "berlin"});
+    const data = await getFormattedWeatherData({...query, units});
 
     setWeather(data);
   }
@@ -36,15 +38,22 @@ function App() {
   useEffect(() => {
     fetchWeather();
 
-  }, [])
+  }, [query, units])
   
   return (
     <div className="mx-auto max-w-screen-md mt-4 py-5 px-28 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl">
       <Nav />
       <Input />
-      <TimeAndLocation />
-      <TemperatureAndDetails />
-      <Forecast />
+      {weather && (
+        <>
+          <TimeAndLocation weather={weather} />
+          <TemperatureAndDetails weather={weather} />
+          <Forecast />
+          <Forecast />
+          <Forecast />
+        </>
+      )}
+      
     </div>
   )
 }
