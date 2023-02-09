@@ -2,6 +2,7 @@ import { AcUnit } from '@mui/icons-material'
 import './App.css'
 import Input from './components/Input'
 import Nav from './components/Nav'
+import TemperatureAndDetails from './components/TemperatureAndDetails'
 import TimeAndLocation from './components/TimeAndLocation'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Nav />
       <Input />
       <TimeAndLocation />
+      <TemperatureAndDetails />
     </div>
   )
 }
