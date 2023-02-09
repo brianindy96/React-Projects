@@ -48,9 +48,9 @@ function App() {
         <>
           <TimeAndLocation weather={weather} />
           <TemperatureAndDetails weather={weather} />
-          <Forecast />
-          <Forecast />
-          <Forecast />
+          <Forecast weather={weather} />
+          <Forecast weather={weather} />
+          <Forecast weather={weather} />
         </>
       )}
       
