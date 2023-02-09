@@ -1,5 +1,6 @@
 import { AcUnit } from '@mui/icons-material'
 import './App.css'
+import Forecast from './components/Forecast'
 import Input from './components/Input'
 import Nav from './components/Nav'
 import TemperatureAndDetails from './components/TemperatureAndDetails'
@@ -13,6 +14,7 @@ function App() {
       <Input />
       <TimeAndLocation />
       <TemperatureAndDetails />
+      <Forecast />
     </div>
   )
 }
