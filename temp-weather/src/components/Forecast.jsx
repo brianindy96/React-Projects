@@ -16,27 +16,27 @@ const Forecast = () => {
         <div className="flex flex-row items-center justify-between text-white">
             <div className="flex flex-col items-center justify-center">
                 <p className="flex flex-col items-center justify-center">04:00</p>
-                <img src="/img/sun.png" alt="icon" className='w-12 my-1' />
+                <img src="" alt="icon" className='w-12 my-1' />
                 <p className='font-medium'>18°</p>
             </div>
             <div className="flex flex-col items-center justify-center">
                 <p className="flex flex-col items-center justify-center">05:00</p>
-                <img src="/img/sun.png" alt="cloud" className='w-12 my-1' />
+                <img src="" alt="cloud" className='w-12 my-1' />
                 <p className='font-medium'>21°</p>
             </div>
             <div className="flex flex-col items-center justify-center">
                 <p className="flex flex-col items-center justify-center">06:00</p>
-                <img src="/img/sun.png" alt="rain" className='w-12 my-1' />
+                <img src="" alt="rain" className='w-12 my-1' />
                 <p className='font-medium'>24°</p>
             </div>
             <div className="flex flex-col items-center justify-center">
                 <p className="flex flex-col items-center justify-center">07:00</p>
-                <img src="/img/sun.png" alt="cloud" className='w-12 my-1' />
+                <img src="" alt="cloud" className='w-12 my-1' />
                 <p className='font-medium'>28°</p>
             </div>
             <div className="flex flex-col items-center justify-center">
                 <p className="flex flex-col items-center justify-center">08:00</p>
-                <img src="/img/sun.png" alt="sun" className='w-12 my-1' />
+                <img src="" alt="sun" className='w-12 my-1' />
                 <p className='font-medium'>30°</p>
             </div>
         </div>
