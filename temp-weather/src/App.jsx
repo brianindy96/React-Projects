@@ -9,6 +9,7 @@ import getFormattedWeatherData from './services/weatherService'
 
 function App() {
 
+  // Ideas
   // Today NOW -> Everythree (x5)
   // console.log(weather.list[0]);
   // Tomorrow NOW -> Every three hour (x5)
@@ -16,14 +17,18 @@ function App() {
   // Day after Tomorrow NOW -> every three hour (x5)
   // console.log(weather.list[16])
 
+
+  // State
   const [weather, setWeather] = useState([]);
-  // Fetch Weather
+  
+  // Fetch Weather to global
   const fetchWeather = async () => {
     const data = await getFormattedWeatherData({q: "london"});
 
-    setWeather(data) ;
+    setWeather(data);
   }
 
+  // Console.log tests
   console.log(weather);
 
 

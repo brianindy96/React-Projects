@@ -1,12 +1,13 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = import.meta.env.VITE_BASE_URL;
+import { DateTime } from "luxon";
 
 const api = {
     key: API_KEY,
     base: BASE_URL
 };
 
-
+// Call API based on infoType and query
 const getWeatherData = (infoType, searchParams) => {
     // Access URL object
     const url = new URL(api.base+ "/" + infoType);
@@ -16,6 +17,62 @@ const getWeatherData = (infoType, searchParams) => {
         .then((res) => res.json())
 }
 
+// get formatted weather data 
+const getFormattedWeatherData = async (searchParams) => {
+    // Current Weather Forecast
+    const formattedCurrentWeather = await getWeatherData('weather', searchParams)
+        .then(data => formatCurrentWeather(data))
+
+    // takes lat, lon from formattedCurrentWeather
+    const { lat, lon } = formattedCurrentWeather
+    
+    // 5 days 3 hours Forecast
+    const formattedForecastWeather = await getWeatherData("forecast", {
+        // use lat, lon from formattedCurrentWeather as searchParams
+        lat,
+        lon,
+        units: searchParams.units,
+    })
+        .then(data => formatForecastWeather(data))
+
+    return { ...formattedForecastWeather, ...formattedCurrentWeather };
+}
+
+const formatForecastWeather = (data) =>{
+    let { timezone, list, today, tmr, afterTmr } = data;
+    // Go through first day (5 time intervals)
+    today = list.slice(0,4).map((td) => {
+        return{
+            title: formatToLocalTime(td.dt, timezone, 'hh:mm a'),
+            temp: td.main.temp,
+            icon: td.weather[0].icon,
+
+        }
+    });
+
+    // Go through second day (5 time invervals)
+    tmr = list.slice(8,12).map((td) => {
+        return{
+            title: formatToLocalTime(td.dt, timezone, 'hh:mm a'),
+            temp: td.main.temp,
+            icon: td.weather[0].icon,
+        }
+    })
+    // Go through after tomorrow (5 time intervals)
+    afterTmr = list.slice(16,20).map((td) => {
+        return{
+            title: formatToLocalTime(td.dt, timezone, 'hh:mm a'),
+            temp: td.main.temp,
+            icon: td.weather[0].icon,
+        }
+    })
+
+    return { timezone, today, tmr, afterTmr };
+}
+
+const formatToLocalTime = (secs, zone, format = "cccc, dd LLL, yyyy | Local time: 'hh:mm a") => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
+
+// Format data into what we want
 const formatCurrentWeather = (data) => {
     const {
         coord: {lat, lon},
@@ -30,13 +87,6 @@ const formatCurrentWeather = (data) => {
     const { main: details, icon } = weather[0]
     
     return {lat, lon, temp,feels_like, temp_min, temp_max, humidity, name, dt, country, sunrise, sunset, details, icon, speed  };
-}
-
-const getFormattedWeatherData = async (searchParams) => {
-    const formattedCurrentWeather = await getWeatherData('weather', searchParams)
-        .then(data => formatCurrentWeather(data))
-
-    return formattedCurrentWeather;
 }
 
 export default getFormattedWeatherData
