@@ -5,7 +5,7 @@ import Nav from './components/Nav'
 import TemperatureAndDetails from './components/TemperatureAndDetails'
 import TimeAndLocation from './components/TimeAndLocation'
 import { useEffect, useState } from 'react'
-import getWeatherData from './services/weatherService'
+import getFormattedWeatherData from './services/weatherService'
 
 function App() {
 
@@ -15,16 +15,16 @@ function App() {
   // console.log(weather.list[8])
   // Day after Tomorrow NOW -> every three hour (x5)
   // console.log(weather.list[16])
-  
+
   const [weather, setWeather] = useState([]);
   // Fetch Weather
   const fetchWeather = async () => {
-    const data = await getWeatherData('forecast', {q: "london"});
+    const data = await getFormattedWeatherData({q: "london"});
 
     setWeather(data) ;
   }
 
- 
+  console.log(weather);
 
 
   // useEffect
