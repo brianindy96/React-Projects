@@ -23,7 +23,7 @@ function App() {
   
   // Fetch Weather to global
   const fetchWeather = async () => {
-    const data = await getFormattedWeatherData({q: "london"});
+    const data = await getFormattedWeatherData({q: "berlin"});
 
     setWeather(data);
   }

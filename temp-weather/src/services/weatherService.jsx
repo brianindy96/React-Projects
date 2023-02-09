@@ -41,7 +41,7 @@ const getFormattedWeatherData = async (searchParams) => {
 const formatForecastWeather = (data) =>{
     let { timezone, list, today, tmr, afterTmr } = data;
     // Go through first day (5 time intervals)
-    today = list.slice(0,4).map((td) => {
+    today = list.slice(0,5).map((td) => {
         return{
             title: formatToLocalTime(td.dt, timezone, 'hh:mm a'),
             temp: td.main.temp,
@@ -51,7 +51,7 @@ const formatForecastWeather = (data) =>{
     });
 
     // Go through second day (5 time invervals)
-    tmr = list.slice(8,12).map((td) => {
+    tmr = list.slice(8,13).map((td) => {
         return{
             title: formatToLocalTime(td.dt, timezone, 'hh:mm a'),
             temp: td.main.temp,
@@ -59,7 +59,7 @@ const formatForecastWeather = (data) =>{
         }
     })
     // Go through after tomorrow (5 time intervals)
-    afterTmr = list.slice(16,20).map((td) => {
+    afterTmr = list.slice(16,21).map((td) => {
         return{
             title: formatToLocalTime(td.dt, timezone, 'hh:mm a'),
             temp: td.main.temp,
@@ -89,4 +89,12 @@ const formatCurrentWeather = (data) => {
     return {lat, lon, temp,feels_like, temp_min, temp_max, humidity, name, dt, country, sunrise, sunset, details, icon, speed  };
 }
 
+// IconUrl from code
+
+const iconUrlFromCode = (code) => `
+    http://openweathermap.org/img/wn/${code}@2x.png
+`
+
 export default getFormattedWeatherData
+
+export {formatToLocalTime, iconUrlFromCode }
