@@ -20,7 +20,7 @@ function App() {
 
   // State
   const [weather, setWeather] = useState([]);
-  const [query, setQuery] = useState({q: 'london'});
+  const [query, setQuery] = useState({q: 'poznan'});
   const [units, setUnits] = useState('metric');
   
   // Fetch Weather to global
@@ -28,6 +28,7 @@ function App() {
     const data = await getFormattedWeatherData({...query, units});
 
     setWeather(data);
+
   }
 
   // Console.log tests

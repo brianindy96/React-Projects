@@ -24,7 +24,7 @@ const getFormattedWeatherData = async (searchParams) => {
         .then(data => formatCurrentWeather(data))
 
     // takes lat, lon from formattedCurrentWeather
-    const { lat, lon } = formattedCurrentWeather
+    const { lat, lon, timezone } = formattedCurrentWeather
     
     // 5 days 3 hours Forecast
     const formattedForecastWeather = await getWeatherData("forecast", {
@@ -34,6 +34,7 @@ const getFormattedWeatherData = async (searchParams) => {
         units: searchParams.units,
     })
         .then(data => formatForecastWeather(data))
+
 
     return { ...formattedForecastWeather, ...formattedCurrentWeather };
 }
@@ -68,9 +69,11 @@ const formatForecastWeather = (data) =>{
     })
 
     return { timezone, today, tmr, afterTmr };
+
 }
 
-const formatToLocalTime = (secs, zone, format = "cccc, dd LLL, yyyy | Local time: 'hh:mm a") => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
+                        // parameters  =  (default Value, if no parameters passed through)
+const formatToLocalTime = (secs, zone, format = "cccc, dd LLL, yyyy' | Local time: 'hh:mm a") => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
 // Format data into what we want
 const formatCurrentWeather = (data) => {
@@ -81,12 +84,13 @@ const formatCurrentWeather = (data) => {
         dt,
         sys: {country, sunrise, sunset},
         weather,
-        wind: {speed}
+        wind: {speed},
+        timezone,
     } = data
 
     const { main: details, description: desc, icon } = weather[0]
     
-    return { desc, lat, lon, temp,feels_like, temp_min, temp_max, humidity, name, dt, country, sunrise, sunset, details, icon, speed  };
+    return { timezone, desc, lat, lon, temp,feels_like, temp_min, temp_max, humidity, name, dt, country, sunrise, sunset, details, icon, speed  };
 }
 
 // IconUrl from code

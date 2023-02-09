@@ -1,12 +1,12 @@
 import React from 'react'
 import { formatToLocalTime } from '../services/weatherService'
-
+import { DateTime } from 'luxon'
 const TimeAndLocation = ({ weather }) => {
   return (
     <div>
         <div className="flex items-center justify-center my-6">
         <p className="text-white text-xl font-extralight">
-          "Date/ TIME and TIMEZONE LOCAL TIME: sdfasdf""
+          {weather.dt.toFormat("HH:mm")}
         </p>
       </div>
 
