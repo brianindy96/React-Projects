@@ -21,7 +21,7 @@ function App() {
 
   // State
   const [weather, setWeather] = useState([]);
-  const [query, setQuery] = useState({q: 'berlin'});
+  const [query, setQuery] = useState({q: 'bangkok'});
   const [units, setUnits] = useState('metric');
   
   // Fetch Weather to global
@@ -31,25 +31,25 @@ function App() {
     // console.log(data.timezone);
     // mutate the data.timezone into "Europe/Central European Time" format
     
-    const tz_min = data.timezone/60;
+    // const tz_min = data.timezone/60;
     // console.log(tz_min)
     // const tz = data.timezone.toFormat("z")
     
-    setWeather({data, tz_min});
+    setWeather(data);
 
     // data.timezone = local*60
    
 
     // console.log(tz);
 
-    const local = DateTime.local().setZone("America/Winnipeg").toFormat("z")
+    const local = DateTime.local().setZone("America/New_York").toFormat("s")
     // console.log(local); //480
 
 
   }
   
   // Console.log tests
-  console.log(weather.data);
+  console.log(weather);
   
   const [loading, setLoading] = useState(false);
 
@@ -66,15 +66,15 @@ function App() {
   
   return (
     <div className="mx-auto max-w-screen-md mt-4 py-5 px-28 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl">
-      <Nav />
+      <Nav setQuery={setQuery} />
       <Input />
       {(weather && loading) && (
         <>
           <TimeAndLocation weather={weather} />
           <TemperatureAndDetails weather={weather} />
-          <Forecast attribute="today" weather={weather} />
-          <Forecast attribute="tmr" weather={weather} />
-          <Forecast attribute="afterTmr" weather={weather} />
+          <Forecast forecast={weather.today} weather={weather} />
+          <Forecast forecast={weather.tmr} weather={weather}  />
+          <Forecast forecast={weather.afterTmr} weather={weather} />
         </>
       )}
     </div>

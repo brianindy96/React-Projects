@@ -21,7 +21,7 @@ const getWeatherData = (infoType, searchParams) => {
 const getFormattedWeatherData = async (searchParams) => {
     // Current Weather Forecast
     const formattedCurrentWeather = await getWeatherData('weather', searchParams)
-        .then(data => formatCurrentWeather(data))
+        .then(formatCurrentWeather)
 
     // takes lat, lon from formattedCurrentWeather
     const { lat, lon } = formattedCurrentWeather
@@ -31,44 +31,45 @@ const getFormattedWeatherData = async (searchParams) => {
         // use lat, lon from formattedCurrentWeather as searchParams
         lat,
         lon,
+        exclude: "current,minutely,alerts",
         units: searchParams.units,
     })
-        .then(data => formatForecastWeather(data))
+        .then(formatForecastWeather)
 
 
     return { ...formattedForecastWeather, ...formattedCurrentWeather };
 }
 
 const formatForecastWeather = (data) =>{
-    let { timezone, list, today, tmr, afterTmr } = data;
+    let { tz_min, list, today, tmr, afterTmr } = data;
+
     // Go through first day (5 time intervals)
-    today = list.slice(0,5).map((td) => {
+    today = list.slice(0,6).map((td) => {
         return{
-            title: formatToLocalTime(td.dt, timezone, 'hh:mm a'),
+            title: formatToLocalTime(td.dt, "Asia/Bangkok", 'z'),
             temp: td.main.temp,
             icon: td.weather[0].icon,
-
         }
     });
 
     // Go through second day (5 time invervals)
-    tmr = list.slice(8,13).map((td) => {
+    tmr = list.slice(7,13).map((td) => {
         return{
-            title: formatToLocalTime(td.dt, timezone, 'hh:mm a'),
+            title: formatToLocalTime(td.dt, tz_min, 'z'),
             temp: td.main.temp,
             icon: td.weather[0].icon,
         }
     })
     // Go through after tomorrow (5 time intervals)
-    afterTmr = list.slice(16,21).map((td) => {
+    afterTmr = list.slice(14,20).map((td) => {
         return{
-            title: formatToLocalTime(td.dt, timezone, 'hh:mm a'),
+            title: formatToLocalTime(td.dt, tz_min, 'z'),
             temp: td.main.temp,
             icon: td.weather[0].icon,
         }
     })
 
-    return { timezone, today, tmr, afterTmr };
+    return { tz_min, today, tmr, afterTmr };
 
 }
 
@@ -89,8 +90,10 @@ const formatCurrentWeather = (data) => {
     } = data
 
     const { main: details, description: desc, icon } = weather[0]
+
+    const tz_min = (timezone/60);
     
-    return { deg, timezone, desc, lat, lon, temp,feels_like, temp_min, temp_max, humidity, name, dt, country, sunrise, sunset, details, icon, speed  };
+    return { deg, tz_min, desc, lat, lon, temp,feels_like, temp_min, temp_max, humidity, name, dt, country, sunrise, sunset, details, icon, speed  };
 }
 
 // IconUrl from code

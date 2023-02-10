@@ -14,30 +14,30 @@ const TemperatureAndDetails = ({ weather}) => {
   return (
     <div>
         <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
-            <p className='text-white text-xl'>{weather.data?.details}</p>
+            <p className='text-white text-xl'>{weather.details}</p>
             <br />
-            <p>{weather.data?.desc}</p>
+            <p>{weather.desc}</p>
       </div>
     {/* TEMPERATURE DETAILS */}
       <div className="flex flex-row items-center justify-between text-white py-3">
-        <img src={iconUrlFromCode(weather.data?.icon)} alt="SUN" className="w-20" />
-        <p className='text-5xl'>{weather.data?.temp.toFixed()}°</p>
+        <img src={iconUrlFromCode(weather.icon)} alt="SUN" className="w-20" />
+        <p className='text-5xl'>{weather.temp.toFixed()}°</p>
         <div className='flex flex-col space-y-2'>
             <div className="flex font-light text-sm items-center justify-center">
                 <ThermostatIcon></ThermostatIcon>
-                <span className='font-medium ml-1'>Feels Like: {weather.data?.feels_like.toFixed()}°</span>
+                <span className='font-medium ml-1'>Feels Like: {weather.feels_like.toFixed()}°</span>
             </div>
             <div className="flex font-light text-sm items-center justify-center">
                 <InvertColorsIcon></InvertColorsIcon>
-                <span className='font-medium ml-1'>Humidity: {weather.data?.humidity} g/kg</span>
+                <span className='font-medium ml-1'>Humidity: {weather.humidity} g/kg</span>
             </div>
             <div className="flex font-light text-sm items-center justify-center ">
                 <AirIcon></AirIcon>
-                <span className='font-medium ml-1'>Wind: {weather.data?.speed} m/s</span>
+                <span className='font-medium ml-1'>Wind: {weather.speed} m/s</span>
             </div>
             <div className="flex font-light text-sm items-center justify-center ">
                 <ExploreIcon></ExploreIcon>
-                <span className='font-medium ml-1'>Wind Direction: {weather.data?.deg}° </span>
+                <span className='font-medium ml-1'>Wind Direction: {weather.deg}° </span>
             </div>
         </div>
       </div>
@@ -46,7 +46,7 @@ const TemperatureAndDetails = ({ weather}) => {
             <WbSunnyIcon></WbSunnyIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Rise: {formatToLocalTime(weather.data?.sunrise, weather.tz_min, "hh:mm a")} 
+                    Rise: {formatToLocalTime(weather.sunrise, weather.tz_min, "hh:mm a")} 
                 </span>
             </p>
             <p className='font-light'>|</p>
@@ -54,7 +54,7 @@ const TemperatureAndDetails = ({ weather}) => {
             <WbTwilightIcon></WbTwilightIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Sunset: {formatToLocalTime(weather.data?.sunset, weather.tz_min, "hh:mm a")}
+                    Sunset: {formatToLocalTime(weather.sunset, weather.tz_min, "hh:mm a")}
                 </span>
             </p>
             <p className='font-light'>|</p>
@@ -62,7 +62,7 @@ const TemperatureAndDetails = ({ weather}) => {
             <WhatshotIcon></WhatshotIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Highest: {weather.data?.temp_max.toFixed()}°
+                    Highest: {weather.temp_max.toFixed()}°
                 </span>
             </p>
             <p className='font-light'>|</p>
@@ -70,7 +70,7 @@ const TemperatureAndDetails = ({ weather}) => {
             <AcUnitIcon></AcUnitIcon>
             <p className="font-light">
                 <span className='font-medium ml-1'>
-                    Lowest: {weather.data?.temp_min.toFixed()}°
+                    Lowest: {weather.temp_min.toFixed()}°
                 </span>
             </p>
         </div>
