@@ -4,10 +4,10 @@ import styled from 'styled-components'
 const Container = styled.div`
     flex: 1;
 `
-const Humid = () => {
+const TemperatureDetails = () => {
   return (
-    <Container>Humid</Container>
+    <Container>TemperatureDetails</Container>
   )
 }
 
-export default Humid
+export default TemperatureDetails

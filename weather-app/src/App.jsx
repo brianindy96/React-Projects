@@ -2,7 +2,7 @@ import './App.css'
 import styled from "styled-components"
 import Navbar from './components/Navbar'
 import Input from './components/Input'
-import Humid from './components/Humid'
+import Humid from './components/TemperatureDetails'
 import Weather from './components/Weather'
 import Wind from './components/Wind'
 
