@@ -1,23 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
+import SearchIcon from '@mui/icons-material/Search';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const Container = styled.div`
-    
+    display: flex;
+    justify-content: center;
+`
+
+const Right = styled.div`
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+const Left = styled.div`
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 const Input = () => {
   return (
     <Container>
-        <div className='flex flex-row w-3/4 items-center justify-center space-x-4'>
-            <input placeholder='Search Here...'></input>
-            <SearchIcon />
-            <LocationOnIcon/>
-        </div>
-
-        <div className='flex flex-row w-1/4 items-center justify-center'>
+        <Left>
             <button name="metric">°C</button>
             <p>|</p>
             <button name="imperial">°F</button>
-        </div>
+        </Left>
+        <Right>
+            <input placeholder='Search Here...'></input>
+            <SearchIcon />
+            <LocationOnIcon/>
+        </Right>
     </Container>
   )
 }
