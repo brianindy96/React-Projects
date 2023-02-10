@@ -49,7 +49,7 @@ function App() {
   }
   
   // Console.log tests
-  console.log(weather);
+  console.log(weather.data);
   
   const [loading, setLoading] = useState(false);
 
