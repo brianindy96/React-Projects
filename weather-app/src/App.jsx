@@ -1,6 +1,7 @@
 import './App.css'
 import styled from "styled-components"
 import Navbar from './components/Navbar'
+import Input from './components/Input'
 
 const Container = styled.div`
   max-width: 1560px;
@@ -40,6 +41,7 @@ function App() {
       <Container>
         <Wrapper> 
           <Navbar />
+          <Input />
         </Wrapper>
       </Container>
     </>
