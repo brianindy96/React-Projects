@@ -24,29 +24,29 @@ function App() {
   const [query, setQuery] = useState({q: 'bangkok'});
   const [units, setUnits] = useState('metric');
   
-  // Fetch Weather to global
-  const fetchWeather = async () => {
-    const data = await getFormattedWeatherData({...query, units});
+  // // Fetch Weather to global
+  // const fetchWeather = async () => {
+  //   const data = await getFormattedWeatherData({...query, units});
 
-    // console.log(data.timezone);
-    // mutate the data.timezone into "Europe/Central European Time" format
+  //   // console.log(data.timezone);
+  //   // mutate the data.timezone into "Europe/Central European Time" format
     
-    // const tz_min = data.timezone/60;
-    // console.log(tz_min)
-    // const tz = data.timezone.toFormat("z")
+  //   // const tz_min = data.timezone/60;
+  //   // console.log(tz_min)
+  //   // const tz = data.timezone.toFormat("z")
     
-    setWeather(data);
+  //   setWeather(data);
 
-    // data.timezone = local*60
+  //   // data.timezone = local*60
    
 
-    // console.log(tz);
+  //   // console.log(tz);
 
-    const local = DateTime.local().setZone("America/New_York").toFormat("s")
-    // console.log(local); //480
+  //   const local = DateTime.local().setZone("America/New_York").toFormat("s")
+  //   // console.log(local); //480
 
 
-  }
+  // }
   
   // Console.log tests
   console.log(weather);
@@ -55,6 +55,11 @@ function App() {
 
   // useEffect
   useEffect(() => {
+    const fetchWeather = async () => {
+      const data = await getFormattedWeatherData({...query, units});
+  
+      setWeather(data);
+    }
     fetchWeather();
     
     setTimeout(()=>{

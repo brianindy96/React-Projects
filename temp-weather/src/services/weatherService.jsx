@@ -31,7 +31,6 @@ const getFormattedWeatherData = async (searchParams) => {
         // use lat, lon from formattedCurrentWeather as searchParams
         lat,
         lon,
-        exclude: "current,minutely,alerts",
         units: searchParams.units,
     })
         .then(formatForecastWeather)
@@ -41,35 +40,38 @@ const getFormattedWeatherData = async (searchParams) => {
 }
 
 const formatForecastWeather = (data) =>{
-    let { tz_min, list, today, tmr, afterTmr } = data;
+    let { city, list, today, tmr, afterTmr } = data;
 
     // Go through first day (5 time intervals)
-    today = list.slice(0,6).map((td) => {
+    today = list.slice(0,5).map((td) => {
         return{
-            title: formatToLocalTime(td.dt, "Asia/Bangkok", 'z'),
+            title: td.dt,
             temp: td.main.temp,
             icon: td.weather[0].icon,
+            date: td.dt_txt,
         }
     });
 
     // Go through second day (5 time invervals)
-    tmr = list.slice(7,13).map((td) => {
+    tmr = list.slice(8,14).map((td) => {
         return{
-            title: formatToLocalTime(td.dt, tz_min, 'z'),
+            title: td.dt,
             temp: td.main.temp,
             icon: td.weather[0].icon,
+            date: td.dt_txt,
         }
     })
     // Go through after tomorrow (5 time intervals)
-    afterTmr = list.slice(14,20).map((td) => {
+    afterTmr = list.slice(16,22).map((td) => {
         return{
-            title: formatToLocalTime(td.dt, tz_min, 'z'),
+            title: td.dt,
             temp: td.main.temp,
             icon: td.weather[0].icon,
+            date: td.dt_txt,
         }
     })
 
-    return { tz_min, today, tmr, afterTmr };
+    return { today, tmr, afterTmr };
 
 }
 
