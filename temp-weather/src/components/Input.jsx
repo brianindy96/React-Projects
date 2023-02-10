@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-const Input = ({ setQuery }) => {
+const Input = ({ setQuery, units, setUnits }) => {
 
   const [city, setCity] = useState("")
 
@@ -28,6 +28,12 @@ const Input = ({ setQuery }) => {
     }
   }
 
+  const handleUnitsChange = (e) => {
+    const selectedUnit = e.currentTarget.name
+
+    if( units!== selectedUnit) setUnits(selectedUnit);
+  }
+
   return (
     <div className='flex flex-row justify-center my-6'>
         <div className='flex flex-row w-3/4 items-center justify-center space-x-4'>
@@ -37,9 +43,9 @@ const Input = ({ setQuery }) => {
         </div>
 
         <div className='flex flex-row w-1/4 items-center justify-center'>
-            <button className="text-xl text-white font-light " name="metric">°C</button>
+            <button onClick={handleUnitsChange} className="text-xl text-white font-light " name="metric">°C</button>
             <p className='text-white mx-3'>|</p>
-            <button className="text-xl text-white font-light" name="imperial">°F</button>
+            <button onClick={handleUnitsChange} className="text-xl text-white font-light" name="imperial">°F</button>
         </div>
     </div>
   )
