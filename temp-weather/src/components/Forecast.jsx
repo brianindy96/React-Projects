@@ -1,44 +1,26 @@
 import React from 'react'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-
-const Forecast = () => {
+import { formatToLocalTime, iconUrlFromCode } from '../services/weatherService';
+const Forecast = ({ weather }) => {
   return (
     <div>
         <div>
         <div className="flex items-center justify-start mt-6 ">
             <span><AccessTimeIcon className="text-white mr-2"/></span>
             <p className='font-medium uppercase text-white'>
-                Time
+            {formatToLocalTime(weather.data?.dt, weather.tz_min, "cccc, LL LLL")}
             </p>
         </div>
         <hr className='my-2'/>
-
+        {console.log(weather.data?.today)}
         <div className="flex flex-row items-center justify-between text-white">
-            <div className="flex flex-col items-center justify-center">
-                <p className="flex flex-col items-center justify-center">04:00</p>
-                <img src="" alt="icon" className='w-12 my-1' />
-                <p className='font-medium'>18°</p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-                <p className="flex flex-col items-center justify-center">05:00</p>
-                <img src="" alt="cloud" className='w-12 my-1' />
-                <p className='font-medium'>21°</p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-                <p className="flex flex-col items-center justify-center">06:00</p>
-                <img src="" alt="rain" className='w-12 my-1' />
-                <p className='font-medium'>24°</p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-                <p className="flex flex-col items-center justify-center">07:00</p>
-                <img src="" alt="cloud" className='w-12 my-1' />
-                <p className='font-medium'>28°</p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-                <p className="flex flex-col items-center justify-center">08:00</p>
-                <img src="" alt="sun" className='w-12 my-1' />
-                <p className='font-medium'>30°</p>
-            </div>
+            {weather.data?.today.map((td) => (
+                <div className="flex flex-col items-center justify-center">
+                    <p className="flex flex-col items-center justify-center">{td.title}</p>
+                    <img src={iconUrlFromCode(td.icon)} alt="icon" className='w-12 my-1' />
+                    <p className='font-medium'>{td.temp.toFixed()}°</p>
+                </div>
+            ))}   
         </div>
     </div>
     </div>

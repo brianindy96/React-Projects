@@ -21,7 +21,7 @@ function App() {
 
   // State
   const [weather, setWeather] = useState([]);
-  const [query, setQuery] = useState({q: 'bangkok'});
+  const [query, setQuery] = useState({q: 'berlin'});
   const [units, setUnits] = useState('metric');
   
   // Fetch Weather to global
@@ -43,7 +43,7 @@ function App() {
     // console.log(tz);
 
     const local = DateTime.local().setZone("America/Winnipeg").toFormat("z")
-    console.log(local); //480
+    // console.log(local); //480
 
 
   }
@@ -72,9 +72,9 @@ function App() {
         <>
           <TimeAndLocation weather={weather} />
           <TemperatureAndDetails weather={weather} />
-          <Forecast weather={weather} />
-          <Forecast weather={weather} />
-          <Forecast weather={weather} />
+          <Forecast attribute="today" weather={weather} />
+          <Forecast attribute="tmr" weather={weather} />
+          <Forecast attribute="afterTmr" weather={weather} />
         </>
       )}
     </div>
