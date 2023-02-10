@@ -8,7 +8,7 @@ const Forecast = ({ weather, forecast }) => {
                 <div className="flex items-center justify-start mt-6 ">
                     <span><AccessTimeIcon className="text-white mr-2"/></span>
                     <h2 className='font-medium uppercase text-white'>
-                        {formatToLocalTime(forecast[0].title, weather.tz_min, "cccc, LL LLL")}
+                        {formatToLocalTime(forecast[0].title, weather.tz_min, "cccc, LLL dd")}
                     </h2>
                 </div>
             <hr className='my-2'/>
