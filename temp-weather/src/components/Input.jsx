@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { toast } from 'react-toastify';
 
 const Input = ({ setQuery, units, setUnits }) => {
 
@@ -19,7 +20,9 @@ const Input = ({ setQuery, units, setUnits }) => {
 
   const handleLocation = () => {
     if(navigator.geolocation){
+      toast.info(`Fetching users location..`)
       navigator.geolocation.getCurrentPosition((pos) => {
+        toast.success(`Location fetched!`)
         let lat = pos.coords.latitude;
         let lon = pos.coords.latitude;
 

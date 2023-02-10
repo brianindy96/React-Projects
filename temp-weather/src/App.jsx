@@ -7,6 +7,9 @@ import TimeAndLocation from './components/TimeAndLocation'
 import { useEffect, useState } from 'react'
 import getFormattedWeatherData from './services/weatherService'
 import { DateTime } from 'luxon'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
 
@@ -28,6 +31,7 @@ function App() {
   const fetchWeather = async () => {
     const data = await getFormattedWeatherData({...query, units});
 
+    toast.success(`Weather fetched for ${data.name}, ${data.country}!`)
     // console.log(data.timezone);
     // mutate the data.timezone into "Europe/Central European Time" format
     
@@ -59,19 +63,22 @@ function App() {
   }
   
   // Console.log tests
-  console.log(weather);
+  // console.log(weather);
   
   const [loading, setLoading] = useState(false);
 
   // useEffect
   useEffect(() => {
+    const message = query.q ? query.q : "current location."
+
+    toast.info('Fetching weather for ' + message)
     
-    fetchWeather();
+    
     
     setTimeout(()=>{
       setLoading(true);
     }, 1000)
-
+    fetchWeather();
 
   }, [query, units])
   
@@ -88,6 +95,9 @@ function App() {
           <Forecast forecast={weather.afterTmr} weather={weather} />
         </>
       )}
+
+
+      <ToastContainer autoClose={2000} theme="colored" newestOnTop={true} />
     </div>
   )
 }
