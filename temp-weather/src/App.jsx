@@ -72,7 +72,7 @@ function App() {
   return (
     <div className="mx-auto max-w-screen-md mt-4 py-5 px-28 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl">
       <Nav setQuery={setQuery} />
-      <Input />
+      <Input setQuery={setQuery} units={units} setUnits={setUnits} />
       {(weather && loading) && (
         <>
           <TimeAndLocation weather={weather} />
