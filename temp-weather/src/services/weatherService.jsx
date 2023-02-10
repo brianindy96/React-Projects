@@ -24,7 +24,7 @@ const getFormattedWeatherData = async (searchParams) => {
         .then(data => formatCurrentWeather(data))
 
     // takes lat, lon from formattedCurrentWeather
-    const { lat, lon, timezone } = formattedCurrentWeather
+    const { lat, lon } = formattedCurrentWeather
     
     // 5 days 3 hours Forecast
     const formattedForecastWeather = await getWeatherData("forecast", {
