@@ -18,9 +18,8 @@
 }
 
 body{
-  height: 100vh;
   font-family: "Montserrat", sans-serif;
-  background: url("/img/satek.jpg");
+  background: url("/img/sun.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
