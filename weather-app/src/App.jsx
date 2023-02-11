@@ -5,6 +5,9 @@ import Input from './components/Input'
 import Humid from './components/TemperatureDetails'
 import Weather from './components/Weather'
 import Wind from './components/Wind'
+import React, { useEffect, useState } from 'react'
+import getFormattedWeatherData from './services/weatherServices'
+import getWeatherData from './services/weatherServices'
 
 // const Overlay = styled.div`
 //   position: fixed; /* Sit on top of the page content */ /* Hidden by default */
@@ -44,17 +47,38 @@ const Info = styled.div`
   margin-top: 20px;
 `
 
+
+
+
+
 function App() {
+
+  const [weather, setWeather] = useState([])
+
+    // Functions
+
+  const fetchWeather = async () => {
+    const data = await getFormattedWeatherData({q: 'london'});
+
+    setWeather(data);
+    
+  }
+
+  console.log(weather);
+
+  useEffect(() => {
+    fetchWeather();
+}, [])
   return (
     <>
       {/* <Overlay outside></Overlay> */}
         <Wrapper> 
-          <Navbar />
-          <Input />
+          <Navbar weather={weather} />
+          <Input weather={weather} />
           <Info>
-            <Humid />
-            <Weather />
-            <Wind />
+            <Humid weather={weather} />
+            <Weather weather={weather} />
+            <Wind weather={weather} />
           </Info>
         </Wrapper>
     </>
