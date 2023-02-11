@@ -6,16 +6,6 @@ import Humid from './components/TemperatureDetails'
 import Weather from './components/Weather'
 import Wind from './components/Wind'
 
-const Container = styled.div`
-  max-width: 1560px;
-  min-height: 100vh; 
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-`
-
 // const Overlay = styled.div`
 //   position: fixed; /* Sit on top of the page content */ /* Hidden by default */
 //   width: 100%; /* Full width (cover the whole page) */
@@ -25,21 +15,29 @@ const Container = styled.div`
 //   right: 0;
 //   bottom: 0;
 //   background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-//   z-index: -1; /* Specify a stack order in case you're using a different order for other elements */
+//   z-index: -2; /* Specify a stack order in case you're using a different order for other elements */
 //   cursor: pointer; /* Add a pointer on hover */
 // `
 
 const Wrapper = styled.div`
     min-height: 80vh;
-    width: 100%;
-    background-color: #d8d8d8;
-    opacity: 1;
-    border-radius: 10px;
-    z-index: 1;
+    max-width: 1280px;
+    background-color: rgba(255,255,255, 0.2);
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px rgba(46,54,68,0.03);
+    z-index: 2;
+    margin: 5em auto;
+    border-radius: 3em;
+    backdrop-filter: blur(40px);
+    background-clip: padding-box;
+    color: black;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1); 
 `
 
 const Info = styled.div`
   width: 100%;
+  z-index: 3;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -51,7 +49,6 @@ function App() {
   return (
     <>
       {/* <Overlay outside></Overlay> */}
-      <Container>
         <Wrapper> 
           <Navbar />
           <Input />
@@ -61,7 +58,6 @@ function App() {
             <Wind />
           </Info>
         </Wrapper>
-      </Container>
     </>
   )
 }
