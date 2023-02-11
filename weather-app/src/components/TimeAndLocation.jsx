@@ -25,7 +25,9 @@ const CityCon = styled.div`
 `
 
 const CityName = styled.h3`
-    font-size: 1.6rem;
+    font-size: 3.6rem;
+    margin: 0;
+    font-weight: 800;
 `
 
 const CityTempCon = styled.div`
@@ -33,7 +35,9 @@ const CityTempCon = styled.div`
 `
 
 const CityTemp = styled.span`
-    font-size: 8rem;
+    font-size: 6rem;
+    font-weight: 600;
+    color: #000000;
 `
 
 const Symbol = styled.span`
@@ -42,14 +46,14 @@ const Symbol = styled.span`
 const TimeAndLocation = () => {
   return (
     <Container>
-          <LocalTimeCon className="flex items-center justify-center my-6">
-            <LocalTime className="text-white text-xl font-extralight">
+          <LocalTimeCon>
+            <LocalTime>
                 Local Time:
             </LocalTime>
           </LocalTimeCon>
 
-          <CityCon className="flex items-center justify-center my-3">
-            <CityName className="text-white text-3xl font-medium">
+          <CityCon >
+            <CityName>
                 Berlin, DE
             </CityName>
           </CityCon>
