@@ -37,11 +37,6 @@ const WindSpeed = styled.span`
 const Wind = () => {
   return (
     <Container>
-        <CompassCon>
-            <Compass>
-                Me Compass
-            </Compass> 
-        </CompassCon>
         <WindInfo>
             <WindTitle>
                 Wind
@@ -50,6 +45,11 @@ const Wind = () => {
                 75 km/hr
             </WindSpeed>
         </WindInfo>
+        <CompassCon>
+            <Compass>
+                Me Compass
+            </Compass> 
+        </CompassCon>
     </Container>
   )
 }

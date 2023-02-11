@@ -7,7 +7,6 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 10vh;
-    border-bottom: 1px solid black;
     
 `
 
@@ -16,7 +15,8 @@ const Button = styled.span`
     margin: 0 20px;
     border: none;
     background-color: none;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
     cursor: pointer;
 `
 const Navbar = () => {

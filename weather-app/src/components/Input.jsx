@@ -6,6 +6,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 const Container = styled.div`
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
 `
 
 const Right = styled.div`
@@ -21,17 +22,56 @@ const Left = styled.div`
     align-items: center;
     justify-content: center;
 `
+
+const Button = styled.button`
+    background: transparent;
+    border: none;
+    /* border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px; */
+    font-size: 1.3rem;
+    cursor: pointer;
+    font-weight: 800;
+    color: #eee;
+
+`
+
+const Seperator = styled.p`
+    margin: 10px;
+`
+
+const SearchBar = styled.input`
+    background-color: transparent;
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    width: 20rem;
+    color: white;
+`
+
+const SearchCon = styled.div`
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    height: 40px;
+    margin: 10px;
+    
+`
 const Input = () => {
   return (
     <Container>
         <Left>
-            <button name="metric">°C</button>
-            <p>|</p>
-            <button name="imperial">°F</button>
+            <Button name="metric">°C</Button>
+            <Seperator>|</Seperator>
+            <Button name="imperial">°F</Button>
         </Left>
         <Right>
-            <input placeholder='Search Here...'></input>
-            <SearchIcon />
+            <SearchCon>
+                <SearchBar placeholder='Search Here...' />
+                <SearchIcon style={{cursor: "pointer"}} />
+            </SearchCon>
+            <Seperator>|</Seperator>
             <LocationOnIcon/>
         </Right>
     </Container>

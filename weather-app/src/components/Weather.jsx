@@ -4,8 +4,8 @@ import TimeAndLocation from './TimeAndLocation'
 
 const Container = styled.div`
     flex: 2;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
 `
 
 const Weather = () => {

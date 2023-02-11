@@ -22,16 +22,15 @@ import Wind from './components/Wind'
 const Wrapper = styled.div`
     min-height: 80vh;
     max-width: 1280px;
-    background-color: rgba(255,255,255, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
     border: solid 2px transparent;
     background-clip: padding-box;
-    box-shadow: 10px 10px 10px rgba(46,54,68,0.03);
     z-index: 2;
     margin: 5em auto;
     border-radius: 3em;
     backdrop-filter: blur(40px);
     background-clip: padding-box;
-    color: black;
+    color: white;
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1); 
 `
 

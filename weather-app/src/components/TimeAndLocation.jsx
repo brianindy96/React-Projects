@@ -37,7 +37,7 @@ const CityTempCon = styled.div`
 const CityTemp = styled.span`
     font-size: 6rem;
     font-weight: 600;
-    color: #000000;
+    color: #eee;
 `
 
 const Symbol = styled.span`
