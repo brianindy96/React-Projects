@@ -57,7 +57,7 @@ const SearchCon = styled.div`
     margin: 10px;
     
 `
-const Input = () => {
+const Input = ({ setQuery, units, setUnits}) => {
 
     const [city, setCity] = useState("")
 
