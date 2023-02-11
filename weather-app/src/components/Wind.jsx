@@ -34,7 +34,7 @@ const WindSpeed = styled.span`
     font-size: 1.5rem;
 `
 
-const Wind = () => {
+const Wind = ({ weather }) => {
   return (
     <Container>
         <WindInfo>
@@ -42,12 +42,12 @@ const Wind = () => {
                 Wind
             </WindTitle>
             <WindSpeed>
-                75 km/hr
+                {weather.speed} km/hr
             </WindSpeed>
         </WindInfo>
         <CompassCon>
-            <Compass>
-                Me Compass
+            <Compass style={{color: "black"}}>
+                {weather.deg} deg
             </Compass> 
         </CompassCon>
     </Container>
