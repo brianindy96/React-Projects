@@ -54,7 +54,7 @@ const formatForecastWeather = (data) =>{
     });
 
     // Go through second day (5 time invervals)
-    tmr = list.slice(8,14).map((td) => {
+    tmr = list.slice(8,13).map((td) => {
         return{
             title: td.dt,
             temp: td.main.temp,
@@ -63,7 +63,7 @@ const formatForecastWeather = (data) =>{
         }
     })
     // Go through after tomorrow (5 time intervals)
-    afterTmr = list.slice(16,22).map((td) => {
+    afterTmr = list.slice(16,21).map((td) => {
         return{
             title: td.dt,
             temp: td.main.temp,

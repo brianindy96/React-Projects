@@ -6,7 +6,6 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 const Container = styled.div`
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
 `
 
 const Right = styled.div`

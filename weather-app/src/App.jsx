@@ -9,6 +9,7 @@ import getFormattedWeatherData from './services/weatherServices'
 import TimeAndLocation from './components/TimeAndLocation'
 import { CircularProgress } from '@mui/material'
 import getWeatherData from './services/weatherServices'
+import Forecasts from './components/Forecasts'
 
 // const Overlay = styled.div`
 //   position: fixed; /* Sit on top of the page content */ /* Hidden by default */
@@ -24,7 +25,7 @@ import getWeatherData from './services/weatherServices'
 // `
 
 const Wrapper = styled.div`
-    min-height: 80vh;
+    height: 80vh;
     max-width: 1280px;
     background-color: rgba(0, 0, 0, 0.3);
     border: solid 2px transparent;
@@ -35,6 +36,7 @@ const Wrapper = styled.div`
     backdrop-filter: blur(40px);
     background-clip: padding-box;
     color: white;
+    overflow: hidden;
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1); 
 `
 
@@ -42,12 +44,13 @@ const Info = styled.div`
   width: 100%;
   z-index: 3;
   padding: 0 20px;
-  height: 100%;
+  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
 `
+// 
+
 
 
 
@@ -85,16 +88,20 @@ function App() {
       {/* <Overlay outside></Overlay> */}
         
           <Wrapper> 
-          <Navbar weather={weather} />
-          <Input weather={weather} />
-          {(weather && loading) &&(
-          <Info>
-            <Humid weather={weather} />
-            <TimeAndLocation weather={weather} />
-            <Wind weather={weather} />
-          </Info>)}
-        </Wrapper>
-        
+            <Navbar weather={weather} />
+            <Input weather={weather} />
+            {(weather && loading) &&(
+            <>
+            <Info>
+              <Humid weather={weather} />
+              <TimeAndLocation weather={weather} />
+              <Wind weather={weather} />
+            </Info>
+            <Forecasts weather={weather} />
+            </>
+            )}
+          </Wrapper>
+          
     </>
   )
 }
