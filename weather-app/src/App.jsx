@@ -3,10 +3,11 @@ import styled from "styled-components"
 import Navbar from './components/Navbar'
 import Input from './components/Input'
 import Humid from './components/TemperatureDetails'
-import Weather from './components/Weather'
 import Wind from './components/Wind'
 import React, { useEffect, useState } from 'react'
 import getFormattedWeatherData from './services/weatherServices'
+import TimeAndLocation from './components/TimeAndLocation'
+import { CircularProgress } from '@mui/material'
 import getWeatherData from './services/weatherServices'
 
 // const Overlay = styled.div`
@@ -40,6 +41,7 @@ const Wrapper = styled.div`
 const Info = styled.div`
   width: 100%;
   z-index: 3;
+  padding: 0 20px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -53,34 +55,46 @@ const Info = styled.div`
 
 function App() {
 
+  // States
   const [weather, setWeather] = useState([])
-
+  const [loading, setLoading] = useState(false);
     // Functions
 
+    // FetchWeather from weatherServices.jsx
   const fetchWeather = async () => {
-    const data = await getFormattedWeatherData({q: 'london'});
+    const data = await getFormattedWeatherData({q: 'bangkok'});
 
     setWeather(data);
     
   }
 
+  // console.log(test)
   console.log(weather);
 
+  // UseEffect rendering
   useEffect(() => {
     fetchWeather();
+    
+    setTimeout(()=>{
+      setLoading(true);
+    }, 1000)
 }, [])
+
   return (
     <>
       {/* <Overlay outside></Overlay> */}
-        <Wrapper> 
+        
+          <Wrapper> 
           <Navbar weather={weather} />
           <Input weather={weather} />
+          {(weather && loading) &&(
           <Info>
             <Humid weather={weather} />
-            <Weather weather={weather} />
+            <TimeAndLocation weather={weather} />
             <Wind weather={weather} />
-          </Info>
+          </Info>)}
         </Wrapper>
+        
     </>
   )
 }

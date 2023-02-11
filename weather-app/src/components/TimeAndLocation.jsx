@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { formatToLocalTime } from '../services/weatherServices'
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
+    flex: 1.5;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
 `
 
 const LocalTimeCon = styled.div`
@@ -43,24 +47,24 @@ const CityTemp = styled.span`
 const Symbol = styled.span`
     
 `
-const TimeAndLocation = () => {
+const TimeAndLocation = ({ weather }) => {
   return (
     <Container>
           <LocalTimeCon>
             <LocalTime>
-                Local Time:
+                {formatToLocalTime(weather.dt, weather.tz_min)}
             </LocalTime>
           </LocalTimeCon>
 
           <CityCon >
             <CityName>
-                Berlin, DE
+                {weather.name}, {weather.country}
             </CityName>
           </CityCon>
 
           <CityTempCon>
             <CityTemp>
-                3°C
+                {weather.temp.toFixed()}°C
             </CityTemp>
           </CityTempCon>
           
