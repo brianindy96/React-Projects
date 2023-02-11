@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -58,17 +58,37 @@ const SearchCon = styled.div`
     
 `
 const Input = () => {
+
+    const [city, setCity] = useState("")
+
+
+    const handleChange = (e) => {
+        // console.log(e.target.value)
+        setCity(e.target.value)
+      }
+    
+      const handleSearchSubmit = () =>{
+        if (city !== '') {
+          setQuery({q: city})
+        }
+      }
+
+      const handleUnitsChange = (e) => {
+        const selectedUnit = e.currentTarget.name
+    
+        if( units!== selectedUnit) setUnits(selectedUnit);
+      }
   return (
     <Container>
         <Left>
-            <Button name="metric">°C</Button>
+            <Button onClick={handleUnitsChange}  name="metric">°C</Button>
             <Seperator>|</Seperator>
-            <Button name="imperial">°F</Button>
+            <Button onClick={handleUnitsChange} name="imperial">°F</Button>
         </Left>
         <Right>
             <SearchCon>
-                <SearchBar placeholder='Search Here...' />
-                <SearchIcon style={{cursor: "pointer"}} />
+                <SearchBar value={city} onChange={handleChange} placeholder='Search Here...' />
+                <SearchIcon onClick={handleSearchSubmit} style={{cursor: "pointer"}} />
             </SearchCon>
             <Seperator>|</Seperator>
             <LocationOnIcon/>

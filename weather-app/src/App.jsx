@@ -61,11 +61,13 @@ function App() {
   // States
   const [weather, setWeather] = useState([])
   const [loading, setLoading] = useState(false);
+  const [query, setQuery] = useState({q: 'bangkok'})
+  const [units, setUnits] = useState('metric');
     // Functions
 
     // FetchWeather from weatherServices.jsx
   const fetchWeather = async () => {
-    const data = await getFormattedWeatherData({q: 'bangkok'});
+    const data = await getFormattedWeatherData({...query, units});
 
     setWeather(data);
     
@@ -81,15 +83,15 @@ function App() {
     setTimeout(()=>{
       setLoading(true);
     }, 1000)
-}, [])
+}, [query, units])
 
   return (
     <>
       {/* <Overlay outside></Overlay> */}
         
           <Wrapper> 
-            <Navbar weather={weather} />
-            <Input weather={weather} />
+            <Navbar setQuery={setQuery} weather={weather} />
+            <Input units={units} setUnits={setUnits} setQuery={setQuery} weather={weather} />
             {(weather && loading) &&(
             <>
             <Info>

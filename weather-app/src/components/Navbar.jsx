@@ -19,7 +19,7 @@ const Button = styled.span`
     font-weight: 600;
     cursor: pointer;
 `
-const Navbar = () => {
+const Navbar = ({ setQuery }) => {
 
     const cities = [
         {
@@ -47,7 +47,7 @@ const Navbar = () => {
   return (
     <Container>
         {cities.map((city) =>(
-            <Button key={city.id}>{city.title}</Button>
+            <Button onClick={() => setQuery({ q: city.title})} key={city.id}>{city.title}</Button>
         ))}
     </Container>
   )
