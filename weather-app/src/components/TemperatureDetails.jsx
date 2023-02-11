@@ -8,6 +8,7 @@ import ThermostatIcon from '@mui/icons-material/Thermostat';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import WbTwilightIcon from '@mui/icons-material/WbTwilight';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
+import { formatToLocalTime } from '../services/weatherServices';
 
 const Container = styled.div`
     flex: 1;
@@ -45,16 +46,16 @@ const Unit = styled.span`
   margin-left: 2px;
 `
 
-const TemperatureDetails = () => {
+const TemperatureDetails = ({ weather }) => {
   return (
     <Container>
             <Box>
                 <BoxName>
                   <ThermostatIcon></ThermostatIcon>
-                  <BoxTitle>Feels Like:</BoxTitle>
+                  <BoxTitle>Feels Like: </BoxTitle>
                 </BoxName>
                 <NumCon>
-                  <Num>10°</Num>
+                  <Num>{weather.feels_like}°</Num>
                 </NumCon>
             </Box> 
             
@@ -64,7 +65,7 @@ const TemperatureDetails = () => {
                   <BoxTitle>Humidity:</BoxTitle>
                 </BoxName>
                 <NumCon>
-                  <Num>80</Num>
+                  <Num>{weather.humidity}</Num>
                   <Unit>g/kg</Unit>
                 </NumCon>
             </Box>
@@ -75,8 +76,8 @@ const TemperatureDetails = () => {
                   <BoxTitle>Sun Rise:</BoxTitle>
                 </BoxName>
                 <NumCon>
-                  <Num>06:00</Num>
-                  <Unit>AM</Unit>
+                  <Num>{formatToLocalTime(weather.sunrise, weather.tz_min, "hh:mm a")}</Num>
+                  
                 </NumCon>
             </Box>
             <Box>
@@ -85,8 +86,7 @@ const TemperatureDetails = () => {
                   <BoxTitle>Sun Rise:</BoxTitle>
                 </BoxName>
                 <NumCon>
-                  <Num>05:00</Num>
-                  <Unit>PM</Unit>
+                  <Num>{formatToLocalTime(weather.sunset, weather.tz_min, "hh:mm a")}</Num>
                 </NumCon>
             </Box>
             <Box>
@@ -95,7 +95,7 @@ const TemperatureDetails = () => {
                   <BoxTitle>Highest:</BoxTitle>
                 </BoxName>
                 <NumCon>
-                  <Num>10°</Num>
+                  <Num>{weather.temp_max}°</Num>
                 </NumCon>
             </Box>
             <Box>
@@ -104,7 +104,7 @@ const TemperatureDetails = () => {
                   <BoxTitle>Highest:</BoxTitle>
                 </BoxName>
                 <NumCon>
-                  <Num>23°</Num>
+                  <Num>{weather.temp_min}°</Num>
                 </NumCon>
             </Box>
     </Container>
