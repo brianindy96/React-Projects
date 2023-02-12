@@ -43,12 +43,12 @@ const Home = () => {
 
     useEffect(() => {
         fetchMovies();
-    }, [])
+    }, [search])
     
   return (
     <Container>
       <Header>Movies</Header>
-      <SearchBar placeholder='Search...' type="text" />
+      <SearchBar placeholder='Search...' type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
       <MovieListing />
     </Container>
   )
