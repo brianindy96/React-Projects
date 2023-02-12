@@ -34,9 +34,16 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `
+
 const Wrapper = styled.div`
+  width: 1280px;
+  margin: 0 auto;
+  height: 100vh;
+`
+
+const Box = styled.div`
     height: 80vh;
-    max-width: 1100px;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     border: solid 2px transparent;
     background-clip: padding-box;
@@ -106,7 +113,8 @@ function App() {
         <Container className={
           weather.details === "Clouds" ? "App cloud" : (weather.details === ("Drizzle" && "Rain") ? "App rain" : "App sun") 
         }>
-          <Wrapper> 
+          <Wrapper>
+          <Box> 
               <Navbar setQuery={setQuery} weather={weather} />
               <Input units={units} setUnits={setUnits} setQuery={setQuery} weather={weather} />
               {(weather && loading) &&(
@@ -119,7 +127,8 @@ function App() {
               <Forecasts weather={weather} />
               </>
               )}
-            </Wrapper>
+            </Box>
+          </Wrapper>
         </Container>   
     </>
   )
