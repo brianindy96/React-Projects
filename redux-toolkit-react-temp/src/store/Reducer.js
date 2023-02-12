@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, current } from '@reduxjs/toolkit'
 
 // Initial State
 
@@ -16,6 +16,8 @@ const movieSlice = createSlice({
     reducers: {
         addMovie: (state, action) => {
             state.movies = action.payload
+
+            console.log(current(state))
         }
     }
 })
