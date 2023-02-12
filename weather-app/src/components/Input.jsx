@@ -102,7 +102,7 @@ const Input = ({ setQuery, units, setUnits}) => {
         </Left>
         <Right>
             <SearchCon>
-                <SearchBar onKeyDown={handleKeyDown} value={city} onChange={handleChange} placeholder='Search Here...' />
+                <SearchBar onKeyDown={handleKeyDown} value={city} onChange={handleChange} placeholder="What's your city's weather like... " />
                 <SearchIcon onClick={handleSearchSubmit} style={{cursor: "pointer"}} />
             </SearchCon>
             <Seperator>|</Seperator>

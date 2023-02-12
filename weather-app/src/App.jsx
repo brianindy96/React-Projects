@@ -44,7 +44,7 @@ const Wrapper = styled.div`
 const Box = styled.div`
     height: 80vh;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(84, 84, 84, 0.3);
     border: solid 2px transparent;
     background-clip: padding-box;
     z-index: 2;
