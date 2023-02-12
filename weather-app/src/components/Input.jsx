@@ -70,8 +70,23 @@ const Input = ({ setQuery, units, setUnits}) => {
       const handleSearchSubmit = () =>{
         if (city !== '') {
           setQuery({q: city})
+          setCity("");
         }
+
+        
       }
+
+      const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          // 👇 Get input value
+            if (city !== '') {
+            setQuery({q: city})
+            setCity("");
+          }
+        }
+
+        s
+      };
 
       const handleUnitsChange = (e) => {
         const selectedUnit = e.currentTarget.name
@@ -87,7 +102,7 @@ const Input = ({ setQuery, units, setUnits}) => {
         </Left>
         <Right>
             <SearchCon>
-                <SearchBar value={city} onChange={handleChange} placeholder='Search Here...' />
+                <SearchBar onKeyDown={handleKeyDown} value={city} onChange={handleChange} placeholder='Search Here...' />
                 <SearchIcon onClick={handleSearchSubmit} style={{cursor: "pointer"}} />
             </SearchCon>
             <Seperator>|</Seperator>

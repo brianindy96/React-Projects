@@ -47,7 +47,6 @@ const Info = styled.div`
   height: 40vh;
   display: flex;
   justify-content: center;
-  align-items: center;
 `
 // 
 
