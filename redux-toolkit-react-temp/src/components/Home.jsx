@@ -1,10 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import styled from "styled-components"
 import { useDispatch } from "react-redux"
-import { addMovie } from '../../store/Reducer'
-import movieApi from '../../api/movieApi'
-import { API_KEY } from '../../api/movieApi'
+import { addMovie } from '../store/Reducer'
+import movieApi from '../api/movieApi'
+import { API_KEY } from '../api/movieApi'
+import MovieListing from './MovieListing'
 
+const Container = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+`
+
+const Header = styled.h3`
+    margin: 1rem 0;
+`
+
+const SearchBar = styled.input`
+  
+`
 const Home = () => {
 
     // Dispatch
@@ -33,7 +46,11 @@ const Home = () => {
     }, [])
     
   return (
-    <div>Home</div>
+    <Container>
+      <Header>Movies</Header>
+      <SearchBar placeholder='Search...' type="text" />
+      <MovieListing />
+    </Container>
   )
 }
 
