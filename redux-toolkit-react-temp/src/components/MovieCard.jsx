@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -23,7 +24,7 @@ const ImgCon = styled.div`
     
 `
 
-const ReadMore = styled.a`
+const ReadMore = styled(Link)`
     background-color: #333;
     color: white;
     text-decoration: none;
@@ -32,7 +33,7 @@ const ReadMore = styled.a`
     margin-top: 0.5rem;
     border-radius: 5px;
 `
-const MovieCard = ({ movie: {Title, Year, Poster} }) => {
+const MovieCard = ({ movie: {Title, Year, Poster, imdbID} }) => {
   return (
     <Container>
         <ImgCon>
@@ -41,7 +42,7 @@ const MovieCard = ({ movie: {Title, Year, Poster} }) => {
         <div style={{flex: "1"}}>
             <MovieTitle>{Title}</MovieTitle>
             <MovieRelease>{Year}</MovieRelease>
-            <ReadMore href='/'>Read More</ReadMore>
+            <ReadMore to={`movie/${imdbID}`}>Read More</ReadMore>
         </div>
        
     </Container>
