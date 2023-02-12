@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Forecast from './Forecast'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const Container = styled.div`
     background-color: #e6e6e6;
@@ -12,12 +13,25 @@ const Container = styled.div`
     transition: 0.7s ease-in-out;
 `
 
-const Arrow = styled(KeyboardArrowUpIcon)`
+const ArrowUp = styled(KeyboardArrowUpIcon)`
   cursor: pointer;
   margin: 0;
+
+  &:hover{
+    transform: scale(1.1);
+    
+  }
 `
 
+const ArrowDown = styled(KeyboardArrowDownIcon)`
+  cursor: pointer;
+  margin: 0;
 
+  &:hover{
+    transform: scale(1.1);
+    
+  }
+`
 
 const ForecastCon = styled.div`
   display: flex;
@@ -30,17 +44,30 @@ const Title = styled.div`
 const Forecasts = ({ weather }) => {
 
   // states
-  const [display, setDisplay] = useState(true);
+  const [display, setDisplay] = useState(false);
 
   // everytime we click Arrow, we want the state to TranslateY() either 175 or -185
 
   const handleClick = () => {
     setDisplay(prevDisplay => !prevDisplay)
+
+    
   }
+
+  // UseEffect
+
   return (
     <Container display={display}>
         <Title onClick={handleClick}>
-          <Arrow/>
+          {(display === false) ? (
+             <div>
+              <ArrowUp/>
+             </div>
+          ) : (
+              <div>
+                <ArrowDown/>
+              </div>
+          )}
         </Title>
         <ForecastCon>
           <Forecast weather={weather} forecast={weather.today}/>

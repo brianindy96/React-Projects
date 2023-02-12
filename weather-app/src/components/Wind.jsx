@@ -20,6 +20,7 @@ const Compass = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 `
 
 const WindInfo = styled.div`
@@ -34,7 +35,29 @@ const WindSpeed = styled.span`
     font-size: 1.5rem;
 `
 
-const Wind = ({ weather }) => {
+const Arrow = styled.div`
+    --direction: 0deg;
+    --size: 1rem;
+    --height: 4.5rem;
+    height: var(--height);
+    width: var(--size);
+    background: black;
+    clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+    transform: ${(props) => props.john && `translateY(-50%) rotate(${props.john}deg)`};
+    transform-origin: bottom center;
+
+    transition: transform 500ms ease;
+`
+
+const N = styled.span`
+    position: absolute;
+    top: 0;
+    color: #d50101;
+    font-weight: 800;
+    font-size: 1.2rem;
+`
+
+const Wind = ({ weather, john }) => {
   return (
     <Container>
         <WindInfo>
@@ -47,7 +70,8 @@ const Wind = ({ weather }) => {
         </WindInfo>
         <CompassCon>
             <Compass style={{color: "black"}}>
-                {weather.deg} deg
+                <N>N</N>
+                <Arrow weather={weather} john={weather.deg} />
             </Compass> 
         </CompassCon>
     </Container>
