@@ -9,7 +9,7 @@ const Container = styled.div`
     color: black;
     height: 60vh;
     /* when show, Y(-170px), when hide Y(180px) */
-    transform: ${props => props.display ? "translateY(-170px)" : "translateY(180px)"};
+    transform: ${props => props.display ? "translateY(-110px)" : "translateY(180px)"};
     transition: 0.7s ease-in-out;
 `
 

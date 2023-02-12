@@ -124,7 +124,7 @@ function App() {
                 <TimeAndLocation weather={weather} />
                 <Wind weather={weather} />
               </Info>
-              <Forecasts weather={weather} />
+              {/* <Forecasts weather={weather} /> */}
               </>
               )}
             </Box>

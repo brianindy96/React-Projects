@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { formatToLocalTime, iconUrlFromCode } from '../services/weatherServices'
+import { formatToLocalTime } from '../services/weatherServices'
 
 const Container = styled.div`
     flex: 1;
