@@ -105,14 +105,26 @@ function App() {
     }, 1000)
 }, [query, units])
 
-
+const getBgColor = (props) => {
+  if (props === "Clouds"){
+    return "App cloud";
+  } else if(props === "Rain"){
+    return "App rain";
+  } else if(props === "Clear"){
+    return "App sun";
+  } else if(props === "Drizzle"){
+    return "App rain";
+  } else if(props === "Sunny"){
+    return "App sun"
+  } else{
+    return "App"
+  }
+}
 
   return (
     <>
       {/* <Overlay outside></Overlay> */}
-        <Container className={
-          weather.details === "Clouds" ? "App cloud" : (weather.details === ("Drizzle" && "Rain") ? "App rain" : "App sun") 
-        }>
+        <Container className={getBgColor(weather.details)}>
           <Wrapper>
           <Box> 
               <Navbar setQuery={setQuery} weather={weather} />
@@ -124,7 +136,7 @@ function App() {
                 <TimeAndLocation weather={weather} />
                 <Wind weather={weather} />
               </Info>
-              {/* <Forecasts weather={weather} /> */}
+              <Forecasts weather={weather} />
               </>
               )}
             </Box>

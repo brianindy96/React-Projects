@@ -101,10 +101,10 @@ const formatCurrentWeather = (data) => {
 
 // IconUrl from code
 
-// const iconUrlFromCode = (code) => `
-//    url()../${code}@2x.png
-// `
+const iconUrlFromCode = (code) => `
+    http://openweathermap.org/img/wn/${code}@2x.png
+`
 
 export default getFormattedWeatherData
 
-export {formatToLocalTime }
+export {formatToLocalTime, iconUrlFromCode }

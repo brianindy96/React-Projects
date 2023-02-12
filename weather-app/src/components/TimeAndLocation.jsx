@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { formatToLocalTime } from '../services/weatherServices'
+import { formatToLocalTime, iconUrlFromCode } from '../services/weatherServices'
 
 const Container = styled.div`
     display: flex;
@@ -90,8 +90,9 @@ const TimeAndLocation = ({ weather }) => {
           <WeatherDescCon>
             <WeatherDetails>{weather.details}</WeatherDetails>
             <WeatherDesc>{weather.desc}</WeatherDesc>
-            <Icon src={`../public/icons/${weather.icon}.png`} alt=""></Icon>
+            <Icon src={iconUrlFromCode(weather.icon)}></Icon>
           </WeatherDescCon>
+          
     </Container>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { formatToLocalTime } from '../services/weatherServices'
-
+import { iconUrlFromCode } from '../services/weatherServices'
 const Container = styled.div`
     flex: 1;
     border-top: 1px solid lightgrey;
