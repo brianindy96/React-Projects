@@ -10,6 +10,7 @@ import TimeAndLocation from './components/TimeAndLocation'
 import { CircularProgress } from '@mui/material'
 import getWeatherData from './services/weatherServices'
 import Forecasts from './components/Forecasts'
+import { tablet} from './responsive'
 
 // const Overlay = styled.div`
 //   position: fixed; /* Sit on top of the page content */ /* Hidden by default */
@@ -33,12 +34,23 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ${tablet({minHeight: "100vh"})}
+
+
 `
 
 const Wrapper = styled.div`
   width: 1280px;
   margin: 0 auto;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${tablet({minHeight: "100vh", marginTop: "60px"})}
+
+
 `
 
 const Box = styled.div`
@@ -55,6 +67,10 @@ const Box = styled.div`
     color: white;
     overflow: hidden;
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1); 
+
+    ${tablet({minHeight: "80vh", padding: "0 20px"})}
+
+
 `
 
 const Info = styled.div`
@@ -64,6 +80,9 @@ const Info = styled.div`
   height: 40vh;
   display: flex;
   justify-content: center;
+  
+  ${tablet({flexDirection: "column", minHeight: "65vh"})}
+
 `
 // 
 

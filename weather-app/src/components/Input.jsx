@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-
+import { tablet } from '../responsive';
 const Container = styled.div`
     display: flex;
     justify-content: center;
+
 `
 
 const Right = styled.div`
@@ -72,8 +73,17 @@ const Input = ({ setQuery, units, setUnits}) => {
           setQuery({q: city})
           setCity("");
         }
+      }
 
-        
+      const handleLocation = () => {
+        if(navigator.geolocation){
+          navigator.geolocation.getCurrentPosition((pos) => {
+            let lat = pos.coords.latitude;
+            let lon = pos.coords.latitude;
+    
+            setQuery({lat, lon})
+          })
+        }
       }
 
       const handleKeyDown = (event) => {
@@ -106,7 +116,7 @@ const Input = ({ setQuery, units, setUnits}) => {
                 <SearchIcon onClick={handleSearchSubmit} style={{cursor: "pointer"}} />
             </SearchCon>
             <Seperator>|</Seperator>
-            <LocationOnIcon/>
+            <LocationOnIcon style={{cursor: "pointer"}} onClick={handleLocation}/>
         </Right>
     </Container>
   )

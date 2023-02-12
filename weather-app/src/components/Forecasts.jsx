@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Forecast from './Forecast'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { tablet } from '../responsive';
 
 const Container = styled.div`
     background-color: #e6e6e6;
@@ -11,6 +12,10 @@ const Container = styled.div`
     /* when show, Y(-170px), when hide Y(180px) */
     transform: ${props => props.display ? "translateY(-110px)" : "translateY(180px)"};
     transition: 0.7s ease-in-out;
+    
+
+    ${tablet({display: "none"})};
+
 `
 
 const ArrowUp = styled(KeyboardArrowUpIcon)`

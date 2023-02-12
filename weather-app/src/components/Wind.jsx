@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { tablet } from '../responsive'
 
 const Container = styled.div`
     flex: 1;
@@ -7,10 +8,16 @@ const Container = styled.div`
     justify-content:center;
     align-items: center;
     padding: 0 20px;
+
+    ${tablet({flex: "1", flexDirection: "column"})};
+    
 `
 
 const CompassCon = styled.div`
     flex: 1.2;
+
+    ${tablet({flex: "1"})};
+
 `
 const Compass = styled.div`
     width: 150px;
@@ -21,10 +28,15 @@ const Compass = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+
+    ${tablet({marginTop: "10px"})};
+
 `
 
 const WindInfo = styled.div`
     flex: 2;
+    ${tablet({flex: "1"})};
+
 `
 
 const WindTitle = styled.h2`

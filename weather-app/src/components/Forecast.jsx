@@ -8,7 +8,7 @@ const Container = styled.div`
 `
 
 const DateCon = styled.div`
-    margin: 0;
+    margin: 5px 0;
 `
 
 const Day = styled.p`

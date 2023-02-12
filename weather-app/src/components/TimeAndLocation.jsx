@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { formatToLocalTime, iconUrlFromCode } from '../services/weatherServices'
+import { tablet } from '../responsive'
 
 const Container = styled.div`
     display: flex;
@@ -9,6 +10,9 @@ const Container = styled.div`
     border-left: 1px solid grey;
     border-right: 1px solid grey;
     padding: 0 20px;
+
+    ${tablet({border: "none", flex: 1, borderBottom: "1px solid #b0b0b0"})};
+
 `
 
 const LocalTimeCon = styled.div`
@@ -20,6 +24,9 @@ const LocalTimeCon = styled.div`
 
 const LocalTime = styled.p`
     font-size: 1.2rem;
+
+    ${tablet({fontSize: "1rem"})};
+
 `
 
 const CityCon = styled.div`
@@ -27,12 +34,20 @@ const CityCon = styled.div`
     justify-content: center;
     align-items: center;
     flex: 3;
+
+    ${tablet({padding: "0", flex: "2"})};
+
+
+
 `
 
 const CityName = styled.h3`
     font-size: 3.6rem;
     margin: 0;
     font-weight: 800;
+
+    ${tablet({fontSize: "2rem"})};
+
 `
 
 const CityTempCon = styled.div`
@@ -43,6 +58,9 @@ const CityTemp = styled.span`
     font-size: 6rem;
     font-weight: 600;
     color: #eee;
+
+    ${tablet({fontSize: "3rem"})};
+
 `
 
 const Symbol = styled.span`
@@ -55,12 +73,17 @@ const WeatherDescCon = styled.div`
 
 const WeatherDetails = styled.p`
   font-size: 2rem;
+
+  ${tablet({fontSize: "1.5rem"})};
+
   margin: 0;
 `
 const WeatherDesc = styled.p`
     margin: 0;
     text-transform: capitalize;
     font-style: italic;
+    ${tablet({fontSize: "0.9rem"})};
+
 `
 
 const Icon = styled.img`

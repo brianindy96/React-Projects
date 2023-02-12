@@ -9,20 +9,24 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import WbTwilightIcon from '@mui/icons-material/WbTwilight';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { formatToLocalTime } from '../services/weatherServices';
-
+import { tablet } from '../responsive';
 const Container = styled.div`
     flex: 1;
     margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(2,1fr);
 
+    ${tablet({margin: "0", gridTemplateColumns: "repeat(3,1fr)", borderBottom: "1px solid #b0b0b0"})}
+
 `
 
 const Box = styled.div`
-  
   height: 100px;
   margin: 10px;
   padding: 2px;
+
+  ${tablet({margin: "5px", height: "50px"})};
+
 `
 
 const BoxName = styled.div`
@@ -32,6 +36,8 @@ const BoxName = styled.div`
 
 const BoxTitle = styled.span`
   font-size: 0.9rem;
+  ${tablet({fontSize: "0.7rem"})};
+
 `
 
 const NumCon = styled.div`
@@ -40,6 +46,8 @@ const NumCon = styled.div`
 
 const Num = styled.span`
   font-size: 1.7rem;
+  ${tablet({fontSize: "1.4rem"})};
+
 `
 
 const Unit = styled.span`

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { tablet } from '../responsive';
 
 const Container = styled.div`
     width: 100%;
@@ -7,6 +8,8 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 10vh;
+    
+    ${tablet({height: "5vh", padding: "20px", marginTop: "5px"})}
     
 `
 
