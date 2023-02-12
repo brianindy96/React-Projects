@@ -23,10 +23,20 @@ import Forecasts from './components/Forecasts'
 //   z-index: -2; /* Specify a stack order in case you're using a different order for other elements */
 //   cursor: pointer; /* Add a pointer on hover */
 // `
-
+const Container = styled.div`
+  height: 100vh;
+  width: 100vw;
+  background: url("/img/sun.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 const Wrapper = styled.div`
     height: 80vh;
-    max-width: 1280px;
+    max-width: 1100px;
     background-color: rgba(0, 0, 0, 0.3);
     border: solid 2px transparent;
     background-clip: padding-box;
@@ -72,6 +82,10 @@ function App() {
     
   }
 
+  // const BgChange = () => {
+  //   if()
+  // }
+
   // console.log(test)
   console.log(weather);
 
@@ -84,25 +98,29 @@ function App() {
     }, 1000)
 }, [query, units])
 
+
+
   return (
     <>
       {/* <Overlay outside></Overlay> */}
-        
+        <Container className={
+          weather.details === "Clouds" ? "App cloud" : (weather.details === ("Drizzle" && "Rain") ? "App rain" : "App sun") 
+        }>
           <Wrapper> 
-            <Navbar setQuery={setQuery} weather={weather} />
-            <Input units={units} setUnits={setUnits} setQuery={setQuery} weather={weather} />
-            {(weather && loading) &&(
-            <>
-            <Info>
-              <Humid weather={weather} />
-              <TimeAndLocation weather={weather} />
-              <Wind weather={weather} />
-            </Info>
-            <Forecasts weather={weather} />
-            </>
-            )}
-          </Wrapper>
-          
+              <Navbar setQuery={setQuery} weather={weather} />
+              <Input units={units} setUnits={setUnits} setQuery={setQuery} weather={weather} />
+              {(weather && loading) &&(
+              <>
+              <Info>
+                <Humid weather={weather} />
+                <TimeAndLocation weather={weather} />
+                <Wind weather={weather} />
+              </Info>
+              <Forecasts weather={weather} />
+              </>
+              )}
+            </Wrapper>
+        </Container>   
     </>
   )
 }

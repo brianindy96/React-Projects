@@ -5,9 +5,10 @@ import { formatToLocalTime, iconUrlFromCode } from '../services/weatherServices'
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    flex: 1.5;
+    flex: 2;
     border-left: 1px solid grey;
     border-right: 1px solid grey;
+    padding: 0 20px;
 `
 
 const LocalTimeCon = styled.div`

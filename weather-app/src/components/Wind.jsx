@@ -15,7 +15,7 @@ const CompassCon = styled.div`
 const Compass = styled.div`
     width: 150px;
     height: 150px;
-    background-color: white;
+    background-color: #d2d2d2;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -52,7 +52,7 @@ const Arrow = styled.div`
 const N = styled.span`
     position: absolute;
     top: 0;
-    color: #d50101;
+    color: #ffffff;
     font-weight: 800;
     font-size: 1.2rem;
 `
