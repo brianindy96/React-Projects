@@ -45,7 +45,7 @@ const NumCon = styled.div`
 `
 
 const Num = styled.span`
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   ${tablet({fontSize: "1.4rem"})};
 
 `
