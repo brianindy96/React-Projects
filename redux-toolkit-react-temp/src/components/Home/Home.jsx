@@ -19,10 +19,12 @@ const Home = () => {
 
         const res = await movieApi.get(`?apikey=${API_KEY}&s=${searchKey}&type=movie`);
 
-        console.log(res);
-        // setTimeout(()=>{
-        //     dispatch(addMovie(res.data.search))
-        // }, 5000)
+        // console.log this to see what was sent into store
+        // console.log(res.data.Search);
+
+        setTimeout(()=>{
+            dispatch(addMovie(res.data.Search))
+        }, 3000)
     }
     // UseEffect 
 
