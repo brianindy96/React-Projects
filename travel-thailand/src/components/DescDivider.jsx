@@ -23,6 +23,9 @@ const DescContainer = styled.div`
     align-items: center;
     flex-direction: column;
     padding: 10px 4rem;
+    font-family: 'Bodoni Moda', sans-serif;
+    font-style: italic;
+    line-height: 1.5rem;
 `
 
 const Para = styled.p`
