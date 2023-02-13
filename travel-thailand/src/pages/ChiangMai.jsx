@@ -1,8 +1,17 @@
 import React from 'react'
+import styled from "styled-components"
+import CityLanding from '../components/CityLanding'
+
+const Container = styled.div`
+    min-height: 100vh;
+    background-color: #fff;
+`
 
 const ChiangMai = () => {
   return (
-    <div>ChiangMai</div>
+    <Container>
+        <CityLanding />
+    </Container>
   )
 }
 

@@ -6,6 +6,8 @@ const Container = styled.div`
     border-bottom: 1px solid black;
     min-height: 60vh;
     width: 100%;
+    background-color: #fff;
+
     height: 100%;
 `
 
