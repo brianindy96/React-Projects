@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     min-height: 60vh;
-    background-color: #ddd;
     display: flex;
+    flex-direction: ${props => props.reverse ? "row-reverse" : "row"};
 
 `
 
@@ -22,18 +22,21 @@ const DescContainer = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 10px 4rem;
-    font-family: 'Bodoni Moda', sans-serif;
-    font-style: italic;
-    line-height: 1.5rem;
+    
+    
 `
 
 const Para = styled.p`
-    margin: 10px 0;
+    text-align: center;
+    margin: 10px 4rem;
+    font-family: 'Bodoni Moda', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+    
 `
-const DescDivider = ({ image, para1, para2, para3}) => {
+const DescDivider = ({ image, para1, para2, para3, reverse}) => {
   return (
-    <Container>
+    <Container reverse={reverse}>
         <ImgContainer image={image}>
             
         </ImgContainer>
