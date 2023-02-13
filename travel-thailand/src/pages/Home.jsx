@@ -20,7 +20,7 @@ const Home = () => {
         title="Hello World" 
         desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam, quo qui similique libero fugit esse aspernatur iusto. Tempore omnis, et quasi doloribus ea enim tempora quia officia eveniet porro natus incidunt ab mollitia, aspernatur molestias! Odit eaque amet beatae aut."
         />
-        <SmallDivider image="/img/temple.jpg" />
+        <SmallDivider bg="#faf2d8" image="/img/buddah.jpg" />
         <LargeDivider 
         image="/img/rice.jpg" 
         />

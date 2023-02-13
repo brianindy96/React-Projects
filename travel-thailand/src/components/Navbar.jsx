@@ -7,7 +7,6 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #717171;
     background-color: #313641;
     color: white;
 `
@@ -19,8 +18,13 @@ const Navs = styled.ul`
 
 const NavItem = styled.li`
     margin: 0 3rem;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover{
+        transform: scale(1.1);
+    }
 `
 
 const Links = styled(Link)`

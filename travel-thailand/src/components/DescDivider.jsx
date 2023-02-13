@@ -34,16 +34,42 @@ const Para = styled.p`
     line-height: 1.7rem;
     
 `
-const DescDivider = ({ image, para1, para2, para3, reverse}) => {
+
+const Title = styled.h3`
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+
+`
+
+const Button = styled.button`
+    margin-top: 0;
+    padding: 5px 15px;
+    background: transparent;
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+
+    &:hover{
+        transform: scale(1.05);
+        padding: 5px 20px;
+        border: 1px solid #b7b7b7;
+    }
+`
+const DescDivider = ({ explore, image, para1, para2, para3, reverse, title}) => {
   return (
     <Container reverse={reverse}>
         <ImgContainer image={image}>
             
         </ImgContainer>
         <DescContainer>
+            <Title>{title}</Title>
             <Para>{para1}</Para>
             <Para>{para2 && para2}</Para>
             <Para>{para3 && para3}</Para>
+            <Button>{explore}</Button>
         </DescContainer>
     </Container>
   )

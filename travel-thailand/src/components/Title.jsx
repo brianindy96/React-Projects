@@ -3,13 +3,13 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     background-color: #313641;
-    color: white;
+    color: #e0e0e0;
 `
 
 const Intro = styled.section`
     display: flex;
     flex-direction: column;
-    padding: 4rem 6rem;
+    padding: 6rem 6rem;
     min-height: 60vh;
 `
 

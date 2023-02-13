@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     display: flex;
+    background-color: ${props => props.bg && `${props.bg}`};
     justify-content: center;
     align-items: center;
     min-height: 80vh;
@@ -16,9 +17,9 @@ const ImgContainer = styled.div`
     width: 80%;
 `
 
-const SmallDivider = ({ image }) => {
+const SmallDivider = ({ image, bg }) => {
   return (
-    <Container>
+    <Container bg={bg}>
         <ImgContainer image={image} />
     </Container>
   )
