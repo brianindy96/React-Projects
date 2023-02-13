@@ -17,7 +17,7 @@ const TemperatureAndDetails = ({ weather}) => {
             <p className='text-white text-xl'>{weather.details}</p>
             <br />
             <p>{weather.desc}</p>
-      </div>
+        </div>
     {/* TEMPERATURE DETAILS */}
       <div className="flex flex-row items-center justify-between text-white py-3">
         <img src={iconUrlFromCode(weather.icon)} alt="SUN" className="w-20" />

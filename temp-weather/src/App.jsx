@@ -24,7 +24,7 @@ function App() {
 
   // State
   const [weather, setWeather] = useState([]);
-  const [query, setQuery] = useState({q: 'bangkok'});
+  const [query, setQuery] = useState({q: 'hamburg'});
   const [units, setUnits] = useState('metric');
   
   // // Fetch Weather to global

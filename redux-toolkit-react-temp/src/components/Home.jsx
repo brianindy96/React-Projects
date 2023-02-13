@@ -30,12 +30,15 @@ const Home = () => {
     const fetchMovies = async () => {
         const searchKey = search ? search : "Thor"
 
+        // fetches movie from API
         const res = await movieApi.get(`?apikey=${API_KEY}&s=${searchKey}&type=movie`);
 
         // console.log this to see what was sent into store
         // console.log(res.data.Search);
 
         setTimeout(()=>{
+            // after movie is fetched, use dispatch to do send info to store
+            // in this case its addMovie function from Reducer.jsx
             dispatch(addMovie(res.data.Search))
         }, 3000)
     }

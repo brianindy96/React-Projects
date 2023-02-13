@@ -17,6 +17,7 @@ const movieSlice = createSlice({
         addMovie: (state, action) => {
             state.movies = action.payload
 
+            // current(state) shows you what is the current state 
             console.log(current(state))
         }
     }
