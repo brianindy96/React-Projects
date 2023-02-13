@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -56,9 +57,15 @@ const Button = styled.button`
         transform: scale(1.05);
         padding: 5px 20px;
         border: 1px solid #b7b7b7;
+        color: black;
     }
 `
-const DescDivider = ({ explore, image, para1, para2, para3, reverse, title}) => {
+
+const Links = styled(Link)`
+    text-decoration: none;
+    color: #494949;
+`
+const DescDivider = ({ name, explore, image, para1, para2, para3, reverse, title}) => {
   return (
     <Container reverse={reverse}>
         <ImgContainer image={image}>
@@ -69,7 +76,7 @@ const DescDivider = ({ explore, image, para1, para2, para3, reverse, title}) => 
             <Para>{para1}</Para>
             <Para>{para2 && para2}</Para>
             <Para>{para3 && para3}</Para>
-            <Button>{explore}</Button>
+            <Button name={name}><Links to={`/cities/${name}`}>{explore}</Links></Button>
         </DescContainer>
     </Container>
   )

@@ -11,10 +11,11 @@ const Intro = styled.section`
     flex-direction: column;
     padding: 6rem 6rem;
     min-height: 60vh;
+    align-items: center;
 `
 
 const Header = styled.h1`
-    font-size: 7rem;
+    font-size: 10vw;
 
 `
 const Desc = styled.p`
