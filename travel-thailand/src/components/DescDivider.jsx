@@ -65,7 +65,7 @@ const Links = styled(Link)`
     text-decoration: none;
     color: #494949;
 `
-const DescDivider = ({ name, explore, image, para1, para2, para3, reverse, title}) => {
+const DescDivider = ({ id, name, explore, image, para1, para2, para3, reverse, title}) => {
   return (
     <Container reverse={reverse}>
         <ImgContainer image={image}>
@@ -76,7 +76,7 @@ const DescDivider = ({ name, explore, image, para1, para2, para3, reverse, title
             <Para>{para1}</Para>
             <Para>{para2 && para2}</Para>
             <Para>{para3 && para3}</Para>
-            <Button name={name}><Links to={`/cities/${name}`}>{explore}</Links></Button>
+            <Button name={name}><Links to={`/cities/${id}`}>{explore}</Links></Button>
         </DescContainer>
     </Container>
   )

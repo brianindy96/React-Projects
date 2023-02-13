@@ -6,10 +6,10 @@ const Container = styled.div`
     min-height: 90vh;
     
 `
-const Cities = () => {
+const Cities = ({ cities }) => {
   return (
     <Container>
-        <City />
+        <City cities={cities} />
     </Container>
   )
 }

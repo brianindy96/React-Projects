@@ -30,16 +30,19 @@ const Title = styled.h1`
 `
 
 
-const City = () => {
+
+const City = ({ cities }) => {
   return (
     <Container>
         <TitleCon>
             <Title>Explore the best parts of Thailand</Title>
         </TitleCon>
-        <DescDivider name="chiangmai" explore="Explore"title="Chiang Mai" para1="Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nostrum commodi itaque accusamus minima nihil dignissimos sint nobis ipsa, amet id minus perspiciatis, architecto error et rem! Sunt blanditiis corporis velit quae fugiat eum debitis minus, dicta, neque libero deleniti." image="/img/cm.jpg" />
-        <DescDivider name="bangkok" reverse explore="Explore"title="Bangkok" para1="Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nostrum commodi itaque accusamus minima nihil dignissimos sint nobis ipsa, amet id minus perspiciatis, architecto error et rem! Sunt blanditiis corporis velit quae fugiat eum debitis minus, dicta, neque libero deleniti." image="/img/bangkok2.jpg" />
+        {cities.map((city)=>(
+            <DescDivider id={city.id} reverse={city.reverse} key={city.id} image={city.image} name={city.name} title={city.title} explore={city.explore} para1={city.para1}/>
+        ))}
+        {/* <DescDivider name="bangkok" reverse explore="Explore"title="Bangkok" para1="Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nostrum commodi itaque accusamus minima nihil dignissimos sint nobis ipsa, amet id minus perspiciatis, architecto error et rem! Sunt blanditiis corporis velit quae fugiat eum debitis minus, dicta, neque libero deleniti." image="/img/bangkok2.jpg" />
         <DescDivider name="krabi" explore="Explore"title="Krabi" para1="Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nostrum commodi itaque accusamus minima nihil dignissimos sint nobis ipsa, amet id minus perspiciatis, architecto error et rem! Sunt blanditiis corporis velit quae fugiat eum debitis minus, dicta, neque libero deleniti." image="/img/krabi.jpg" />
-        <DescDivider name="ayutthhaya" reverse explore="Explore"title="Ayutthaya" para1="Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nostrum commodi itaque accusamus minima nihil dignissimos sint nobis ipsa, amet id minus perspiciatis, architecto error et rem! Sunt blanditiis corporis velit quae fugiat eum debitis minus, dicta, neque libero deleniti." image="/img/au.jpg" />
+        <DescDivider name="ayutthhaya" reverse explore="Explore"title="Ayutthaya" para1="Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nostrum commodi itaque accusamus minima nihil dignissimos sint nobis ipsa, amet id minus perspiciatis, architecto error et rem! Sunt blanditiis corporis velit quae fugiat eum debitis minus, dicta, neque libero deleniti." image="/img/au.jpg" /> */}
     </Container>
   )
 }

@@ -18,7 +18,7 @@ const Container = styled.div`
 const ImgCon = styled.div`
     grid-column: 4/11;
     grid-row: 1/2;
-    background-image: url("/img/cm.jpg");
+    background-image: ${props=> props.image && `url("${props.image}")`};
     height: 590px;
     
     z-index: 200;
@@ -39,15 +39,16 @@ const TitleCon = styled.div`
 
 const Title = styled.h1`
     font-size: 10vw;
+    font-family: "Bodoni Moda", sans-serif;
 
 `
 
-const CityLanding = () => {
+const CityLanding = ({ title, image }) => {
   return (
     <Container>
-        <ImgCon></ImgCon>
+        <ImgCon image={image} />
         <TitleCon>
-            <Title>Chiang Mai</Title>
+            <Title>{title}</Title>
         </TitleCon>
     </Container>
   )
