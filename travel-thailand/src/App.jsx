@@ -7,8 +7,6 @@ import Navbar from './components/Navbar'
 
 const Container = styled.div`
   min-height: 100vh;
-  background-color: #313641;
-  color: white;
 `
 
 

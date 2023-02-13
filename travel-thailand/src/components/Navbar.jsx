@@ -7,7 +7,9 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 2px solid #909090;
+    border-bottom: 1px solid #717171;
+    background-color: #313641;
+    color: white;
 `
 
 const Navs = styled.ul`
