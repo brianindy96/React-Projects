@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     background-image: ${props => props.image && `url(${props.image})`};
-    height: 60vh;
+    height: 80vh;
     width: 100%;
     color: black;
     background-size: cover;
