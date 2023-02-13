@@ -2,7 +2,9 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import styled from "styled-components"
 import CityLanding from '../components/CityLanding'
+import DescDivider from '../components/DescDivider'
 import LargeDivider from '../components/LargeDivider'
+import SmallDivider from '../components/SmallDivider'
 import TextDivider from '../components/TextDivider'
 
 const Container = styled.div`
@@ -24,7 +26,14 @@ const CityDetails = ({ cities }) => {
     <Container>
         <CityLanding title={title} image={image}/>
         <LargeDivider image={image} />
-        <TextDivider name={name} para1={para1}  desc={desc} />
+        <TextDivider title={title} desc={desc} />
+        <DescDivider image={image} />
+        <SmallDivider />
+        <LargeDivider />
+        <TextDivider />
+        <DescDivider />
+        <DescDivider />
+        <SmallDivider />
     </Container>
   )
 }
