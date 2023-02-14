@@ -5,13 +5,16 @@ import LargeDivider from '../components/LargeDivider'
 import TextDivider from '../components/TextDivider'
 import DescDivider from '../components/DescDivider'
 import SmallDivider from '../components/SmallDivider'
+import Navbar from '../components/Navbar'
 
 const Container = styled.div`
+  
 `
 
 const Home = () => {
   return (
     <Container>
+        <Navbar  />
         <Title />
         <LargeDivider 
         image="/img/rice.jpg" 

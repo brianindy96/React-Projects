@@ -85,7 +85,6 @@ function App() {
 
   return (
     <Container>
-      <Navbar />
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/cities" element={<Cities cities={cities} />} />

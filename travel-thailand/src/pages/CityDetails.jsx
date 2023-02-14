@@ -4,6 +4,7 @@ import styled from "styled-components"
 import CityLanding from '../components/CityLanding'
 import DescDivider from '../components/DescDivider'
 import LargeDivider from '../components/LargeDivider'
+import Navbar from '../components/Navbar'
 import SmallDivider from '../components/SmallDivider'
 import TextDivider from '../components/TextDivider'
 
@@ -25,6 +26,7 @@ const CityDetails = ({ cities }) => {
 
   return (
     <Container>
+        <Navbar />
         <CityLanding title={title} image={image}/>
         <LargeDivider image={img3} />
         <TextDivider title={title} desc={para1} />

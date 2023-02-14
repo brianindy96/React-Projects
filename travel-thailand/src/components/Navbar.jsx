@@ -7,8 +7,8 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #313641;
-    color: white;
+    background: transparent;
+    color: black;
 `
 
 const Navs = styled.ul`
@@ -18,7 +18,7 @@ const Navs = styled.ul`
 
 const NavItem = styled.li`
     margin: 0 3rem;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: transform 0.2s ease;
 
@@ -28,7 +28,8 @@ const NavItem = styled.li`
 `
 
 const Links = styled(Link)`
-    color: white;
+    color: black;
+    letter-spacing: 2px;
     text-decoration: none;
 `
 const Navbar = () => {

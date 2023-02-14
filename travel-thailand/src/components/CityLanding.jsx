@@ -19,7 +19,7 @@ const ImgCon = styled.div`
     grid-column: 4/11;
     grid-row: 1/2;
     background-image: ${props=> props.image && `url("${props.image}")`};
-    height: 590px;
+    height: 650px;
     
     z-index: 200;
     /* justify-content: center; */
