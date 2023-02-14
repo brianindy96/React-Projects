@@ -13,9 +13,8 @@ const Container = styled.div`
 
 const TitleCon = styled.div`
     min-height: 60vh;
-    background-color: #313641;
-    color: #e0e0e0;
     display: flex;
+    background-color: #f0eff1;
     justify-content: center;
     align-items: center;
     flex-direction: column;

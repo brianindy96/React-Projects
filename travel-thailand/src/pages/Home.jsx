@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <Container>
         <Navbar  />
-        <Title />
+        <Title title="Hello Thailand" desc="Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello" />
         <LargeDivider 
         image="/img/rice.jpg" 
         />

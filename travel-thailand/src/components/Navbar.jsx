@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { motion } from "framer-motion"
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     min-height: 10vh;
     display: flex;
     justify-content: center;
@@ -27,6 +28,24 @@ const NavItem = styled.li`
     }
 `
 
+// Framer Motion variants
+
+const navConVariants = {
+    initial:{ 
+        opacity: 0, 
+        y: -180 
+    },
+    animate:{ 
+        opacity: 1, 
+        y: 0,
+        transition:{
+            ease: "easeInOut",
+            duration: 1,
+            delay: 0.1,
+        }
+    },
+}
+
 const Links = styled(Link)`
     color: black;
     letter-spacing: 2px;
@@ -34,7 +53,11 @@ const Links = styled(Link)`
 `
 const Navbar = () => {
   return (
-    <Container>
+    <Container
+        variants={navConVariants}
+        animate="animate"
+        initial="initial"
+    >
         <Navs>
             <NavItem>
                 <Links to="/">Home</Links>
