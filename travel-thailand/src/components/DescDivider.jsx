@@ -6,7 +6,6 @@ const Container = styled.div`
     min-height: 60vh;
     display: flex;
     flex-direction: ${props => props.reverse ? "row-reverse" : "row"};
-
 `
 
 const ImgContainer = styled.div`

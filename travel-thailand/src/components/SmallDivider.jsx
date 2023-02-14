@@ -6,14 +6,14 @@ const Container = styled.div`
     background-color: ${props => props.bg && `${props.bg}`};
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    min-height: 90vh;
 `
 
 const ImgContainer = styled.div`
     background-image: ${props => props.image && `url(${props.image})`};
     background-size: cover;
     background-position: center;
-    min-height: 35rem;
+    min-height: 38rem;
     width: 80%;
 `
 

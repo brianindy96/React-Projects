@@ -22,7 +22,7 @@ const Home = () => {
         />
         <SmallDivider bg="#faf2d8" image="/img/buddah.jpg" />
         <LargeDivider 
-        image="/img/rice.jpg" 
+        image="/img/krabi.jpg" 
         />
         <TextDivider 
         title="Hello World" 
