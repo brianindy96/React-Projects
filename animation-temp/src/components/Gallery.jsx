@@ -94,7 +94,7 @@ const Gallery = () => {
 
 
   return (
-    <Section className='section-wrapper gallery-wrap'>
+    <Section className='section-wrapper gallery-wrap' data-scroll-section	>
       <GalleryCon>
         <GalleryCounter>
           <ActiveImg>{activeImage}</ActiveImg>

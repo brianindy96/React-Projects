@@ -14,7 +14,10 @@ const Section = styled.section`
 `
 const Navbar = () => {
   return (
-    <Section className='navbar'>
+    <Section 
+    className='navbar'
+    data-scroll-section	
+    >
       <div>Menu</div>
       <div>Flirty Flowers</div>
       <div>Card</div>

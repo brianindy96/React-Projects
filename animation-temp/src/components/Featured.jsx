@@ -54,7 +54,10 @@ const FeaturedColumn = styled.div`
 `
 const Featured = () => {
   return (
-    <Section className='featured-section'>
+    <Section 
+    className='featured-section'
+    data-scroll-section	
+    >
       <FeaturedRow className="featured-row-layout">
         <Green>green</Green>
         <GreenImage src="/img/green.jpg" />

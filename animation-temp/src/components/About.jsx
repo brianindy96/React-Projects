@@ -12,7 +12,10 @@ const Headline = styled.p`
 `
 const About = () => {
   return (
-    <Section className='about-section'>
+    <Section 
+    className='about-section'
+    data-scroll-section	
+    >
       <SectionHeader title="About"/>
       <Headline>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet accusamus recusandae tempora enim adipisci, ipsam commodi omnis laborum reiciendis quis et officiis, itaque culpa odit eligendi hic veniam dolorum ut numquam error. Deserunt velit voluptatum quas quis accusamus reiciendis officiis. 

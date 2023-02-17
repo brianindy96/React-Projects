@@ -15,7 +15,10 @@ const Location = styled.h1`
 `
 const Footer = () => {
   return (
-    <Section className='footer'>
+    <Section 
+    className='footer'
+    data-scroll-section	
+    >
       
       <SectionHeader title="Made in" />
       <Location className='location' id='location-text'>

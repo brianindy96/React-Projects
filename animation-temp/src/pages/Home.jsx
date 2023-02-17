@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import Gallery from '../components/Gallery';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+import useLocoScroll from '../hooks/useLocoScroll';
 
 const Container = styled.div`
     
@@ -22,6 +23,8 @@ const Home = () => {
 
   const [preLoader, setPreloader] = useState(true);
 
+  useLocoScroll(!preLoader);
+  
   useEffect(() => {
     setTimeout(() => {
       setPreloader(false);
@@ -37,7 +40,12 @@ const Home = () => {
         <h2>Rio de Janerio</h2>
       </LoaderWrapper>
     ) : (
-      <Container className='main-container'>
+      <Container 
+      className='main-container'
+      id='main-container'
+      // Container wrap for locomotive
+      data-scroll-container
+      >
         <Navbar />
         <Header />
         <Featured />
