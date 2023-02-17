@@ -31,7 +31,7 @@ const Title = styled.h1`
 `
 const Header = () => {
   return (
-    <Section className='header-container' data-scroll-section	>
+    <Section className='header-container' data-scroll-section >
         <ListItems className='header-menu'>
             <ListItem>Intro</ListItem>
             <ListItem>About</ListItem>
