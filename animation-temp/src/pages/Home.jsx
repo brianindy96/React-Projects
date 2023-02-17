@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
 import About from '../components/About';
 import Featured from '../components/Featured';
@@ -11,16 +11,42 @@ const Container = styled.div`
     
 `
 
+const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`
+
 const Home = () => {
+
+  const [preLoader, setPreloader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setPreloader(false);
+    }, 3000)
+  }, [])
+  
+
   return (
-    <Container className='main-container'>
+    <>
+    {preLoader ? (
+      <LoaderWrapper className="loader-wrapper absolute">
+        <h1>Flirty Flowers</h1>
+        <h2>Rio de Janerio</h2>
+      </LoaderWrapper>
+    ) : (
+      <Container className='main-container'>
         <Navbar />
         <Header />
         <Featured />
         <About />
         <Gallery />
         <Footer />
-    </Container>
+      </Container>
+    )}
+    </>
   )
 }
 
