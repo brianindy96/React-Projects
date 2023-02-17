@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-const Section = styled.section`
+const Section = styled(motion.section)`
   display: flex;
   justify-content: space-between;
   padding: 50px 0;
@@ -12,6 +13,20 @@ const Section = styled.section`
   font-weight: 600;
   text-transform: uppercase;
 `
+
+// Framer Motion
+
+const navVariants = {
+  animate: {
+    y: 0,
+    duration: 1,
+  },
+  initial: {
+    y: -200,
+  },
+}
+
+
 const Navbar = () => {
   return (
     <Section 
