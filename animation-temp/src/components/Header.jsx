@@ -41,6 +41,7 @@ const titleVariants = {
         transition: {
             duration: 0.8,
             delay: 0.1,
+            ease: [0, 0.71, 0.2, 1.01],
         }
 
     },
@@ -56,8 +57,7 @@ const navVariants = {
         x: 0,
         transition: {
             duration: 0.8,
-            staggerChildren: 3,
-            delayChildren: 3,
+            ease: [0, 0.71, 0.2, 1.01],
         }
     },
     initial: {

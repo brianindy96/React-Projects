@@ -18,11 +18,14 @@ const Section = styled(motion.section)`
 
 const navVariants = {
   animate: {
+    opacity: 1,
     y: 0,
-    duration: 1,
+    duration: 3,
+    delay: 0.2,
   },
   initial: {
-    y: -200,
+    y: -40,
+    opacity: 0,
   },
 }
 
@@ -32,6 +35,9 @@ const Navbar = () => {
     <Section 
     className='navbar'
     data-scroll-section	
+    variants={navVariants}
+    animate="animate"
+    initial="initial"
     >
       <div>Menu</div>
       <div>Flirty Flowers</div>
