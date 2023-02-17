@@ -8,12 +8,12 @@ const ItemWrapper = styled.div`
     grid-template-columns: 20vw 1fr 200px;
     width: 100vw;
 
-    &.is-reveal {
+    /* &.is-reveal {
       .gallery-item-image {
         transform: scale(1);
         filter: none;
       }
-    }
+    } */
 `
 
 const ItemCon = styled.div`
@@ -30,6 +30,7 @@ const ItemInfo = styled.div`
     z-index: 1;
     transform: translateX(-20%);
     color: #dbd8d6;
+    color: white;
 `
 
 const GalleryTitle = styled.h1`
@@ -53,7 +54,7 @@ const GallerySubTitle = styled.h2`
 `
 
 const GalleryCategory = styled.p`
-      position: relative;
+     position: relative;
       line-height: 24px;
       font-family: "Bai Jamjuree";
       font-weight: 400;

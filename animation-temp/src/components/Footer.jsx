@@ -4,6 +4,7 @@ import SectionHeader from './SectionHeader'
 
 const Section = styled.div`
   text-align: center;
+  padding-top: 25px;
   padding-bottom: 100px;
 `
 const Location = styled.h1`

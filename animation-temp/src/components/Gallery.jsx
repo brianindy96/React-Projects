@@ -7,14 +7,14 @@ const Section = styled.section`
     margin-left: -5vw;
     position: relative;
     margin-right: -5vw;
+   
 `
 
 const GalleryCon = styled.div`
-  height: 70vh;
-  padding: 10vh 0;
-  width: 10000%;
-  display: flex;
-  flex-wrap: nowrap;
+    height: 80vh;
+    width: 1600%;
+    display: flex;
+    flex-wrap: nowrap;
 `
 
 const GalleryCounter = styled.div`
@@ -29,7 +29,7 @@ const GalleryCounter = styled.div`
   font-family: "Bai Jamjuree";
   font-weight: 600;
 
-  font-size: 16px;
+  font-size: 23px;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
 `
