@@ -18,6 +18,8 @@ const ListItems = styled.ul`
 
 const ListItem = styled.li`
     margin: 10px 0;
+    list-style: none;
+    font-weight: 600;
 `
 
 const Title = styled.h1`
