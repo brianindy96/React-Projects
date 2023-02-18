@@ -22,6 +22,7 @@ const ListItem = styled(motion.li)`
     margin: 10px 0;
     list-style: none;
     font-weight: 600;
+    cursor: pointer;
 `
 
 const Title = styled(motion.h1)`
@@ -81,18 +82,14 @@ const navVariants = {
             type: "spring", 
             damping: 12,
             stiffness: 100,
-            staggerChildren: 0.3,
+            staggerChildren: 0.2,
+            duration: 1,
         },
     },
     initial: {
         opacity: 0,
         x: -200,
     },
-    hover: {
-        cursor: "pointer",
-        scale: 1.1,
-        transition: "ease 0.1s",
-    }
 }
 
 
@@ -109,9 +106,9 @@ const Header = ({ title }) => {
         animate="animate"
         initial="initial"
         >
-            <ListItem variants={navVariants} whileHover="hover">Intro</ListItem>
-            <ListItem variants={navVariants} whileHover="hover">About</ListItem>
-            <ListItem variants={navVariants} whileHover="hover">Featured</ListItem>
+            <ListItem variants={navVariants} >Intro</ListItem>
+            <ListItem variants={navVariants} >About</ListItem>
+            <ListItem variants={navVariants} >Featured</ListItem>
         </ListItems>
         <Title 
         id="header-text"
@@ -120,7 +117,7 @@ const Header = ({ title }) => {
         animate="animate"
         initial="initial"
         >{letters.map((letter, index) => (
-            <Letter keys={index} variants={letterVariants}>
+            <Letter key={index} variants={letterVariants}>
                 {letter}
             </Letter>
         ))}</Title>
