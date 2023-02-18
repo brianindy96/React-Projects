@@ -35,6 +35,8 @@ const navVariants = {
   // this doesn't work
   whileHover: {
     scale: 1.1,
+    transition: "ease 0.3s",
+    cursor: "pointer",
   }
   
 }
@@ -49,9 +51,9 @@ const Navbar = () => {
     animate="animate"
     initial="initial"
     >
-      <motion.div whileHover="whileHover">Menu</motion.div>
-      <motion.div whileHover={{scale: 1.1, transition: "ease 0.3s"}}>Flirty Flowers</motion.div>
-      <motion.div whileHover={{scale: 1.1, transition: "ease 0.3s"}}>Card</motion.div>
+      <motion.div variants={navVariants} whileHover="whileHover">Menu</motion.div>
+      <motion.div variants={navVariants} whileHover="whileHover">Flirty Flowers</motion.div>
+      <motion.div variants={navVariants} whileHover="whileHover">Card</motion.div>
     </Section>
   )
 }

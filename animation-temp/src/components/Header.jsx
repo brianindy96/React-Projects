@@ -18,7 +18,7 @@ const ListItems = styled(motion.ul)`
     text-transform: uppercase;
 `
 
-const ListItem = styled.li`
+const ListItem = styled(motion.li)`
     margin: 10px 0;
     list-style: none;
     font-weight: 600;
@@ -81,13 +81,20 @@ const navVariants = {
             type: "spring", 
             damping: 12,
             stiffness: 100,
+            staggerChildren: 0.3,
         },
     },
     initial: {
         opacity: 0,
         x: -200,
+    },
+    hover: {
+        cursor: "pointer",
+        scale: 1.1,
+        transition: "ease 0.1s",
     }
 }
+
 
 
 const Header = ({ title }) => {
@@ -102,9 +109,9 @@ const Header = ({ title }) => {
         animate="animate"
         initial="initial"
         >
-            <ListItem>Intro</ListItem>
-            <ListItem>About</ListItem>
-            <ListItem>Featured</ListItem>
+            <ListItem variants={navVariants} whileHover="hover">Intro</ListItem>
+            <ListItem variants={navVariants} whileHover="hover">About</ListItem>
+            <ListItem variants={navVariants} whileHover="hover">Featured</ListItem>
         </ListItems>
         <Title 
         id="header-text"
