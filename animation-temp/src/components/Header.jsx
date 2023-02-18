@@ -25,11 +25,15 @@ const ListItem = styled.li`
 `
 
 const Title = styled(motion.h1)`
-    font-size: 18vw;
     text-transform: uppercase;
     text-align: center;
     font-family: "Bai Jamjuree", sans-serif;
     font-weight: 600;
+`
+
+const Letter = styled(motion.span)`
+    margin-right: 10px;
+    font-size: 18vw;
 `
 
 // Framer Motion
@@ -39,15 +43,33 @@ const titleVariants = {
         opacity: 1,
         y: 0,
         transition: {
+            staggerChildren: 0.1,
             duration: 0.8,
-            delay: 0.1,
-            ease: [0, 0.71, 0.2, 1.01],
+            delayChildren: 0.1,
         }
-
     },
     initial: {
         opacity: 0,
-        y: 200,
+        y: 100,
+    }
+}
+
+const letterVariants = {
+    animate: {
+        opacity: 1,
+        transition: {
+            type: "spring", 
+            damping: 12,
+            stiffness: 100,
+        },
+    },
+    initial: {
+        opacity: 0,
+        transition: {
+            type: "spring", 
+            damping: 12,
+            stiffness: 100,
+        },
     }
 }
 
@@ -56,9 +78,10 @@ const navVariants = {
         opacity: 1,
         x: 0,
         transition: {
-            duration: 0.8,
-            ease: [0, 0.71, 0.2, 1.01],
-        }
+            type: "spring", 
+            damping: 12,
+            stiffness: 100,
+        },
     },
     initial: {
         opacity: 0,
@@ -67,7 +90,10 @@ const navVariants = {
 }
 
 
-const Header = () => {
+const Header = ({ title }) => {
+
+    const letters = Array.from(title);
+
   return (
     <Section className='header-container' data-scroll-section >
         <ListItems 
@@ -82,10 +108,15 @@ const Header = () => {
         </ListItems>
         <Title 
         id="header-text"
+        style={{overflow: "hidden"}}
         variants={titleVariants}
         animate="animate"
         initial="initial"
-        >Art Objects</Title>
+        >{letters.map((letter, index) => (
+            <Letter keys={index} variants={letterVariants}>
+                {letter}
+            </Letter>
+        ))}</Title>
     </Section>
   )
 }

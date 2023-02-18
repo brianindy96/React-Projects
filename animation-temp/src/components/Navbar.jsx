@@ -20,13 +20,23 @@ const navVariants = {
   animate: {
     opacity: 1,
     y: 0,
-    duration: 3,
-    delay: 0.2,
+    transition: {
+      duration: 7,
+      delay: 0.2,
+      type: "spring",
+      stiffness: 200,
+    }
+    
   },
   initial: {
-    y: -40,
+    y: -60,
     opacity: 0,
   },
+  // this doesn't work
+  whileHover: {
+    scale: 1.1,
+  }
+  
 }
 
 
@@ -39,9 +49,9 @@ const Navbar = () => {
     animate="animate"
     initial="initial"
     >
-      <div>Menu</div>
-      <div>Flirty Flowers</div>
-      <div>Card</div>
+      <motion.div whileHover="whileHover">Menu</motion.div>
+      <motion.div whileHover={{scale: 1.1, transition: "ease 0.3s"}}>Flirty Flowers</motion.div>
+      <motion.div whileHover={{scale: 1.1, transition: "ease 0.3s"}}>Card</motion.div>
     </Section>
   )
 }

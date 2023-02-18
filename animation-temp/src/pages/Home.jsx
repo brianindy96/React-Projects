@@ -47,7 +47,7 @@ const Home = () => {
       data-scroll-container
       >
         <Navbar />
-        <Header />
+        <Header title="Art Objects" />
         <Featured />
         <About />
         <Gallery />
