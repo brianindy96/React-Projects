@@ -10,6 +10,11 @@
   scroll-behavior: smooth;
 }
 
+nav.hidden{
+  display: none;
+  transition: 0;
+}
+
 .gradient-01 {
   background-image: linear-gradient(
     270deg,
