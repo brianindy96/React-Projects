@@ -8,7 +8,7 @@ const Navbar = () => (
   <motion.nav
   variants={navVariants}
   // doesn't disappear
-  animate="show"
+  whileInView="show"
   initial="hidden"
   className={`${styles.xPaddings} py-8 relative`}
   >
