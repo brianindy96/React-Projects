@@ -10,7 +10,7 @@ const Hero = () => (
     // parents div
     variants={staggerContainer}
     initial="hidden"
-    animate="show"
+    whileInView="show"
     // when div comes into viewport, it will not only animate once
     viewport={{once: false, amount: 0.25}}
     className={`${styles.innerWidth} mx-auto flex flex-col`}

@@ -9,6 +9,7 @@ import { exploreWorlds } from "../constants/index"
 const Explore = () => {
 
   const [active, setActive] = useState('world-2');
+
     return(
       <section className={`${styles.paddings}`} id="explore">
           <motion.div
@@ -24,7 +25,10 @@ const Explore = () => {
               {exploreWorlds.map((world, index) => (
                 <ExploreCard 
                 key={world.id} 
+                imgUrl={world.imgUrl}
+                title={world.title}
                 index={index}
+                id={world.id}
                 active={active}
                 handleClick={setActive} 
                 />
