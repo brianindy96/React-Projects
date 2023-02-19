@@ -57,8 +57,9 @@ const Navbar = () => {
         variants={navConVariants}
         animate="animate"
         initial="initial"
+        data-scroll-section data-scroll-sticky 
     >
-        <Navs>
+        <Navs data-scroll>
             <NavItem>
                 <Links to="/">Home</Links>
             </NavItem>

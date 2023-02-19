@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from "styled-components"
 import CityLanding from '../components/CityLanding'
@@ -7,9 +7,9 @@ import LargeDivider from '../components/LargeDivider'
 import Navbar from '../components/Navbar'
 import SmallDivider from '../components/SmallDivider'
 import TextDivider from '../components/TextDivider'
+import useLocoScroll from '../hooks/useLocoScroll'
 
 const Container = styled.div`
-    min-height: 80vh;
     background-color: #fff;
 `
 
@@ -24,8 +24,12 @@ const CityDetails = ({ cities }) => {
   console.log(thisCity);
   const { img7, img6, img1, img2, img3, img4, img5, title, desc, name, para1, image, id} = thisCity
 
+  const [preLoader, setPreloader] = useState(true);
+
+  useLocoScroll(!preLoader);
+
   return (
-    <Container>
+    <Container id="main-container" data-scroll-container>
         <Navbar />
         <CityLanding title={title} image={image}/>
         <LargeDivider image={img3} />

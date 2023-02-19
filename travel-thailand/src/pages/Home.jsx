@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Title from '../components/Title'
 import LargeDivider from '../components/LargeDivider'
@@ -6,6 +6,7 @@ import TextDivider from '../components/TextDivider'
 import DescDivider from '../components/DescDivider'
 import SmallDivider from '../components/SmallDivider'
 import Navbar from '../components/Navbar'
+import useLocoScroll from '../hooks/useLocoScroll'
 
 const Container = styled.div`
   
@@ -13,9 +14,26 @@ const Container = styled.div`
 
 const Home = () => {
 
+  const [preLoader, setPreloader] = useState(false);
+
+  useLocoScroll(!preLoader);
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setPreloader(false);
+    }, 3000)
+  }, [])
+  
+  
   return (
-    <Container>
-        <Navbar  />
+    <>
+    {preLoader ? (
+      <>
+        <h1>Loading</h1>
+      </> 
+    ) : (
+      <Container id="main-container" data-scroll-container>
+        <Navbar />
         <Title title="Hello Thailand" desc="Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello" />
         <LargeDivider
         image="/img/rice.jpg" 
@@ -42,6 +60,8 @@ const Home = () => {
         <LargeDivider image="/img/monk.jpg"/>
         <SmallDivider image="/img/temple.jpg" />
     </Container>
+    )}
+    </>
   )
 }
 

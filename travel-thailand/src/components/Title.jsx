@@ -10,7 +10,7 @@ const Intro = styled.section`
     display: flex;
     flex-direction: column;
     padding: 6rem 6rem;
-    min-height: 60vh;
+    min-height: 80vh;
     align-items: center;
 `
 
@@ -82,13 +82,16 @@ const descVariant = {
 
 const Title = ({ title, desc}) => {
   return (
-    <Container>
+    <Container
+    data-scroll-section  
+    >
         <Intro>
             {/* Animates each letter */}
                 <HeaderDiv 
                     variants={containerVariants}
                     animate="animate"
                     initial="initial"
+                    data-scroll 
                     >
                         {[...title].map((letter, index) => (
                             <Header 

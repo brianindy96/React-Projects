@@ -45,7 +45,9 @@ const Title = styled.h1`
 
 const CityLanding = ({ title, image }) => {
   return (
-    <Container>
+    <Container
+    data-scroll-section  
+    >
         <ImgCon image={image} />
         <TitleCon>
             <Title>{title}</Title>

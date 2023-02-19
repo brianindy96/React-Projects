@@ -13,7 +13,9 @@ const Container = styled.div`
 
 const LargeDivider = ({ image }) => {
   return (
-    <Container image={image}>
+    <Container
+    data-scroll-section  
+    image={image}>
         
     </Container>
   )

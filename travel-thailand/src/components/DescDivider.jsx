@@ -66,7 +66,9 @@ const Links = styled(Link)`
 `
 const DescDivider = ({ id, name, explore, image, para1, para2, para3, reverse, title}) => {
   return (
-    <Container reverse={reverse}>
+    <Container 
+    data-scroll-section  
+    reverse={reverse}>
         <ImgContainer image={image}>
             
         </ImgContainer>

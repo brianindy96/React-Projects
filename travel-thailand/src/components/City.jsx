@@ -4,7 +4,7 @@ import DescDivider from './DescDivider'
 
 const Container = styled.div`
     border-bottom: 1px solid black;
-    min-height: 60vh;
+    height: 60vh;
     width: 100%;
     background-color: #fff;
 
@@ -12,7 +12,7 @@ const Container = styled.div`
 `
 
 const TitleCon = styled.div`
-    min-height: 60vh;
+    height: 80vh;
     display: flex;
     background-color: #f0eff1;
     justify-content: center;
@@ -32,8 +32,10 @@ const Title = styled.h1`
 
 const City = ({ cities }) => {
   return (
-    <Container>
-        <TitleCon>
+    <Container
+    data-scroll-section  
+    >
+        <TitleCon data-scroll>
             <Title>Explore the best parts of Thailand</Title>
         </TitleCon>
         {cities.map((city)=>(

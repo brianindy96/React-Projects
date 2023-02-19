@@ -19,7 +19,9 @@ const ImgContainer = styled.div`
 
 const SmallDivider = ({ image, bg }) => {
   return (
-    <Container bg={bg}>
+    <Container 
+    data-scroll-section  
+    bg={bg}>
         <ImgContainer image={image} />
     </Container>
   )

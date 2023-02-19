@@ -22,7 +22,9 @@ const Desc = styled.p`
 
 const TextDivider = ({ title, desc}) => {
   return (
-    <Container>
+    <Container
+    data-scroll-section  
+    >
         <Title>{title}</Title>
         <Desc>{desc}</Desc>
     </Container>
