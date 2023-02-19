@@ -12,11 +12,12 @@ const Container = styled.div`
 `
 
 const Home = () => {
+
   return (
     <Container>
         <Navbar  />
         <Title title="Hello Thailand" desc="Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello" />
-        <LargeDivider 
+        <LargeDivider
         image="/img/rice.jpg" 
         />
         <TextDivider 

@@ -33,7 +33,7 @@ const NavItem = styled.li`
 const navConVariants = {
     initial:{ 
         opacity: 0, 
-        y: -180 
+        y: -20 
     },
     animate:{ 
         opacity: 1, 

@@ -14,12 +14,19 @@ const Intro = styled.section`
     align-items: center;
 `
 
-const Header = styled(motion.div)`
+const HeaderDiv = styled(motion.div)`
+`
+
+const Header = styled(motion.span)`
+    font-family: "Bodoni Moda", sans-serif;
     font-size: 10vw;
 
 `
+
+
 const Desc = styled(motion.p)`
     font-size: 2rem;
+    font-style: "Poppins", sans-serif;
 `
 
 // Framer motion variants
@@ -66,7 +73,7 @@ const descVariant = {
         x: 0,
         opacity: 1,
         transition: {
-            duration: 2,
+            duration: 1.5,
             delay: 0.5,
         }
 
@@ -78,20 +85,20 @@ const Title = ({ title, desc}) => {
     <Container>
         <Intro>
             {/* Animates each letter */}
-                <Header 
+                <HeaderDiv 
                     variants={containerVariants}
                     animate="animate"
                     initial="initial"
                     >
                         {[...title].map((letter, index) => (
-                            <motion.span 
+                            <Header 
                             keys={index}
                             variants={animatedLetters}
                             >
                                 {letter}
-                            </motion.span>
+                            </Header>
                         ))}
-                </Header>
+                </HeaderDiv>
                 <Desc
                 variants={descVariant}
                 animate="animate"
