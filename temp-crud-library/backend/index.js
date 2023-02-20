@@ -16,6 +16,13 @@ const db = mysql.createConnection({
     password: password,
     database: "test",
 })
+
+// Use Express for API request with backend servers 
+app.get("/", (req, res)=> {
+    res.json("hello this is the backend")
+})
+
+
 app.listen(8800, () => {
     console.log("Connected to Backend!")
 });
