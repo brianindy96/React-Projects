@@ -1,5 +1,8 @@
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Books from './pages/Books'
+import Update from './pages/Update'
+import Add from './pages/Add'
 
 function App() {
 
@@ -7,8 +10,9 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route />
-          <Route />
+          <Route path='/'element={<Books />} />
+          <Route  path="/update" element={<Update />} />
+          <Route  path="/add" element={<Add />} />
         </Routes>
       </Router>
     </div>
