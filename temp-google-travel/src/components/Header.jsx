@@ -1,8 +1,12 @@
 import React from 'react'
+import { Autocomplete } from '@react-google-maps/api'
+import { AppBar, Toolbar, Typography, InputBase, Box } from '@mui/material'
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <AppBar position="static">
+        Hello
+    </AppBar>
   )
 }
 
