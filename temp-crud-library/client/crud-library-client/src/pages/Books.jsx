@@ -16,6 +16,15 @@ const Books = () => {
       console.log(error);
     }
   }
+  
+  const handleDelete = async (id) => {
+    try{
+        await axios.delete("http://localhost:8800/books"+id)
+        window.location.reload();
+    }catch(err){
+        console.log(err);
+    }
+}
 
   console.log(books);
 
@@ -36,7 +45,7 @@ const Books = () => {
               {book.cover && <img src={book.cover} alt="book cover" className='book-img' />}
               <h2>{book.title}</h2>
               <p>{book.desc}</p>
-              <button className='delete'>Delete</button>
+              <button onClick={() => handleDelete(book.id)} className='delete'>Delete</button>
               <button className='update'>Update</button>
             </div>
           ))}
