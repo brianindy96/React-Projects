@@ -28,19 +28,21 @@ const Books = () => {
 
 
   return (
-    <>
-      <h1>Library</h1>
+    <div>
+        <h1>Library</h1>
         <div className='books'>
           {books.map((book) => (
             <div className='book' key={book.id}>
-              {book.cover && <img src={book.cover} alt="book cover" />}
+              {book.cover && <img src={book.cover} alt="book cover" className='book-img' />}
               <h2>{book.title}</h2>
               <p>{book.desc}</p>
+              <button className='delete'>Delete</button>
+              <button className='update'>Update</button>
             </div>
           ))}
         </div>
         <button><Link to="/add">Add New Book</Link></button>
-    </>
+    </div>
   )
 }
 
