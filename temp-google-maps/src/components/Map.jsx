@@ -1,27 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
-import googleMapReact from 'google-map-react'
+import GoogleMapReact from 'google-map-react'
 import { Paper, Typography } from "@mui/material"
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-import Rating from '@mui/material';
+
 const Map = () => {
 
-    const coord = { lat: 0, lng: 0 }
+    const API_KEY = import.meta.env.VITE_API_KEY;
+
+    const coord = { lat: 18.7883, lng: 98.9853 }
   return (
-    <div>
-        <googleMapReact
-        bootstrapURLKeys={{ key: '' }}
-        defaultCenter={''}
+    <div style={{ marginTop: "20px", height: '85vh', width: '100%' }}>
+        <GoogleMapReact
+        bootstrapURLKeys={{ key: API_KEY }}
+        defaultCenter={coord}
         center={coord}
-        defaultZoom={14}
+        defaultZoom={13}
         // Top Left Bottom Right
         margin={[50, 50, 50, 50]}
         options={''}
-        onChange={''}
+        // onChange={''}
         onChildClick={''}
         >
 
-        </googleMapReact>
+        </GoogleMapReact>
     </div>
   )
 }
