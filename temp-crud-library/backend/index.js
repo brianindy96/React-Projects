@@ -17,9 +17,12 @@ const db = mysql.createConnection({
     database: "test",
 })
 
-
+// BY DEFAULT EXPRESS DOES NOT ALLOW JSON FILES TO POST ELSEWHERE
+// This function allows other clients to send JSON files to EXPRESS
+app.use(express.json());
 
 // Use Express for API request with backend servers 
+// GET = READ
 app.get("/", (req, res)=> {
     res.json("hello this is the backend")
 })
@@ -35,6 +38,24 @@ app.get("/books", (req, res)=> {
         
     });
 })
+
+// Book details POST (add book to Library)
+app.post("/books", (req,res) => {
+    const q = "INSERT INTO books (`title`, `description`, `cover`) VALUES (?)";
+    
+    const values = [
+        req.body.title,
+        req.body.description,
+        req.body.cover,
+        ];
+    
+    db.query(q, [values], (err,data) => {
+        if(err) {
+            return res.json(err);
+        }  
+
+        return res.json("Book posted");
+})})
 
 
 app.listen(8800, () => {
