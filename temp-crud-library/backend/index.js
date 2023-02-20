@@ -1,6 +1,7 @@
 import express from "express";
 // Nodemon helps with restarting application, everytime there is a change
 import mysql from "mysql"
+import cors from "cors";
 
 import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config()
@@ -20,6 +21,9 @@ const db = mysql.createConnection({
 // BY DEFAULT EXPRESS DOES NOT ALLOW JSON FILES TO POST ELSEWHERE
 // This function allows other clients to send JSON files to EXPRESS
 app.use(express.json());
+
+// CORS
+app.use(cors());
 
 // Use Express for API request with backend servers 
 // GET = READ
