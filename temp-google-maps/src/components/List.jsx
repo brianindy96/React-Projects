@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@mui/material'
 import styled from 'styled-components'
+import PlaceDetails from './PlaceDetails'
 
 const Container = styled.div`
     flex: 1;
@@ -13,7 +14,18 @@ const FormControls = styled(FormControl)`
     margin-bottom: 30px;
     
 `
+
 const List = () => {
+
+    const places = [
+        {name: 'Cool Place'},
+        {name: 'Beer Place'},
+        {name: 'Hotdog Place'},
+        {name: 'Burger Place'},
+        {name: 'Cool Steak Place'},
+        {name: 'Cool Ramen'},
+        {name: 'Rare Sushi'},
+    ]
 
     const [type, setType] = useState('restaurants');
     const [rating, setRating] = useState('');
@@ -35,9 +47,15 @@ const List = () => {
                 <MenuItem value={3}>3 Stars</MenuItem>
                 <MenuItem value={4}>4 Stars</MenuItem>
                 <MenuItem value={5}>5 Stars</MenuItem>
-
             </Select>
         </FormControls>
+        <Grid container spacing={3} style={{marginTop: "5px", height: '75vh', overflow: 'auto'}}>
+            {places?.map((place, i) => (
+                <Grid item key={i} xs={12}>
+                    <PlaceDetails place={place}/>
+                </Grid>
+            ))}
+        </Grid>
     </Container>
   )
 }
