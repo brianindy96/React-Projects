@@ -2,6 +2,7 @@ import './App.css'
 import { Canvas } from "@react-three/fiber"
 import Box from './components/Box'
 import { OrbitControls, Stars } from "@react-three/drei"
+import Plane from './components/Plane'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       angle={0.3}
       />
       <Box />
+      <Plane />
     </Canvas>
   )
 }
