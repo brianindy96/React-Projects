@@ -29,6 +29,8 @@ const List = () => {
 
     const [type, setType] = useState('restaurants');
     const [rating, setRating] = useState('');
+
+    
   return (
     <Container >
         <Typography variant='h4'>Restaurants, Hotels & Attractions around you</Typography>
