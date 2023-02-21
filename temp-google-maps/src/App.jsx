@@ -11,16 +11,30 @@ function App() {
   const [coordinates, setCoordinates] = useState({lat: 18.7883, lng: 98.9853});
   const [bounds, setBounds] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [restaurant, setRestaurant] = useState([]);
 
+  // Get current Location
+  // useEffect(() => {
+  //   navigator.geolocation.getCurrentPosition(() => {
+  //     setCoordinates({ lat: latitude, lng: longitude});
+  //   })
+  // }, [])
+  
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
         }, 3000)
 
-        // getPlacesData();
+        // GOT 10 RESTAURANT
+        // getPlacesData()
+        //   .then((data) => {
+        //     setRestaurant(data);
+
+        //   })
+        
     }, [])
 
-    console.log(coordinates);
+    // console.log(restaurant);
 
   return (
     <>
