@@ -5,9 +5,8 @@
 [x] Player
 [x] Keyboard Inputs
 [x] Movement
-[] First person view
-[] Gravity
-[] Movement
+[x] First person view
+[x] Gravity
 [] State management
 [] Cubes
 [] Cube type selector

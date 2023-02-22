@@ -4,7 +4,7 @@ import { useSphere } from '@react-three/cannon';
 import { Vector3 } from 'three';
 import { useKeyboard } from '../hooks/useKeyboard';
 
-const jumpForce = 3;
+const jumpForce = 2;
 const Speed = 4;
 
 const Player = () => {

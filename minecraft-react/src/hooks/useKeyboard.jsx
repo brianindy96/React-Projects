@@ -32,9 +32,13 @@ export const useKeyboard = () => {
         texture5: false,
     })
 
+    //handles pressing key
     const handleKeyDown = useCallback((e) => {
         const action = actionByKey(e.code)
+        // if there is an action,
         if(action){
+            // access the actions state, make up a new object with only the stated "action" value that changes to true
+            // It is called with a new object that merges the previous state with the updated value of the action that was triggered. This new object is returned by the function and used to update the state.
             setActions((prev) => {
                 return ({
                     ...prev,
@@ -44,6 +48,7 @@ export const useKeyboard = () => {
         }
     }, [])
 
+    //handles lifting from key
     const handleKeyUp = useCallback((e) => {
         const action = actionByKey(e.code)
         if(action){
@@ -57,7 +62,7 @@ export const useKeyboard = () => {
     }, [])
 
     
-
+    // A way to call those functions is to add Eventlistener on useEffect
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
         document.addEventListener('keyup', handleKeyUp);
