@@ -17,7 +17,7 @@ export function Baseball(props) {
     material: {
       friction: 1,
     },
-    linearDamping: 0.8,
+    angularDamping: 0.5,
     onCollide: (e) => {
       if (e.body.userData.type === 'player') {
         api.velocity.set(0, 0, 0);
@@ -29,7 +29,7 @@ export function Baseball(props) {
 
   return (
     <group ref={ref} {...props} dispose={null} scale={30}>
-      <mesh geometry={nodes.baseball_01.geometry}  material={ref.material} />
+      <mesh geometry={nodes.baseball_01.geometry}  material={materials.baseball_01} />
     </group>
   )
 }
