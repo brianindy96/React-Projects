@@ -4,7 +4,7 @@
 [x] Ground
 [x] Player
 [x] Keyboard Inputs
-[] Movement
+[x] Movement
 [] First person view
 [] Gravity
 [] Movement
