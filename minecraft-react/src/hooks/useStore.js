@@ -31,6 +31,8 @@ export const useStore = create((set) => ({
     },
     removeCube: (x,y,z) => {
         set((prev) => ({
+            // the filter functions checks which pos form prev state matches with the selected cube.
+            // if it matches, the cube is removed from the new Array
             cubes: prev.cubes.filter(cube => {
                 const [X,Y,Z] = cube.pos
                 return X != x || Y != y || Z != z

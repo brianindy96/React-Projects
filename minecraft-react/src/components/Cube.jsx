@@ -22,6 +22,7 @@ const Cube = ({ position, texture }) => {
       const clickedFace = Math.floor(e.faceIndex / 2)
       const { x, y, z } = ref.current.position
       if (e.altKey) {
+        // hold on to the altKey and click on the cube
         removeCube(x, y, z)
         return
       }
