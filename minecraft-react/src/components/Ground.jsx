@@ -2,13 +2,19 @@ import React from 'react'
 import { usePlane } from '@react-three/cannon'
 import { groundTexture } from '../images/textures'
 import { NearestFilter, RepeatWrapping } from 'three'
-
+import { useStore } from '../hooks/useStore'
 const Ground = () => {
 
     const [ref] = usePlane(() => ({ 
         rotation: [-Math.PI/2,0,0],
-        position: [0,0,0],
+        position: [0,-0.5,0],
     }))
+
+    // Cube
+
+    const [addCube] = useStore((state) => [state.addCube]);
+
+
 
     // TEXTURE (somewhat like background-repeat)
     // magFilter defines the texture magnification function to be used when the pixel being textured maps to an area less than or equal to one texture element (texel).
@@ -21,7 +27,14 @@ const Ground = () => {
     groundTexture.repeat.set(100,100);
 
   return (
-    <mesh ref={ref}>
+    <mesh 
+    ref={ref}
+    onClick={(e) => {
+      e.stopPropagation(); // therefore no clicks can be passed below the ground
+      const [x,y,z] = Object.values(e.point).map((val) => Math.ceil(val)); // position x,y,z is where we clicked
+      addCube(x,y,z); 
+    }}
+    >
         {/* args here is the size of the plane (x,y) */}
         <planeGeometry attach='geometry' args={[100,100]}/>
         <meshStandardMaterial attach='material' map={groundTexture} />

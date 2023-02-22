@@ -8,6 +8,7 @@ const Cube = ({ position, texture }) => {
     position
   }))
 
+//   setting the texture props with 'Texture' e.g. dirtTexture, glassTexture like in textures.js
   const activeTexture = textures[texture + 'Texture']
   console.log('activeTexture', activeTexture)
 
