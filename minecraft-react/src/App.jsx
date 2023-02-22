@@ -22,6 +22,7 @@ function App() {
           <Ground />
         </Physics>
       </Canvas>
+      <div className="absolute centered crosshair">+</div>
     </>
     
   )
