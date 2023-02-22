@@ -2,10 +2,13 @@ import React, { useEffect, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useSphere } from '@react-three/cannon';
 import { Vector3 } from 'three';
+import { useKeyboard } from '../hooks/useKeyboard';
 
 
 const Player = () => {
 
+    const actions = useKeyboard();
+    console.log('actions: ', Object.entries(actions).filter(([k,v]) => v));
     
     // The 'ref' object is used to attach the sphere to the Three.js Canvas
     // the 'api' object is used to update the sphere's properties
