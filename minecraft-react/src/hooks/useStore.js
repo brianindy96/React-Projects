@@ -1,4 +1,4 @@
-import create from "zustand"
+import { create } from "zustand"
 import { nanoid } from "nanoid"
 
 // Store for state management
@@ -7,7 +7,7 @@ export const useStore = create((set) => ({
     // initial state
     cubes: [{
         key: nanoid(),
-        pos: [1,1,1],
+        pos: [1,0.5,1],
         texture: 'dirt',
     }],
     // actions
