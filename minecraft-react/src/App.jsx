@@ -10,18 +10,14 @@ function App() {
     <>
       <div>Outside Canvas</div>
       <Canvas
-      camera={{
-        position: [0,0,0],
-        rotation : [0.5, 0,0],
-      }}
+      
       >
-        <OrbitControls />
         <Sky sunPosition={[100,120,100]} />
         <ambientLight intensity={0.5} />
         <Physics>
+          <axesHelper args={[10]} />
           <Player />
           <Ground />
-          <axesHelper args={[10]} />
         </Physics>
         
       </Canvas>

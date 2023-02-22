@@ -1,7 +1,7 @@
 import React from 'react'
 import { usePlane } from '@react-three/cannon'
 import { groundTexture } from '../images/textures'
-import { LinearFilter, NearestFilter, RepeatWrapping } from 'three'
+import { NearestFilter, RepeatWrapping } from 'three'
 
 const Ground = () => {
 

@@ -5,7 +5,8 @@ import { Vector3 } from 'three';
 import { useKeyboard } from '../hooks/useKeyboard';
 
 const jumpForce = 3;
-const speed = 4;
+const Speed = 4;
+
 const Player = () => {
 
     const { moveForward,
@@ -22,7 +23,7 @@ const Player = () => {
         mass: 1,
         type: 'Dynamic',
         // this position is set to change according to the pos.current
-        position: [0,2,0]
+        position: [0,1,0]
         // velocity: is default [0,0,0]
     }));
 
@@ -70,16 +71,12 @@ const Player = () => {
         );
 
         direction
-        // The subVectors method is used to subtract the sideVector from the frontVector, which results in a new vector that represents the combined movement in both directions.
             .subVectors(frontVector, sideVector)
-        // The normalize method is called on this new vector to ensure that it has a length of 1
             .normalize()
-        // multiplyScalar method is called to adjust the speed of movement
-            .multiplyScalar(speed)
-        //applyEuler method is called to apply this direction to the camera's rotation.
+            .multiplyScalar(Speed)
             .applyEuler(camera.rotation)
-        
-        api.velocity.set(direction.x, vel.current[1], direction.y);    
+
+        api.velocity.set(direction.x, vel.current[1], direction.z);    
 
         
         // Jumping
