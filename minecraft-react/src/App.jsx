@@ -5,6 +5,7 @@ import Ground from "./components/Ground"
 import Player from "./components/Player"
 import FPV from "./components/FPV"
 import Cubes from "./components/Cubes"
+import { Baseball } from "./components/Baseball"
 
 function App() {
   
@@ -21,6 +22,7 @@ function App() {
           <axesHelper args={[10]} />
           <Player />
           <Ground />
+          <Baseball />
           <Cubes />
         </Physics>
       </Canvas>

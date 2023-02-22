@@ -5,7 +5,7 @@ import { Vector3 } from 'three';
 import { useKeyboard } from '../hooks/useKeyboard';
 
 const jumpForce = 2;
-const Speed = 4;
+const Speed = 6;
 
 const Player = () => {
 
@@ -23,8 +23,11 @@ const Player = () => {
         mass: 1,
         type: 'Dynamic',
         // this position is set to change according to the pos.current
-        position: [0,1,0]
-        // velocity: is default [0,0,0]
+        position: [0,1,0],
+        material: {
+            friction: 1,
+        },
+        userData: { type: 'player' },
     }));
 
     // VELOCITY of Player
