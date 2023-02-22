@@ -8,7 +8,11 @@ function App() {
   return (
     <>
       <div>Outside Canvas</div>
-      <Canvas>
+      <Canvas
+      camera={{
+        position: [0,1,0],
+      }}
+      >
         <OrbitControls />
         <Sky sunPosition={[100,120,100]} />
         <ambientLight intensity={0.5} />
