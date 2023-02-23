@@ -1,15 +1,47 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
-
+import { addBooks, deleteBook, updateBooks } from '../services/book.service';
 const AddBook = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [status, setStatus] = useState("Available");
     const [flag, setFlag] = useState(true);
+    const [msg, setMsg] = useState({error: false, msg: ""});
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try{
+            const newBook = {
+                title,
+                author,
+                status,
+            }
+
+            try{
+                await addBooks(newBook);
+                setMsg({ error: false, msg: "New Book added"})
+            } catch(error){
+                setMsg({ error: true, msg: error.message})
+            }
+            
+
+            setTitle('');
+            setAuthor('');
+
+        } catch(error) {
+            if(title === "" || author === ""){
+                setMsg({error: true, msg: "All fields are mandatory!"})
+            }
+        }
+
+        console.log(msg);
+
+    }
   return (
+    <>
     <div style={{marginTop: "30px"}}>
-        <Form >
+        <Form onSubmit={handleSubmit} >
           <Form.Group className="mb-3" controlId="formBookTitle">
             <InputGroup>
               <InputGroup.Text id="formBookTitle">B</InputGroup.Text>
@@ -18,6 +50,7 @@ const AddBook = () => {
                 placeholder="Book Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                required
               />
             </InputGroup>
           </Form.Group>
@@ -30,6 +63,7 @@ const AddBook = () => {
                 placeholder="Book Author"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
+                required
               />
             </InputGroup>
           </Form.Group>
@@ -54,6 +88,7 @@ const AddBook = () => {
           </div>
         </Form>
     </div>
+    </>
   )
 }
 

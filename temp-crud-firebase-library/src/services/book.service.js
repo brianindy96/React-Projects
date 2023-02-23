@@ -9,7 +9,7 @@ import { collection,
          doc 
         } from "firebase/firestore"
 
-const bookCollectionRef = collection(db, "books");
+export const bookCollectionRef = collection(db, "books");
 
 export const addBooks = (newBook) => {
     return addDoc(bookCollectionRef, newBook);
@@ -22,7 +22,7 @@ export const updateBooks = (id, updatedBook) => {
 
 export const deleteBook = (id) => {
     const bookDoc = doc(db, "books", id);
-    return deleteDoc(bookDoc)
+    return deleteDoc(bookDoc);
 }
 
 export const getAllBooks = () => {
