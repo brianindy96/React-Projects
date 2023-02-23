@@ -30,7 +30,7 @@ const BookLists = () => {
         </Button>
       </div>
 
-      {/* <pre>{JSON.stringify(books, undefined, 2)}</pre>} */}
+      {/* <pre>{JSON.stringify(books, undefined, 2)}</pre> */}
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
@@ -42,11 +42,12 @@ const BookLists = () => {
           </tr>
         </thead>
         <tbody>
-              <tr>
-                <td>Num</td>
-                <td>Title</td>
-                <td>Author</td>
-                <td>Status</td>
+          {books.map((doc, index) => (
+            <tr>
+                <td>{index+1}</td>
+                <td>{doc.title}</td>
+                <td>{doc.author}</td>
+                <td>{doc.status}</td>
                 <td>
                   <Button
                     variant="secondary"
@@ -57,11 +58,14 @@ const BookLists = () => {
                   <Button
                     variant="danger"
                     className="delete"
+                    onCli
                   >
                     Delete
                   </Button>
                 </td>
               </tr>
+          ))}
+              
         </tbody>
       </Table>
     </div>
