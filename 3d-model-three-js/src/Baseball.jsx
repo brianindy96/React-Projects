@@ -5,12 +5,21 @@ Command: npx gltfjsx@6.1.4 public/baseball/baseball_01_4k.gltf -r public
 
 import React, { useRef } from 'react'
 import { useGLTF, PerspectiveCamera  } from '@react-three/drei'
+import { useSphere } from '@react-three/cannon';
 
 export function Baseball(props) {
   const { nodes, materials } = useGLTF('/baseball/baseball_01_4k.gltf')
  
+  const [ref, api] = useSphere(() => ({
+    mass: 1,
+    type: 'Dynamic',
+    // this position is set to change according to the pos.current
+    position: [1,1,0]
+    // velocity: is default [0,0,0]
+}));
+  
   return (
-    <group {...props} dispose={null} scale={30}>
+    <group ref={ref} {...props} dispose={null} scale={30}>
       <mesh geometry={nodes.baseball_01.geometry} material={materials.baseball_01} />
     </group>
   )

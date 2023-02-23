@@ -6,6 +6,7 @@ import Player from "./components/Player"
 import FPV from "./components/FPV"
 import Cubes from "./components/Cubes"
 import { Baseball } from "./components/Baseball"
+import { Goal } from "./components/Goal"
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
           <Player />
           <Ground />
           <Baseball />
+          <Goal />
           <Cubes />
         </Physics>
       </Canvas>

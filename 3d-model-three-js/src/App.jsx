@@ -2,6 +2,8 @@ import './App.css'
 import { Canvas } from '@react-three/fiber'
 import { Baseball } from './Baseball'
 import { OrbitControls, Sky } from '@react-three/drei'
+import { Physics } from "@react-three/cannon"
+import Ground from '../../minecraft-react/src/components/Ground'
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <pointLight />
       <Physics>
         <Baseball />
+        <Ground />
       </Physics>
       <OrbitControls />
     </Canvas>

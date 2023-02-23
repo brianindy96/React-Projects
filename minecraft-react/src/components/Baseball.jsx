@@ -13,11 +13,11 @@ export function Baseball(props) {
  
   const [ref, api] = useSphere(() => ({
     mass: 1,
-    position: [0, 4, 0],
+    position: [5, 1, 0],
     material: {
       friction: 1,
     },
-    angularDamping: 0.5,
+    angularDamping: 0.7,
     onCollide: (e) => {
       if (e.body.userData.type === 'player') {
         api.velocity.set(0, 0, 0);
