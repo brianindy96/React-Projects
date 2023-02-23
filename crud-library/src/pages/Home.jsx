@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>
+    <div className='max-w-7xl m-auto' id='main-container'>
         <h1 className="text-3xl font-bold underline">
             Hello world!
         </h1>
