@@ -1,38 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from "@mui/material"
 import { Link } from "react-router-dom"
-const books = [
-    {
-    id: 1,
-    title: "Harry Potter: Prisoner of Red Light District",
-    author: "J.K. Rowling",
-    pages: "593",
-    completed: true,
-    },
-    {
-        id: 2,
-        title: "Harry Potter: Prisoner of Red Light District",
-        author: "J.K. Rowling",
-        pages: "593",
-        completed: false,
-    },
-    {
-        id: 3,
-        title: "Harry Potter: Prisoner of Red Light District",
-        author: "J.K. Rowling",
-        pages: "593",
-        completed: true,
-    },
-    {
-        id: 4,
-        title: "Harry Potter: Prisoner of Red Light District",
-        author: "J.K. Rowling",
-        pages: "342",
-        completed: false,
-    },
+import { getAllBooks } from '../services/book.service'
 
-]
 const Home = () => {
+
+    const [books, setBooks] = useState([]);
+    // getBooksFromDatabase
+
+    const fetchBooks = async () => {
+        try{
+            const data = await getAllBooks();
+
+            setBooks(data.docs.map((doc) => ({
+                ...doc.data(),
+                id: doc.id,
+              })))
+
+    } catch(err){
+        console.log(err.message);
+    }
+
+    };
+    useEffect(() => {
+        fetchBooks();
+    }, [])
   return (
     <div className='max-w-7xl m-auto h-full'>
         <div className='py-5'>
