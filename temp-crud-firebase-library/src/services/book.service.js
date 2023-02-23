@@ -31,5 +31,5 @@ export const getAllBooks = () => {
 
 export const getBook = (id) => {
     // doc(firestore_reference, collection_name, id)
-    const bookDoc = doc(db, "books", id)
+    const bookDoc = getDoc(db, "books", id)
 }

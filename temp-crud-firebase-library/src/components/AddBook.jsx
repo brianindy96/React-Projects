@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
 
 const AddBook = () => {
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
     const [status, setStatus] = useState("Available");
     const [flag, setFlag] = useState(true);
   return (
@@ -14,6 +16,8 @@ const AddBook = () => {
               <Form.Control
                 type="text"
                 placeholder="Book Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </InputGroup>
           </Form.Group>
@@ -24,6 +28,8 @@ const AddBook = () => {
               <Form.Control
                 type="text"
                 placeholder="Book Author"
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)}
               />
             </InputGroup>
           </Form.Group>
