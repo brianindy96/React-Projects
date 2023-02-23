@@ -33,16 +33,29 @@ const books = [
 ]
 const Home = () => {
   return (
-    <div className='max-w-7xl m-auto'>
+    <div className='max-w-7xl m-auto h-full'>
         <div className='py-5'>
             <div className='container py-5'>
-                <button className='text-white border px-7 p-2 bg-blue-300 rounded-2xl '>
+                <button className='text-white border px-7 p-2 bg-blue-400 hover:bg-blue-300 rounded-2xl '>
                     Add Book
                 </button>
             </div>
         </div>
-        <div className=''>
-            yo
+        <div className='min-h-screen'>
+            <div className='flex flex-wrap gap-20 justify-start flex-start' id='wrapper'>
+                {books.map((book) => (
+                    <div className='min-h-120 w-95 flex flex-col shadow-lg justify-center bg-white py-8 px-4 text-center rounded-2xl' key={book.id}>
+                        <p><strong>Title: </strong> {book.title}</p>
+                        <p><strong>Author:</strong> {book.author}</p>
+                        <p><strong>Pages:</strong> {book.pages}</p>
+                        <p><strong>Read:</strong> {book.completed === true ? "Yes" : "No"}</p>
+                        <div className='mt-5'>
+                            <button className='bg-gray-100 hover:bg-gray-200 border rounded-lg mx-2 px-5 py-1'>Edit</button>
+                            <button className='bg-red-500 hover:bg-red-400 text-white border rounded-lg mx-2 py-1 px-5'>Delete</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     </div>
   )
