@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
-import { getAllBooks } from "../services/book.service";
+import { deleteBook, getAllBooks } from "../services/book.service";
 
-const BookLists = () => {
+const BookLists = ({ getBookId }) => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
@@ -14,9 +14,15 @@ const BookLists = () => {
     const getBooks = async () => {
         const data = await getAllBooks();
         setBooks(data.docs.map((doc) => ({
+          // all the information this contains: title, author, status
           ...doc.data(),
+          // id is not included
           id: doc.id
         })));
+    }
+
+    const handleDelete = async (id) => {
+      await deleteBook(id);
     }
 
     console.log(books);
@@ -24,11 +30,6 @@ const BookLists = () => {
 
   return (
     <div style={{marginTop: "20px"}}>
-      <div className="mb-2">
-        <Button variant="dark edit">
-          Refresh List
-        </Button>
-      </div>
 
       {/* <pre>{JSON.stringify(books, undefined, 2)}</pre> */}
       <Table striped bordered hover size="sm">
@@ -43,7 +44,7 @@ const BookLists = () => {
         </thead>
         <tbody>
           {books.map((doc, index) => (
-            <tr>
+            <tr key={doc.id}>
                 <td>{index+1}</td>
                 <td>{doc.title}</td>
                 <td>{doc.author}</td>
@@ -52,13 +53,14 @@ const BookLists = () => {
                   <Button
                     variant="secondary"
                     className="edit"
+                    onClick={(e) => getBookId(doc.id)}
                   >
                     Edit
                   </Button>
                   <Button
                     variant="danger"
                     className="delete"
-                    onCli
+                    onClick={(e) => handleDelete(doc.id)}
                   >
                     Delete
                   </Button>

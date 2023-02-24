@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
-import { addBooks, deleteBook, updateBooks } from '../services/book.service';
-const AddBook = () => {
+import { addBooks, getBook, updateBooks } from '../services/book.service';
+
+const AddBook = ({ id, setBookId }) => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [status, setStatus] = useState("Available");
@@ -34,10 +35,34 @@ const AddBook = () => {
                 setMsg({error: true, msg: "All fields are mandatory!"})
             }
         }
+    };
 
-        console.log(msg);
+    console.log(title);
 
+
+    const editHandler = async () => {
+        setMsg("");
+        try{
+            const docSnap = await getBook(id);
+            setTitle(docSnap.data().title);
+            setAuthor(docSnap.data().author);
+            setStatus(docSnap.data().status);
+        } catch(err){
+            setMsg({error: true, msg: err.message})
+        }
     }
+
+
+
+    // UseEffect
+    useEffect(() => {
+        console.log("The id here is : ", id);
+        if (id !== undefined && id !== "") {
+          editHandler();
+        }
+      }, [id]);
+
+
   return (
     <>
     <div style={{marginTop: "30px"}}>

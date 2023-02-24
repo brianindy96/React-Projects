@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { motion, useScroll, useTransform } from "framer-motion";
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     min-height: 60vh;
     display: flex;
     flex-direction: ${props => props.reverse ? "row-reverse" : "row"};
 `
 
-const ImgContainer = styled.div`
+const ImgContainer = styled(motion.div)`
     flex: 1;
     background-image: ${props => props.image && `url(${props.image})`};
     background-size: cover;
@@ -65,11 +66,14 @@ const Links = styled(Link)`
     color: #494949;
 `
 const DescDivider = ({ id, name, explore, image, para1, para2, para3, reverse, title}) => {
-  return (
-    <Container 
+  let { scrollYProgress } = useScroll();
+  let y = useTransform(scrollYProgress, [0,1], ["0%", "20%"]);
+  
+    return (
+    <Container
     data-scroll-section  
     reverse={reverse}>
-        <ImgContainer image={image}>
+        <ImgContainer image={image} style= {{y}} >
             
         </ImgContainer>
         <DescContainer>

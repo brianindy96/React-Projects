@@ -6,14 +6,15 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 const Map = ({  coordinates, setBounds, setCoordinates }) => {
 
-    // const MAP_API_KEY = import.meta.env.VITE_MAP_API_KEY;
+    const MAP_API_KEY = import.meta.env.VITE_MAP_API_KEY;
 
     // CHIANG MAI const coord = { lat: 18.7883, lng: 98.9853 }
     // const coordinates = { lat: 0, lng: 0 }
-
+    
+    
   return (
     <div style={{ marginTop: "20px", height: '85vh', width: '100%' }}>
-        {/* <GoogleMapReact
+        <GoogleMapReact
         bootstrapURLKeys={{ key: MAP_API_KEY }}
         defaultCenter={coordinates}
         center={coordinates}
@@ -31,7 +32,7 @@ const Map = ({  coordinates, setBounds, setCoordinates }) => {
         // onChildClick={''}
         >
 
-        </GoogleMapReact> */}
+        </GoogleMapReact>
     </div>
   )
 }
