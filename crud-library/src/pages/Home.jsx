@@ -24,8 +24,8 @@ const Home = ({ getBookId }) => {
         }
 };
 
-    const handleDelete = async (id) => {
-        await deleteBook(id);
+    const handleDelete = (id) => {
+        deleteBook(id);
         fetchBooks(); // fetch the updated list of books after deleting a book
     }
 
