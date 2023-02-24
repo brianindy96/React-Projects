@@ -36,24 +36,25 @@ const Add = () => {
                         <FormInput required name="author" label="Author" type="text" />
                         <FormInput required name="pages" label="Pages" type="number" />
                         <div style={{display: "flex", alignItems: "center"}}>
-                        <Controller
-                            control={control}
-                            name="read"
-                            defaultValue={false}
-                            render={({ field }) => (
-                            <RadioGroup
-                                aria-label="Read"
-                                {...field}
-                                value={field.value ? "true" : "false"}
-                                onChange={(event) => field.onChange(event.target.value === "true")}
-                            >
-                                <div>
-                                <FormControlLabel className='px-6' value="true" control={<Radio />} label="Yes" />
-                                <FormControlLabel value="false" control={<Radio />} label="No"  />
-                                </div>
-                            </RadioGroup>
-                            )}
-                        />
+                            <FormLabel className='my-2 mx-2 text-black' id="demo-radio-buttons-group-label">Read</FormLabel>
+                            <Controller
+                                control={control}
+                                name="read"
+                                defaultValue={false}
+                                render={({ field }) => (
+                                <RadioGroup
+                                    aria-label="Read"
+                                    {...field}
+                                    value={field.value ? "true" : "false"}
+                                    onChange={(event) => field.onChange(event.target.value === "true")}
+                                >
+                                    <div>
+                                    <FormControlLabel className='px-6' value="true" control={<Radio />} label="Yes" />
+                                    <FormControlLabel value="false" control={<Radio />} label="No"  />
+                                    </div>
+                                </RadioGroup>
+                                )}
+                            />
                         </div>
                         <div className='flex flex-col mt-2 place-items-center ml-2'>
                             <button className='bg-blue-400 rounded-lg text-md hover:bg-blue-300 py-2 mt-2 px-28' type="submit">Add Book</button>

@@ -41,6 +41,7 @@ const Edit = () => {
                             <FormLabel className='my-2 mx-2 text-black' id="demo-radio-buttons-group-label">Read</FormLabel>
                             <Controller 
                                 control={control}
+                                defaultValue={false}
                                 name="read"
                                 render={({ field }) => (
                                 <RadioGroup
