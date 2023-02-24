@@ -3,7 +3,7 @@ import { Button } from "@mui/material"
 import { Link } from "react-router-dom"
 import { deleteBook, getAllBooks } from '../services/book.service'
 
-const Home = () => {
+const Home = ({ getBookId }) => {
 
     // State and constants
     const [books, setBooks] = useState([]);
@@ -28,6 +28,7 @@ const Home = () => {
         await deleteBook(id);
         fetchBooks(); // fetch the updated list of books after deleting a book
     }
+
 
 
 
@@ -60,7 +61,7 @@ const Home = () => {
                         )}</p>
                         <div className='mt-5'>
                             <Link to="/edit">
-                                <button className='bg-gray-100 hover:bg-gray-200 border rounded-lg mx-2 px-5 py-1'>Edit</button>
+                                <button onClick={(e) => getBookId(book.id)} className='bg-gray-100 hover:bg-gray-200 border rounded-lg mx-2 px-5 py-1'>Edit</button>
                             </Link>
                                 <button onClick={(e) => handleDelete(book.id)} className='bg-red-500 hover:bg-red-400 text-white border rounded-lg mx-2 py-1 px-5'>Delete</button>
                         </div>

@@ -4,8 +4,9 @@ import FormInput from '../components/FormInput';
 import { useForm, FormProvider, Controller, useFormContext } from "react-hook-form"
 import { FormLabel, RadioGroup, FormControlLabel, FormControl } from "@mui/material"
 import { Link, useNavigate } from 'react-router-dom';
+import { updateBooks } from '../services/book.service';
 
-const Edit = () => {
+const Edit = ({ bookId }) => {
     const methods = useForm();
 
     const { control } = useFormContext;
@@ -16,8 +17,9 @@ const Edit = () => {
 
     const onSubmit = async (data) =>{
         try{
-            console.log(data);
-            
+            // console.log(bookId);
+            // console.log(data);
+            await updateBooks(bookId, data);
             navigate("/");
         } catch(err){
             console.log(err.message)
@@ -32,7 +34,7 @@ const Edit = () => {
         <div className='h-95 flex justify-center items-center' id='wrapper'>
         <Paper sx={{ display: "flex", flexDirection: "column", height: "60vh", padding: "20px", minWidth: "720px", margin: "20px 0px", textAlign: "center", alignItems: "center", justifyContent: "center"}}>
                 <FormProvider { ...methods }>
-                    <form style={{display: "flex", flexDirection: "column",  justifyContent: "center", alignItems: "center"}}>
+                    <form onSubmit={handleSubmit(onSubmit)} style={{display: "flex", flexDirection: "column",  justifyContent: "center", alignItems: "center"}}>
                         <h1 className='text-4xl font-bold mb-5'>Edit book details</h1>
                         <FormInput required name="title" label="Title" type="text" />
                         <FormInput required name="author" label="Author" type="text" />
