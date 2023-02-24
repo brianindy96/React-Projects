@@ -1,12 +1,31 @@
 import React from 'react'
 import { Typography, Paper, Button, CircularProgress, Radio } from '@mui/material';
 import FormInput from '../components/FormInput';
-import { useForm, FormProvider } from "react-hook-form"
+import { useForm, FormProvider, Controller, useFormContext } from "react-hook-form"
 import { FormLabel, RadioGroup, FormControlLabel, FormControl } from "@mui/material"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Edit = () => {
     const methods = useForm();
+
+    const { control } = useFormContext;
+
+    const { handleSubmit } =  methods;
+
+    const navigate = useNavigate();
+
+    const onSubmit = async (data) =>{
+        try{
+            console.log(data);
+            
+            navigate("/");
+        } catch(err){
+            console.log(err.message)
+        }
+    }
+
+
+
 
   return (
     <div className='max-w-7xl m-auto h-95' id='main-container'>
@@ -20,16 +39,24 @@ const Edit = () => {
                         <FormInput required name="pages" label="Pages" type="number" />
                         <div style={{display: "flex", alignItems: "center"}}>
                             <FormLabel className='my-2 mx-2 text-black' id="demo-radio-buttons-group-label">Read</FormLabel>
-                            <RadioGroup
-                                aria-labelledby="demo-radio-buttons-group-label"
-                                defaultValue="female"
-                                name="radio-buttons-group"
-                            >
-                                <div>
-                                    <FormControlLabel className='px-6' value={true} control={<Radio />} label="Yes" />
-                                    <FormControlLabel value={false} control={<Radio />} label="No"  />
-                                </div>
-                            </RadioGroup>
+                            <Controller 
+                                control={control}
+                                name="read"
+                                render={({ field }) => (
+                                <RadioGroup
+                                    aria-label="Read"
+                                    {...field}
+                                    required
+                                    value={field.value ? "true" : "false"}
+                                    onChange={(event) => field.onChange(event.target.value === "true")}
+                                >
+                                    <div>
+                                    <FormControlLabel className='px-6' value="true" control={<Radio />} label="Yes" />
+                                    <FormControlLabel value="false" control={<Radio />} label="No"  />
+                                    </div>
+                                </RadioGroup>
+                                )}
+                            />
                         </div>
                         <div className='flex flex-col mt-2 place-items-center ml-2'>
                             <button className='bg-blue-500 rounded-lg text-md text-white hover:bg-blue-300 py-2 mt-2 px-28 font-semibold' type="submit">Edit Book</button>

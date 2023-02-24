@@ -53,7 +53,7 @@ const Home = () => {
                         <p><strong>Title: </strong> {book.title}</p>
                         <p><strong>Author:</strong> {book.author}</p>
                         <p><strong>Pages:</strong> {book.pages}</p>
-                        <p><strong>Read:</strong> {book.completed === true ? "Yes" : "No"}</p>
+                        <p><strong>Read:</strong> {book.read === true ? "Yes" : "No"}</p>
                         <div className='mt-5'>
                             <Link to="/edit">
                                 <button className='bg-gray-100 hover:bg-gray-200 border rounded-lg mx-2 px-5 py-1'>Edit</button>
