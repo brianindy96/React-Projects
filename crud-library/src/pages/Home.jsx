@@ -5,9 +5,10 @@ import { getAllBooks } from '../services/book.service'
 
 const Home = () => {
 
+    // State and constants
     const [books, setBooks] = useState([]);
-    // getBooksFromDatabase
 
+    // getBooksFromDatabase
     const fetchBooks = async () => {
         try{
             const data = await getAllBooks();
@@ -16,17 +17,17 @@ const Home = () => {
                 ...doc.data(),
                 id: doc.id,
               })))
+        } catch(err){
+            console.log(err.message);
+        }
+};
 
-    } catch(err){
-        console.log(err.message);
-    }
-
-    };
+    // UseEffects
     useEffect(() => {
         fetchBooks();
     }, [])
   return (
-    <div className='max-w-7xl m-auto h-full'>
+    <div className='max-w-7xl m-auto h-full px-5 xl:px-0'>
         <div className='py-5'>
             <div className='container py-5'>
                 <Link to="add">
