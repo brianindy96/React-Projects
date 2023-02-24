@@ -29,8 +29,11 @@ const Home = ({ getBookId }) => {
         fetchBooks(); // fetch the updated list of books after deleting a book
     }
 
+    const finishedRead = books.reduce((count, item) => {
+        return count + (item.read === true ? 1 : 0);
+    }, 0)
 
-
+    console.log(finishedRead);
 
     // UseEffects
     useEffect(() => {
@@ -39,12 +42,20 @@ const Home = ({ getBookId }) => {
   return (
     <div className='max-w-7xl m-auto h-full px-5 xl:px-0'>
         <div className='py-5'>
-            <div className='container py-5'>
+            <div className='container flex flex-wrap justify-center place-items-center py-5 w-full sm:justify-between'>
                 <Link to="add">
-                    <button className='text-white border px-7 p-2 bg-blue-400 hover:bg-blue-300 rounded-2xl '>
+                    <button className='text-white border px-10 p-2 bg-blue-400 hover:bg-blue-300 rounded-2xl '>
                             Add Book
                         </button>
                 </Link>
+                <div className='mt-5 transition-all duration-150'>
+                    <div className='bg-gray-600 text-white px-20 mx-5 sm:px-24 border-2 border-white py-1 rounded-md shadow-sm'>
+                        <p className='text-center  font-bold text-xl'>Scoreboard</p>
+                        <p className='text-gray-200'>Total Books: {books.length}</p>
+                        <p className='text-gray-200'>Read: {finishedRead}</p>
+                        <p className='text-gray-200'>Reading: {books.length - finishedRead} </p>
+                    </div>
+                </div>
             </div>
         </div>
         <div className='min-h-screen transition-all duration-300'>
