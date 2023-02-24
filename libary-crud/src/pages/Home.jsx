@@ -53,7 +53,7 @@ const Home = ({ bookId }) => {
 
   return (
     <>
-        <button className="w-full mt-5 h-[5]"><Link to="/add">ADD</Link></button>
+        <button style={{width: "100%", marginTop: "20px", height: "30px"}}><Link to="/add">ADD</Link></button>
         <Container>
             {/* <pre>{JSON.stringify(books, undefined, 2)}</pre> */}
             {books.map((book) => (
