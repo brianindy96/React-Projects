@@ -27,15 +27,15 @@ const Add = () => {
 
   return (
     <div className='max-w-7xl m-auto h-95' id='main-container'>
-        <div className='h-95 flex justify-center items-center' id='wrapper'>
-        <Paper sx={{ display: "flex", flexDirection: "column", height: "60vh", padding: "20px", minWidth: "720px", margin: "20px 0px", textAlign: "center", alignItems: "center", justifyContent: "center"}}>
+        <div className='min-h-full flex flex-col justify-center items-center mx-auto '>
+        <Paper className="flex flex-col justify-start items-center px-6 py-6 sm:px-24 sm:py-16 md:px-52 md:py-16 rounded-xl ">
                 <FormProvider { ...methods }>
-                    <form onSubmit={handleSubmit(onSubmit)} style={{display: "flex", flexDirection: "column",  justifyContent: "center", alignItems: "center"}}>
-                        <h1 className='text-4xl font-bold mb-5'>Add a book</h1>
+                    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center">
+                        <h1 className='text-4xl font-bold mb-5 mt-2'>Add a book</h1>
                         <FormInput required name="title" label="Title" type="text" />
                         <FormInput required name="author" label="Author" type="text" />
                         <FormInput required name="pages" label="Pages" type="number" />
-                        <div style={{display: "flex", alignItems: "center"}}>
+                        <div className="flex items-center">
                             <FormLabel className='my-2 mx-2 text-black' id="demo-radio-buttons-group-label">Read</FormLabel>
                             <Controller
                                 control={control}
@@ -56,10 +56,10 @@ const Add = () => {
                                 )}
                             />
                         </div>
-                        <div className='flex flex-col mt-2 place-items-center ml-2'>
-                            <button className='bg-blue-400 rounded-lg text-md hover:bg-blue-300 py-2 mt-2 px-28' type="submit">Add Book</button>
+                        <div className='flex flex-col mt-2 mb-5 place-items-center ml-2'>
+                            <button className='bg-blue-400 rounded-lg text-md hover:bg-blue-300 ' type="submit">Add Book</button>
                             <Link to="/">
-                                <button className='bg-gray-200 hover:bg-gray-400 rounded-lg text-black py-2 mt-5 px-28' variant="outlined">Cancel</button>
+                                <button className='bg-gray-200 hover:bg-gray-400 rounded-lg text-black' variant="outlined">Cancel</button>
                             </Link>
                         </div>
                     </form>
