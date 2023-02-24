@@ -3,15 +3,24 @@ import { Typography, Paper, Button, CircularProgress, Radio } from '@mui/materia
 import FormInput from '../components/FormInput';
 import { useForm, FormProvider, Controller, useFormContext } from "react-hook-form"
 import { FormLabel, RadioGroup, FormControlLabel, FormControl } from "@mui/material"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { addBooks } from '../services/book.service';
 
 const Add = () => {
     const methods = useForm();
 
     const { handleSubmit } =  methods;
     
-    const onSubmit = (data) =>{
-        console.log(data)
+    const navigate = useNavigate();
+
+    const onSubmit = async (data) =>{
+        try{
+            console.log(data);
+            addBooks(data);
+            navigate("/");
+        } catch(err){
+            console.log(err.message)
+        }
     }
 
     const { control } = useFormContext;
@@ -30,6 +39,7 @@ const Add = () => {
                         <Controller
                             control={control}
                             name="read"
+                            defaultValue={false}
                             render={({ field }) => (
                             <RadioGroup
                                 aria-label="Read"
