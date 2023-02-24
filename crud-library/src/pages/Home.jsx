@@ -49,11 +49,15 @@ const Home = () => {
         <div className='min-h-screen'>
             <div className='flex flex-wrap gap-20 justify-start flex-start' id='wrapper'>
                 {books.map((book) => (
-                    <div className='min-h-120 w-95 flex flex-col shadow-lg justify-center bg-white py-8 px-4 text-center rounded-2xl' key={book.id}>
+                    <div className='min-h-full leading-loose w-95 flex flex-col shadow-lg justify-center bg-white py-8 px-4 text-center rounded-2xl' key={book.id}>
                         <p><strong>Title: </strong> {book.title}</p>
                         <p><strong>Author:</strong> {book.author}</p>
                         <p><strong>Pages:</strong> {book.pages}</p>
-                        <p><strong>Finished:</strong> {book.read === true ? "Yes" : "No"}</p>
+                        <p><strong>Status:</strong> {book.read === true ? (
+                            <span className='text-green-600 font-extrabold'>Finished</span>
+                        ): (
+                            <span className='text-red-500 font-extrabold'>Not Finished</span>
+                        )}</p>
                         <div className='mt-5'>
                             <Link to="/edit">
                                 <button className='bg-gray-100 hover:bg-gray-200 border rounded-lg mx-2 px-5 py-1'>Edit</button>
