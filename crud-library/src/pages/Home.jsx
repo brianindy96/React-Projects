@@ -47,8 +47,8 @@ const Home = ({ getBookId }) => {
                 </Link>
             </div>
         </div>
-        <div className='min-h-screen'>
-            <div className='flex flex-wrap gap-20 justify-start flex-start' id='wrapper'>
+        <div className='min-h-screen transition-all duration-300'>
+            <div className='flex flex-wrap gap-20 justify-start flex-start transition-all duration-300' id='wrapper'>
                 {books.map((book) => (
                     <div className='min-h-full leading-loose w-95 flex flex-col shadow-lg justify-center bg-white py-8 px-4 text-center rounded-2xl' key={book.id}>
                         <p><strong>Title: </strong> {book.title}</p>

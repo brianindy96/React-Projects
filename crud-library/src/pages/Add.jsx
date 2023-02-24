@@ -28,7 +28,7 @@ const Add = () => {
   return (
     <div className='max-w-7xl m-auto h-95' id='main-container'>
         <div className='min-h-full flex flex-col justify-center items-center mx-auto '>
-        <Paper className="flex flex-col justify-start items-center px-6 py-6 sm:px-24 sm:py-16 md:px-52 md:py-16 rounded-xl ">
+        <div className="bg-white flex flex-col justify-start items-center px-6 py-5 sm:px-24 sm:py-16 md:px-52 md:py-16 rounded-xl transition-all duration-300 ">
                 <FormProvider { ...methods }>
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center">
                         <h1 className='text-4xl font-bold mb-5 mt-2'>Add a book</h1>
@@ -56,15 +56,15 @@ const Add = () => {
                                 )}
                             />
                         </div>
-                        <div className='flex flex-col mt-2 mb-5 place-items-center ml-2'>
-                            <button className='bg-blue-400 rounded-lg text-md hover:bg-blue-300 ' type="submit">Add Book</button>
+                        <div className='flex flex-col place-items-center ml-2'>
+                            <button className='bg-blue-500 font-bold text-white rounded-lg text-md hover:bg-blue-300 px-24 sm:px-28 py-2.5 tracking-wider mb-5 mt-2 ' type="submit">Add Book</button>
                             <Link to="/">
-                                <button className='bg-gray-200 hover:bg-gray-400 rounded-lg text-black' variant="outlined">Cancel</button>
+                                <button className='bg-gray-200 font-bold hover:bg-gray-400 rounded-lg text-black px-28 py-2 tracking-wide' variant="outlined">Cancel</button>
                             </Link>
                         </div>
                     </form>
                 </FormProvider>
-            </Paper>
+            </div>
         </div>
     </div>
   )
