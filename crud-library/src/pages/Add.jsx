@@ -31,7 +31,7 @@ const Add = () => {
         <div className="bg-white flex flex-col justify-start items-center px-6 py-5 sm:px-24 sm:py-16 md:px-52 md:py-16 rounded-xl transition-all duration-300 ">
                 <FormProvider { ...methods }>
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center">
-                        <h1 className='text-4xl font-bold mb-5 mt-2'>Add a book</h1>
+                        <h1 className='text-3xl sm:text-4xl font-bold mb-5 mt-2'>Add a book</h1>
                         <FormInput required name="title" label="Title" type="text" />
                         <FormInput required name="author" label="Author" type="text" />
                         <FormInput required name="pages" label="Pages" type="number" />

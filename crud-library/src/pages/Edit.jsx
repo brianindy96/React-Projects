@@ -31,11 +31,11 @@ const Edit = ({ bookId }) => {
 
   return (
     <div className='max-w-7xl m-auto h-95' id='main-container'>
-        <div className='h-95 flex justify-center items-center' id='wrapper'>
-        <Paper sx={{ display: "flex", flexDirection: "column", height: "60vh", padding: "20px", minWidth: "720px", margin: "20px 0px", textAlign: "center", alignItems: "center", justifyContent: "center"}}>
+        <div className='min-h-full flex flex-col justify-center items-center mx-auto ' id='wrapper'>
+        <div className='bg-white flex flex-col justify-start items-center px-6 py-5 sm:px-24 sm:py-16 md:px-52 md:py-16 rounded-xl transition-all duration-300 '>
                 <FormProvider { ...methods }>
-                    <form onSubmit={handleSubmit(onSubmit)} style={{display: "flex", flexDirection: "column",  justifyContent: "center", alignItems: "center"}}>
-                        <h1 className='text-4xl font-bold mb-5'>Edit book details</h1>
+                    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center">
+                        <h1 className='text-3xl sm:text-4xl font-bold mb-5 mt-2'>Edit book details</h1>
                         <FormInput required name="title" label="Title" type="text" />
                         <FormInput required name="author" label="Author" type="text" />
                         <FormInput required name="pages" label="Pages" type="number" />
@@ -62,14 +62,14 @@ const Edit = ({ bookId }) => {
                             />
                         </div>
                         <div className='flex flex-col mt-2 place-items-center ml-2'>
-                            <button className='bg-blue-500 rounded-lg text-md text-white hover:bg-blue-300 py-2 mt-2 px-28 font-semibold' type="submit">Edit Book</button>
+                            <button className='bg-blue-500 font-bold text-white rounded-lg text-md hover:bg-blue-300 px-24 sm:px-28 py-2.5 tracking-wider mb-5 mt-2 ' type="submit">Edit Book</button>
                             <Link to="/">
-                                <button className='bg-gray-200 hover:bg-gray-400 rounded-lg text-black py-2 mt-5 px-28 font-semibold' variant="outlined">Cancel</button>
+                                <button className='bg-gray-200 font-bold hover:bg-gray-400 rounded-lg text-black px-28 py-2 tracking-wide' variant="outlined">Cancel</button>
                             </Link>
                         </div>
                     </form>
                 </FormProvider>
-            </Paper>
+            </div>
         </div>
     </div>
   )
