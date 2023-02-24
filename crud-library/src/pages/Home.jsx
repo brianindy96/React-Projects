@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from "@mui/material"
 import { Link } from "react-router-dom"
-import { getAllBooks } from '../services/book.service'
+import { deleteBook, getAllBooks } from '../services/book.service'
 
 const Home = () => {
 
     // State and constants
     const [books, setBooks] = useState([]);
+
+        console.log(books);
 
     // getBooksFromDatabase
     const fetchBooks = async () => {
@@ -21,6 +23,13 @@ const Home = () => {
             console.log(err.message);
         }
 };
+
+    const handleDelete = async (id) => {
+        await deleteBook(id);
+        fetchBooks(); // fetch the updated list of books after deleting a book
+    }
+
+
 
     // UseEffects
     useEffect(() => {
@@ -49,7 +58,7 @@ const Home = () => {
                             <Link to="/edit">
                                 <button className='bg-gray-100 hover:bg-gray-200 border rounded-lg mx-2 px-5 py-1'>Edit</button>
                             </Link>
-                                <button className='bg-red-500 hover:bg-red-400 text-white border rounded-lg mx-2 py-1 px-5'>Delete</button>
+                                <button onClick={(e) => handleDelete(book.id)} className='bg-red-500 hover:bg-red-400 text-white border rounded-lg mx-2 py-1 px-5'>Delete</button>
                         </div>
                     </div>
                 ))}
