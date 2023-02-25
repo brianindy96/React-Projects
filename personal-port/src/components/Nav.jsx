@@ -43,7 +43,7 @@ const Nav = () => {
     <Container>
         <Wrapper>
             <Left>
-                <Logo>Brian</Logo>
+                <Logo>BRIAN.</Logo>
             </Left>
             <Right>
                 <NavLink href="#about">About</NavLink>

@@ -8,7 +8,7 @@ const Container = styled.div`
 `
 
 const Wrapper = styled.div`
-    min-height: 95vh;
+    min-height: 100vh;
     display: flex;
     width: 100vw;
 `
@@ -16,34 +16,39 @@ const Wrapper = styled.div`
 const Left = styled.div`
     flex: 1;
     display: flex;
-    align-items: flex-start;
-    padding-left: 8rem;
-    padding-top: 5rem;
+    justify-content: flex-start;
+    padding-top: 12rem;
     flex-direction: column;
     color: white;
 
 `
 
 const Right = styled.div`
-    flex: 1;
+    flex: 3;
+    width: 50vw;
 `
 
 const Title = styled.h1`
-    font-size: 8rem;
+    font-size: ${props => props.gray ? "2rem" : "7rem"};
+    margin: 0;
+    padding-left: ${props => props.gray ? "9rem" : "0"};
+    margin-top: ${props => props.gray ? "2rem" : "0"};
     color: ${props => props.gray ? "#a8a8a8" : "white"};
+    font-family: "Gloock", sans-serif;
+    letter-spacing: 1.3rem;
 `
 const Home = () => {
   return (
     <Container>
         <Wrapper>
             <Left>
-                <Title>Brian</Title>
-                <Title>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Garton</Title>
-                <Title gray>&nbsp;Frontend</Title>
-                <Title gray>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Developer</Title>
+                <Title>&nbsp;&nbsp;Brian</Title>
+                <Title>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Richard</Title>
+                <Title>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Garton</Title>
+                <Title gray>Frontend Developer</Title>
             </Left>
             <Right>
-                <Canvas style={{height: "90vh"}}>
+                <Canvas style={{height: "90vh", width: "100%"}}>
                     <ambientLight intensity={0.5} />
                     <pointLight position={[10, 10, 10]} />
                     {/* <OrbitControls /> */}
