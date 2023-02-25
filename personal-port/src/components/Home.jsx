@@ -8,7 +8,7 @@ const Container = styled.div`
 `
 
 const Wrapper = styled.div`
-    min-height: 100vh;
+    min-height: 95vh;
     display: flex;
     width: 100vw;
 `
