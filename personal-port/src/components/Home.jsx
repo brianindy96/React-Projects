@@ -1,5 +1,4 @@
-import { Canvas } from '@react-three/fiber'
-import React from 'react'
+import { Canvas  } from '@react-three/fiber'
 import styled from 'styled-components'
 import { Float, OrbitControls  } from '@react-three/drei'
 import { Carrot } from './CarrotCake'
@@ -18,7 +17,7 @@ const Left = styled.div`
     flex: 1;
     display: flex;
     align-items: flex-start;
-    padding-left: 5rem;
+    padding-left: 8rem;
     padding-top: 5rem;
     flex-direction: column;
     color: white;
@@ -40,8 +39,8 @@ const Home = () => {
             <Left>
                 <Title>Brian</Title>
                 <Title>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Garton</Title>
-                <Title gray>Frontend</Title>
-                <Title gray>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Developer</Title>
+                <Title gray>&nbsp;Frontend</Title>
+                <Title gray>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Developer</Title>
             </Left>
             <Right>
                 <Canvas style={{height: "90vh"}}>
