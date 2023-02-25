@@ -3,8 +3,9 @@ import styled from "styled-components"
 
 const Container = styled.div`
     min-height: 5vh;
-    margin-top: 1.2rem;
-    border-bottom: 1px black solid;
+    padding-top: 1.2rem;
+    background-color: black;
+    color: white;
 `
 
 const Wrapper = styled.div`
@@ -35,6 +36,7 @@ const NavLink = styled.a`
     text-decoration: none;
     margin: 0 20px;
     font-size: 1.2rem;
+    color: white;
 `
 const Nav = () => {
   return (

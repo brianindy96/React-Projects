@@ -9,9 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/cannon": "^6.5.2",
+    "@react-three/drei": "^9.56.27",
+    "@react-three/fiber": "^8.11.5",
+    "@react-three/gltfjsx": "^4.3.4",
+    "@types/three": "^0.149.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "three": "^0.150.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
