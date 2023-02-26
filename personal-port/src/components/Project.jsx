@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const Container = styled.div`
-    min-height: 60vh;
-    padding-top: 20px;
+    min-height: 65vh;
+    padding-top: 5rem;
 `
 
 const LeftRightCon = styled.div`
@@ -15,14 +16,13 @@ const LeftRightCon = styled.div`
 `
 // Left Container
 const Left = styled.div`
-    flex: 0.8;
+    flex: 1;
     width: 50%;
     display: flex;
-    width: 600px;
     flex-direction: column;
     justify-content: center;
-    padding-right: ${props => props.reverse ? "0" : "1.5rem"};
-    padding-left: ${props => props.reverse ? "3rem" : "0"};
+    padding-right: ${props => props.reverse ? "0" : "5rem"};
+    padding-left: ${props => props.reverse ? "0" : "0"};
 `
 
 const ProjectTitle = styled.h1`
@@ -46,12 +46,12 @@ const SummaryText = styled.p`
 `
 
 const SummaryTitle = styled.h3`
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;  
 `
 
 const TechnologyTitle = styled.h3`
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 0.5rem;
 `
 
@@ -61,13 +61,18 @@ const TechName = styled.p`
 `
 
 const LinkCon = styled.div`
-    margin-top: 1rem;
+    margin-top: 2.5rem;
 `
 
 const Links = styled.a`
     text-decoration: none;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     margin-right: 1rem;
+
+    &:hover {
+        color: #28c2f1ee;
+        transition: all 0.1s ease;
+    }
 `
 
 
@@ -77,40 +82,48 @@ const Links = styled.a`
 const Right = styled.div`
     flex: 1;
     width: 50%;
+    margin-left: ${props => props.reverse ? "4.5rem" : "0"};
 `
 
 const ImgContainer = styled.div`
-    width: 100%;
+    width: 80%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    
+    
 `
 
 const Img = styled.img`
-    width: 100%;
-    height: auto;
+    width: 130%;
+    height: 350px;
     object-fit: cover;
-    box-shadow: 10px 6px 33px -8px #ff0808;
-    z-index: 1000;
+    border-radius: 2px;
+    z-index: 1000;   
+    box-shadow: 8px 13px 57px -17px rgba(35, 175, 220, 1);
+ 
+
 `
-const Project = ({ reverse, img }) => {
+const Project = ({ project: { img, title, subtitle, summary, reverse, technologies, github, live }}) => {
   return (
     <Container>
-        <ProjectTitle>Weathering the storm</ProjectTitle>
-        <ProjectSubtitle>Weather App</ProjectSubtitle>
-        <LeftRightCon  reverse={reverse}>
-        <Left reverse={reverse}>
+        <ProjectTitle>{title}</ProjectTitle>
+        <ProjectSubtitle>{subtitle}</ProjectSubtitle>
+        <LeftRightCon reverse={reverse}>
+        <Left reverse={reverse} >
             <SummaryTitle>Summary</SummaryTitle>
             <SummaryText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eum, iure voluptates quisquam error cupiditate eligendi velit odio voluptatibus veritatis reiciendis eaque ducimus sequi unde, quasi beatae explicabo itaque numquam nihil inventore facere esse, nisi sint reprehenderit! Saepe, dolorem fugit.</SummaryText>
             <TechnologyTitle>Technologies:</TechnologyTitle>
-            <TechName>React, Commerce.js, Material UI, styled-components, React Router</TechName>
+            <TechName>{technologies}</TechName>
             <LinkCon>
-                <Links href="#">LIVE PREVIEW</Links>
-                <Links href="#">View Code</Links>
+                <Links href={github}>LIVE PREVIEW <span><OpenInNewIcon /></span></Links>
+                <Links href={live}>View Code <span><OpenInNewIcon /></span></Links>
             </LinkCon>
         </Left>
-        <Right reverse={reverse}>
-            <ImgContainer>
+        <Right reverse={reverse} >
+            <ImgContainer >
                 <Img src={img} alt="project thumbnail" />
             </ImgContainer>
         </Right>

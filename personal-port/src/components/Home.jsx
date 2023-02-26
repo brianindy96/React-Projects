@@ -38,12 +38,7 @@ const Title = styled.h1`
     letter-spacing: 1.3rem;
 `
 
-const Projects = styled.h1`
-    font-size: 4rem;
-    color: #e0e0e0;
-    padding-left: 5.5rem;
-    padding-bottom: 1rem;
-`
+
 const Home = () => {
   return (
     <Container>
@@ -65,7 +60,6 @@ const Home = () => {
                 </Canvas>
             </Right>
         </Wrapper>
-        <Projects >Projects</Projects>
     </Container>
   )
 }

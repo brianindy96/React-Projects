@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import Project from './Project'
 
 const Container = styled.div`
-    min-height: 100vh;
-    border-top: 1px solid #4e4e4e;
+    min-height: 100vh;    
 `
 
 const Wrapper = styled.div`
@@ -15,33 +14,47 @@ const Projects = () => {
 
     const projects = [
         {
-            title: "Parfume",
-            subtitle: "Ecommerce Website",
+            id: 1,
+            title: "LA FRAGILITE",
+            subtitle: "Perfume E-commerce Website",
             summary: "E-Commerce store",
             technologies: 'React, Commerce.js, Material UI, styled-components, React Router',
-            img: "/img/google.png",
+            img: "/img/perfume.png",
+            reverse: null,
+            github: "#",
+            live: "#",
         },
         {
+            id: 2,
             title: "Weathering the Storm",
             subtitle: "Weather App",
             summary: "This is a clone of the Google homepage. It uses the Google API to search for images and the Google Custom Search API to search for websites. It also uses the Google Translate API to translate the page into different languages.",
             technologies: 'React, OpenWeatherMap API, React-Router, styled-components, Luxon3',
-            img: "/img/project-two.png",
+            img: "/img/weather.png",
+            reverse: true,
+            github: "#",
+            live: "#",
         },
         {
+            id: 3,
             title: "Die Bibliothek",
             subtitle: "CRUD Library App",
             summary: "",
             technologies: 'React, Tailwind CSS, Firebase, React-Router, MUI',
-            img: "/img/project-three.png",
+            img: "/img/library.png",
+            reverse: null,
+            github: "#",
+            live: "#",
         },
     ]
   return (
     <Container id='project'>
         <Wrapper>
-            <Project img="/img/google.png" />
-            <Project img="/img/project-two.png" reverse/>
-            <Project img="/img/project-three.png" />
+            {projects.map((project) => (
+                <>
+                    <Project key={project.id} project={project} />
+                </>
+            ))}
         </Wrapper>
     </Container>
   )

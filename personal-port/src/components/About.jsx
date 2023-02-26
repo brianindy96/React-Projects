@@ -3,7 +3,13 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     height: 100vh;
-    border-top: 1px solid white;
+    
+`
+
+const Wrapper = styled.div`
+    max-width: 1280px;
+    height: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,13 +27,15 @@ const Right = styled.div`
 const About = () => {
   return (
     <Container id="about">
-        <Left>
-            <h1>About</h1>
-            <h3 style={{color: "grey"}}>About me</h3>
-        </Left>
-        <Right>
-            Right   
-        </Right>
+        <Wrapper>
+            <Left>
+                <h1>About</h1>
+                <h3 style={{color: "grey"}}>About me</h3>
+            </Left>
+            <Right>
+                Right   
+            </Right>
+        </Wrapper>
     </Container>
   )
 }

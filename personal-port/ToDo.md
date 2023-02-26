@@ -6,16 +6,16 @@ dependencies: Three.js and react-three-fiber
 [x] min-height 90vh with flex left and right flex-wrap
 [x] left intro (name, frontend, call to action to about)
 []x right Three js animation (donut website on youtube)
-3. About
-[] Introduction text ( name, frontend)
-[] brief text, confident key skills
-[] Lists of all the skills
-4. 3 Projects
+3. 3 Projects
 [] Projects flex flex-col
 [] full-width each project (seperate into resuable component )
 [] Project flex seperate into left and right
 [] Left: Title, subittle, screenshot
 [] Right: Summary, Technologies, Live Preview and View code on github
+4. About
+[] Introduction text ( name, frontend)
+[] brief text, confident key skills
+[] Lists of all the skills
 5. Contacts
 [] react-hook-form
 [] Netlify Form? 
@@ -25,3 +25,6 @@ dependencies: Three.js and react-three-fiber
 [] flex 3 columns
 [] left col: Copyrights, name
 [] right col: social media
+7. Responsive
+[]
+8. Framer-Motion
