@@ -41,7 +41,7 @@ const Projects = () => {
             subtitle: "CRUD Library App",
             summary: "",
             technologies: 'React, Tailwind CSS, Firebase, React-Router, MUI',
-            img: "/img/library.png",
+            img: "/img/library4.png",
             reverse: null,
             github: "#",
             live: "#",
