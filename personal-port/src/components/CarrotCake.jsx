@@ -11,7 +11,7 @@ export function Carrot(props) {
   const { nodes, materials } = useGLTF('/carrot-cake/carrot_cake_4k.gltf');
   return (
     <group {...props} dispose={null} scale={20}>
-      <mesh geometry={nodes.carrot_cake.geometry} material={materials.carrot_cake} rotation={[Math.PI/4, 0, 0]}/>
+      <mesh geometry={nodes.carrot_cake.geometry} material={materials.carrot_cake} position={[0,0,0.03]} rotation={[Math.PI/4, 0, 0]}/>
     </group>
   )
 }

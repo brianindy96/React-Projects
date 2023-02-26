@@ -51,7 +51,7 @@ const Home = () => {
                 <Canvas style={{height: "90vh", width: "100%"}}>
                     <ambientLight intensity={0.5} />
                     <pointLight position={[10, 10, 10]} />
-                    {/* <OrbitControls /> */}
+                    <OrbitControls />
                     <Float speed={1.4} rotationIntensity={2} floatIntensity={2.3}>
                         <Carrot />
                     </Float>

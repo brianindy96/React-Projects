@@ -46,8 +46,8 @@ const Nav = () => {
                 <Logo>BRIAN.</Logo>
             </Left>
             <Right>
-                <NavLink href="#about">About</NavLink>
                 <NavLink href="#project">Projects</NavLink>
+                <NavLink href="#about">About</NavLink>
                 <NavLink href="#contact">Contact</NavLink>
             </Right>
         </Wrapper>

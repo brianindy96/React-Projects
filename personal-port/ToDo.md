@@ -1,11 +1,11 @@
 dependencies: Three.js and react-three-fiber
 
 1. Header 
-[] 10vh, fixed, left mock logo, right navigation links to each #section tag (look at travel-thailand)
+[x] 10vh, fixed, left mock logo, right navigation links to each #section tag (look at travel-thailand)
 2. Landing Page
-[] min-height 90vh with flex left and right flex-wrap
-[] left intro (name, frontend, call to action to about)
-[] right Three js animation (donut website on youtube)
+[x] min-height 90vh with flex left and right flex-wrap
+[x] left intro (name, frontend, call to action to about)
+[]x right Three js animation (donut website on youtube)
 3. About
 [] Introduction text ( name, frontend)
 [] brief text, confident key skills
