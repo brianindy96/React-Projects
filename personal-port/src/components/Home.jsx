@@ -4,7 +4,7 @@ import { Float, OrbitControls  } from '@react-three/drei'
 import { Carrot } from './CarrotCake'
 
 const Container = styled.div`
-    background-color: #141414;
+
 `
 
 const Wrapper = styled.div`
@@ -37,6 +37,13 @@ const Title = styled.h1`
     font-family: "Gloock", sans-serif;
     letter-spacing: 1.3rem;
 `
+
+const Projects = styled.h1`
+    font-size: 4rem;
+    color: #e0e0e0;
+    padding-left: 5.5rem;
+    padding-bottom: 1rem;
+`
 const Home = () => {
   return (
     <Container>
@@ -51,13 +58,14 @@ const Home = () => {
                 <Canvas style={{height: "90vh", width: "100%"}}>
                     <ambientLight intensity={0.5} />
                     <pointLight position={[10, 10, 10]} />
-                    <OrbitControls />
+                    {/* <OrbitControls /> */}
                     <Float speed={1.4} rotationIntensity={2} floatIntensity={2.3}>
                         <Carrot />
                     </Float>
                 </Canvas>
             </Right>
         </Wrapper>
+        <Projects >Projects</Projects>
     </Container>
   )
 }
