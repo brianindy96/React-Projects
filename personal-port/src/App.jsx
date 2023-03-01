@@ -4,6 +4,8 @@ import Home from './components/Home'
 import Nav from './components/Nav'
 import styled from 'styled-components'
 import Projects from './components/Projects'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 const Container = styled.div`
   overflow: hidden;
@@ -15,6 +17,7 @@ const SectionTitle = styled.h1`
     color: grey;
     padding-left: 5.5rem;
     padding-bottom: 1rem;
+    margin-top: 1.5arem;
 `
 function App() {
 
@@ -26,7 +29,8 @@ function App() {
         <Projects />
         <SectionTitle>About</SectionTitle>
         <About />
-        <SectionTitle>Contact</SectionTitle>
+        <Contact />
+        <Footer />
     </Container>
   )
 }

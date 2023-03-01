@@ -29,7 +29,7 @@ const AboutTitle = styled.h1`
 
 const Desc = styled.p`
     font-size: 1.5rem;
-    color: lightgray;
+    color: #9e9e9e;
     margin-top: 20px;
     line-height: 2.5rem;
 `
