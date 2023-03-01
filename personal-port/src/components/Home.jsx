@@ -35,7 +35,7 @@ const Left = styled.div`
     ${xs({display: "none"})};
     ${sm({display: "none"})};
     ${md({display: "none"})};
-    ${xl({display: "inline-block", flex: "2"})};
+    ${xl({display: "inline-block", flex: "2", paddingRight: "2rem"})};
 
 `
 
@@ -98,7 +98,7 @@ const Home = () => {
             </TitleHide>
             <Left>
                 <Title>Brian</Title>
-                <Title>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Richard</Title>
+                <Title>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Richard</Title>
                 <Title>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Garton</Title>
                 <Title gray>Frontend Developer</Title>
                 
