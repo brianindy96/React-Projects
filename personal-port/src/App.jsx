@@ -17,7 +17,7 @@ const SectionTitle = styled.h1`
     color: grey;
     padding-left: 5.5rem;
     padding-bottom: 1rem;
-    margin-top: 1.5arem;
+    margin-top: 1.5rem;
 `
 function App() {
 
