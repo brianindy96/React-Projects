@@ -24,8 +24,8 @@ function App() {
   return (
     <Container>
         <Nav />
-        {/* <Home />
-        <SectionTitle>Projects</SectionTitle>
+        <Home />
+        {/* <SectionTitle>Projects</SectionTitle>
         <Projects />
         <SectionTitle>About</SectionTitle>
         <About />
