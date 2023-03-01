@@ -36,13 +36,19 @@ const Logos = styled.div`
     display: flex;
     justify-content: flex-start;
     margin-top: 1rem;
+    background-color: #e8e8e8;
+    flex-direction: column;
+
 `
 
 const LogoCon = styled.div`
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 1rem;
+    background: transparent;
+    background-color: #e8e8e8;
+    color: black;
+    font-size: 1.2rem;
+    margin-left: 0.3rem;
+    margin-bottom: 0.3rem;
 `
 
 
@@ -52,14 +58,6 @@ const Contact = () => {
         <Wrapper>
             <Title>Get to know me</Title>
             <Desc href="#">gartonb@gmail.com</Desc>
-            <Logos>
-                <LogoCon>
-                    <GitHubIcon />
-                </LogoCon>
-                <LogoCon>
-                    <LinkedInIcon />
-                </LogoCon>
-            </Logos>
         </Wrapper>
     </Container>
   )

@@ -1,11 +1,12 @@
 import { Canvas  } from '@react-three/fiber'
 import styled from 'styled-components'
-import { Float, OrbitControls  } from '@react-three/drei'
+import { Float  } from '@react-three/drei'
 import { Carrot } from './CarrotCake'
 
 
 const Container = styled.div`
-
+    width: 100%;
+    height: 100%
 `
 
 const Wrapper = styled.div`
