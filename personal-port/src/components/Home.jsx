@@ -2,8 +2,7 @@ import { Canvas  } from '@react-three/fiber'
 import styled from 'styled-components'
 import { Float, OrbitControls  } from '@react-three/drei'
 import { Carrot } from './CarrotCake'
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+
 
 const Container = styled.div`
 
@@ -40,19 +39,6 @@ const Title = styled.h1`
     letter-spacing: 1.3rem;
 `
 
-const Logos = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 8rem;
-    margin-top: 3rem;
-`
-
-const LogoCon = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 1rem;
-`
 
 
 const Home = () => {

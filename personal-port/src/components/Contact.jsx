@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Container = styled.div`
     min-height: 40vh;
@@ -30,13 +32,34 @@ const Desc = styled.a`
 `
 
 
+const Logos = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1rem;
+`
+
+const LogoCon = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+`
+
+
 const Contact = () => {
   return (
     <Container id='contact'>
         <Wrapper>
             <Title>Get to know me</Title>
             <Desc href="#">gartonb@gmail.com</Desc>
-            
+            <Logos>
+                <LogoCon>
+                    <GitHubIcon />
+                </LogoCon>
+                <LogoCon>
+                    <LinkedInIcon />
+                </LogoCon>
+            </Logos>
         </Wrapper>
     </Container>
   )
