@@ -24,13 +24,13 @@ function App() {
   return (
     <Container>
         <Nav />
-        <Home />
+        {/* <Home />
         <SectionTitle>Projects</SectionTitle>
         <Projects />
         <SectionTitle>About</SectionTitle>
         <About />
         <Contact />
-        <Footer />
+        <Footer /> */}
     </Container>
   )
 }

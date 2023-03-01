@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from "styled-components"
+import { xs, sm, md, lg, xl} from "../responsive"
 
 const Container = styled.div`
     min-height: 5vh;
-    padding-top: 1.2rem;
+    padding: 0.8rem 0;
 `
 
 const Wrapper = styled.div`
@@ -13,6 +14,10 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+
+    ${xs({padding: "0 1.2rem"})};
+    ${sm({padding: "0 1.2rem"})};
 `
 
 // Left Nav
@@ -23,6 +28,10 @@ const Left = styled.div`
 
 const Logo = styled.h1`
     margin: 0px;
+    transition: 0.2s ease;
+
+    ${xs({fontSize: "1.4rem"})};
+
 `
 
 // Right Nav
@@ -35,6 +44,12 @@ const NavLink = styled.a`
     margin: 0 20px;
     font-size: 1.2rem;
     color: white;
+
+    transition: 0.2s ease;
+
+    ${xs({margin: "0 0.4rem", fontSize: "1rem"})};
+
+    
 `
 const Nav = () => {
   return (
