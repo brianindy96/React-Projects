@@ -37,9 +37,9 @@ function App() {
         <Home />
         <SectionTitle>Projects</SectionTitle>
         <Projects />
-        {/* <SectionTitle>About</SectionTitle>
+        <SectionTitle>About</SectionTitle>
         <About />
-        <Contact />
+        {/* <Contact />
         <Footer /> */}
     </Container>
   )

@@ -1,9 +1,12 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
+import { xs, sm, md, lg, xl } from "../responsive"
+
 
 const Container = styled.div`
-    height: 100vh;
-    
+    min-height: 95vh;
+    ${xs({padding: "1rem 1.5rem 3rem 1.5rem"})};
+
 `
 
 const Wrapper = styled.div`
@@ -19,6 +22,7 @@ const Wrapper = styled.div`
 const AboutTitle = styled.h1`
     font-size: 4rem;
     
+    ${xs({fontSize: "3rem", textAlign: "center"})};
 `
 
 const Desc = styled.p`
@@ -27,6 +31,9 @@ const Desc = styled.p`
     color: #9e9e9e;
     margin-top: 20px;
     line-height: 2.5rem;
+
+    ${xs({fontSize: "1rem", textAlign: "center"})};
+
 `
 
 
@@ -115,6 +122,9 @@ const List = styled.ul`
 const ListItem = styled.li`
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
+
+    ${xs({fontSize: "1.1rem", textAlign: "center", marginBottom: "0.9rem"})};
+
 `
 
  
