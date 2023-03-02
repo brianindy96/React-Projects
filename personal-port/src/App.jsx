@@ -24,8 +24,8 @@ const SectionTitle = styled.h1`
 
     ${xs({fontSize: "1.5rem", textAlign: "center", paddingBottom: "0", paddingLeft: "0", padding: "0.5rem"})};
     ${sm({fontSize: "2rem", textAlign: "center", paddingBottom: "0", paddingLeft: "0", padding: "0.5rem"})};
-    ${md({fontSize: "2.5rem", textAlign: "center", paddingBottom: "0", paddingLeft: "0", padding: "1rem", marginBottom: "2rem"})};
-    ${xl({fontSize: "4rem", paddingBottom: "0", paddingLeft: "0", padding: "1rem"})};
+    ${md({fontSize: "4rem", textAlign: "left", paddingBottom: "1rem", paddingLeft: "19.5rem", marginBottom: "2rem"})};
+    /* ${xl({fontSize: "4rem", paddingBottom: "0", paddingLeft: "5.5rem", padding: "1rem", textAlign: "left"})}; */
 
 
 `
@@ -39,8 +39,8 @@ function App() {
         <Projects />
         <SectionTitle>About</SectionTitle>
         <About />
-        {/* <Contact />
-        <Footer /> */}
+        {/* <Contact /> */}
+        <Footer />
     </Container>
   )
 }
