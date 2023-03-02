@@ -24,7 +24,7 @@ const SectionTitle = styled.h1`
 
     ${xs({fontSize: "1.5rem", textAlign: "center", paddingBottom: "0", paddingLeft: "0", padding: "0.5rem"})};
     ${sm({fontSize: "2rem", textAlign: "center", paddingBottom: "0", paddingLeft: "0", padding: "0.5rem"})};
-    ${md({fontSize: "2.5rem", textAlign: "center", paddingBottom: "0", paddingLeft: "0", padding: "1rem"})};
+    ${md({fontSize: "2.5rem", textAlign: "center", paddingBottom: "0", paddingLeft: "0", padding: "1rem", marginBottom: "2rem"})};
     ${xl({fontSize: "4rem", paddingBottom: "0", paddingLeft: "0", padding: "1rem"})};
 
 
