@@ -37,7 +37,7 @@ const Logo = styled.h1`
 // Right Nav
 
 const Right = styled.div`
-    
+    display: flex;
 `
 const NavLink = styled.a`
     text-decoration: none;
@@ -61,7 +61,8 @@ const Nav = () => {
             <Right>
                 <NavLink href="#project">Projects</NavLink>
                 <NavLink href="#about">About</NavLink>
-                <NavLink href="#contact">Contact</NavLink>
+                <NavLink href="#footer">Contact</NavLink>
+                <NavLink href="#resume">Resume </NavLink>
             </Right>
         </Wrapper>
     </Container>
