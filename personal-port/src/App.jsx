@@ -20,7 +20,8 @@ const SectionTitle = styled.h1`
     color: grey;
     padding-left: 5.5rem;
     padding-bottom: 1rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 
     ${xs({fontSize: "1.5rem", textAlign: "center", paddingBottom: "0", paddingLeft: "0", padding: "0.5rem"})};
     ${sm({fontSize: "2rem", textAlign: "center", paddingBottom: "0", paddingLeft: "0", padding: "0.5rem"})};

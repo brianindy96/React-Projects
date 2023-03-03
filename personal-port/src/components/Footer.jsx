@@ -7,7 +7,7 @@ import GitHub from '@mui/icons-material/GitHub';
 import { xs, sm, md, lg, xl } from '../responsive';
 
 const Container = styled.div`
-    min-height: 10vh;
+    min-height: 20vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +34,7 @@ const Left = styled.div`
   
   ${xs({marginTop: "2rem"})};
   ${sm({marginLeft: "2rem"})};
-  ${md({marginLeft: "0"})};
+  ${md({marginLeft: "2rem"})};
 
 `
 
