@@ -4,8 +4,8 @@ import { xs, sm, md, lg, xl} from "../responsive"
 import { motion } from "framer-motion"
 
 const Container = styled(motion.div)`
-    min-height: 5vh;
-    padding: 0.8rem 0;
+    min-height: 3vh;
+    padding: 0;
     position: fixed;
     width: 100%;
     z-index: 10000;
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
     ${(props) =>
     props.hasBorder &&
     `
-      border-bottom: 2px solid #797979;
+      border-bottom: 0.05px solid #797979;
     `}
 
 

@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     width: 100vw;
 
     ${xs({marginTop: "4rem"})};
-    ${sm({marginTop: "7rem"})};
+    ${sm({marginTop: "6rem"})};
     ${md({flexDirection: "column", minHeight: "100vh"})};
 
     ${lg({flexDirection: "column"})};
