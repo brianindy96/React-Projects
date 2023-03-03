@@ -10,6 +10,7 @@ import { xs, sm, md, lg, xl} from "./responsive"
 
 const Container = styled.div`
   overflow: hidden;
+  min-height: 150vh;
 
   
 `
