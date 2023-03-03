@@ -170,8 +170,8 @@ const Project = ({ project: { img, title, subtitle, summary, reverse, technologi
             <TechnologyTitle>Technologies:</TechnologyTitle>
             <TechName>{technologies}</TechName>
             <LinkCon>
-                <Links href={github}>LIVE PREVIEW <span><OpenInNewIcon /></span></Links>
-                <Links href={live}>View Code <span><OpenInNewIcon /></span></Links>
+                <Links href={live} target="_blank">LIVE PREVIEW <span><OpenInNewIcon /></span></Links>
+                <Links href={github} target="_blank">View Code <span><OpenInNewIcon /></span></Links>
             </LinkCon>
         </Left>
         <Right reverse={reverse} >

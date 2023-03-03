@@ -21,8 +21,8 @@ const Projects = () => {
             technologies: 'React, Commerce.js, Material UI, styled-components, React Router',
             img: "/img/perfume.png",
             reverse: null,
-            github: "#",
-            live: "#",
+            github: "https://github.com/brianindy96/React-Projects/tree/maine/perfume-shop",
+            live: "",
         },
         {
             id: 2,
@@ -32,8 +32,8 @@ const Projects = () => {
             technologies: 'React, OpenWeatherMap API, React-Router, styled-components, Luxon3',
             img: "/img/weather.png",
             reverse: true,
-            github: "#",
-            live: "#",
+            github: "https://github.com/brianindy96/React-Projects/tree/maine/weather-app",
+            live: "",
         },
         {
             id: 3,
@@ -43,8 +43,8 @@ const Projects = () => {
             technologies: 'React, Tailwind CSS, Firebase, React-Router, MUI',
             img: "/img/library4.png",
             reverse: null,
-            github: "#",
-            live: "#",
+            github: "https://github.com/brianindy96/React-Projects/tree/maine/crud-library",
+            live: "",
         },
     ]
   return (
