@@ -1,7 +1,8 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { xs, sm, md, lg, xl } from "../responsive"
-
+import { motion } from 'framer-motion'
+import { textVariant } from "../utils/motion"
 
 const Container = styled.div`
     ${xs({padding: "1rem 1.5rem 3rem 1.5rem"})};

@@ -93,7 +93,7 @@ const Title = styled(motion.span)`
     font-size: ${props => props.gray ? "3rem" : "7rem"};
     margin: 0;
     padding-left: ${props => props.gray ? "11rem" : "0"};
-    margin-top: ${props => props.gray ? "2rem" : "0"};
+    margin-top: ${props => props.gray ? "0rem" : "0"};
     color: ${props => props.gray ? "#a8a8a8" : "white"};
     font-family: "Gloock", sans-serif;
     letter-spacing: 1.3rem;

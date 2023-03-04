@@ -2,14 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { xs,sm, md, lg, xl } from '../responsive';
+import { motion } from 'framer-motion'
+import { textVariant, slideIn, fadeIn } from "../utils/motion"
 
 const Container = styled.div`
     min-height: 55vh;
     
 
-    ${xs({textAlign: "center" })};
+    ${xs({textAlign: "center", margin: "1rem 0" })};
     ${sm({textAlign: "center" })};
-    ${lg({textAlign: "left"})};
+    ${lg({textAlign: "left", marginBottom: "5rem"})};
 
 `
 
@@ -27,7 +29,7 @@ const LeftRightCon = styled.div`
 
 `
 // Left Container
-const Left = styled.div`
+const Left = styled(motion.div)`
     flex: 1;
     width: 50%;
     display: flex;
@@ -42,7 +44,7 @@ const Left = styled.div`
 
 `
 
-const ProjectTitle = styled.h1`
+const ProjectTitle = styled(motion.h1)`
     font-size: 2.5rem;
     font-family: 'Bai Jamjuree', sans-serif;
 
@@ -50,7 +52,7 @@ const ProjectTitle = styled.h1`
 
 `
 
-const ProjectSubtitle = styled.h2`
+const ProjectSubtitle = styled(motion.h2)`
     font-size: 1.8rem;
     margin-bottom: 2rem;
     margin-top: 0;
@@ -147,7 +149,7 @@ const ImgContainer = styled.div`
     
 `
 
-const Img = styled.img`
+const Img = styled(motion.img)`
     width: 130%;
     height: 350px;
     object-fit: cover;
@@ -161,10 +163,26 @@ const Img = styled.img`
 const Project = ({ project: { img, title, subtitle, summary, reverse, technologies, github, live }}) => {
   return (
     <Container>
-        <ProjectTitle>{title}</ProjectTitle>
-        <ProjectSubtitle>{subtitle}</ProjectSubtitle>
+        <ProjectTitle
+        variants={textVariant(0.1)}
+        whileInView="show"
+        initial="hidden"
+        viewport={{once: true, amount: 0.25}}
+        >{title}</ProjectTitle>
+        <ProjectSubtitle
+        variants={textVariant(0.2)}
+        whileInView="show"
+        initial="hidden"
+        viewport={{once: true, amount: 0.25}}
+        >{subtitle}</ProjectSubtitle>
         <LeftRightCon reverse={reverse}>
-        <Left reverse={reverse} >
+        <Left 
+        reverse={reverse}
+        variants={fadeIn("left", "tween", 0.4, 1)}
+        whileInView="show"
+        initial="hidden"
+        viewport={{once: true, amount: 0.25}}
+        >
             <SummaryTitle>Summary</SummaryTitle>
             <SummaryText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eum, iure voluptates quisquam error cupiditate eligendi velit odio voluptatibus veritatis reiciendis eaque ducimus sequi unde, quasi beatae explicabo itaque numquam nihil inventore facere esse, nisi sint reprehenderit! Saepe, dolorem fugit.</SummaryText>
             <TechnologyTitle>Technologies:</TechnologyTitle>
@@ -176,7 +194,12 @@ const Project = ({ project: { img, title, subtitle, summary, reverse, technologi
         </Left>
         <Right reverse={reverse} >
             <ImgContainer >
-                <Img src={img} alt="project thumbnail" />
+                <Img 
+                variants={fadeIn("right", "tween", 0.2, 1)}
+                whileInView="show"
+                initial="hidden"
+                viewport={{once: true, amount: 0.25}}
+                src={img} alt="project thumbnail" />
             </ImgContainer>
         </Right>
         </LeftRightCon>     
