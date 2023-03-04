@@ -77,7 +77,7 @@ function App() {
         </SectionDivider>
         <About /> 
         {/* <Contact /> */}
-        {/* <Footer /> */}
+        <Footer />
     </Container>
   )
 }

@@ -5,8 +5,10 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LinkedIn from '@mui/icons-material/LinkedIn';
 import GitHub from '@mui/icons-material/GitHub';
 import { xs, sm, md, lg, xl } from '../responsive';
+import { motion } from "framer-motion"
+import { footerVariants } from "../utils/motion"
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     min-height: 20vh;
     display: flex;
     justify-content: space-between;
@@ -84,7 +86,13 @@ const Text = styled.p`
 `
 const Footer = () => {
   return (
-    <Container id="footer">
+    <Container 
+    id="footer"
+    variants={footerVariants}
+    initial="hidden"
+    whileInView="show"
+    viewport={{once: false, amount: 0.25}}
+    >
       <Wrapper>
       <Left>
             <div>

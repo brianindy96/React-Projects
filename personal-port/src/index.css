@@ -12,4 +12,6 @@
     scroll-behavior: smooth;
     background-color: #212121;
     color: white;
+    scroll-margin: 50px;
+    transition: scroll-behavior 2s ease-out;
 }
