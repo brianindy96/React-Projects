@@ -164,13 +164,13 @@ const Project = ({ project: { img, title, subtitle, summary, reverse, technologi
   return (
     <Container>
         <ProjectTitle
-        variants={textVariant(0.1)}
+        variants={textVariant(0.2)}
         whileInView="show"
         initial="hidden"
         viewport={{once: false, amount: 0.25}}
         >{title}</ProjectTitle>
         <ProjectSubtitle
-        variants={textVariant(0.2)}
+        variants={textVariant(0.3)}
         whileInView="show"
         initial="hidden"
         viewport={{once: false, amount: 0.25}}

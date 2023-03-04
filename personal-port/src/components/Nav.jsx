@@ -32,7 +32,6 @@ const Wrapper = styled.div`
     align-items: center;
 
     border-bottom: ${(props) => props.hasBorder ? '0.05px solid #393838' : 'none'};
-    transition: border-bottom 3s cubic-bezier(0.4, 0, 0.2, 1);
 
 
     ${xs({padding: "1rem 1.2rem"})};
@@ -49,9 +48,7 @@ const Left = styled.div`
 const Logo = styled.h1`
     margin: 0px;
     background: transparent;
-
     transition: 0.2s ease;
-
     ${xs({fontSize: "1.4rem"})};
 
 `
@@ -118,7 +115,7 @@ const Nav = () => {
     >
         <Wrapper hasBorder={hasBorder}>
             <Left>
-                <Logo>BRIAN.</Logo>
+                <Logo>BG.</Logo>
             </Left>
             <Right>
                 <NavLink href="#project">Projects</NavLink>
