@@ -106,12 +106,12 @@ const Footer = () => {
             </ContactItem>
             <SocialContainer>
                 <SocialIcon color="#3B5999">
-                  <a href="#">
+                  <a href="https://www.linkedin.com/in/brian-richard-garton-7454071a1/" target="_blank">
                     <LinkedIn style={{height: "28px", width: "28px"}} />
                   </a>
                 </SocialIcon>
                 <SocialIcon color="#E4405F">
-                  <a href="#">
+                  <a href="https://github.com/brianindy96" target="_blank">
                     <GitHub style={{height: "28px", width: "28px"}} />
                   </a>
                 </SocialIcon>

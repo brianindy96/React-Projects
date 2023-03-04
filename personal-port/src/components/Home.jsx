@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { Float  } from '@react-three/drei'
 import { Carrot } from './CarrotCake'
 import { xs, sm, md, lg, xl} from "../responsive"
-
+import { motion } from "framer-motion"
+import { fadeIn, slideIn, zoomIn } from '../utils/motion'
 
 const Container = styled.div`
     width: 100%;
@@ -56,7 +57,7 @@ const TitleHide = styled.div`
 
 `
 
-const Right = styled.div`
+const Right = styled(motion.div)`
     width: 50%;
 
     ${xs({display: "none"})};
@@ -68,7 +69,7 @@ const Right = styled.div`
 `
 
 const Canva = styled(Canvas)`
-    height: 83vh; 
+    height: 63vh; 
     width: 100%;
     z-index: 1;
     position: absolute;
@@ -88,7 +89,7 @@ const TitleCon = styled.div`
 
 `
 
-const Title = styled.span`
+const Title = styled(motion.span)`
     font-size: ${props => props.gray ? "3rem" : "7rem"};
     margin: 0;
     padding-left: ${props => props.gray ? "11rem" : "0"};
@@ -102,7 +103,7 @@ const Title = styled.span`
     ${lg({paddingLeft: props => props.gray ? "1.5rem" : "0", letterSpacing: "1.3rem", fontSize: props => props.gray ? "2.5rem" : "8rem", paddingRight: "0", textAlign: "left"})};
 `
 
-const SubTitle = styled.span`
+const SubTitle = styled(motion.span)`
     font-size: ${props => props.gray ? "2rem" : "7rem"};
     margin: 0;
     padding-left: ${props => props.gray ? "9rem" : "0"};
@@ -130,14 +131,35 @@ const Home = () => {
             </TitleHide>
             <Left>
                 <TitleCon>
-                    <Title>Brian</Title>
-                    <SubTitle indent="11rem">Richard</SubTitle>
-                    <SubTitle indent="26rem">Garton</SubTitle>
-                    <Title gray>Frontend Developer</Title>
+                    <Title
+                    variants={fadeIn("right", "tween", 0.2, 1.5)}
+                    initial="hidden"
+                    whileInView="show"
+                    >Brian</Title>
+                    <SubTitle
+                    indent="11rem"
+                    variants={fadeIn("right", "tween", 0.4, 1.5)}
+                    initial="hidden"
+                    whileInView="show"
+                    >Richard</SubTitle>
+                    <SubTitle 
+                    indent="26rem"
+                    variants={fadeIn("right", "tween", 0.6, 1.5)}
+                    initial="hidden"
+                    whileInView="show"
+                    >Garton</SubTitle>
+                    <Title 
+                    gray
+                    variants={slideIn("left", "spring", 0.8, 1.5)}
+                    initial="hidden"
+                    whileInView="show"
+                    >Frontend Developer</Title>
                 </TitleCon>
             </Left>
-            <Right>
-                <Canva style={{}}>
+            <Right
+            variants={zoomIn(0.2, 1)}
+            >
+                <Canva>
                     <ambientLight intensity={0.5} />
                     <pointLight position={[10, 10, 10]} />
                     {/* <OrbitControls /> */}

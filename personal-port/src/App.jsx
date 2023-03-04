@@ -37,12 +37,12 @@ function App() {
     <Container>
         <Nav />
         <Home />
-        <SectionTitle>Projects</SectionTitle>
+         <SectionTitle>Projects</SectionTitle>
         <Projects />
-        <SectionTitle>About</SectionTitle>
-        <About />
+        {/* <SectionTitle>About</SectionTitle>
+        <About /> */} */
         {/* <Contact /> */}
-        <Footer />
+        {/* <Footer /> */}
     </Container>
   )
 }

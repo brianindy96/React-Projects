@@ -76,7 +76,7 @@ const NavLink = styled.a`
 
     transition: 0.2s ease;
 
-    ${xs({margin: "0 0.4rem", fontSize: "1rem"})};
+    ${xs({margin: "0 0.2rem", fontSize: "0.9rem"})};
     ${lg({margin: "0 0.4rem", fontSize: "1.3rem"})};
 
     
@@ -92,6 +92,7 @@ const navVariants = {
       type: 'spring',
       stiffness: 300,
       damping: 140,
+      duration: 1,
     },
   },
   show: {
