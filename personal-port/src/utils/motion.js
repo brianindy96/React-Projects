@@ -63,6 +63,19 @@ export const textVariant = (delay) => ({
   },
 });
 
+export const marqueeVariant = {
+  hidden: {
+      opacity: 0,
+  },
+  show: {
+      opacity: 1,
+      transition: {
+          duration: 1,
+          delay: 0.8,
+      }
+  }
+}
+
 export const textContainer = {
   hidden: {
     opacity: 0,

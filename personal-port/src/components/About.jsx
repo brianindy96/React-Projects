@@ -2,7 +2,8 @@ import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import { xs, sm, md, lg, xl } from "../responsive"
 import { motion } from 'framer-motion'
-import { textVariant } from "../utils/motion"
+import { textVariant, marqueeVariant } from "../utils/motion"
+
 
 const Container = styled.div`
     ${xs({padding: "1rem 1.5rem 3rem 1.5rem"})};
@@ -19,13 +20,13 @@ const Wrapper = styled.div`
     align-items: center;
 `
 
-const AboutTitle = styled.h1`
+const AboutTitle = styled(motion.h1)`
     font-size: 4rem;
     
     ${xs({fontSize: "3rem", textAlign: "center"})};
 `
 
-const Desc = styled.p`
+const Desc = styled(motion.p)`
     font-size: 1.3rem;
     text-align: center;
     color: #9e9e9e;
@@ -37,7 +38,7 @@ const Desc = styled.p`
 `
 
 
-const Marquee = styled.div`
+const Marquee = styled(motion.div)`
     
     display: flex;
     width: 1280px;
@@ -64,7 +65,7 @@ const scrollX = keyframes`
     }
 `
 
-const MarqueeGroup = styled.div`
+const MarqueeGroup = styled(motion.div)`
     margin-top: 2rem;
     flex-shrink: 0;
     display: flex;
@@ -103,7 +104,7 @@ const ListGroups = styled.div`
     flex-wrap: wrap;
 `
 
-const List = styled.ul`
+const List = styled(motion.ul)`
     display: flex;
     width: 33%;
     flex-direction: column;
@@ -152,29 +153,59 @@ const About = () => {
   return (
     <Container id="about">
         <Wrapper>
-                <AboutTitle>About Me</AboutTitle>
-                <Desc>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quasi quam commodi quos nisi iure neque totam beatae quaerat sunt. Neque, blanditiis obcaecati? Praesentium tempora animi nisi cumque numquam cum omnis obcaecati? At expedita rerum unde ducimus praesentium ullam aliquid.</Desc>
+                <AboutTitle
+                variants={textVariant(0.2)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{once: false, amount: 0.25}}
+                >About Me</AboutTitle>
+                <Desc
+                variants={textVariant(0.3)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{once: false, amount: 0.25}}
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quasi quam commodi quos nisi iure neque totam beatae quaerat sunt. Neque, blanditiis obcaecati? Praesentium tempora animi nisi cumque numquam cum omnis obcaecati? At expedita rerum unde ducimus praesentium ullam aliquid.</Desc>
                 <ListGroups>
-                    <List>
+                    <List
+                    variants={textVariant(0.4)}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{once: false, amount: 0.25}}
+                    >
                         <ListItem>HTML</ListItem>
                         <ListItem>CSS</ListItem>
                         <ListItem>React</ListItem>
                         <ListItem>Redux</ListItem>
                     </List>
-                    <List>
+                    <List
+                    variants={textVariant(0.6)}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{once: false, amount: 0.25}}
+                    >
                         <ListItem>Webpack</ListItem>
                         <ListItem>Three.js</ListItem>
                         <ListItem>MySQL</ListItem>
                         <ListItem>Node.js</ListItem>
                     </List>
-                    <List>
+                    <List
+                    variants={textVariant(0.8)}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{once: false, amount: 0.25}}
+                    >
                         <ListItem>Tailwind.css</ListItem>
                         <ListItem>Python</ListItem>
                         <ListItem>Firebase</ListItem>
                         <ListItem>Visual Studio Code</ListItem>
                     </List> 
                 </ListGroups>
-                <Marquee>
+                <Marquee
+                variants={marqueeVariant}
+                initial="hidden"
+                whileInView="show"
+                viewport={{once: false, amount: 0.25}}
+                >
                         <MarqueeGroup>
                             {logos.map((logo, index) => (
                                 <ImageGroup key={index}>

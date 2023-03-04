@@ -67,15 +67,15 @@ function App() {
           >Projects</SectionTitle>
         </SectionDivider>
         <Projects />
-        {/* <SectionDivider>
+        <SectionDivider>
           <SectionTitle
             variants={sectionVariants}
             whileInView="show"
             initial="hidden"
             >About
             </SectionTitle>
-        </SectionDivider> */}
-        {/* <About />  */}
+        </SectionDivider>
+        <About /> 
         {/* <Contact /> */}
         {/* <Footer /> */}
     </Container>
