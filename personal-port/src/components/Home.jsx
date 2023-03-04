@@ -5,6 +5,7 @@ import { Carrot } from './CarrotCake'
 import { xs, sm, md, lg, xl} from "../responsive"
 import { motion } from "framer-motion"
 import { fadeIn, slideIn, zoomIn } from '../utils/motion'
+import { useRef } from 'react'
 
 const Container = styled.div`
     width: 100%;
@@ -19,7 +20,7 @@ const Wrapper = styled.div`
     width: 100vw;
 
     ${xs({marginTop: "4rem"})};
-    ${sm({marginTop: "6rem"})};
+    ${sm({marginTop: "8rem"})};
     ${md({flexDirection: "column", minHeight: "100vh"})};
 
     ${lg({flexDirection: "column"})};
@@ -98,7 +99,9 @@ const Title = styled(motion.span)`
     font-family: "Gloock", sans-serif;
     letter-spacing: 1.3rem;
 
-    ${xs({letterSpacing: "0", fontSize: props => props.gray ? "2rem" : "4rem", textAlign: "center", paddingLeft: "0", lineHeight: "6rem"})};
+    ${xs({
+     letterSpacing: "0",
+     fontSize: props => props.gray ? "2rem" : "4rem", textAlign: "center", paddingLeft: "0", lineHeight: "6rem"})};
     ${sm({letterSpacing: "0", textAlign: "center", paddingLeft: "0", fontSize: props => props.gray ? "2rem" : "6rem"})};
     ${lg({paddingLeft: props => props.gray ? "1.5rem" : "0", letterSpacing: "1.3rem", fontSize: props => props.gray ? "2.5rem" : "8rem", paddingRight: "0", textAlign: "left"})};
 `
@@ -120,8 +123,9 @@ const SubTitle = styled(motion.span)`
 
 
 const Home = () => {
+    const homeRef = useRef(null);
   return (
-    <Container>
+    <Container id="home" ref={homeRef}>
         <Wrapper>
             <TitleHide>
                 <Title

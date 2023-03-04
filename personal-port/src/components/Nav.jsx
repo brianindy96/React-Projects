@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import styled from "styled-components"
 import { xs, sm, md, lg, xl} from "../responsive"
 import { motion } from "framer-motion"
+import { navVariants } from '../utils/motion'
 
 const Container = styled(motion.div)`
-    min-height: 3vh;
+    height: 10vh;
     padding: 0;
     position: fixed;
     width: 100%;
@@ -30,11 +31,8 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    ${(props) =>
-    props.hasBorder &&
-    `
-      border-bottom: 0.05px solid #797979;
-    `}
+    border-bottom: ${(props) => props.hasBorder ? '0.05px solid #393838' : 'none'};
+    transition: border-bottom 3s cubic-bezier(0.4, 0, 0.2, 1);
 
 
     ${xs({padding: "1rem 1.2rem"})};
@@ -84,55 +82,33 @@ const NavLink = styled.a`
 
 // Framer Motion
 
-const navVariants = {
-  hidden: {
-    opacity: 0,
-    y: -50,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-      damping: 140,
-    },
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: 'spring',
-      stiffness: 60,
-    },
-  },
-};
+
 
 
 const Nav = () => {
 
-    const [hasBorder, setHasBorder] = useState(false);
-
+  const [hasBorder, setHasBorder] = useState(false);
 
   useEffect(() => {
-    const nav = document.querySelector("#nav");
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const homeHeight = document.getElementById('home').clientHeight;
 
-    let lastScrollY = window.scrollY;
-    window.addEventListener("scroll", () => {
-        if (lastScrollY < window.scrollY) {
-            // console.log("going down");
-            setHasBorder(false);
-            nav.classList.add("hidden");
-          } else {
-            // console.log("going up");
-            if (window.scrollY === 0) {
-              setHasBorder(false);
-            } else {
-              setHasBorder(true);
-              nav.classList.remove("hidden");
-            }
-          }
+      if (scrollTop >= homeHeight) {
+        setHasBorder(true);
+      } else {
+        setHasBorder(false);
+      }
+    };
 
-      lastScrollY= window.scrollY;
-      
-    });
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  
   return (
     <Container 
     id="nav"
@@ -140,7 +116,7 @@ const Nav = () => {
     whileInView="show"
     initial="hidden"
     >
-        <Wrapper hasBorder>
+        <Wrapper hasBorder={hasBorder}>
             <Left>
                 <Logo>BRIAN.</Logo>
             </Left>

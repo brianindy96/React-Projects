@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import Project from './Project'
 
 const Container = styled.div`
-    min-height: 100vh;    
+    min-height: 100vh; 
+    padding-top: 2rem;   
 `
 
 const Wrapper = styled.div`

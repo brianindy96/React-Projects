@@ -5,7 +5,7 @@ export const navVariants = {
     transition: {
       type: 'spring',
       stiffness: 300,
-      damping: 140,
+      damping: 280,
     },
   },
   show: {
@@ -100,6 +100,7 @@ export const textVariant2 = {
     },
   },
 };
+
 
 export const fadeIn = (direction, type, delay, duration) => ({
   hidden: {
