@@ -124,10 +124,27 @@ const Home = () => {
     <Container>
         <Wrapper>
             <TitleHide>
-                <Title>Brian</Title>
-                <Title>Richard</Title>
-                <Title>Garton</Title>
-                <Title gray>Frontend Developer</Title>
+                <Title
+                variants={fadeIn("up", "tween", 0.2, 1.5)}
+                initial="hidden"
+                whileInView="show"
+                >Brian</Title>
+                <Title
+                variants={fadeIn("up", "tween", 0.4, 1.5)}
+                initial="hidden"
+                whileInView="show"
+                >Richard</Title>
+                <Title
+                variants={fadeIn("up", "tween", 0.6, 1.5)}
+                initial="hidden"
+                whileInView="show"
+                >Garton</Title>
+                <Title 
+                gray
+                variants={fadeIn("right", "tween", 0.8, 1.5)}
+                initial="hidden"
+                whileInView="show"
+                >Frontend Developer</Title>
             </TitleHide>
             <Left>
                 <TitleCon>

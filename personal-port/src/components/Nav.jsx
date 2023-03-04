@@ -90,9 +90,8 @@ const navVariants = {
     y: -50,
     transition: {
       type: 'spring',
-      stiffness: 300,
+      stiffness: 100,
       damping: 140,
-      duration: 1,
     },
   },
   show: {
@@ -100,7 +99,7 @@ const navVariants = {
     y: 0,
     transition: {
       type: 'spring',
-      stiffness: 80,
+      stiffness: 60,
     },
   },
 };
@@ -117,11 +116,11 @@ const Nav = () => {
     let lastScrollY = window.scrollY;
     window.addEventListener("scroll", () => {
         if (lastScrollY < window.scrollY) {
-            console.log("going down");
+            // console.log("going down");
             setHasBorder(false);
             nav.classList.add("hidden");
           } else {
-            console.log("going up");
+            // console.log("going up");
             if (window.scrollY === 0) {
               setHasBorder(false);
             } else {
