@@ -11,6 +11,9 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     position: relative;
+
+    ${md({minHeight: "80vh"})};
+
     
 `
 
@@ -21,10 +24,10 @@ const Wrapper = styled.div`
 
     ${xs({marginTop: "4rem"})};
     ${sm({marginTop: "8rem"})};
-    ${md({flexDirection: "column", minHeight: "100vh"})};
+    ${md({flexDirection: "column"})};
 
     ${lg({flexDirection: "column"})};
-    ${xl({flexDirection: "row"})};
+    ${xl({flexDirection: "row" , height: "90vh"})};
 
 `
 
@@ -64,7 +67,7 @@ const Right = styled(motion.div)`
     ${xs({display: "none"})};
     ${sm({display: "none"})};
     ${md({display: "inline-block", width: "100%", margin: "0 2rem"})};
-    ${lg({display: "inline-block", width: "100%", padding: ""})};
+    ${lg({display: "inline-block", width: "100%"})};
     ${xl({display: "inline-block", width: "100%", paddingLeft: "0", marginRight: "5rem"})};
 
 `

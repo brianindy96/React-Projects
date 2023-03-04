@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Project from './Project'
-
+import { xs, sm, md, lg, xl } from '../responsive'
 const Container = styled.div`
     min-height: 100vh; 
-    padding-top: 2rem;   
+
+    ${md({padding: "2rem"})};
 `
 
 const Wrapper = styled.div`
