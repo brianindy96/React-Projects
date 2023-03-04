@@ -167,13 +167,13 @@ const Project = ({ project: { img, title, subtitle, summary, reverse, technologi
         variants={textVariant(0.1)}
         whileInView="show"
         initial="hidden"
-        viewport={{once: true, amount: 0.25}}
+        viewport={{once: false, amount: 0.25}}
         >{title}</ProjectTitle>
         <ProjectSubtitle
         variants={textVariant(0.2)}
         whileInView="show"
         initial="hidden"
-        viewport={{once: true, amount: 0.25}}
+        viewport={{once: false, amount: 0.25}}
         >{subtitle}</ProjectSubtitle>
         <LeftRightCon reverse={reverse}>
         <Left 
@@ -181,7 +181,7 @@ const Project = ({ project: { img, title, subtitle, summary, reverse, technologi
         variants={fadeIn("left", "tween", 0.4, 1)}
         whileInView="show"
         initial="hidden"
-        viewport={{once: true, amount: 0.25}}
+        viewport={{once: false, amount: 0.25}}
         >
             <SummaryTitle>Summary</SummaryTitle>
             <SummaryText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eum, iure voluptates quisquam error cupiditate eligendi velit odio voluptatibus veritatis reiciendis eaque ducimus sequi unde, quasi beatae explicabo itaque numquam nihil inventore facere esse, nisi sint reprehenderit! Saepe, dolorem fugit.</SummaryText>
@@ -198,7 +198,7 @@ const Project = ({ project: { img, title, subtitle, summary, reverse, technologi
                 variants={fadeIn("right", "tween", 0.2, 1)}
                 whileInView="show"
                 initial="hidden"
-                viewport={{once: true, amount: 0.25}}
+                viewport={{once: false, amount: 0.25}}
                 src={img} alt="project thumbnail" />
             </ImgContainer>
         </Right>

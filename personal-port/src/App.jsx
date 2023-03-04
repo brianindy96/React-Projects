@@ -63,6 +63,7 @@ function App() {
           variants={sectionVariants}
           whileInView="show"
           initial="hidden"
+          viewport={{once: false, amount: 0.25}}
           >Projects</SectionTitle>
         </SectionDivider>
         <Projects />
