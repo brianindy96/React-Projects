@@ -69,15 +69,15 @@ const Right = styled(motion.div)`
 `
 
 const Canva = styled(Canvas)`
-    height: 63vh; 
+    height: 83vh; 
     width: 100%;
     z-index: 1;
     position: absolute;
     left: 500px;
     top: 0;
 
-    ${md({position: "absolute", left: "0", top: "0", height: "10vh", width: "100%"})};
-    ${lg({position: "absolute", left: "0", top: "0", width: "80%"})};
+    ${md({position: "absolute", left: "0", top: "0", height: "63vh", width: "100%"})};
+    ${lg({position: "absolute", left: "0", top: "0", width: "80%", height: "83vh"})};
 
 `
 
@@ -174,7 +174,10 @@ const Home = () => {
                 </TitleCon>
             </Left>
             <Right
-            variants={zoomIn(0.2, 1)}
+            variants={fadeIn("left", "spring", 0.8, 1.5)}
+            whileInView="show"
+            initial="hidden"
+            viewport={{once: false, amount: 0.25}}
             >
                 <Canva>
                     <ambientLight intensity={0.5} />
