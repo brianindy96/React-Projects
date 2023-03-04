@@ -45,11 +45,15 @@ const Left = styled.div`
 
 `
 
-const Logo = styled.h1`
+const Logo = styled.a`
     margin: 0px;
     background: transparent;
     transition: 0.2s ease;
-    ${xs({fontSize: "1.4rem"})};
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    ${xs({fontSize: "1.6rem"})};
+    ${md({fontSize: "1.8rem"})};
 
 `
 
@@ -115,7 +119,7 @@ const Nav = () => {
     >
         <Wrapper hasBorder={hasBorder}>
             <Left>
-                <Logo>BG.</Logo>
+                <Logo href="#">BG.</Logo>
             </Left>
             <Right>
                 <NavLink href="#project">Projects</NavLink>
