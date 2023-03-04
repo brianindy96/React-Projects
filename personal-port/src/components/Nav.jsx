@@ -72,7 +72,7 @@ const NavLink = styled.a`
     transition: 0.2s ease;
 
     ${xs({margin: "0 0.2rem", fontSize: "0.9rem"})};
-    ${lg({margin: "0 0.4rem", fontSize: "1.3rem"})};
+    ${lg({margin: "0 0.5rem", fontSize: "1.3rem"})};
 
     
 `
