@@ -135,7 +135,11 @@ const getBgColor = (props) => {
     return "App rain";
   } else if(props === "Sunny"){
     return "App sun"
-  } else{
+  } else if(props === "Haze"){
+    return "App haze"
+  } else if(props === "Snow"){
+    return "App snow"
+  }else{
     return "App"
   }
 }
