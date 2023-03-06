@@ -121,15 +121,14 @@ const Footer = () => {
             <Center>
             <Title>Quick Links:</Title>
             <List>
-                <ListItem>Home</ListItem>
                 <ListItem>Cart</ListItem>
-                <ListItem>Man Fashion</ListItem>
-                <ListItem>Woman Fashion</ListItem>
-                <ListItem>Accessories</ListItem>
+                <ListItem>For Him</ListItem>
+                <ListItem>For Her</ListItem>
+                <ListItem>Niche Perfume</ListItem>
                 <ListItem>My Account</ListItem>
                 <ListItem>Order Tracking</ListItem>
                 <ListItem>Wishlist</ListItem>
-                <ListItem>Terms</ListItem>
+                <ListItem>Membership</ListItem>
             </List>
             </Center>
             <Right>
