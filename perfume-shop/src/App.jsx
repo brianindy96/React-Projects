@@ -7,6 +7,7 @@ import Cart from './pages/Cart'
 import Checkout from './pages/CheckOut'
 import { useState, useEffect } from "react";
 import commerce from './lib/commerce'
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
 
@@ -26,6 +27,10 @@ function App() {
   // EmptyCart
 
   const handleEmptyCart = async () => {
+    toast.info('Emptying cart', {
+      autoClose: 2800,
+    });
+
     const empty = await commerce.cart.empty();
 
     setCart(empty);
@@ -35,7 +40,14 @@ function App() {
   // Add to Cart
 
   const handleAddToCart = async (productId, quantity) => {
+    toast.info('Adding item to cart');
+
     const item = await commerce.cart.add(productId, quantity);
+
+    toast.success(`${item.product_name} has been added to cart`, {
+      autoClose: 1000,
+      hideProgressBar: true,
+    });
 
     setCart(item.cart)
   }
@@ -43,7 +55,13 @@ function App() {
   // Update Cart Quantity
 
   const handleUpdateCartQty = async (lineItemId, quantity) => {
+    toast.info('Updating Cart', {
+      autoClose: 2700,
+      hideProgressBar: false,
+    });
+
     const item = await commerce.cart.update(lineItemId, { quantity });
+
 
     setCart(item.cart)
   }
@@ -51,6 +69,11 @@ function App() {
   // Remove from Cart
 
   const handleRemoveFromCart = async (lineItemId) => {
+    toast.info('Removing item from cart', {
+      autoClose: 2500,
+      hideProgressBar: false,
+    });
+
     const item = await commerce.cart.remove(lineItemId);
 
     setCart(item.cart)
@@ -59,6 +82,11 @@ function App() {
   // Delete Product from cart
 
   const handleDeleteFromCart = async () => {
+    toast.info(`Deleting all items from cart`, {
+      autoClose: 2700,
+      hideProgressBar: false,
+    });
+
     const item = await commerce.cart.delete();
 
     setCart(item.cart);
@@ -128,6 +156,17 @@ function App() {
         error={errorMsg}
         />} />
       </Routes>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3800}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="light"
+      />
+      
     </div>
   )
 }

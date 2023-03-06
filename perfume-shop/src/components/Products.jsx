@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import SingleProduct from '../pages/SingleProduct';
 import { Link } from 'react-router-dom';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Container = styled.div`
     margin: 0 20px;
     min-height: 100vh;
