@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Button, CircularProgress } from "@mui/material"
 import { Link } from "react-router-dom"
 import { deleteBook, getAllBooks } from '../services/book.service'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = ({ getBookId }) => {
 
@@ -26,6 +28,16 @@ const Home = ({ getBookId }) => {
 
     const handleDelete = (id) => {
         deleteBook(id);
+        toast.info('Deleting Book..', {
+            position: "top-right",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: 0,
+            theme: "light",
+            });
         fetchBooks(); // fetch the updated list of books after deleting a book
     }
 
@@ -90,6 +102,19 @@ const Home = ({ getBookId }) => {
                 
             </div>
         </div>
+
+        <ToastContainer
+            position="top-right"
+            autoClose={1500}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+        />
     </div>
   )
 }
