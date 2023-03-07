@@ -1,5 +1,6 @@
 <h1>Library CRUD App</h1>
 
+![image](https://user-images.githubusercontent.com/80921901/223334197-c28db2cb-dc4f-44d9-8671-812f9000e107.png)
 
 Welcome to Library CRUD App! This project is a full-stack library application built with React, Tailwind, and Firebase.
 
@@ -17,6 +18,8 @@ Library CRUD App includes the following features:
 - Integration with React Router for client-side routing
 - Use of react-hook-form for form handling
 - Use of Material UI and react-toastify for styling
+
+![image](https://user-images.githubusercontent.com/80921901/223334433-21b5a951-e29c-4f15-a6a9-510d0eeac5c4.png)
 
 <h2>Technologies</h2>
 Library CRUD App is built using the following technologies:
