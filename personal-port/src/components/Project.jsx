@@ -160,7 +160,7 @@ const Img = styled(motion.img)`
     ${lg({width: "130%", height: "350px", marginBottom: "0", })};
 
 `
-const Project = ({ project: { img, title, subtitle, summary, reverse, technologies, github, live }}) => {
+const Project = ({ project: { summary2, img, title, subtitle, summary, reverse, technologies, github, live }}) => {
   return (
     <Container>
         <ProjectTitle
@@ -184,7 +184,8 @@ const Project = ({ project: { img, title, subtitle, summary, reverse, technologi
         viewport={{once: false, amount: 0.25}}
         >
             <SummaryTitle>Summary</SummaryTitle>
-            <SummaryText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit eum, iure voluptates quisquam error cupiditate eligendi velit odio voluptatibus veritatis reiciendis eaque ducimus sequi unde, quasi beatae explicabo itaque numquam nihil inventore facere esse, nisi sint reprehenderit! Saepe, dolorem fugit.</SummaryText>
+            <SummaryText>{summary}</SummaryText>
+            <SummaryText>{summary2}</SummaryText>
             <TechnologyTitle>Technologies:</TechnologyTitle>
             <TechName>{technologies}</TechName>
             <LinkCon>
