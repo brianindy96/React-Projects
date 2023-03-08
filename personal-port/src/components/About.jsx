@@ -164,7 +164,7 @@ const About = () => {
                 initial="hidden"
                 whileInView="show"
                 viewport={{once: false, amount: 0.25}}
-                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quasi quam commodi quos nisi iure neque totam beatae quaerat sunt. Neque, blanditiis obcaecati? Praesentium tempora animi nisi cumque numquam cum omnis obcaecati? At expedita rerum unde ducimus praesentium ullam aliquid.</Desc>
+                >Hello! My name is Brian Richard Garton and I'm a frontend developer specializing in Javascript and React. As a developer, I strive to create websites that not only look great but also provide a seamless user experience. I enjoy taking on new challenges and using my problem-solving skills to find innovative solutions to complex web development issues. <br /><br/>I'm constantly exploring new technologies and techniques to improve my skills as a frontend developer. I have experience in a range of web development projects, from responsive landing pages to complex web applications.</Desc>
                 <ListGroups>
                     <List
                     variants={textVariant(0.4)}
