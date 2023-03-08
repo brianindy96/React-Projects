@@ -24,7 +24,7 @@ const Projects = () => {
             img: "/img/perfume.png",
             reverse: null,
             github: "https://github.com/brianindy96/React-Projects/tree/maine/perfume-shop",
-            live: "",
+            live: "https://la-fragilite.netlify.app/",
         },
         {
             id: 2,
@@ -35,7 +35,7 @@ const Projects = () => {
             img: "/img/weather.png",
             reverse: true,
             github: "https://github.com/brianindy96/React-Projects/tree/maine/weather-app",
-            live: "",
+            live: "https://weathering-the-storm.netlify.app/",
         },
         {
             id: 3,
@@ -46,7 +46,7 @@ const Projects = () => {
             img: "/img/library4.png",
             reverse: null,
             github: "https://github.com/brianindy96/React-Projects/tree/maine/crud-library",
-            live: "",
+            live: "https://library-crud-portfolio.web.app/",
         },
     ]
   return (
