@@ -43,7 +43,7 @@ const Projects = () => {
             id: 3,
             title: "Die Bibliothek",
             subtitle: "CRUD Library App",
-            summary: "Library CRUD App is an application that allows users to create, read, update, and delete library books. The application uses Firebase's Realtime Database to store and retrieve data.",
+            summary: "Die Bibliothek- a library CRUD App is an application that allows users to create, read, update, and delete library books. The application uses Firebase's Realtime Database to store and retrieve data.",
             summary2: "The user interface is built with Tailwind CSS to create a responsive and accessible experience. React Router is integrated to enable smooth navigation and user interactions.",
             technologies: 'React, Tailwind CSS, Firebase, React-Router, MUI',
             img: "/img/library4.png",
