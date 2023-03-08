@@ -109,6 +109,21 @@ const Nav = () => {
     };
   }, []);
 
+  const nav = document.querySelector("#nav");
+
+    let lastScrollY = window.scrollY;
+    window.addEventListener("scroll", () => {
+      if(lastScrollY < window.scrollY) {
+        console.log("going down")
+        nav.classList.add("hidden")
+      } else{
+        console.log("going up")
+        nav.classList.remove("hidden");
+      }
+
+      lastScrollY= window.scrollY;
+    });
+
   
   return (
     <Container 
