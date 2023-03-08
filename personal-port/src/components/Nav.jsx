@@ -125,7 +125,7 @@ const Nav = () => {
                 <NavLink href="#project">Projects</NavLink>
                 <NavLink href="#about">About</NavLink>
                 <NavLink href="#footer">Contact</NavLink>
-                <NavLink href="#resume">Resume </NavLink>
+                <NavLink href="/resume/brianGartonResume.pdf" target="_blank">Resume </NavLink>
             </Right>
         </Wrapper>
     </Container>
